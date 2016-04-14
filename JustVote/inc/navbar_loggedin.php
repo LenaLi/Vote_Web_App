@@ -60,7 +60,7 @@
                 <a href="voting.php"> <span class="fa fa-plus"></span> Voting </a>
             </li>
             <li>
-                <a href="benutzer_uebersicht.php"> <span class="fa fa-plus"></span> Benutzer</a>
+                <a href="benutzer_read.php"> <span class="fa fa-plus"></span> Benutzer</a>
             </li>
 
         </ul>
