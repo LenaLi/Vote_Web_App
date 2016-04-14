@@ -17,7 +17,7 @@
             $_SESSION = array();
             session_destroy();
             // Einbinden von Login Dialog
-            include("inc/login.php");
+            include("inc/login_form.php");
             // Prüfung ob Benutzername und Passwort schon einmal falsch eingegeben wurden
             if($_GET["error"]==1){
     ?>
