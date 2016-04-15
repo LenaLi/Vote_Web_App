@@ -1,7 +1,4 @@
-<?php include("inc/header.php");
-include("Mapper/benutzer_manager.php");
-include("Mapper/User.php");
-?>
+<?php include("inc/header.php"); ?>
 
 
 
@@ -30,13 +27,13 @@ if (!empty($login) && !empty($password)) {
 }
 
 
+?>
 
 
 
 
+<!--
 
-
-<?php
 
 
     // Datenbankabfrage und Passwortprüfung
@@ -62,5 +59,4 @@ if (!empty($login) && !empty($password)) {
         // Weiterleitung zur Statseite mit Login Dialog
         header('Location: index.php?error=1');
      }
-?>
 

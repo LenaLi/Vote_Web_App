@@ -4,11 +4,10 @@
     <!DOCTYPE html>
     <html>
 
-    <?php include("inc/head.php"); ?>
 
     <body>
 
-    <?php include("inc/navbar_loggedout.php"); ?>
+
 
     <div class="login">
         <h2>Login</h2>

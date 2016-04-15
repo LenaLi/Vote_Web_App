@@ -1,8 +1,6 @@
 <?php
 
-//Klasse Benutzer
-
-class benutzer
+class User
 {
     public $login;
     public $vorname;
