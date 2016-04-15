@@ -10,7 +10,8 @@
             </div>
 
 
-    <?php
+
+        <?php
         session_start();
         if ($_SESSION ["login"]<>"1") {
             // user not logged in
@@ -22,7 +23,7 @@
             if($_GET["error"]==1){
     ?>
             <div class=h5 style="color: #F07F31; font-weight: bold">Benutzername oder Passwort falsch!</div>
-    <?php
+                <?php
             }
         } else {
             // user logged in

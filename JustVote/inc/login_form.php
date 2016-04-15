@@ -1,12 +1,20 @@
 <!-- LOGIN DIALOG -->
-<div class="login">
 
 
+    <!DOCTYPE html>
+    <html>
+
+
+    <body>
+
+
+
+    <div class="login">
     <form class="form-horizontal" role="form" action="login_do.php" method="post">
 
         <div class="form-group">
             <div class="col-sm-12">
-                <input type="text" class="form-control" name="user" id="user" placeholder="Benutzername">
+                <input type="text" class="form-control" name="benutzer" id="benutzer" placeholder="Benutzername">
             </div>
         </div>
 
