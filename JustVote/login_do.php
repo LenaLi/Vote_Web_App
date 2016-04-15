@@ -1,6 +1,6 @@
 <?php include("inc/header.php");
 include("Mapper/benutzer_manager.php");
-include("Mapper/user.php");
+include("Mapper/User.php");
 ?>
 
 
