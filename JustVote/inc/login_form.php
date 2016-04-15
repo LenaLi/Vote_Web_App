@@ -6,7 +6,7 @@
 
         <div class="form-group">
             <div class="col-sm-12">
-                <input type="text" class="form-control" name="user" id="user" placeholder="Benutzername">
+                <input type="text" class="form-control" name="login" id="login" placeholder="Benutzername">
             </div>
         </div>
 

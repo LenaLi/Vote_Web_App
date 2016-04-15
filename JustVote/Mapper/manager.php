@@ -4,7 +4,7 @@ require_once("Userdata.php");
 
 // Verbindung zur Datenbank wird hergestellt
 
-class Manager
+class manager
 {
     protected $pdo;
 
