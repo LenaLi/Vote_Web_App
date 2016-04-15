@@ -3,44 +3,12 @@
 
 
 <?php
-require_once("Mapper/UserManager.php");
-require_once("Mapper/User.php");
-
-$login = htmlspecialchars($_POST["login"], ENT_QUOTES, "UTF-8");
-$password = htmlspecialchars($_POST["password"], ENT_QUOTES, "UTF-8");
-
-if (!empty($login) && !empty($password)) {
-    $userManager = new UserManager();
-    $user = $userManager->findByLogin($login, $password);
-    if ($user==null) {
-        header('Location: login.php');
-        die();
-    } else {
-        session_start();
-        $_SESSION ['user'] = $user;
-        $_SESSION ['login'] = "1";
-        header('Location: index.php');
-        die();
-    }
-} else {
-    echo "Error: Bitte alle Felder ausfüllen!<br/>";
-}
-
-
-?>
-
-
-
-
-<!--
-
-
 
     // Datenbankabfrage und Passwortprüfung
 
     // TODO: Durch Werte aus Datenbank ersetzen
-    $datenbankpassword = $hash;
-    $datenbankuser = $login;
+    $datenbankpassword = admin ;
+    $datenbankuser = 123;
 
     // POST Parameter auslesen, die Nutzer eingegeben hat
     $benutzer=$_POST["benutzer"];
@@ -60,3 +28,4 @@ if (!empty($login) && !empty($password)) {
         header('Location: index.php?error=1');
      }
 
+?>
