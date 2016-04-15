@@ -1,5 +1,4 @@
 <?php
-require_once("Userdata.php");
 require_once("manager.php");
 require_once("benutzer.php");
 
