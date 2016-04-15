@@ -14,7 +14,7 @@
 
         <div class="form-group">
             <div class="col-sm-12">
-                <input type="text" class="form-control" name="login" id="login" placeholder="Benutzername">
+                <input type="text" class="form-control" name="benutzer" id="benutzer" placeholder="Benutzername">
             </div>
         </div>
 

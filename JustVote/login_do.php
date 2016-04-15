@@ -7,14 +7,14 @@
     // Datenbankabfrage und Passwortprüfung
 
     // TODO: Durch Werte aus Datenbank ersetzen
-    $datenbankpassword = admin ;
-    $datenbankuser = 123;
+    $datenbankpassword = "admin";
+    $datenbankuser = "123";
 
     // POST Parameter auslesen, die Nutzer eingegeben hat
     $benutzer=$_POST["benutzer"];
     $password=$_POST["password"];
 
-    if ($datenbankpassword==$password && $datenbankuser==$user) {
+    if ($datenbankpassword==$password && $datenbankuser==$benutzer) {
         //Passwort und Benutzername korrekt
         session_start();
         // Speichere Logged in Information in Session
