@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lenalidl
- * Date: 14.04.16
- * Time: 10:42
- */
 
 class UserData
 {
