@@ -2,7 +2,7 @@
 
 require_once("Userdata.php");
 
-// Verbindung zur Datenbank wird hergestellt
+// Verbindung zur Datenbank wird hergestellt.
 
 class Manager
 {
