@@ -11,8 +11,7 @@
 
 <div id="wrapper">
 
-
-
+    
     <!-- Page Content -->
     <div id="page-content-wrapper">
         <div class="container-fluid">
@@ -60,7 +59,6 @@
             </div>
         </div>
     </div>
-    <!-- /#page-content-wrapper -->
 
 </div>
 
