@@ -12,7 +12,7 @@ require_once("Mapper/benutzer_manager.php");
 //Datenbankverbindung aufbauen
 
 //neuen Benutzer aus den POST Parametern in Datenbank speichern
-// --> DAFÜR SIND IM ORDNER MAPPER IN DER DATEI benutzer_manager.php dann METHODEN ANGELEGT!!!!!!!!!!
+// --> DAFÜR SIND IM ORDNER MAPPER IN DER DATEI benutzer_manager.php dann METHODEN ANGELEGT!!!!!!!!!!---
 
 
 //Weiterleitung auf benutzer_read oder Fehlermeldung (keine Dopplungen, keine Berechtigungen)
