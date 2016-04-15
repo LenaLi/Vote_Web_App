@@ -1,10 +1,44 @@
 <?php include("inc/header.php");
-<?php include("Mapper/benutzer_manager.php");
-<?php include("Mapper/benutzer.php");
+include("Mapper/benutzer_manager.php");
+include("Mapper/user.php");
 ?>
 
 
+
 <?php
+require_once("Mapper/UserManager.php");
+require_once("Mapper/User.php");
+
+$login = htmlspecialchars($_POST["login"], ENT_QUOTES, "UTF-8");
+$password = htmlspecialchars($_POST["password"], ENT_QUOTES, "UTF-8");
+
+if (!empty($login) && !empty($password)) {
+    $userManager = new UserManager();
+    $user = $userManager->findByLogin($login, $password);
+    if ($user==null) {
+        header('Location: login.php');
+        die();
+    } else {
+        session_start();
+        $_SESSION ['user'] = $user;
+        $_SESSION ['login'] = "1";
+        header('Location: index.php');
+        die();
+    }
+} else {
+    echo "Error: Bitte alle Felder ausfüllen!<br/>";
+}
+
+
+
+
+
+
+
+
+<?php
+
+
     // Datenbankabfrage und Passwortprüfung
 
     // TODO: Durch Werte aus Datenbank ersetzen

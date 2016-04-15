@@ -5,7 +5,8 @@
       <paths name="MarsNew">
         <serverdata>
           <mappings>
-            <mapping deploy="http://mars.iuk.hdm-stuttgart.de/~ll033/public_html" local="$PROJECT_DIR$" web="public_html" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+            <mapping />
           </mappings>
         </serverdata>
       </paths>
