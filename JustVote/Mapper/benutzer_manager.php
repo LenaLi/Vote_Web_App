@@ -1,5 +1,5 @@
 <?php
-
+require_once("Userdata.php");
 require_once("manager.php");
 require_once("benutzer.php");
 
@@ -20,11 +20,11 @@ class benutzer_manager extends manager
     public function findByLogin($login, $password)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT * FROM benutzer WHERE login = :login');
+            $stmt = $this->pdo->prepare('SELECT * FROM USER WHERE login = :login');
             $stmt->bindParam(':login', $login);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'benutzer');
-            $user = $stmt->fetch();
+            $benutzer = $stmt->fetch();
 
             if (password_verify($password, $benutzer->hash)) {
                 return $benutzer;

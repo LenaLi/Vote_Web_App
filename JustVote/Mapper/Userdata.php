@@ -1,6 +1,6 @@
 <?php
 
-class UserData
+class Userdata
 {
     public static $dsn = "mysql:dbhost=mars.iuk.hdm-stuttgart.de;dbname=u-rs095";
     public static $dbuser = "rs095";
