@@ -6,3 +6,4 @@ class Userdata
     public static $dbuser = "rs095";
     public static $dbpass = "mae5zie6Ai";
 }
+

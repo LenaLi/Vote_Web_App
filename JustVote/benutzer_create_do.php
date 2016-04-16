@@ -1,20 +1,22 @@
 <?php include("inc/session_check.php");
 
-require_once("Mapper/user.php");
+require_once("Mapper/benutzer.php");
 require_once("Mapper/benutzer_manager.php");
 
 ?>
 
 <?php
 
-//POST Parameter (name, email,)
-$name=$_POST["name"];
+//POST Parameter (vorname, nachname, email,)
+$vorname=$_POST["vorname"];
+$nachname=$_POST["nachname"];
 $email=$_POST["email"];
 $role=$_POST["role"];
 //Datenbankverbindung aufbauen
 
 $manager=new benutzer_manager();
-$manager->create($name,$email,$role);
+
+$manager->create($vorname,$nachname,$email,$role);
 
 
 

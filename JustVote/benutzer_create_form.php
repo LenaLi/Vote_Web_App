@@ -24,7 +24,13 @@
 
     <div class="form-group">
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+            <input type="text" class="form-control" name="vorname" id="vorname" placeholder="Vorname">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="nachname" id="nachname" placeholder="Nachname">
         </div>
     </div>
 
@@ -44,7 +50,7 @@
 
     <div class="form-group">
         <div class=" col-sm-6">
-            <button type="submit" class="btn btn-warning">Neu Hinzufügen</button>
+            <button type="submit" class="btn btn-warning"> Benutzer neu hinzufügen</button>
         </div>
     </div>
 

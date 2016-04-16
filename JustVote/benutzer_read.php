@@ -1,11 +1,23 @@
 <?php include("inc/session_check.php"); ?>
 
+
+
 <!DOCTYPE html>
 <html>
 
 <?php include("inc/header.php"); ?>
 
-<?php 
+<?php
+require_once("Mapper/benutzer.php");
+require_once("Mapper/benutzer_manager.php");
+
+$manager=new benutzer_manager();
+$allebenutzer = $manager->findAll();
+
+foreach ($allebenutzer as $benutzer )
+{
+
+}
 
 
 ?>
@@ -28,11 +40,21 @@
 
                     <table  class="table table-hover">
                         <thead>
-                        <th>Name</th>
+                        <th>Vorname</th>
+                        <th>Nachname</th>
                         <th>E-Mail</th>
                         <th>Rolle</th>
                         </thead>
                         <tbody>
+
+                        foreach ($allebenutzer as $benutzer )
+                        {
+
+                        }
+
+
+
+                        </tbody>
                     </table>
 <!-- Datenbank einträge auslesen und als html darstellen-->
                     <div class="form-group">

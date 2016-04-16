@@ -18,6 +18,7 @@ class manager
                     UserData::$dbuser,
                     UserData::$dbpass
                 );
+                
             }
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
