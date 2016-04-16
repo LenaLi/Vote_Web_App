@@ -7,7 +7,7 @@ class benutzer
     public $nachname;
     public $email;
     public $role;
-    public $hash;
+    public $password;
     public $salt;
 
     function __construct($data=null) {
@@ -17,7 +17,7 @@ class benutzer
             $this->nachname = $data['nachname'];
             $this->email = $data['email'];
             $this->role = $data['role'];
-            $this->hash = $data['hash'];
+            $this->password = $data['password'];
             $this->salt = $data['salt'];
         }
     }

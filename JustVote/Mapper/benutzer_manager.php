@@ -30,44 +30,42 @@ class benutzer_manager extends manager
         }
         return null;
     }
-    /*public function findBy($id){
-        try {
-            $stmt = $this->pdo->prepare('SELECT * FROM USER WHERE id = :id');
-            $stmt->bindParam(':id', $id);
-            $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_COLUMN, 'nachname');
-           // $benutzer = $stmt->fetch();
-            $erg = $stmt->fetch();
-            echo "erg: ".$erg;
 
-        } catch (PDOException $e) {
-            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            die();
-        }
-        return null;
-    }*/
-    public function findByLogin($login, $password)
+    public function findByEmail($email)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT * FROM USER WHERE login = :login');
-            $stmt->bindParam(':login', $login);
+            $stmt = $this->pdo->prepare('SELECT * FROM benutzer WHERE  email= :email');
+            $stmt->bindParam(':email', $email);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'benutzer');
             $benutzer = $stmt->fetch();
 
-            if (password_verify($password, $benutzer->hash)) {
-                return $benutzer;
-            } else {
-                return null;
-            }
+            return $benutzer;
+
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             die();
         }
-        return null;
+
+    }
+    public function findById($id)
+    {
+        try {
+            $stmt = $this->pdo->prepare('SELECT * FROM benutzer WHERE id = :id');
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'benutzer');
+            $benutzer = $stmt->fetch();
+            return $benutzer;
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            die();
+        }
+
     }
 
-    public function create($vorname,$nachname, $email,$role)
+
+    public function create($vorname,$nachname,$email,$role)
     {
         $salt=""; // benötigt für Hashfunktion
         $password="Standardpassword/Hash"; // TODO: hier muss Funktion der Passworterzeugung und Hash
@@ -94,21 +92,22 @@ class benutzer_manager extends manager
         return true;
     }
 
-    private function update(benutzer $benutzer)
+    public function update(benutzer $benutzer)
     {
         try {
             $stmt = $this->pdo->prepare('
               UPDATE benutzer
               SET vorname = :vorname,
                   nachname = :nachname,
-                  hash = :hash
-              WHERE login = :login
+                  email = :email,
+                  role = :role
+              WHERE id = :id
             ');
-            $stmt->bindParam(':name', $name);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':role', $role);
-            $stmt->bindParam(':hash', $hash);
-            $stmt->bindParam(':salt', $salt);
+            $stmt->bindParam(':id', $benutzer->id);
+            $stmt->bindParam(':vorname', $benutzer->vorname);
+            $stmt->bindParam(':nachname', $benutzer->nachname);
+            $stmt->bindParam(':email', $benutzer->email);
+            $stmt->bindParam(':role', $benutzer->role);
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
@@ -121,9 +120,9 @@ class benutzer_manager extends manager
     {
         try {
             $stmt = $this->pdo->prepare('
-              DELETE FROM benutzer WHERE login= :login
+              DELETE FROM benutzer WHERE id= :id
             ');
-            $stmt->bindParam(':login', $benutzer->login);
+            $stmt->bindParam(':id', $benutzer->id);
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");

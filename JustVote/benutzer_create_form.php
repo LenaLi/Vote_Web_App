@@ -1,4 +1,5 @@
 <?php include("inc/session_check.php"); ?>
+<?php include("inc/session_check_admin.php"); ?>
 
 <!DOCTYPE html>
 <html>

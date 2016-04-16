@@ -20,8 +20,9 @@ if ($_SESSION ["login"]<>"1") {
     include("inc/login_form.php");
     // Prüfung ob Benutzername und Passwort schon einmal falsch eingegeben wurden
     if($_GET["error"]==1){
+        //TODO:Email in der Datenbank unique machen!!! @Renate
         ?>
-        <div class=h5 style="color: #F07F31; font-weight: bold">Benutzername oder Passwort falsch!</div>
+        <div class=h5 style="color: #F07F31; font-weight: bold">E-Mail oder Passwort falsch!</div> 
         <?php
     }
 } else {

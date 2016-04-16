@@ -1,19 +1,23 @@
-<?php include("inc/header.php"); ?>
-
 <?php
+include("inc/header.php");
+require_once("Mapper/benutzer.php");
+require_once("Mapper/benutzer_manager.php");
+
 // Datenbankabfrage und Passwortprüfung
-// TODO: Durch Werte aus Datenbank ersetzen
-$datenbankpassword = "123";
-$datenbankuser = "admin";
+
 // POST Parameter auslesen, die Nutzer eingegeben hat
-$user=$_POST["user"];
+$email=$_POST["email"];
 $password=$_POST["password"];
-if ($datenbankpassword==$password && $datenbankuser==$user) {
+$manager=new benutzer_manager();
+$benutzer=$manager->findByEmail($email);
+
+if ($benutzer->password==$password && $benutzer->email==$email) {
     //Passwort und Benutzername korrekt
     session_start();
     // Speichere Logged in Information in Session
     $_SESSION["login"] = "1";
-    $_SESSION ['user'] = $user;
+    $_SESSION ['name'] = $benutzer->vorname." ".$benutzer->nachname; //damit bei Herzlich Willkommen - Max Müller steht!
+    $_SESSION ['role'] =$benutzer->role;
     // Weiterleitung zur Übersichtsseite
     header ('Location: uebersicht.php');
 } else {

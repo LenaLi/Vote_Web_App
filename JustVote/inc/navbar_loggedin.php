@@ -24,7 +24,7 @@
                     <a href="#">
                         <span class="glyphicon glyphicon-user"></span>
                         <!-- TODO: Was soll der Code machen? <?php echo $user->login; ?> -->
-                        Herzlich Willkommen, <?php echo $_SESSION["user"]; ?>
+                        Herzlich Willkommen, <?php echo $_SESSION["name"]; ?>
                     </a>
                 </li>
                 <li class="dropdown">
@@ -59,10 +59,16 @@
             <li>
                 <a href="voting.php"> <span class="fa fa-plus"></span> Voting </a>
             </li>
-            <li>
-                <a href="benutzer_read.php"> <span class="fa fa-plus"></span> Benutzer</a>
-            </li>
+            <?php
+            if ($_SESSION["role"]=="admin") {
 
+                ?>
+                <li>
+                    <a href="benutzer_read.php"> <span class="fa fa-plus"></span> Benutzer</a>
+                </li>
+                <?php
+            }
+            ?>
         </ul>
 
     </div>

@@ -1,5 +1,5 @@
 <?php include("inc/session_check.php"); ?>
-
+<?php include("inc/session_check_admin.php"); ?>
 
 
 <!DOCTYPE html>
@@ -40,6 +40,8 @@ foreach ($allebenutzer as $benutzer )
                         <th>Nachname</th>
                         <th>E-Mail</th>
                         <th>Rolle</th>
+                        <th> </th>
+                        <th> </th>
                         </thead>
                         <tbody>
 
@@ -50,10 +52,15 @@ foreach ($allebenutzer as $benutzer )
                             echo "<td>" . $benutzer->nachname . "</td>";
                             echo "<td>" . $benutzer->email . "</td>";
                             echo "<td>" . $benutzer->role . "</td>";
+                            echo "<td>
+                                <a class='fa fa-eye' href ='benutzer_update_form.php?id=".$benutzer->id."'></a>
+                                
+                                </td>";
+                            echo "<td>
+                                <a class='fa fa-trash'href ='benutzer_delete_do.php?id=".$benutzer->id."'></a>
+                            </td>";
                             echo "</tr>";
                         }
-                        //<i class="fa fa-eye" aria-hidden="true"></i> --> für Bearbeiten
-                        //<i class="fa fa-trash" aria-hidden="true"></i> --> für Löschen
                         ?>
 
                         </tbody>
