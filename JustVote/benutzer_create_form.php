@@ -10,9 +10,7 @@
 <?php include("inc/navbar_loggedin.php"); ?>
 
 <div id="wrapper">
-
-
-
+    
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -50,7 +48,7 @@
 
     <div class="form-group">
         <div class=" col-sm-6">
-            <button type="submit" class="btn btn-warning"> Benutzer neu hinzufügen</button>
+            <button type="submit" class="btn btn-warning"> Benutzer hinzufügen</button>
         </div>
     </div>
 

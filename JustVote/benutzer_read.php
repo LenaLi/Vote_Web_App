@@ -19,17 +19,13 @@ foreach ($allebenutzer as $benutzer )
 
 }
 
-
 ?>
-
 
 <body>
 
 <?php include("inc/navbar_loggedin.php"); ?>
 
 <div id="wrapper">
-
-
 
     <div id="page-content-wrapper">
         <div class="container-fluid">
@@ -56,16 +52,17 @@ foreach ($allebenutzer as $benutzer )
                             echo "<td>" . $benutzer->role . "</td>";
                             echo "</tr>";
                         }
+                        //<i class="fa fa-eye" aria-hidden="true"></i> --> für Bearbeiten
+                        //<i class="fa fa-trash" aria-hidden="true"></i> --> für Löschen
                         ?>
-
 
                         </tbody>
                     </table>
-<!-- Datenbank einträge auslesen und als html darstellen-->
+
                     <div class="form-group">
                         <div class=" col-sm-6">
                             <a href="benutzer_create_form.php">
-                                <button type="submit" class="btn btn-warning">Benutzer neu hinzufügen</button>
+                                <button type="submit" class="btn btn-warning"> Benutzer hinzufügen</button>
                             </a>
                         </div>
                     </div>
