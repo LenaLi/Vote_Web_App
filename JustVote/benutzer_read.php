@@ -47,11 +47,16 @@ foreach ($allebenutzer as $benutzer )
                         </thead>
                         <tbody>
 
-                        foreach ($allebenutzer as $benutzer )
-                        {
-
+                        <?php
+                        foreach ($allebenutzer as $benutzer ) {
+                            echo "<tr>";
+                            echo "<td>" . $benutzer->vorname . "</td>";
+                            echo "<td>" . $benutzer->nachname . "</td>";
+                            echo "<td>" . $benutzer->email . "</td>";
+                            echo "<td>" . $benutzer->role . "</td>";
+                            echo "</tr>";
                         }
-
+                        ?>
 
 
                         </tbody>
