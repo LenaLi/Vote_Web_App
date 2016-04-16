@@ -5,6 +5,12 @@
 
 <?php include("inc/header.php"); ?>
 
+<?php 
+
+
+?>
+
+
 <body>
 
 <?php include("inc/navbar_loggedin.php"); ?>
@@ -22,7 +28,6 @@
 
                     <table  class="table table-hover">
                         <thead>
-                        <th>Benutzername</th>
                         <th>Name</th>
                         <th>E-Mail</th>
                         <th>Rolle</th>

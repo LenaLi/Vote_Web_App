@@ -37,25 +37,29 @@ class benutzer_manager extends manager
         return null;
     }
 
-    public function create(benutzer $benutzer)
+    public function create($name,$email,$role)
     {
+        $salt=""; // benötigt für Hashfunktion
+        $password="Standardpassword/Hash"; // TODO: hier muss Funktion der Passworterzeugung und Hash
+
+
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO benutzer
-                (login, vorname, nachname, hash)
+                (name, email, role, password, salt)
               VALUES
-                (:login, :vorname , :nachname, :hash)
+                (:name, :email , :role, :password, :salt)
             ');
-            $stmt->bindParam(':login', $benutzer->login);
-            $stmt->bindParam(':vorname', $benutzer->vorname);
-            $stmt->bindParam(':nachname', $benutzer->nachname);
-            $stmt->bindParam(':hash', $benutzer->hash);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':role', $role);
+            $stmt->bindParam(':password', $password);
+            $stmt->bindParam(":salt", $salt);
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            return null;
+           // return null;
         }
-        return $benutzer;
     }
 
     private function update(benutzer $benutzer)

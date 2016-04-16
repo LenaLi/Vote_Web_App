@@ -24,13 +24,21 @@
 
     <div class="form-group">
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="name" id="vorlesung" placeholder="Name">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="id" id="" placeholder="E-Mail">
+            <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-6">
+            <select name="role">
+                <option value="Benutzer" selected>Benutzer</option>
+                <option value="Admin">Admin</option>
+            </select>
         </div>
     </div>
 
