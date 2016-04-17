@@ -1,7 +1,13 @@
+<?php include("inc/session_check.php"); ?>
+
 <?php
-/**
- * Created by PhpStorm.
- * User: lenalidl
- * Date: 16.04.16
- * Time: 10:11
- */
+require_once("Mapper/vorlesung.php");
+require_once("Mapper/vorlesung_manager.php");
+
+$vorlesungsid = (int)htmlspecialchars($_GET["vorlesungsid"], ENT_QUOTES, "UTF-8");
+
+$vorlesung_manager = new vorlesung_manager();
+$vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsid);
+$vorlesung_manager->delete($vorlesung);
+
+header('Location: uebersicht.php');

@@ -14,11 +14,6 @@ require_once("Mapper/benutzer_manager.php");
 $manager=new benutzer_manager();
 $allebenutzer = $manager->findAll();
 
-foreach ($allebenutzer as $benutzer )
-{
-
-}
-
 ?>
 
 <body>

@@ -1,5 +1,4 @@
 
-
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -32,7 +31,6 @@
                     <a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                 </li>
                 </li>
-
             </ul>
 
 
@@ -54,7 +52,7 @@
                 <a href="uebersicht.php">Übersicht</a>
             </li>
             <li>
-                <a href="vorlesung.php"> <span class="fa fa-plus"></span> Vorlesung </a>
+                <a href="vorlesung_create_form.php"><span class="fa fa-plus"></span> Vorlesung </a>
             </li>
             <li>
                 <a href="voting.php"> <span class="fa fa-plus"></span> Voting </a>
@@ -64,7 +62,7 @@
 
                 ?>
                 <li>
-                    <a href="benutzer_read.php"> <span class="fa fa-plus"></span> Benutzer</a>
+                    <a href="benutzer_read.php">Benutzer verwalten</a>
                 </li>
                 <?php
             }
