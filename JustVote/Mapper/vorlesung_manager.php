@@ -34,7 +34,7 @@ class vorlesung_manager extends manager
     public function findByVorlesungsId($vorlesungsid)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT * FROM benutzer WHERE  vorlesungsid= :vorlesungsid');
+            $stmt = $this->pdo->prepare('SELECT * FROM vorlesung WHERE  vorlesungsid= :vorlesungsid');
             $stmt->bindParam(':vorlesungsid', $vorlesungsid);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'vorlesung');
@@ -48,15 +48,15 @@ class vorlesung_manager extends manager
         }
 
     }
-    public function findById($id) //????????
+    public function findByBenutzerID($benutzerid)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT * FROM vorlesung WHERE vorlesungsid = :vorlesungsid');
-            $stmt->bindParam(':vorlesungsid', $vorlesungsid);
+            $stmt = $this->pdo->prepare('SELECT * FROM vorlesung WHERE benutzerid = :benutzerid');
+            $stmt->bindParam(':benutzerid', $benutzerid);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'vorlesung');
-            $benutzer = $stmt->fetch();
-            return $vorlesung;
+            $vorlesungen = $stmt->fetchAll();
+            return $vorlesungen;
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             die();
@@ -87,37 +87,34 @@ class vorlesung_manager extends manager
         return true;
     }
 
-    public function update(vorlesung $vorlesung)
+    public function update($vorlesungsid, $vorlesungsname)
     {
         try {
             $stmt = $this->pdo->prepare('
               UPDATE vorlesung
-              SET benutzerid = :benutzerid,
-                  vorlesungsname = :vorlesungsname,
+              SET vorlesungsname = :vorlesungsname
               WHERE vorlesungsid = :vorlesungsid
             ');
-            $stmt->bindParam(':vorlesungsid', $vorlesung->vorlesungsid);
-            $stmt->bindParam(':benutzerid', $vorlesung->benutzerid);
-            $stmt->bindParam(':vorlesungsname', $vorlesung->vorlesungsname);
+            $stmt->bindParam(':vorlesungsid', $vorlesungsid);
+            $stmt->bindParam(':vorlesungsname', $vorlesungsname);
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             die();
         }
-        return $vorlesung;
     }
 
-    public function delete(vorlesung $vorlesung)
+    public function delete($vorlesungsid)
     {
         try {
             $stmt = $this->pdo->prepare('
               DELETE FROM vorlesung WHERE vorlesungsid= :vorlesungsid
             ');
-            $stmt->bindParam(':vorlesungsid', $vorlesung->vorlesungsid);
+            $stmt->bindParam(':vorlesungsid', $vorlesungsid);
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            return $vorlesung;
+            return null;
         }
         return null;
     }

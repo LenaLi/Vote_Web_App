@@ -23,7 +23,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="vorlesungsid" id="vorlesungsid" placeholder="ID der Vorlesung">
+                                <input type="number" class="form-control" name="vorlesungsid" id="vorlesungsid" placeholder="ID der Vorlesung">
                             </div>
                         </div>
 

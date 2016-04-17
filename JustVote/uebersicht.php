@@ -22,38 +22,32 @@
 
                     <?php
                         // DB Abfrage zu Vorlesungen von Benutzer
-                    
+                        require_once("Mapper/vorlesung.php");
+                        require_once("Mapper/vorlesung_manager.php");
                         //DB Abfrage zu Votings
+                    
+                        $vorlesungsmanager =new vorlesung_manager();
+                        $vorlesungen = $vorlesungsmanager->findByBenutzerId($_SESSION['benutzerid']);
 
                         foreach($vorlesungen as $vorlesung){
-                            echo "<table>";
-                                echo "<tr><th>";
-                                    // Überschriften der Tabellen
-                                echo "</th></tr>";
-                                foreach($votings as $voting){
+                            echo "<table border='1'>";
+                            // Überschriften der Tabellen
+                                echo "<thead><tr>";
+                                echo "<th colspan='6'>" . $vorlesung->vorlesungsid .", ". $vorlesung->vorlesungsname;
+                                echo " <a class='fa fa-edit' href ='vorlesung_update_form.php?id=".$vorlesung->vorlesungsid."'></a>";
+                                echo " <a class='fa fa-trash'href ='vorlesung_delete_do.php?id=".$vorlesung->vorlesungsid."'></a>";
+                                echo  "<th>";
+                                echo "</tr> </thead>";
+
+
+                                /*foreach($votings as $voting){
                                     echo "<tr>";
-                                        // Zeilen (Votings)
+
                                     echo "</tr>";
-                                }
+                                }*/
                             echo "</table>";
                         }
                     ?>
-
-                    <table  class="table table-hover">
-                        <thead>
-                        <th>Vorlesung</th>
-                        <th>ID der Vorlesung</th>
-
-                        <th>Voting</th>
-                        <th>Datum</th>
-                        <th>Aktionen</th>
-                        <th></th>
-                        </thead>
-                        <tbody>
-                        
-
-                        </tbody>
-                    </table>
 
 
 

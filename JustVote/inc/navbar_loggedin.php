@@ -55,7 +55,7 @@
                 <a href="vorlesung_create_form.php"><span class="fa fa-plus"></span> Vorlesung </a>
             </li>
             <li>
-                <a href="voting.php"> <span class="fa fa-plus"></span> Voting </a>
+                <a href="voting_create_form.php"> <span class="fa fa-plus"></span> Voting </a>
             </li>
             <?php
             if ($_SESSION["role"]=="admin") {
