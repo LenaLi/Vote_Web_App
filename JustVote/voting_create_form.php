@@ -44,7 +44,7 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid);
 
                         <div class="form-group">
                             <div class="col-sm-6">
-                        <select class="c-select">
+                        <select class="c-select" name="vorlesungsid">
                             <?php
                             foreach($vorlesungen as $vorlesung){
                                 echo "<option value='".$vorlesung->vorlesungsid."''>";

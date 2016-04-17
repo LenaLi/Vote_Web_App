@@ -33,39 +33,23 @@ class voting_manager extends manager
         return null;
     }
 
-    public function findByVorlesungsId($votingid)
+    public function findByVorlesungsId($vorlesungsid)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE  votingid= :votingid');
-            $stmt->bindParam(':votingid', $votingid);
-            $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting');
-            $voting = $stmt->fetch();
-
-            return $voting;
-
-        } catch (PDOException $e) {
-            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            die();
-        }
-
-    }
-    public function findByBenutzerID($votingid)
-    {
-        try {
-            $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE votingid = :votingid');
-            $stmt->bindParam(':votingid', $votingid);
+            $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE  vorlesungsid= :vorlesungsid');
+            $stmt->bindParam(':vorlesungsid', $vorlesungsid);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting');
             $votings = $stmt->fetchAll();
+
             return $votings;
+
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             die();
         }
 
     }
-
 
     public function create ($votingid, $vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $startdatum, $enddatum)
     {
