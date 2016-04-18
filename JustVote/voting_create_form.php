@@ -15,7 +15,7 @@ require_once ("Mapper/vorlesung_manager.php");
 
 $vorlesungsmanager = new vorlesung_manager();
 $benutzerid=$_SESSION["benutzerid"];
-$vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid); ///????????????ÃŸ
+$vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid); ///???????????
 
 
 ?>
@@ -49,7 +49,7 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid); ///????????????Ã
                             foreach($vorlesungen as $vorlesung){
                                 echo "<option value='".$vorlesung->vorlesungsid."''>";
                                 echo $vorlesung->vorlesungsname;
-                                echo "</option>";
+                                echo "</option>"; 
                             }
 
                             ?>
