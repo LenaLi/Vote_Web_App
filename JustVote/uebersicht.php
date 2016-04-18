@@ -12,7 +12,6 @@
 <div id="wrapper">
 
 
-    <!-- Page Content test -->
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -51,8 +50,8 @@
 
                                 // Status des Votings
                                     echo "<td>";
-                                    if (strtotime($voting->startdatum)<time()){
-                                            if (strtotime($voting->enddatum)<time()){
+                                    if (strtotime($voting->startdatum)<=time()){
+                                            if (strtotime($voting->enddatum)<=time()){
                                                 echo "beendet";
                                             } else {
                                                 echo "aktiv";
@@ -63,12 +62,16 @@
                                     }
                                     echo "</td>";
                                 //Zeitraum des Votings
-                                    echo "<td>" . $voting->startdatum ." - ".$voting->enddatum ."</td>";
+                                    $startdatum = $voting->startdatum;
+                                    $startdatum = date("d.m.y H:i",strtotime($startdatum))." Uhr";
+                                    $enddatum = $voting->enddatum;
+                                    $enddatum = date("d.m.y H:i",strtotime($enddatum))." Uhr";
+                                    echo "<td>" . $startdatum ." - ".$enddatum ."</td>";
 
                                 //Start + Stoppbutton
                                     echo "<td>";
-                                    if (strtotime($voting->startdatum)<time()){
-                                        if (strtotime($voting->enddatum)<time()){
+                                    if (strtotime($voting->startdatum)<=time()){
+                                        if (strtotime($voting->enddatum)<=time()){
                                             echo "<i class='fa fa-times'></i>";
                                         } else {
                                             echo "<a class='fa fa-pause' href='voting_stop.php?id=".$voting->votingid."'></a>";

@@ -96,12 +96,12 @@ class voting_manager extends manager
         return true;
     }
 
-    public function update($votingid, $vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2 ,$antwort_3,$antwort_4, $startdatum, $enddatum, $startzeit, $endzeit)
+    public function update($votingid, $vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2 ,$antwort_3,$antwort_4, $startdatum, $enddatum)
     {
         try {
             $stmt = $this->pdo->prepare('
               UPDATE voting
-              SET vorlesungsname = :vorlesungsname
+              SET vorlesungsid = :vorlesungsid, votingname = :votingname, frage = :frage,  antwort_1 = :antwort_1,antwort_2 = :antwort_2,antwort_3 = :antwort_3, antwort_4 = :antwort_4,startdatum = :startdatum, enddatum = :enddatum 
               WHERE votingid = :votingid
             ');
             $stmt->bindParam(':vorlesungsid', $vorlesungsid);
@@ -114,8 +114,6 @@ class voting_manager extends manager
             $stmt->bindParam(':antwort_4', $antwort_4);
             $stmt->bindParam(':startdatum', $startdatum);
             $stmt->bindParam(':enddatum', $enddatum);
-            $stmt->bindParam(':startzeit', $startzeit);
-            $stmt->bindParam(':endzeit', $endzeit);
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");

@@ -33,7 +33,7 @@ echo $votingid;
                     <form action='voting_update_do.php' method='post'>
                         <input type='hidden' name='votingid' value='<?php echo $voting->votingid ?>' /
                         <br>
-                        <input type='hidden' name='vorlesungsid' value='<?php echo $vorlesung->vorlesungsid ?>' /
+                        <input type='hidden' name='vorlesungsid' value='<?php echo $voting->vorlesungsid ?>' /
                         <br>
                         Votingname:<br>
                         <input type='text' name='votingname' value='<?php echo $voting->votingname ?>' /><br>
@@ -47,9 +47,9 @@ echo $votingid;
                         <input type='text' name='antwort_3' value='<?php echo $voting->antwort_3 ?>' /><br>
                         Antwortmöglichkeit 4:<br>
                         <input type='text' name='antwort_4' value='<?php echo $voting->antwort_4 ?>' /><br>
-                        Startzeit:<br>
+                        Startdatum:<br>
                         <input type='text' name='startdatum' value='<?php echo $voting->startdatum ?>' /><br>
-                        Endzeit:<br>
+                        Enddatum:<br>
                         <input type='text' name='enddatum' value='<?php echo $voting->enddatum ?>' /><br>
                         
                         <input type='submit' value='update!' />
