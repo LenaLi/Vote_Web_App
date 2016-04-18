@@ -15,7 +15,7 @@ require_once ("Mapper/vorlesung_manager.php");
 
 $vorlesungsmanager = new vorlesung_manager();
 $benutzerid=$_SESSION["benutzerid"];
-$vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid);
+$vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid); ///????????????ß
 
 
 ?>

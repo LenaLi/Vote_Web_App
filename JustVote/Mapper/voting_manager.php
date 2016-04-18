@@ -98,6 +98,8 @@ class voting_manager extends manager
             $stmt->bindParam(':antwort_4', $antwort_4);
             $stmt->bindParam(':startdatum', $startdatum);
             $stmt->bindParam(':enddatum', $enddatum);
+            $stmt->bindParam(':startzeit', $startzeit);
+            $stmt->bindParam(':endzeit', $endzeit);
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");

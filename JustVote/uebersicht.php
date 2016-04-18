@@ -21,7 +21,7 @@
                     <p></p>
 
                     <?php
-                        // DB Abfrage zu Vorlesungen von Benutzer
+                        // DB Abfrage zu Vorlesungen von Benutzer.....
                         require_once("Mapper/vorlesung.php");
                         require_once("Mapper/vorlesung_manager.php");
                         //DB Abfrage zu Votings
