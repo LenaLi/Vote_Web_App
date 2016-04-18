@@ -87,18 +87,22 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid);
                             <label for="antwort_4"</label>
                             <textarea class="form-control" name="antwort_4" rows="2" placeholder="Antwortmöglichkeit 4"></textarea>
                         </div>
+
+
                         <div class="form-group">
-                            <div class="col-sm-6"
-                            <label for="startdatum">Startzeit</label>
-                            <input type="date" name="startdatum">
-                            <input type="time" name="startzeit">
+                            <div class="col-sm-3"
+                            <label for="startdatum"></label>
+                            <input class="form-control" type="date" name="startdatum" placeholder="Startdatum">
+                            <input class="form-control" type="time" name="startzeit" placeholder="Startzeit">
                         </div>
+
                         <div class="form-group">
-                            <div class="col-sm-6"
-                            <label for="enddatum">Endzeit</label>
-                            <input type="date" name="enddatum">
-                            <input type="time" name="endzeit">
+                            <div class="col-sm-3"
+                            <label for="enddatum"></label>
+                            <input class="form-control" type="date" name="enddatum" placeholder="Enddatum">
+                            <input class="form-control" type="time" name="endzeit" placeholder="Endzeit">
                         </div>
+
                             </div>
                             <div class="form-group">
                             <div class=" col-sm-6">
