@@ -1,5 +1,4 @@
 
-//
 <?php
 require_once("manager.php");
 require_once("voting.php");
@@ -51,18 +50,35 @@ class voting_manager extends manager
 
     }
 
-    public function create ($votingid, $vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $startdatum, $enddatum)
+    public function findByVotingId($votingid)
+    {
+        try {
+            $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE  votingid= :votingid');
+            $stmt->bindParam(':votingid', $votingid);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting');
+            $voting = $stmt->fetch();
+
+            return $voting;
+
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            die();
+        }
+
+    }
+
+    public function create ($vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $startdatum, $enddatum)
     {
 
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO voting
-                (vorlesungsid, votingid, votingname, frage, antwort_1, antwort_2, antwort_3, antwort_4, startdatum, enddatum)
+                (vorlesungsid, votingname, frage, antwort_1, antwort_2, antwort_3, antwort_4, startdatum, enddatum)
               VALUES
-                (:vorlesungsid, :votingid, :votingname,:frage, :antwort_1, :antwort_2, :antwort_3, :antwort_4, :startdatum, :enddatum)
+                (:vorlesungsid, :votingname,:frage, :antwort_1, :antwort_2, :antwort_3, :antwort_4, :startdatum, :enddatum)
             ');
             $stmt->bindParam(':vorlesungsid', $vorlesungsid);
-            $stmt->bindParam(':votingid', $votingid);
             $stmt->bindParam(':votingname', $votingname);
             $stmt->bindParam(':frage', $frage);
             $stmt->bindParam(':antwort_1', $antwort_1);
@@ -80,7 +96,7 @@ class voting_manager extends manager
         return true;
     }
 
-    /*public function update($votingid,)
+    public function update($votingid, $vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2 ,$antwort_3,$antwort_4, $startdatum, $enddatum, $startzeit, $endzeit)
     {
         try {
             $stmt = $this->pdo->prepare('
@@ -106,7 +122,7 @@ class voting_manager extends manager
             die();
         }
     }
-*/
+
 
     public function delete($votingid)
     {

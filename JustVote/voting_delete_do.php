@@ -7,7 +7,6 @@ require_once("Mapper/voting_manager.php");
 $votingid = (int)htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 
 $voting_manager = new voting_manager();
-$voting = $voting_manager->findByVotingId($votingid);
-$voting_manager->delete($voting);
+$voting_manager->delete($votingid);
 
 header('Location: uebersicht.php');

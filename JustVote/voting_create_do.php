@@ -8,7 +8,7 @@ require_once("Mapper/voting_manager.php");
 <?php
 include("inc/session_check.php");
 //POST Parameter
-$votingid=$_POST["votingid"];
+
 $vorlesungsid=$_POST["vorlesungsid"];
 $votingname=$_POST["votingname"];
 $frage=$_POST["frage"];
@@ -23,7 +23,7 @@ $enddatum=$_POST["enddatum"]." ". $_POST["endzeit"];
 
 $manager=new voting_manager();
 
-$manager->create($votingid,$vorlesungsid,$votingname,$frage,$antwort_1,$antwort_2,$antwort_3,$antwort_4,$startdatum,$enddatum);
+$manager->create($vorlesungsid,$votingname,$frage,$antwort_1,$antwort_2,$antwort_3,$antwort_4,$startdatum,$enddatum);
 
 //Weiterleitung auf uebersicht.php oder Fehlermeldung (keine Dopplungen, keine Berechtigungen)
 header('Location: uebersicht.php');

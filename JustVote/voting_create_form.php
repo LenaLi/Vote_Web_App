@@ -15,7 +15,7 @@ require_once ("Mapper/vorlesung_manager.php");
 
 $vorlesungsmanager = new vorlesung_manager();
 $benutzerid=$_SESSION["benutzerid"];
-$vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid); ///???????????
+$vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid); 
 
 
 ?>
@@ -29,12 +29,7 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid); ///???????????
                     <h2>Neues Voting</h2>
 
                     <form class="form-horizontal" role="form" action="voting_create_do.php" method="post">
-
-                        <div class="form-group">
-                            <div class="col-sm-6">
-                                <input type="hidden" class="form-control" name="votingid" id="votingid">
-                            </div>
-                        </div>
+                        
 
                         <div class="form-group">
                             <div class="col-sm-6">

@@ -48,7 +48,7 @@ $allebenutzer = $manager->findAll();
                             echo "<td>" . $benutzer->email . "</td>";
                             echo "<td>" . $benutzer->role . "</td>";
                             echo "<td>
-                                <a class='fa fa-eye' href ='benutzer_update_form.php?id=".$benutzer->id."'></a>
+                                <a class='fa fa-edit' href ='benutzer_update_form.php?id=".$benutzer->id."'></a>
                                 
                                 </td>";
                             echo "<td>
