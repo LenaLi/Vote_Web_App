@@ -33,7 +33,7 @@
 
 
                         foreach($vorlesungen as $vorlesung){
-                            echo "<table border='1'>";
+                            echo "<table class='table table-hover'>";
                             // Überschriften der Tabellen
                                 echo "<thead><tr>";
                                 echo "<th colspan='7'>" . $vorlesung->vorlesungsid .", ". $vorlesung->vorlesungsname;
@@ -95,7 +95,7 @@
                     ?>
 
 
-
+                    </div>
                 </div>
             </div>
         </div>
