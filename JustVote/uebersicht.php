@@ -31,7 +31,7 @@
 
                         $votingmanager =new voting_manager();
 
-
+                        if($vorlesungen!=null)
                         foreach($vorlesungen as $vorlesung){
                             echo "<table class='table table-hover'>";
                             // Überschriften der Tabellen
