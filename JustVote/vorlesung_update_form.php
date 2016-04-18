@@ -1,10 +1,10 @@
 <?php include("inc/session_check.php"); ?>
-<?php include("inc/session_check_admin.php"); ?>
+
 
 <!DOCTYPE html>
 <html>
 
-<?php include("inc/header.php");
+<?php include("inc/header.php"); 
 require_once("Mapper/vorlesung_manager.php");
 require_once("Mapper/vorlesung.php");
 ?>

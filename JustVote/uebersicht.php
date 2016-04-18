@@ -31,7 +31,7 @@
 
                         $votingmanager =new voting_manager();
 
-
+                        if($vorlesungen!=null)
                         foreach($vorlesungen as $vorlesung){
                             echo "<table border='1'>";
                             // Überschriften der Tabellen
