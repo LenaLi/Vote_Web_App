@@ -23,11 +23,9 @@
                     // DB Abfrage zum Voting
                     require_once("Mapper/voting_manager.php");
 
-                    $vorlesungsmanager =new vorlesung_manager();
-                    $vorlesungen = $vorlesungsmanager->findByBenutzerId($_SESSION['benutzerid']);
+                    $vorlesungen = $votingmanager->findByVotingId($_SESSION['votingid']);
 
                     $votingmanager =new voting_manager(); ?>
-
 
 
 

@@ -26,7 +26,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Voting // Hier steht Votingname </h1>
+                    <h1>Voting Hier steht Votingname </h1>
                     <p></p>
 
                     <?php
@@ -35,7 +35,7 @@
                     require_once("Mapper/voting.php");
                     //DB Abfrage zu Votings
 
-                    $votings = $votingmanager->findByBenutzerId($_SESSION['benutzerid']);
+                    // $votings = $votingmanager->findByBenutzerId($_SESSION['benutzerid']);
 
                     $votingmanager =new voting_manager();
 
@@ -43,70 +43,12 @@
                         foreach($votings as $voting){
                             echo "<table class='table table-hover'>";
 
-                            $votings=$votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
+                            $votings=$votingmanager->findByVotingId($votings->$votingid);
 
                             foreach($votings as $voting){
                                 echo "<tr>";
                                 echo "<th>" . $voting->votingname . "</th>";
 
-
-                                //Zeitraum des Votings
-                                $startdatum = $voting->startdatum;
-                                $startdatum = date("d.m.y H:i",strtotime($startdatum))." Uhr";
-                                $enddatum = $voting->enddatum;
-                                $enddatum = date("d.m.y H:i",strtotime($enddatum))." Uhr";
-                                echo "<td>" . $startdatum ." - ".$enddatum ."</td>";
-
-                                // Status des Votings
-                                echo "<td>";
-                                if (strtotime($voting->startdatum)<=time()){
-                                    if (strtotime($voting->enddatum)<=time()){
-                                        echo "<td class='danger'> beendet";
-                                    } else {
-                                        echo "<td class='success'> aktiv";
-                                    }
-                                }
-                                else {
-                                    echo "<td class='warning'> ausstehend";
-                                }
-                                echo "</td>";
-
-
-                                //Start + Stoppbutton
-                                echo "<td>";
-                                if (strtotime($voting->startdatum)<=time()){
-                                    if (strtotime($voting->enddatum)<=time()){
-                                        echo "<i class='fa fa-times'></i>";
-                                    } else {
-                                        echo "<a class='fa fa-pause' href='voting_stop.php?id=".$voting->votingid."'></a>";
-                                    }
-                                }
-                                else {
-                                    echo "<a class='fa fa-play' href='voting_start.php?id=".$voting->votingid."'></a>";
-                                }
-                                echo "</td>";
-
-
-                                // Link des Votings // TODO: Link für das Voting (QR usw.) eingeben
-
-                                echo "<td>";
-                                if (strtotime($voting->startdatum)<=time()){
-                                    if (strtotime($voting->enddatum)<=time()){
-                                        echo "";
-                                    } else {
-                                        echo "<td><a href = 'vote.php?id=".$voting->votingid."'>Link</a></td>";
-                                    }
-                                }
-                                echo "</td>";
-
-
-
-
-
-                                // Bearbeiten des Votings
-                                echo "<td><a class='fa fa-edit' href ='voting_update_form.php?id=".$voting->votingid."'></a></td>";
-                                //Löschen des Votings
-                                echo "<td><a class='fa fa-trash' href ='voting_delete_do.php?id=".$voting->votingid."'></a></td>";
 
                                 echo "</tr>";
                             }
