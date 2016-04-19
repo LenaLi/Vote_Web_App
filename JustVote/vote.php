@@ -18,49 +18,29 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Ihre Vorlesungen und Votings</h1>
+                    <h1>Hier soll Voting Name stehen </h1>
                     <p></p>
                     <?php
                     // DB Abfrage zu Vorlesungen von Benutzer.....
                     require_once("Mapper/vorlesung.php");
                     require_once("Mapper/vorlesung_manager.php");
                     require_once("Mapper/voting_manager.php");
-                    //DB Abfrage zu Votings
+                    require_once("Mapper/voting.php");
 
-                    $votingmanager =new voting_manager();
-                    $votings = $votingmanager->findByVotingId($_SESSION['votingid']);
-                    $votingmanager =new voting_manager();
+
+                    //DB Abfrage zu Votings TO DO MUSS FERTIG GEMACHT WERDEN UND AUCH IN EINE MAPPER KLASSE?
+
+
                     $aktuellesvoting=$_GET['id'];
 
-                    while ($aktuellesvoting=$votings)
-                        foreach($votings as $voting){
-                            echo "<table class='table table-hover'>";
-                            // Frage und Antwortmöglichkeiten
-                            echo "<thead><tr>";
-                            echo "<th colspan='12'>" . $voting->frage ;
-                            echo "<th>" . $voting->antwort_1 ;
-                            echo "<th>" . $voting->antwort_2 ;
-                            echo "<th>" . $voting->antwort_3 ;
-                            echo "<th>" . $voting->antwort_4 ;
-
-
-                            echo  "<th>";
-                            echo "</tr> </thead>";
-
-                            $votings=$votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
-
-                            foreach($votings as $voting){
-                                echo "<tr>";
-                                echo "<th>" . $voting->votingname . "</th>";
+                    $sql = "SELECT * FROM voting WHERE id = $aktuellesvoting";
+                    $question = $pdo->query($sql);
+                    echo $question['question']." ".$question['nachname']."<br />";
+                    echo "E-Mail: ".$user['email']."<br /><br />";
+                    ?>
 
 
 
-
-
-                                echo "</tr>";
-                            }
-                            echo "</table>";
-                        }
                     ?>
 
 
