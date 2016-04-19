@@ -1,6 +1,5 @@
 
 
-
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
 
@@ -21,11 +20,24 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-user"></span>
+                        Herzlich Willkommen, <?php echo $_SESSION["name"]; ?>
+                    </a>
+                </li>
+                <li class="dropdown">
+                <li>
+                    <a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                </li>
+                </li>
+            </ul>
 
 
 
-</div><!-- /.navbar-collapse -->
-</div><!-- /.container-fluid -->
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>
 
 
