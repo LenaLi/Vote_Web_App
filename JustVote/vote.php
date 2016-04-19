@@ -21,7 +21,7 @@
                     <h1>Hier soll Voting Name stehen </h1>
                     <p></p>
                     <?php
-                    // DB Abfrage zu Vorlesungen von Benutzer.....
+                    // DB Abfrage zu Vorlesungen von Benutzer.........
                     require_once("Mapper/vorlesung.php");
                     require_once("Mapper/vorlesung_manager.php");
                     require_once("Mapper/voting_manager.php");

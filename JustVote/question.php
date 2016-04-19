@@ -1,5 +1,5 @@
 
-<!-- TO DO Datenbankabfrage: Voting und Antwortmöglichkeiten -->
+<!-- TO DO Datenbankabfrage: Voting und Antwortmöglichkeiten-->
 <!DOCTYPE html>
 <html>
 
