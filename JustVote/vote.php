@@ -33,12 +33,19 @@
 
                     $aktuellesvoting=$_GET['id'];
 
-                    $sql = "SELECT * FROM voting WHERE id = $aktuellesvoting";
-                    $question = $pdo->query($sql);
-                    echo $question['question']." ".$question['nachname']."<br />";
-                    echo "E-Mail: ".$user['email']."<br /><br />";
+                    $sql =  ( "SELECT * FROM voting WHERE id =" . $aktuellesvoting);
+
+
+                    echo $frage['frage']." "."<br />";
+                    echo $antwort_1['antwort_1']." "."<br />";
+                    echo $antwort_2['antwort_2']." "."<br />";
+                    echo $antwort_3['antwort_3']." "."<br />";
+                    echo $antwort_4['antwort_4']." "."<br />";
+
+
                     ?>
 
+                    // Bisherige Stimmen aus der Datenbank holen
 
 
                     ?>
