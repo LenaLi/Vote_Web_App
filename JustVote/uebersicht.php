@@ -46,7 +46,7 @@
 
                             foreach($votings as $voting){
                                     echo "<tr>";
-                                    echo "<td>" . $voting->votingname . "</td>";
+                                    echo "<th>" . $voting->votingname . "</th>";
 
 
                                 //Zeitraum des Votings
