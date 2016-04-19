@@ -48,25 +48,28 @@
                                     echo "<tr>";
                                     echo "<td>" . $voting->votingname . "</td>";
 
-                                // Status des Votings
-                                    echo "<td>";
-                                    if (strtotime($voting->startdatum)<=time()){
-                                            if (strtotime($voting->enddatum)<=time()){
-                                                echo "beendet";
-                                            } else {
-                                                echo "aktiv";
-                                            }
-                                    }
-                                    else {
-                                        echo "ausstehend";
-                                    }
-                                    echo "</td>";
+
                                 //Zeitraum des Votings
                                     $startdatum = $voting->startdatum;
                                     $startdatum = date("d.m.y H:i",strtotime($startdatum))." Uhr";
                                     $enddatum = $voting->enddatum;
                                     $enddatum = date("d.m.y H:i",strtotime($enddatum))." Uhr";
                                     echo "<td>" . $startdatum ." - ".$enddatum ."</td>";
+
+                                // Status des Votings
+                                echo "<td>";
+                                if (strtotime($voting->startdatum)<=time()){
+                                    if (strtotime($voting->enddatum)<=time()){
+                                        echo "<td class='danger'> beendet";
+                                    } else {
+                                        echo "<td class='success'> aktiv";
+                                    }
+                                }
+                                else {
+                                    echo "<td class='warning'> ausstehend";
+                                }
+                                echo "</td>";
+
 
                                 //Start + Stoppbutton
                                     echo "<td>";
@@ -81,12 +84,28 @@
                                         echo "<a class='fa fa-play' href='voting_start.php?id=".$voting->votingid."'></a>";
                                     }
                                     echo "</td>";
-                                // Link des Votings
-                                echo "<td><a href = 'vote.php?id=".$voting->votingid."'>Link</a></td>"; // TODO: Link für das Voting (QR usw.) eingeben
+
+
+                                // Link des Votings // TODO: Link für das Voting (QR usw.) eingeben
+
+                                echo "<td>";
+                                if (strtotime($voting->startdatum)<=time()){
+                                    if (strtotime($voting->enddatum)<=time()){
+                                        echo "";
+                                    } else {
+                                        echo "<td><a href = 'vote.php?id=".$voting->votingid."'>Link</a></td>";
+                                    }
+                                }
+                                echo "</td>";
+
+
+
+
+
                                 // Bearbeiten des Votings
                                 echo "<td><a class='fa fa-edit' href ='voting_update_form.php?id=".$voting->votingid."'></a></td>";
                                 //Löschen des Votings
-                                echo "<td><a class='fa fa-trash'href ='voting_delete_do.php?id=".$voting->votingid."'></a></td>";
+                                echo "<td><a class='fa fa-trash' href ='voting_delete_do.php?id=".$voting->votingid."'></a></td>";
 
                                     echo "</tr>";
                             }
@@ -101,7 +120,6 @@
         </div>
     </div>
 
-</div>
 
 </body>
 </html>

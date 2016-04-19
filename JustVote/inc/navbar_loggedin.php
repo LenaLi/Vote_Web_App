@@ -1,7 +1,9 @@
 
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <!-- Navigation im Header + Mobile -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
                 <span class="sr-only">Toggle navigation</span>
@@ -22,7 +24,6 @@
                 <li>
                     <a href="#">
                         <span class="glyphicon glyphicon-user"></span>
-                        <!-- TODO: Was soll der Code machen? <?php echo $user->login; ?> -->
                         Herzlich Willkommen, <?php echo $_SESSION["name"]; ?>
                     </a>
                 </li>
@@ -35,21 +36,26 @@
 
 
 
-
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
+
+
+
 <nav class="sidebar-wrapper">
+
+
 
     <!-- Sidebar -->
 
     <div id="sidebar-wrapper">
 
 
+
         <ul class="sidebar-nav">
             <li>
-                <a href="uebersicht.php">Übersicht</a>
+                <a href="uebersicht.php"><span class="glyphicon glyphicon-th-large"></span> Übersicht</a>
             </li>
             <li>
                 <a href="vorlesung_create_form.php"><span class="fa fa-plus"></span> Vorlesung </a>
@@ -58,13 +64,15 @@
                 <a href="voting_create_form.php"> <span class="fa fa-plus"></span> Voting </a>
             </li>
             <?php
+            // Überprüfung ob Eingeloggter Admin ist oder normaler Benutzer --> Nur dann Zugriff auf Verwaltung der Benutzer
             if ($_SESSION["role"]=="admin") {
 
                 ?>
                 <li>
-                    <a href="benutzer_read.php">Benutzer verwalten</a>
+                    <a href="benutzer_read.php"><span class="glyphicon glyphicon-user"></span> Benutzer verwalten</a>
                 </li>
                 <?php
+
             }
             ?>
         </ul>
@@ -72,3 +80,4 @@
     </div>
     <!-- /#sidebar-wrapper -->
 </nav>
+

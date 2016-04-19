@@ -1097,12 +1097,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
+  color: rgb(255, 128, 39);
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #23527c;
+  color: rgb(255, 128, 39);
   text-decoration: underline;
 }
 a:focus {
@@ -1338,11 +1338,11 @@ mark,
   color: #777;
 }
 .text-primary {
-  color: #337ab7;
+  color: rgb(255, 128, 39);
 }
 a.text-primary:hover,
 a.text-primary:focus {
-  color: #286090;
+  color: rgb(255, 128, 39);
 }
 .text-success {
   color: #3c763d;
@@ -1356,7 +1356,7 @@ a.text-success:focus {
 }
 a.text-info:hover,
 a.text-info:focus {
-  color: #245269;
+  color: rgb(255, 128, 39);
 }
 .text-warning {
   color: #8a6d3b;
@@ -1374,11 +1374,11 @@ a.text-danger:focus {
 }
 .bg-primary {
   color: #fff;
-  background-color: #337ab7;
+  background-color: rgb(255, 128, 39);
 }
 a.bg-primary:hover,
 a.bg-primary:focus {
-  background-color: #286090;
+  background-color: rgb(255, 128, 39);
 }
 .bg-success {
   background-color: #dff0d8;
