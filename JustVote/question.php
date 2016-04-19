@@ -1,28 +1,132 @@
-<?php include("inc/session_check.php"); ?>
 
+<!-- TO DO Datenbankabfrage: Voting und Antwortmöglichkeiten -->
+<!DOCTYPE html>
+<html>
+
+<?php include("inc/session_check.php"); ?>
+<?php include("inc/header.php"); ?>
+<?php include("inc/navbar_vote.php"); ?>
+
+
+<!-- Datenbankabfrage Voting -->
 
 
 <!DOCTYPE html>
 <html>
 
-<?php include("inc/header.php"); ?>
 
-<body class="login-body">
-<!-- LOGO -->
-<div class="login-body">
-    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
+<body>
+
+
+
+<div id="wrapper">
+
+
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Voting // Hier steht Votingname </h1>
+                    <p></p>
+
+                    <?php
+                    // DB Abfrage zu Vorlesungen von Benutzer.....
+                    require_once("Mapper/voting_manager.php");
+                    require_once("Mapper/voting.php");
+                    //DB Abfrage zu Votings
+
+                    $votings = $votingmanager->findByBenutzerId($_SESSION['benutzerid']);
+
+                    $votingmanager =new voting_manager();
+
+                    if($votings!=null)
+                        foreach($votings as $voting){
+                            echo "<table class='table table-hover'>";
+
+                            $votings=$votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
+
+                            foreach($votings as $voting){
+                                echo "<tr>";
+                                echo "<th>" . $voting->votingname . "</th>";
+
+
+                                //Zeitraum des Votings
+                                $startdatum = $voting->startdatum;
+                                $startdatum = date("d.m.y H:i",strtotime($startdatum))." Uhr";
+                                $enddatum = $voting->enddatum;
+                                $enddatum = date("d.m.y H:i",strtotime($enddatum))." Uhr";
+                                echo "<td>" . $startdatum ." - ".$enddatum ."</td>";
+
+                                // Status des Votings
+                                echo "<td>";
+                                if (strtotime($voting->startdatum)<=time()){
+                                    if (strtotime($voting->enddatum)<=time()){
+                                        echo "<td class='danger'> beendet";
+                                    } else {
+                                        echo "<td class='success'> aktiv";
+                                    }
+                                }
+                                else {
+                                    echo "<td class='warning'> ausstehend";
+                                }
+                                echo "</td>";
+
+
+                                //Start + Stoppbutton
+                                echo "<td>";
+                                if (strtotime($voting->startdatum)<=time()){
+                                    if (strtotime($voting->enddatum)<=time()){
+                                        echo "<i class='fa fa-times'></i>";
+                                    } else {
+                                        echo "<a class='fa fa-pause' href='voting_stop.php?id=".$voting->votingid."'></a>";
+                                    }
+                                }
+                                else {
+                                    echo "<a class='fa fa-play' href='voting_start.php?id=".$voting->votingid."'></a>";
+                                }
+                                echo "</td>";
+
+
+                                // Link des Votings // TODO: Link für das Voting (QR usw.) eingeben
+
+                                echo "<td>";
+                                if (strtotime($voting->startdatum)<=time()){
+                                    if (strtotime($voting->enddatum)<=time()){
+                                        echo "";
+                                    } else {
+                                        echo "<td><a href = 'vote.php?id=".$voting->votingid."'>Link</a></td>";
+                                    }
+                                }
+                                echo "</td>";
+
+
+
+
+
+                                // Bearbeiten des Votings
+                                echo "<td><a class='fa fa-edit' href ='voting_update_form.php?id=".$voting->votingid."'></a></td>";
+                                //Löschen des Votings
+                                echo "<td><a class='fa fa-trash' href ='voting_delete_do.php?id=".$voting->votingid."'></a></td>";
+
+                                echo "</tr>";
+                            }
+                            echo "</table>";
+                        }
+                    ?>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-
-<div class="list-group">
-    <a href="#" class="list-group-item active">
-        Cras justo odio
-    </a>
-    <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-    <a href="#" class="list-group-item">Morbi leo risus</a>
-    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-    <a href="#" class="list-group-item">Vestibulum at eros</a>
-</div>
 
 </body>
 </html>
+
+
+
+
+
+
