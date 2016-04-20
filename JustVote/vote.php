@@ -28,7 +28,7 @@
                     require_once("Mapper/voting.php");
 
 
-                    //DB Abfrage zu Votings TO DO MUSS FERTIG GEMACHT WERDEN UND AUCH IN EINE MAPPER KLASSE?
+                    //DB Abfrage zu Votings TO DO --MUSS FERTIG GEMACHT WERDEN UND AUCH IN EINE MAPPER KLASSE?
 
 
                     $aktuellesvoting=$_GET['id'];
