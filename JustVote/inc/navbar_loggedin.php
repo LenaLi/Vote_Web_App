@@ -1,4 +1,4 @@
-
+<!-- Namen der Datei ändern, Mobile Version fertig machen (das komplettes Menü auch in der Sidebar mit verschwindet -->
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -13,17 +13,21 @@
 
             </button>
             <a class="navbar-brand" rel="home" href="uebersicht.php" title="JustVote"> 
+                <!-- TO DO: Style in CSS packen! -->
                 <img style="width:60%;height:100%; margin-top:0px;" 
                      src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg">  </a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Hier wird alles für das Toggle Menü gesammelt-->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
+                    <!-- Hier vielleicht ein Link zum Benutzerdaten ändern einfügen? -->
                     <a href="#">
                         <span class="glyphicon glyphicon-user"></span>
+
+                        <!-- Anzeigen des aktuellen Usernames -->
                         Herzlich Willkommen, <?php echo $_SESSION["name"]; ?>
                     </a>
                 </li>
@@ -47,7 +51,7 @@
 
 
 
-    <!-- Sidebar -->
+    <!-- Sidebar (Namen ändern und CSS in bootstrap integrieren-->
 
     <div id="sidebar-wrapper">
 
