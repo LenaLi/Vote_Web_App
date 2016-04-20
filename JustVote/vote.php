@@ -45,9 +45,6 @@
 
                     ?>
 
-                    // Bisherige Stimmen aus der Datenbank holen
-
-
                     ?>
 
 
