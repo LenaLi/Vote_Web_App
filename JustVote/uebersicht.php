@@ -24,8 +24,8 @@
                         require_once("Mapper/vorlesung.php");
                         require_once("Mapper/vorlesung_manager.php");
                         require_once("Mapper/voting_manager.php");
+
                         //DB Abfrage zu Votings
-                    
                         $vorlesungsmanager =new vorlesung_manager();
                         $vorlesungen = $vorlesungsmanager->findByBenutzerId($_SESSION['benutzerid']);
 
@@ -34,6 +34,7 @@
                         if($vorlesungen!=null)
                         foreach($vorlesungen as $vorlesung){
                             echo "<table class='table table-hover'>";
+
                             // Überschriften der Tabellen
                                 echo "<thead><tr>";
                                 echo "<th colspan='7'>" . $vorlesung->vorlesungsid .", ". $vorlesung->vorlesungsname;

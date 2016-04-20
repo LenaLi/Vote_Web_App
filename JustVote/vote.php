@@ -38,8 +38,7 @@
 
 
                     $aktuellesvoting=$_GET['id'];
-
-
+                    echo 'https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/
 
      // HIER KOMMT NUR DER LINK UND QR-CODE
                     ?>
