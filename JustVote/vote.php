@@ -31,12 +31,20 @@
                     //DB Abfrage zu Votings TO DO --MUSS FERTIG GEMACHT WERDEN UND AUCH IN EINE MAPPER KLASSE?
 
 
+                    // Hier soll Votingname stehen
+
+                    $votingname=$_GET['votingname'];
+                    echo $votingname;
+
+
                     $aktuellesvoting=$_GET['id'];
+
+
 
      // HIER KOMMT NUR DER LINK UND QR-CODE
                     ?>
 
-                    ?>
+
 
 
 
