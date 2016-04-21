@@ -100,9 +100,6 @@
                                 echo "</td>";
 
 
-
-
-
                                 // Bearbeiten des Votings
                                 echo "<td><a class='fa fa-edit' href ='voting_update_form.php?id=".$voting->votingid."'></a></td>";
                                 //Löschen des Votings

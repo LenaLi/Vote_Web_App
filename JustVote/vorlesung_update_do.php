@@ -15,3 +15,4 @@ if (!empty($vorlesungsid) && !empty($vorlesungsname)) {
     echo "Error: Bitte alle Felder ausfüllen!";
 }
 
+?>
