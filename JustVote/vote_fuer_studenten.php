@@ -1,8 +1,11 @@
+
+<!-- TODO Abstimm seite für studenten
+
 <?php include("inc/session_check.php"); ?>
 <?php include("inc/header.php"); ?>
 <?php include("inc/navbar_vote.php"); ?>
 
-<!-- TO DO Datenbankabfrage: Voting und Antwortmöglichkeiten-->
+<!-- TODO Datenbankabfrage: Voting und Antwortmöglichkeiten-->
 <!DOCTYPE html>
 <html>
 
