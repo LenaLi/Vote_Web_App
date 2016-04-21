@@ -6,7 +6,6 @@ require_once("Mapper/voting_manager.php");
 ?>
 
 <?php
-include("inc/session_check.php");
 //POST Parameter
 
 $vorlesungsid=$_POST["vorlesungsid"];

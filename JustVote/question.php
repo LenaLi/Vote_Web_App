@@ -1,12 +1,10 @@
-
-<!-- TO DO Datenbankabfrage: Voting und Antwortmöglichkeiten-->
-<!DOCTYPE html>
-<html>
-
 <?php include("inc/session_check.php"); ?>
 <?php include("inc/header.php"); ?>
 <?php include("inc/navbar_vote.php"); ?>
 
+<!-- TO DO Datenbankabfrage: Voting und Antwortmöglichkeiten-->
+<!DOCTYPE html>
+<html>
 
 <!-- Datenbankabfrage Voting -->
 

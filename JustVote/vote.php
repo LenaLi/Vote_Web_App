@@ -36,7 +36,7 @@
                     $votingname=$_GET['votingname'];
                     echo $votingname;
 
-
+                    echo $votingname['votingname']." "."<br />";
                     $aktuellesvoting=$_GET['id'];
                     echo 'https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/
 
