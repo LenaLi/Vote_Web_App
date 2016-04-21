@@ -1,3 +1,6 @@
+<!-- Liest ID vom Voting aus macht ne Datenbank verbindung
+
+
 <?php include("inc/session_check.php"); ?>
 <?php
 

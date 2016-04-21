@@ -94,7 +94,7 @@
                                     if (strtotime($voting->enddatum)<=time()){
                                         echo "";
                                     } else {
-                                        echo "<td><a href = 'vote.php?id=".$voting->votingid."'>Link</a></td>";
+                                        echo "<td><a href = 'link_fuer_studenten.php?id=".$voting->votingid."'>Link</a></td>";
                                     }
                                 }
                                 echo "</td>";
