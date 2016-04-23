@@ -1,7 +1,55 @@
+<?php include("inc/session_check.php"); ?>
+<?php include("inc/session_check_admin.php"); ?>
+
+<!DOCTYPE html>
+<html>
+
 <?php
-/**
- * Created by PhpStorm.
- * User: lenalidl
- * Date: 21.04.16
- * Time: 11:19
- */
+include("inc/header.php");
+require_once("Mapper/student_manager.php");
+require_once("Mapper/student.php");
+?>
+
+<?php
+$id = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+$student_manager = new student_manager();
+$student = $student_manager->findById($id); // id????
+echo $id;  // id????
+?>
+
+<body>
+
+<?php include("inc/navigation.php");?>
+
+<div id="wrapper">
+
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <h1>Eintrag <?php echo $student->id ?></h1>
+
+                    <form action='student_update_do.php' method='post'>
+                        <input type='hidden' name='id' value='<?php echo $student->id ?>' />
+                        Vorname:<br>
+                        <input type='text' name='vorname' value='<?php echo $student->vorname ?>' /><br>
+                        Nachname:<br>
+                        <input type='text' name='nachname' value='<?php echo $student->nachname ?>' /><br>
+                        <br>
+                        E-Mail:<br>
+                        <input type='text' name='email' value='<?php echo $student->email ?>' /><br>
+                        <br>
+                        <br>
+                        <input type='submit' value='update!' />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+</body>
+</html>
