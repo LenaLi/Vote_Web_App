@@ -4,11 +4,9 @@
 <!DOCTYPE html>
 <html>
 
-<?
+<?php
 require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
-?>
-<?php
 
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $voting_manager = new voting_manager();
