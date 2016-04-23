@@ -40,7 +40,7 @@
                     <div class="form-group">
                         <div class="col-sm-6">
                             <select name="role">
-                                <!-- <option value="Benutzer" selected>Benutzer</option>    Das ausw�hlen von Benutzer und Admin sollte ja nicht m�glich sein wenn man einen Studentetn anlegt
+                                <!-- <option value="Benutzer" selected>Benutzer</option>    Das auswählen von Benutzer und Admin sollte ja nicht m�glich sein wenn man einen Studentetn anlegt
                                 <option value="Admin">Admin</option> -->
                                 <option value="Student">Student</option>
                             </select>
