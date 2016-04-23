@@ -1,8 +1,4 @@
 <?php
-/**
-Hier kommt die Datenbankabfrage zu Student rein.
- */
-
 class student
 {
     public $student_id;
