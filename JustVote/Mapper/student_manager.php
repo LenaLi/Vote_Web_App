@@ -1,6 +1,4 @@
-/**
-Hier kommen die Funktionen der Klasse Student rein.
- */
+<!-- Hier kommen die Funktionen der Klasse Student rein -->
 
 <?php
 require_once("manager.php");
