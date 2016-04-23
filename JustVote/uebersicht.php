@@ -23,6 +23,9 @@
                         require_once("Mapper/vorlesung_manager.php");
                         require_once("Mapper/voting_manager.php");
 
+                        // DB Abfrage zu Studenten
+                        require_once ("Mapper/student.php")
+
                         //DB Abfrage zu Votings
                         $vorlesungsmanager =new vorlesung_manager();
                         $vorlesungen = $vorlesungsmanager->findByBenutzerId($_SESSION['benutzerid']);
