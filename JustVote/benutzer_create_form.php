@@ -42,6 +42,7 @@
                                 <select name="role">
                                     <option value="Benutzer" selected>Benutzer</option>
                                     <option value="Admin">Admin</option>
+                                    <option value="Student">Student</option>
                                 </select>
                             </div>
                         </div>

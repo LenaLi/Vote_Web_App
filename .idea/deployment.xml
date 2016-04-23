@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="mars" uploadOnCheckin="81121edc-e704-4d0b-a4d3-4eee3e66c043">
-    <option name="myUploadOnCheckinName" value="mars" />
+  <component name="PublishConfigData" autoUpload="Always" serverName="mars">
     <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
