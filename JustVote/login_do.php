@@ -5,11 +5,15 @@ require_once("Mapper/benutzer_manager.php");
 
 // Datenbankabfrage und Passwortprüfung
 
+
+/* TODO Vorrübergehend unsichtbar bis Login mit Hash funktioniert
+
 // POST Parameter auslesen, die Nutzer eingegeben hat
 $email=$_POST["email"];
 $password=$_POST["password"];
 $manager=new benutzer_manager();
 $benutzer=$manager->findByEmail($email);
+
 
 if ($benutzer->password==$password && $benutzer->email==$email) {
     //Passwort und Benutzername korrekt
@@ -26,4 +30,27 @@ if ($benutzer->password==$password && $benutzer->email==$email) {
     // Weiterleitung zur Statseite mit Login Dialog
     header('Location: index.php?error=1');
 }
+
+*/
+
+
+
+$pwvorrueber='admin';
+$benutzervorrueber='admin';
+
+
+
+if ($pwvorrueber=='admin' && $benutzervorrueber=='admin') {
+    //Passwort und Benutzername korrekt
+    // Weiterleitung zur Übersichtsseite
+    header ('Location: uebersicht.php');
+} else {
+    // Passwort oder Benutzername falsch
+    // Weiterleitung zur Statseite mit Login Dialog
+    header('Location: index.php?error=1');
+}
+
+
 ?>
+
+

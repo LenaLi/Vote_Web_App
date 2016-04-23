@@ -8,7 +8,7 @@ class benutzer
     public $email;
     public $role;
     public $password;
-    public $salt;
+   # public $salt;
 
     function __construct($data=null) {
         if (is_array($data)) {
@@ -18,7 +18,7 @@ class benutzer
             $this->email = $data['email'];
             $this->role = $data['role'];
             $this->password = $data['password'];
-            $this->salt = $data['salt'];
+          #  $this->salt = $data['salt'];
         }
     }
 }
