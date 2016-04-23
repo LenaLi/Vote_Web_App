@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-lg-12">
 
-                <h2>Student hinzufügen</h2>
+                <h2>Student hinzufÃ¼gen</h2>
 
                 <form class="form-horizontal" role="form" action="benutzer_create_do.php" method="post">
 
@@ -40,7 +40,7 @@
                     <div class="form-group">
                         <div class="col-sm-6">
                             <select name="role">
-                                <!-- <option value="Benutzer" selected>Benutzer</option>    Das auswählen von Benutzer und Admin sollte ja nicht möglich sein wenn man einen Studentetn anlegt
+                                <!-- <option value="Benutzer" selected>Benutzer</option>    Das auswï¿½hlen von Benutzer und Admin sollte ja nicht mï¿½glich sein wenn man einen Studentetn anlegt
                                 <option value="Admin">Admin</option> -->
                                 <option value="Student">Student</option>
                             </select>
@@ -49,7 +49,7 @@
 
                     <div class="form-group">
                         <div class=" col-sm-6">
-                            <button type="submit" class="btn btn-warning"> Student hinzufügen</button>
+                            <button type="submit" class="btn btn-warning"> Student hinzufÃ¼gen</button>
                         </div>
                     </div>
 
