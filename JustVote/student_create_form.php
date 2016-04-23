@@ -40,8 +40,8 @@
                     <div class="form-group">
                         <div class="col-sm-6">
                             <select name="role">
-                                <option value="Benutzer" selected>Benutzer</option>
-                                <option value="Admin">Admin</option>
+                                <!-- <option value="Benutzer" selected>Benutzer</option>    Das auswählen von Benutzer und Admin sollte ja nicht möglich sein wenn man einen Studentetn anlegt
+                                <option value="Admin">Admin</option> -->
                                 <option value="Student">Student</option>
                             </select>
                         </div>
