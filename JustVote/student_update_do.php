@@ -3,7 +3,7 @@
 require_once("Mapper/student_manager.php");
 require_once("Mapper/student.php");
 
-$id = (int)$_POST["id"]; // statt id student_id?? -->
+$id = (int)$_POST["id"]; // statt id student_id???? -->
 $vorname = htmlspecialchars($_POST["vorname"], ENT_QUOTES, "UTF-8");
 $nachname = htmlspecialchars($_POST["nachname"], ENT_QUOTES, "UTF-8");
 $email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
