@@ -1,7 +1,6 @@
 <?php include("inc/session_check.php"); ?>
 <!-- Bootstrap Core CSS -->
 <link href="../../Vote_Web_App/JustVote/css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Custom CSS -->
 <link href="../../Vote_Web_App/JustVote/css/sb-admin.css" rel="stylesheet">
 
