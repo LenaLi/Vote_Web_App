@@ -1,4 +1,14 @@
 <?php include("inc/session_check.php"); ?>
+<!-- Bootstrap Core CSS -->
+<link href="../../Vote_Web_App/JustVote/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="../../Vote_Web_App/JustVote/css/sb-admin.css" rel="stylesheet">
+
+<!-- Morris Charts CSS -->
+<link href="css/plugins/morris.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 <!DOCTYPE html>
 <html>
@@ -11,11 +21,14 @@
 
 <div id="wrapper">
 
+    <div id="wrapper">
 
-    <div id="page-content-wrapper">
         <div class="container-fluid">
+
+            <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12">
+
                     <h1>Ihre Vorlesungen und Votings</h1>
                     <p></p>
 
@@ -94,10 +107,13 @@
                                     if (strtotime($voting->enddatum)<=time()){
                                         echo "";
                                     } else {
-                                        echo "<td><a href = 'link_fuer_studenten.php?id=".$voting->votingid."'>Link</a></td>";
+                                        echo "<td><a href = 'vote.php?id=".$voting->votingid."'>Link</a></td>";
                                     }
                                 }
                                 echo "</td>";
+
+
+
 
 
                                 // Bearbeiten des Votings
@@ -110,11 +126,8 @@
                             echo "</table>";
                         }
                     ?>
-
-
-                    </div>
                 </div>
-            </div>
+                </div>
         </div>
     </div>
 

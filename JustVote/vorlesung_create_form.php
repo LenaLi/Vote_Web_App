@@ -9,7 +9,7 @@
 
 <?php include("inc/navbar_loggedin.php"); ?>
 
-<div id="wrapper">
+<div id="page-wrapper">
 
     <div id="page-content-wrapper">
         <div class="container-fluid">
