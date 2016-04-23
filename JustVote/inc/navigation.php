@@ -122,7 +122,9 @@
                 <li>
                     <a href="voting_create_form.php"><i class="fa fa-plus"></i> Voting</a>
                 </li>
-
+                <li>
+                    <a href="student_create_form.php"><i class="fa fa-plus"></i> Student</a>
+                </li>
                 <?php
                 // Überprüfung ob Eingeloggter Admin ist oder normaler Benutzer --> Nur dann Zugriff auf Verwaltung der Benutzer
                 if ($_SESSION["role"]=="admin") {
