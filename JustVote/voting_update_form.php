@@ -1,9 +1,10 @@
 <?php include("inc/session_check.php"); ?>
+<?php include("inc/header.php"); ?>
 
 <!DOCTYPE html>
 <html>
 
-<?php include("inc/header.php");
+<?
 require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
 ?>
@@ -18,11 +19,10 @@ echo $votingid;
 
 <body>
 
-<?php include("inc/navbar_loggedin.php"); ?>
+<?php include("inc/navigation.php"); ?>
 
-<div id="wrapper">
+<div id="page-wrapper">
 
-    <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
