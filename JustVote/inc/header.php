@@ -6,7 +6,6 @@
     <!-- Bootstrap Core CSS -->
     <link href="../../Vote_Web_App/JustVote/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../Vote_Web_App/JustVote/css/bootstrap.css" rel="stylesheet">
-    <link href="../../Vote_Web_App/JustVote/css/bootstrap-theme.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../../Vote_Web_App/JustVote/css/sb-admin.css" rel="stylesheet">
     <link href="../../Vote_Web_App/JustVote/css/sb-admin-rtl.css" rel="stylesheet">
