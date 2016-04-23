@@ -21,9 +21,8 @@ echo $student_id;  // id????
 
 <?php include("inc/navigation.php");?>
 
-<div id="wrapper">
+<div id="page-wrapper">
 
-    <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -46,7 +45,6 @@ echo $student_id;  // id????
                 </div>
             </div>
         </div>
-    </div>
 
 </div>
 
