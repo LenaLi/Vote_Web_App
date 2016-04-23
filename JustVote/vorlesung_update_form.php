@@ -21,9 +21,8 @@ echo $vorlesungsid;
 
 <?php include("inc/navigation.php"); ?>
 
-<div id="wrapper">
+<div id="page-wrapper">
 
-    <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -41,7 +40,6 @@ echo $vorlesungsid;
                 </div>
             </div>
         </div>
-    </div>
 
 </div>
 

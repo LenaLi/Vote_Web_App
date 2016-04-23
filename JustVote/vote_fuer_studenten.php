@@ -20,7 +20,7 @@
 
 
 
-<div id="wrapper">
+<div id="page-wrapper">
 
 
     <div id="page-content-wrapper">
