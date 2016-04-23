@@ -5,12 +5,8 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
-.login {
-  margin-right: auto;
-  margin-left: auto;
-}
 
-.login-body {
+.mitte {
   background: #000000;
   display: table;
   text-align: center;
@@ -25,6 +21,7 @@ html {
 }
 body {
   margin: 0;
+  background-color: #FFFFFF;
 }
 article,
 aside,
