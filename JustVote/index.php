@@ -4,7 +4,7 @@
 <?php include("inc/header.php"); ?>
 
 <!-- Klasse Login-Body richtet alles mittig aus -->
-
+<body class="mitte">
 <!-- LOGO -->
 <div class="mitte">
     <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
