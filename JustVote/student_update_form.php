@@ -11,10 +11,10 @@ require_once("Mapper/student.php");
 ?>
 
 <?php
-$id = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+$student_id = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8"); //id??
 $student_manager = new student_manager();
-$student = $student_manager->findById($id); // id????
-echo $id;  // id????
+$student = $student_manager->findById($student_id); // id????
+echo $student_id;  // id????
 ?>
 
 <body>
@@ -28,10 +28,10 @@ echo $id;  // id????
             <div class="row">
                 <div class="col-lg-12">
 
-                    <h1>Eintrag <?php echo $student->id ?></h1>
+                    <h1>Eintrag <?php echo $student->student_id ?></h1> <!-- id -->
 
                     <form action='student_update_do.php' method='post'>
-                        <input type='hidden' name='id' value='<?php echo $student->id ?>' />
+                        <input type='hidden' name='id' value='<?php echo $student->student_id ?>' /> <!--id??   -->
                         Vorname:<br>
                         <input type='text' name='vorname' value='<?php echo $student->vorname ?>' /><br>
                         Nachname:<br>

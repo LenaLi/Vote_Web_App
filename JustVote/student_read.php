@@ -47,11 +47,11 @@ $allestudenten = $manager->findAll();
                         echo "<td>" . $student->email . "</td>";
                         echo "<td>" . $student->role . "</td>";
                         echo "<td>
-                                <a class='fa fa-edit' href ='student_update_form.php?id=".$student->id."'></a>  <!-- evtl muss ich statt id. student_is. schreiben! -->
+                                <a class='fa fa-edit' href ='student_update_form.php?id=".$student->student_id."'></a>  <!-- evtl muss ich statt id. student_is. schreiben! -->
 
                                 </td>";
                         echo "<td>
-                                <a class='fa fa-trash'href ='student_delete_do.php?id=".$student->id."'></a> <!-- same here-->
+                                <a class='fa fa-trash'href ='student_delete_do.php?id=".$student->student_id."'></a> <!-- same here-->
                             </td>";
                         echo "</tr>";
                     }
