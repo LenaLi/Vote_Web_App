@@ -8,7 +8,7 @@
 
 <body>
 
-<?php include("inc/navbar_loggedin.php"); ?>
+<?php include("inc/navigation.php"); ?>
 <?php
 require_once ("Mapper/vorlesung.php");
 require_once ("Mapper/vorlesung_manager.php");

@@ -1,27 +1,12 @@
 <?php include("inc/session_check.php"); ?>
-<!-- Bootstrap Core CSS -->
-<link href="../../Vote_Web_App/JustVote/css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom CSS -->
-<link href="../../Vote_Web_App/JustVote/css/sb-admin.css" rel="stylesheet">
-
-<!-- Morris Charts CSS -->
-<link href="css/plugins/morris.css" rel="stylesheet">
-
-<!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<?php include("inc/header.php"); ?>
+<?php include("inc/navigation.php"); ?>
 
 <!DOCTYPE html>
 <html>
-
-<?php include("inc/header.php"); ?>
-
 <body>
 
-<?php include("inc/navbar_loggedin.php"); ?>
-
-<div id="wrapper">
-
-    <div id="wrapper">
+    <div id="page-wrapper">
 
         <div class="container-fluid">
 
@@ -111,10 +96,6 @@
                                     }
                                 }
                                 echo "</td>";
-
-
-
-
 
                                 // Bearbeiten des Votings
                                 echo "<td><a class='fa fa-edit' href ='voting_update_form.php?id=".$voting->votingid."'></a></td>";

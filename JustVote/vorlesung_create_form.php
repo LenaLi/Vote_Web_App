@@ -7,7 +7,7 @@
 
 <body>
 
-<?php include("inc/navbar_loggedin.php"); ?>
+<?php include("inc/navigation.php"); ?>
 
 <div id="page-wrapper">
 
