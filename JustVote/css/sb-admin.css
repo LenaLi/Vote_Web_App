@@ -225,3 +225,17 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+
+
+.login {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.login-body {
+    background: #000000;
+    display: table;
+    text-align: center;
+    margin: auto;
+    padding-top: 10%;
+}
