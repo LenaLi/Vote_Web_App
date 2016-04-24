@@ -11,41 +11,65 @@
 require_once("Mapper/voting_manager.php");
 
 $votingmanager =new voting_manager();
-$votings = $votingmanager->findByVotingId(7);
+$votings = $votingmanager->findByVotingId(9);
 
 ?>
 
 
 <form action="vote_student_do.php" method="post">
     <table>
+
+        <tr></tr>
+
         <?php
-            echo '<h4>'.$votings.'</h4>';
+
             if($votings==null)
             {
                 //kein Datensatz gefunden
                 echo '<h2>Kein Datensatz wurde gefunden</h2>';
             }
-            foreach($votings as $voting)
+
+                //Schleife hier eigentlich nicht nötig, da id eindeutig und nur ein Datensatz zurückgegeben wird
+                foreach($votings as $voting)
             {
-                ?>
+
+        ?>
+               <tr>
+                   <td>
+                       <?php
+                       echo '<input type="radio" name="voting" value="A1"/>'.$voting->antwort_1;
+                           ?>
+                    </td>
+               </tr>
 
                 <tr>
                     <td>
-                        <h1>
-                            Achtung
-                            <?php
-                            $voting->frage;
-                            ?>
-                        </h1>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="radio" name="voting" value="A1"/>Antwort 1
+                        <?php
+                        echo '<input type="radio" name="voting" value="A2"/>'.$voting->antwort_2;
+                        ?>
                     </td>
                 </tr>
 
-        <?php
+                <?php
+                if ($voting->antwort_3!='')
+                {
+                    echo '<tr>
+                        <td>';
+                        echo '<input type="radio" name="voting" value="A2"/>'.$voting->antwort_3;
+                        echo '</td>
+                    </tr>';
+
+                }
+                if ($voting->antwort_4!='')
+                {
+                    echo '<tr>
+                        <td>';
+                    echo '<input type="radio" name="voting" value="A2"/>'.$voting->antwort_4;
+                    echo '</td>
+                    </tr>';
+
+                }
+
             }
         ?>
         <tr>

@@ -57,7 +57,7 @@ class voting_manager extends manager
             $stmt->bindParam(':votingid', $votingid);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting');
-            $voting = $stmt->fetch();
+            $voting = $stmt->fetchAll();
 
             return $voting;
 
