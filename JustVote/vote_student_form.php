@@ -19,6 +19,11 @@
                 Antwort 2
             </td>
         </tr>
+        <tr>
+            <td>
+                <input type="submit" name="Abschicken" value="Abschicken">
+            </td>
+        </tr>
     </table>
     </form>
 </body>
