@@ -12,6 +12,8 @@
                 <input type="radio" name="voting" value="A1"/>
                 Antwort 1
             </td>
+        </tr>
+        <tr>
             <td>
                 <input type="radio" name="voting" value="A2"/>
                 Antwort 2
