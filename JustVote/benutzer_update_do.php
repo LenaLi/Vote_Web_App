@@ -1,8 +1,7 @@
+<?php require_once("Mapper/benutzer_manager.php");?>
+<?php require_once("Mapper/benutzer.php");?>
+
 <?php
-
-require_once("Mapper/benutzer_manager.php");
-require_once("Mapper/benutzer.php");
-
 $id = (int)$_POST["id"];
 $vorname = htmlspecialchars($_POST["vorname"], ENT_QUOTES, "UTF-8");
 $nachname = htmlspecialchars($_POST["nachname"], ENT_QUOTES, "UTF-8");
@@ -19,4 +18,4 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)) {
 } else {
     echo "Error: Bitte alle Felder ausfüllen!";
 }
-
+?>

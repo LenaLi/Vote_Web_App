@@ -1,23 +1,19 @@
 
 <?php include("inc/session_check.php"); ?>
+<?php include("inc/header.php"); ?>
+<?php include("inc/navigation.php"); ?>
+<?php require_once ("Mapper/vorlesung.php"); ?>
+<?php require_once ("Mapper/vorlesung_manager.php"); ?>
 
 <!DOCTYPE html>
 <html>
 
-<?php include("inc/header.php"); ?>
-
 <body>
 
-<?php include("inc/navigation.php"); ?>
 <?php
-require_once ("Mapper/vorlesung.php");
-require_once ("Mapper/vorlesung_manager.php");
-
 $vorlesungsmanager = new vorlesung_manager();
 $benutzerid=$_SESSION["benutzerid"];
-$vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid); 
-
-
+$vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid);
 ?>
 <div id="page-wrapper">
 

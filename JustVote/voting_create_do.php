@@ -1,12 +1,10 @@
-<?php
-include("inc/session_check.php");
-require_once("Mapper/voting.php");
-require_once("Mapper/voting_manager.php");
-?>
+<?php include("inc/session_check.php"); ?>
+<?php require_once("Mapper/voting.php"); ?>
+<?php require_once("Mapper/voting_manager.php"); ?>
 
 <?php
-//POST Parameter
 
+//POST Parameter werden ausgelesen
 $vorlesungsid=$_POST["vorlesungsid"];
 $votingname=$_POST["votingname"];
 $frage=$_POST["frage"];
@@ -35,5 +33,5 @@ header('Location: uebersicht.php');
 else {
     echo "Error: Bitte alle Felder ausfüllen!";
 }
-
+?>
 

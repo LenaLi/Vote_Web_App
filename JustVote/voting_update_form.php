@@ -1,23 +1,21 @@
-<?php include("inc/session_check.php"); ?>
-<?php include("inc/header.php"); ?>
+<?php include("inc/session_check.php");?>
+<?php include("inc/header.php");?>
+<?php include("inc/navigation.php"); ?>
+<?php require_once("Mapper/voting_manager.php");?>
+<?php require_once("Mapper/voting.php");?>
 
 <!DOCTYPE html>
 <html>
 
 <?php
-require_once("Mapper/voting_manager.php");
-require_once("Mapper/voting.php");
-
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+
 $voting_manager = new voting_manager();
 $voting = $voting_manager->findByVotingId($votingid);
-
 echo $votingid;
 ?>
 
 <body>
-
-<?php include("inc/navigation.php"); ?>
 
 <div id="page-wrapper">
 

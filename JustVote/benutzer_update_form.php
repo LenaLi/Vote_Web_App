@@ -1,14 +1,11 @@
 <?php include("inc/session_check.php"); ?>
 <?php include("inc/session_check_admin.php"); ?>
+<?php include("inc/header.php"); ?>
+<?php require_once("Mapper/benutzer_manager.php");?>
+<?php require_once("Mapper/benutzer.php");?>
 
 <!DOCTYPE html>
 <html>
-
-<?php
-include("inc/header.php");
-require_once("Mapper/benutzer_manager.php");
-require_once("Mapper/benutzer.php");
-?>
 
 <?php
 $id = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");

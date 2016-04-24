@@ -1,7 +1,7 @@
-<?php
-require_once("manager.php");
-require_once("benutzer.php");
+<?php require_once("manager.php");?>
+<?php require_once("benutzer.php");?>
 
+<?php
 class benutzer_manager extends manager
 {
     protected $pdo;
@@ -64,13 +64,19 @@ class benutzer_manager extends manager
 
     }
 
-
     public function create($vorname,$nachname,$email,$role)
     {
-        $salt=""; // benötigt für Hashfunktion
-        $password="Standardpassword/Hash"; // TODO: hier muss Funktion der Passworterzeugung und Hash
+        // ZUFÄLLIGEN Salt generieren
+        $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+        $options = [
+            'salt' => $salt
+        ];
+        // Funktion, die zufällige Passwörter erzeugt
+        $password="password"; //TODO: Funktion, die zufällige Passwörter erzeugt statt "Passwort"
+        // password mit salt hashen
+        $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
 
-
+        // SQL Statement auf der Datenbank wird vorbereitet und ausgeführt
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO benutzer
@@ -82,7 +88,7 @@ class benutzer_manager extends manager
             $stmt->bindParam(':nachname', $nachname);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':role', $role);
-            $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':password', $password_hashed);
             $stmt->bindParam(":salt", $salt);
             $stmt->execute();
         } catch (PDOException $e) {
@@ -131,3 +137,4 @@ class benutzer_manager extends manager
         return null;
     }
 }
+?>
