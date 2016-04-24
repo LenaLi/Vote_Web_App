@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <form action="vote_student_do.php" method="get">
+    <form action="vote_student_do.php" method="post">
     <table>
 
     </table>
