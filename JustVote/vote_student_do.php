@@ -4,3 +4,4 @@
 
 <?php
 
+$ergebnis=$_POST ["voting"];
