@@ -56,16 +56,7 @@ $allebenutzer = $manager->findAll();
 
                         </tbody>
                     </table>
-
-                    <div class="form-group">
-                        <div class=" col-sm-6">
-                            <a href="benutzer_create_form.php">
-                                <button type="submit" class="btn btn-warning"> Benutzer hinzufügen</button>
-                            </a>
-                        </div>
-                    </div>
-
-
+                    
                 </div>
             </div>
         </div>
