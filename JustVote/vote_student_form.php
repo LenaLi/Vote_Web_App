@@ -2,16 +2,23 @@
 <?php include("inc/header.php"); ?>
 <?php include("inc/navigation.php"); ?>
 
-<?php include ("")
+
 <!DOCTYPE html>
 <html>
 <body>
-    <form action="vote_student_do.php" method="post">
+<?php>
+$votingmanager =new voting_manager();
+$voting = $votingmanager->findByVotingId_student(7);
+
+
+?>
+
+
+<form action="vote_student_do.php" method="post">
     <table>
         <tr>
             <td>
-                <input type="radio" name="voting" value="A1"/>
-                Antwort 1
+                <input type="radio" name="voting" value="A1"/>Antwort 1
             </td>
         </tr>
         <tr>
@@ -27,5 +34,6 @@
         </tr>
     </table>
     </form>
+
 </body>
 </html>
