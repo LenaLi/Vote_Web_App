@@ -11,7 +11,8 @@
 require_once("Mapper/voting_manager.php");
 
 $votingmanager =new voting_manager();
-$votings = $votingmanager->findByVotingId(9);
+$_SESSION["voting_id"] =7;
+$votings = $votingmanager->findByVotingId($_SESSION["voting_id"]);
 
 ?>
 
