@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-<?php>
+<?php
 $votingmanager =new voting_manager();
 $votings = $votingmanager->findByVotingId(7);
 
