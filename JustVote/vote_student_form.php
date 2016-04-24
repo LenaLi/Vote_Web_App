@@ -19,7 +19,6 @@ $votings = $votingmanager->findByVotingId(9);
 <form action="vote_student_do.php" method="post">
     <table>
 
-        <tr></tr>
 
         <?php
 
@@ -34,6 +33,15 @@ $votings = $votingmanager->findByVotingId(9);
             {
 
         ?>
+                <tr>
+                    <td>
+                        <?php
+                        echo '<h2>'.$voting->frage.'</h2>';
+                        ?>
+                    </td>
+                </tr>
+
+
                <tr>
                    <td>
                        <?php
