@@ -8,14 +8,28 @@
 <body>
 <?php>
 $votingmanager =new voting_manager();
-$voting = $votingmanager->findByVotingId_student(7);
+$votings = $votingmanager->findByVotingId(7);
 
+if($votings==null)
+{
+    //kein Datensatz gefunden
+    echo '<h2>Kein Datensatz wurde gefunden</h2>';
+}
 
 ?>
 
 
 <form action="vote_student_do.php" method="post">
     <table>
+        <tr>
+            <td>
+                <h1>
+                    <?php
+                    $votings->frage;
+                    ?>
+                </h1>
+            </td>
+        </tr>
         <tr>
             <td>
                 <input type="radio" name="voting" value="A1"/>Antwort 1
