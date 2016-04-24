@@ -136,4 +136,49 @@ class voting_manager extends manager
         }
         return null;
     }
+
+    public function inputresult ($student_id, $ergebnis)
+    {
+
+        try {
+            $stmt = $this->pdo->prepare('
+              INSERT INTO ergebnis
+                (student_id, ergebnis)
+              VALUES
+                (:student_id, :ergebnis)
+            ');
+            $stmt->bindParam(':student_id', $student_id);
+            $stmt->bindParam(':ergebnis', $ergebnis);
+
+
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            return null;
+        }
+        return true;
+    }
+
+    public function beziehungvotingstudent ($voting_id, $student_id)
+    {
+
+        try {
+            $stmt = $this->pdo->prepare('
+              INSERT INTO voting_student
+                (voting_id, student_id)
+              VALUES
+                (:voting_id, :student_id)
+            ');
+            $stmt->bindParam(':voting_id', $voting_id);
+            $stmt->bindParam(':student_id', $student_id);
+
+
+
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            return null;
+        }
+        return true;
+    }
 }
