@@ -53,7 +53,7 @@ class voting_manager extends manager
     public function findByVotingId($votingid)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE  votingid= :votingid');
+            $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE votingid = :votingid');
             $stmt->bindParam(':votingid', $votingid);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting');
