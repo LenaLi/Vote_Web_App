@@ -1,13 +1,15 @@
 <?php include("inc/session_check.php"); ?>
+<?php include("inc/header.php"); ?>
 
 <!DOCTYPE html>
 <html>
 
-<?php include("inc/header.php"); ?>
 
 
+
+<!--
 <body class="login-body">
-        <!-- LOGO -->
+        <!-- LOGO
         <div class="login-body">
             <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
         </div>
@@ -34,3 +36,4 @@
         </div>
 </body>
 </html>
+-->
