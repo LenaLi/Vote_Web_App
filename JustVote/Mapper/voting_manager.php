@@ -17,7 +17,8 @@ class voting_manager extends manager
         parent::__destruct();
     }
 
-    public function findAll(){
+    public function findAll()
+    {
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM voting');
             $stmt->execute();
@@ -68,7 +69,7 @@ class voting_manager extends manager
 
     }
 
-    public function create ($vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $startdatum, $enddatum)
+    public function create($vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $startdatum, $enddatum)
     {
 
         try {
@@ -96,7 +97,7 @@ class voting_manager extends manager
         return true;
     }
 
-    public function update($votingid, $vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2 ,$antwort_3,$antwort_4, $startdatum, $enddatum)
+    public function update($votingid, $vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $startdatum, $enddatum)
     {
         try {
             $stmt = $this->pdo->prepare('
@@ -137,7 +138,7 @@ class voting_manager extends manager
         return null;
     }
 
-    public function inputresult ($voting_id, $ergebnis)
+    public function inputresult($voting_id, $ergebnis)
     {
 
         try {
@@ -159,7 +160,7 @@ class voting_manager extends manager
         return true;
     }
 
-    public function beziehungvotingstudent ($voting_id, $student_id)
+    public function beziehungvotingstudent($voting_id, $student_id)
     {
 
         try {
@@ -173,7 +174,6 @@ class voting_manager extends manager
             $stmt->bindParam(':student_id', $student_id);
 
 
-
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
@@ -182,15 +182,15 @@ class voting_manager extends manager
         return true;
     }
 
-    public function findByAntwort ($voting_id, $ergebnis) //man braucht voting_id dass man nur die Antworten dieses Votings ausliest, und nicht die von anderen auch
+    public function findByAntwort($voting_id, $ergebnis) //man braucht voting_id dass man nur die Antworten dieses Votings ausliest, und nicht die von anderen auch
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT COUNT(ergebnis)FROM `ergebnis` WHERE ergebnis=":ergebnis" AND voting_id=":voting_id" ');
-            $stmt->bindParam(':voting_is', $voting_id);
+            $stmt = $this->pdo->prepare('SELECT COUNT(ergebnis)AS anzahl FROM ergebnis WHERE ergebnis= :ergebnis ');
+           // $stmt->bindParam(':voting_id', $voting_id);
             $stmt->bindParam(':ergebnis', $ergebnis);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'ergebnis');
-            $votings = $stmt->fetchAll();
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'anzahl');
+            $votings = $stmt->fetch();
 
             return $votings;
 
@@ -199,3 +199,6 @@ class voting_manager extends manager
             die();
 
         }
+    }
+}
+?>

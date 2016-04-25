@@ -8,12 +8,45 @@
 <div id="diagramm">
 
     <?php
+    $antwort_1=0;
+    $antwort_2=0;
+    $antwort_3=0;
+    $antwort_4=0;
 
     $ergebnisse= new voting_manager();
     $ergebnisse->findByAntwort($_SESSION ["voting_id"], "antwort_1");
     foreach ($ergebnisse as $ergebnis)
+    {
+        $antwort_1 = $ergebnis->anzahl;
+    }
 
-    //$gesamt= 100 + 20 + 70 + 40;
+    $ergebnisse= new voting_manager();
+    $ergebnisse->findByAntwort($_SESSION ["voting_id"], "antwort_2");
+    foreach ($ergebnisse as $ergebnis)
+    {
+        $antwort_2 = $ergebnis->anzahl;
+    }
+
+    $ergebnisse= new voting_manager();
+    $ergebnisse->findByAntwort($_SESSION ["voting_id"], "antwort_3");
+    foreach ($ergebnisse as $ergebnis)
+    {
+        $antwort_3 = $ergebnis->anzahl;
+    }
+
+    $ergebnisse= new voting_manager();
+    $ergebnisse->findByAntwort($_SESSION ["voting_id"], "antwort_4");
+    foreach ($ergebnisse as $ergebnis)
+    {
+        $antwort_4 = $ergebnis->anzahl;
+    }
+
+    echo $antwort_1;
+    echo $antwort_2;
+    echo $antwort_3;
+    echo $antwort_4;
+
+    /*//$gesamt= 100 + 20 + 70 + 40;
 
     $gesamt=$antwort_1 + $antwort_2 + $antwort_3 + $antwort_4;
     $antwort_1prozent=$antwort_1*100 / $gesamt;
@@ -27,6 +60,7 @@
     $a3_balken=$antwort_3prozent * 3;
     $a4_balken=$antwort_4prozent * 3;
     ?>
+
 
     <table>
         <tr>
@@ -50,6 +84,8 @@
             <td><?php echo $antwort_4prozent; ?> %</td>
         </tr>
     </table>
+
+
 
     <!--
     $balken_x = $abstand;
