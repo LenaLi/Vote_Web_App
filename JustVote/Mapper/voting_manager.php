@@ -137,17 +137,17 @@ class voting_manager extends manager
         return null;
     }
 
-    public function inputresult ($student_id, $ergebnis)
+    public function inputresult ($voting_id, $ergebnis)
     {
 
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO ergebnis
-                (student_id, ergebnis)
+                (voting_id, ergebnis)
               VALUES
-                (:student_id, :ergebnis)
+                (:voting_id, :ergebnis)
             ');
-            $stmt->bindParam(':student_id', $student_id);
+            $stmt->bindParam(':voting_id', $voting_id);
             $stmt->bindParam(':ergebnis', $ergebnis);
 
 

@@ -8,6 +8,5 @@ $ergebnis=$_POST ["voting"];
 $voting_id=$_SESSION ["voting_id"];
 
 $manager=new voting_manager();
-$manager->inputresult($voting_id, $ergebnis)
-
+$manager->inputresult($voting_id, $ergebnis);
 ?>
