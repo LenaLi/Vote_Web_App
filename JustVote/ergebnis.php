@@ -16,7 +16,12 @@ $link=mysql_connect($dsn, $dbuser, $dbpass);
 $sqlstring='SELECT * FROM ergebnis';
 $result=mysql_querry($sqlstring);
 
+while ($line=mysql_fetch_array($result, mysql_both))
 
+{
+
+    echo $line["Spalte"];
+}
 ?>
 
 
