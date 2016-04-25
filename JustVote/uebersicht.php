@@ -1,6 +1,6 @@
 <?php
 include("inc/session_check.php");
-include("inc/navigation.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ include("inc/navigation.php");
 
 <?php include("inc/header.php"); ?>
 <body>
-
+<?php include("inc/navigation.php");?>
     <div id="page-wrapper">
 
         <div class="container-fluid">

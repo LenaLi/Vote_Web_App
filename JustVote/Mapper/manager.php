@@ -31,3 +31,4 @@ class manager
         $this->pdo = null;
     }
 }
+?>
