@@ -3,7 +3,27 @@
 
 <!DOCTYPE html>
 <html>
+<body>
+<div id="diagramm">
+    <div class="result" style="width: 150px; height: 400px; background-color: #d58512;">
 
+
+    </div>
+
+    <div class="result" style="width: 150px; height: 400px; background-color: pink;">>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+
+
+</html>
 
 
 
