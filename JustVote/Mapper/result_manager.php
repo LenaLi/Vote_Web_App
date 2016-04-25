@@ -1,8 +1,8 @@
 <?php
 require_once("manager.php");
-require_once("ergebnis.php");
+require_once("result.php");
 
-class ergebnis_manager extends manager
+class result_manager extends manager
 {
     protected $pdo;
 
@@ -43,7 +43,7 @@ class ergebnis_manager extends manager
     public function findByErgebnis($votingid, $ergebnis)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT * FROM ergebnis WHERE voting_id = :votingid');
+            $stmt = $this->pdo->prepare('SELECT COUNT (ergebnis) AS anzahl FROM ergebnis WHERE voting_id = :votingid AND ergebnis= :ergebnis');
             $stmt->bindParam(':votingid', $votingid);
             $stmt->bindParam(':ergebnis', $ergebnis);
             $stmt->execute();

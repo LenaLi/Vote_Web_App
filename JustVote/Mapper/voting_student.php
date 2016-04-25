@@ -2,4 +2,4 @@
 
 class voting_student
 
-public $
+//public $

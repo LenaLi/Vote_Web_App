@@ -1,14 +1,14 @@
 <?php include("inc/session_check.php"); ?>
 <?php include("inc/header.php")?>
 <?php include("inc/navigation.php")?>
-<?php require_once("Mapper/voting_manager.php"); ?>
+<?php require_once("Mapper/result_manager.php"); ?>
 
 <?php
 
 $ergebnis=$_POST ["voting"];
 $voting_id=$_SESSION ["voting_id"];
 
-$manager=new voting_manager();
+$manager=new result_manager();
 $manager->inputresult($voting_id, $ergebnis);
 ?>
 
