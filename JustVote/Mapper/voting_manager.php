@@ -185,30 +185,14 @@ class voting_manager extends manager
         }
         return true;
     }
-    public function findByVotingId22222($votingid)
-    {
-        try {
-            $stmt = $this->pdo->prepare('SELECT * FROM ergebnis WHERE voting_id = :votingid');
-            $stmt->bindParam(':votingid', $votingid);
-            $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting');
-            $voting = $stmt->fetchAll();
 
-            return $voting;
-
-        } catch (PDOException $e) {
-            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            die();
-        }
-
-    }
 
     public function findByErgebnis($votingid, $ergebnis)
     {
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM ergebnis WHERE voting_id = :votingid');
             $stmt->bindParam(':votingid', $votingid);
-            //$stmt->bindParam(':ergebnis', $ergebnis);
+            $stmt->bindParam(':ergebnis', $ergebnis);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'ergebnis');
             $ergebnisse = $stmt->fetchAll();
