@@ -1,50 +1,38 @@
 <?php include("inc/session_check.php"); ?>
 <?php include("inc/header.php"); ?>
-<?php include ("Mapper/voting_manager.php");?>
+
 
 <!DOCTYPE html>
 <html>
 <body>
-<div id="diagramm">
+
 
     <?php
+
+    require_once("Mapper/voting_manager.php");
+
     $antwort_1=0;
     $antwort_2=0;
     $antwort_3=0;
     $antwort_4=0;
 
-    $ergebnisse= new voting_manager();
-    $ergebnisse->findByAntwort($_SESSION ["voting_id"], "antwort_1");
-    foreach ($ergebnisse as $ergebnis)
+    $votingmanager =new voting_manager();
+    $_SESSION["voting_id"] =7;
+    $votings = $votingmanager->findByVotingId($_SESSION["voting_id"]);
+
+    if($votings==null)
     {
-        $antwort_1 = $ergebnis->anzahl;
+        //kein Datensatz gefunden
+        echo '<h2>Kein Datensatz wurde gefunden</h2>';
     }
 
-    $ergebnisse= new voting_manager();
-    $ergebnisse->findByAntwort($_SESSION ["voting_id"], "antwort_2");
-    foreach ($ergebnisse as $ergebnis)
+    //Schleife hier eigentlich nicht nötig, da id eindeutig und nur ein Datensatz zurückgegeben wird
+    foreach($votings as $voting)
     {
-        $antwort_2 = $ergebnis->anzahl;
+        echo $voting->voting_id;
     }
 
-    $ergebnisse= new voting_manager();
-    $ergebnisse->findByAntwort($_SESSION ["voting_id"], "antwort_3");
-    foreach ($ergebnisse as $ergebnis)
-    {
-        $antwort_3 = $ergebnis->anzahl;
-    }
 
-    $ergebnisse= new voting_manager();
-    $ergebnisse->findByAntwort($_SESSION ["voting_id"], "antwort_4");
-    foreach ($ergebnisse as $ergebnis)
-    {
-        $antwort_4 = $ergebnis->anzahl;
-    }
-
-    echo $antwort_1;
-    echo $antwort_2;
-    echo $antwort_3;
-    echo $antwort_4;
 
     /*//$gesamt= 100 + 20 + 70 + 40;
 
@@ -162,7 +150,7 @@
         echo '</div>';*/
     ?>
 
-</div>
+
 
 
 </body>
