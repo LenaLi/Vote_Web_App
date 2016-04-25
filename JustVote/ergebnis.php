@@ -9,6 +9,8 @@
 
     <?php
 
+    //$gesamt= 100 + 20 + 70 + 40;
+
     $gesamt=$antwort_1 + $antwort_2 + $antwort_3 + $antwort_4;
     $antwort_1prozent=$antwort_1*100 / $gesamt;
     $antwort_2prozent=$antwort_2*100 / $gesamt;

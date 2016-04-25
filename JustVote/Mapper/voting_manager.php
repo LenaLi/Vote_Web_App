@@ -181,4 +181,21 @@ class voting_manager extends manager
         }
         return true;
     }
-}
+
+    public function findByAntwort ($voting_id, $ergebnis) //man braucht voting_id dass man nur die Antworten dieses Votings ausliest, und nicht die von anderen auch
+    {
+        try {
+            $stmt = $this->pdo->prepare('SELECT COUNT(ergebnis)FROM `ergebnis` WHERE ergebnis=":ergebnis" AND voting_id=":voting_id" ');
+            $stmt->bindParam(':voting_is', $voting_id);
+            $stmt->bindParam(':ergebnis', $ergebnis);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'ergebnis');
+            $votings = $stmt->fetchAll();
+
+            return $votings;
+
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            die();
+
+        }
