@@ -1,8 +1,7 @@
-<?php include("inc/session_check.php"); ?>
-<?php require_once("Mapper/voting.php"); ?>
-<?php require_once("Mapper/voting_manager.php"); ?>
-
 <?php
+include("inc/session_check.php");
+require_once("Mapper/voting.php");
+require_once("Mapper/voting_manager.php");
 
 //POST Parameter werden ausgelesen
 $vorlesungsid=$_POST["vorlesungsid"];

@@ -1,7 +1,7 @@
-<?php require_once("Mapper/voting_manager.php");?>
-<?php require_once("Mapper/voting.php");?>
-
 <?php
+require_once("Mapper/voting_manager.php");
+require_once("Mapper/voting.php");
+
 $votingid = (int)$_POST["votingid"];
 $vorlesungsid=(int)$_POST["vorlesungsid"];
 $votingname=$_POST["votingname"];

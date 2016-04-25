@@ -1,8 +1,7 @@
-<?php include("inc/header.php"); ?>
-<?php require_once("Mapper/benutzer.php"); ?>
-<?php require_once("Mapper/benutzer_manager.php"); ?>
+<?php 
+require_once("Mapper/benutzer.php");
+require_once("Mapper/benutzer_manager.php");
 
-<?php
 // Datenbankabfrage und Passwortprüfung
 
 // POST Parameter auslesen, die Nutzer eingegeben hat

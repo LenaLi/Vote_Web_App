@@ -1,7 +1,7 @@
-<?php require_once("manager.php");?>
-<?php require_once("benutzer.php");?>
+<?php 
+require_once("manager.php");
+require_once("benutzer.php");
 
-<?php
 class benutzer_manager extends manager
 {
     protected $pdo;

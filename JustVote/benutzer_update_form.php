@@ -1,8 +1,9 @@
-<?php include("inc/session_check.php"); ?>
-<?php include("inc/session_check_admin.php"); ?>
-<?php include("inc/header.php"); ?>
-<?php require_once("Mapper/benutzer_manager.php");?>
-<?php require_once("Mapper/benutzer.php");?>
+<?php
+include("inc/session_check.php");
+include("inc/session_check_admin.php");
+require_once("Mapper/benutzer_manager.php");
+require_once("Mapper/benutzer.php");
+?>
 
 <!DOCTYPE html>
 <html>
@@ -13,6 +14,8 @@ $benutzer_manager = new benutzer_manager();
 $benutzer = $benutzer_manager->findById($id);
 echo $id;
 ?>
+
+<?php include("inc/header.php"); ?>
 
 <body>
 

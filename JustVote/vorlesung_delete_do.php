@@ -1,8 +1,8 @@
-<?php include("inc/session_check.php");?>
-<?php require_once("Mapper/vorlesung.php");?>
-<?php require_once("Mapper/vorlesung_manager.php");?>
-
 <?php
+include("inc/session_check.php");
+require_once("Mapper/vorlesung.php");
+require_once("Mapper/vorlesung_manager.php");
+
 $vorlesungsid = (int)htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 
 $vorlesung_manager = new vorlesung_manager();

@@ -1,8 +1,8 @@
-<?php include("inc/session_check.php"); ?>
-<?php include("inc/session_check_admin.php"); ?>
-<?php include("inc/header.php"); ?>
-<?php require_once("Mapper/benutzer.php"); ?>
-<?php require_once("Mapper/benutzer_manager.php"); ?>
+<?php
+include("inc/session_check.php");
+include("inc/session_check_admin.php");
+require_once("Mapper/benutzer.php");
+require_once("Mapper/benutzer_manager.php"); ?>
 
 
 <!DOCTYPE html>
@@ -12,6 +12,8 @@
 $manager=new benutzer_manager();
 $allebenutzer = $manager->findAll();
 ?>
+
+<?php include("inc/header.php"); ?>
 
 <body>
 
