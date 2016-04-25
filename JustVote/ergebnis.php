@@ -15,11 +15,35 @@
     $antwort_3prozent=$antwort_3*100 / $gesamt;
     $antwort_4prozent=$antwort_4*100 / $gesamt;
 
-
-
-
+    //Maximale Breite des Balken = 300px bei 100%, dh. max breite/100 = 3px Breite
+    $a1_balken=$antwort_1prozent * 3;
+    $a2_balken=$antwort_2prozent * 3;
+    $a3_balken=$antwort_3prozent * 3;
+    $a4_balken=$antwort_4prozent * 3;
     ?>
 
+    <table>
+        <tr>
+            <td>Antwort 1</td>
+            <td><img src="balken.gif" width="<?php echo $a1_balken; ?>" height="10" alt="<?php echo $antwort_1prozent; ?> %" /></td>
+            <td><?php echo $antwort_1prozent; ?> %</td>
+        </tr>
+        <tr>
+            <td>Antwort 2</td>
+            <td><img src="balken.gif" width="<?php echo $a2_balken; ?>" height="10" alt="<?php echo $antwort_2prozent; ?> %" /></td>
+            <td><?php echo $antwort_2prozent; ?> %</td>
+        </tr>
+        <tr>
+            <td>Antwort 3</td>
+            <td><img src="balken.gif" width="<?php echo $a3_balken; ?>" height="10" alt="<?php echo $antwort_3prozent; ?> %" /></td>
+            <td><?php echo $antwort_3prozent; ?> %</td>
+        </tr>
+        <tr>
+            <td>Antwort 4</td>
+            <td><img src="balken.gif" width="<?php echo $a4_balken; ?>" height="10" alt="<?php echo $antwort_4prozent; ?> %" /></td>
+            <td><?php echo $antwort_4prozent; ?> %</td>
+        </tr>
+    </table>
 
     <!--
     $balken_x = $abstand;
