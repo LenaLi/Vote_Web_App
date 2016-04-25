@@ -1,5 +1,6 @@
 <?php include("inc/session_check.php"); ?>
-<?php require_once("vote_student_form.php"); ?>
+<?php include("inc/header.php")?>
+<?php include("inc/navigation.php")?>
 <?php require_once("Mapper/voting_manager.php"); ?>
 
 <?php
@@ -16,10 +17,11 @@ $manager->inputresult($voting_id, $ergebnis);
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Danke f&uuml;rs Abstimmen!</h1>
-<form action="ergebnis.php" method="post">
-<input type="submit" name="Zu den Ergebnissen" value="Zu den Ergebnissen"/>
-
+    <div>
+        <h1>Danke f&uuml;rs Abstimmen!</h1>
+        <form action="ergebnis.php" method="post">
+        <input type="submit" name="Zu den Ergebnissen" value="Zu den Ergebnissen"/>
+    </div>
 </body>
 
 </html>
