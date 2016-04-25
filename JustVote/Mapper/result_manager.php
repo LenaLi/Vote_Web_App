@@ -22,7 +22,7 @@ class result_manager extends manager
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO ergebnis
-                (voting_id, ergebnis)
+                (voting_id, result)
               VALUES
                 (:voting_id, :ergebnis)
             ');
@@ -40,17 +40,17 @@ class result_manager extends manager
 
 
 
-    public function findByErgebnis($votingid, $ergebnis)
+    public function findByErgebnis($votingid, $ergebnis11)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT COUNT (ergebnis) AS anzahl FROM ergebnis WHERE voting_id = :votingid AND ergebnis= :ergebnis');
+            $stmt = $this->pdo->prepare('SELECT COUNT(result) AS anzahl FROM ergebnis WHERE voting_id = :votingid ');
             $stmt->bindParam(':votingid', $votingid);
-            $stmt->bindParam(':ergebnis', $ergebnis);
+            //$stmt->bindParam(':ergebnis', $ergebnis11);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'ergebnis');
-            $ergebnisse = $stmt->fetchAll();
+            $ergebnis = $stmt->fetchAll();
 
-            return $ergebnisse;
+            return $ergebnis;
 
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
