@@ -18,6 +18,7 @@ class benutzer_manager extends manager
 
     public function findAll(){
         try {
+            // Lese alle Benutzer aus der Datenbank aus
             $stmt = $this->pdo->prepare('SELECT * FROM benutzer');
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'benutzer');
@@ -34,6 +35,7 @@ class benutzer_manager extends manager
     public function findByEmail($email)
     {
         try {
+            // Lese einer zur Email zugehörigen Benutzer aus
             $stmt = $this->pdo->prepare('SELECT * FROM benutzer WHERE  email= :email');
             $stmt->bindParam(':email', $email);
             $stmt->execute();
@@ -51,6 +53,7 @@ class benutzer_manager extends manager
     public function findById($id)
     {
         try {
+            // Lese einen zu einer bestimmten ID gehörigen Benutzer aus
             $stmt = $this->pdo->prepare('SELECT * FROM benutzer WHERE id = :id');
             $stmt->bindParam(':id', $id);
             $stmt->execute();
@@ -66,17 +69,17 @@ class benutzer_manager extends manager
 
     public function create($vorname,$nachname,$email,$role)
     {
-        // ZUFÄLLIGEN Salt generieren
+        // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
         $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
         $options = [
             'salt' => $salt
         ];
         // Funktion, die zufällige Passwörter erzeugt
         $password="password"; //TODO: Funktion, die zufällige Passwörter erzeugt statt "Passwort"
-        // password mit salt hashen
+        // Password wird mit salt gehasht
         $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
 
-        // SQL Statement auf der Datenbank wird vorbereitet und ausgeführt
+        // Füge einen Benutzer der Datenbank hinzu (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO benutzer
@@ -101,6 +104,7 @@ class benutzer_manager extends manager
     public function update(benutzer $benutzer)
     {
         try {
+            // Updaten eines zu einer bestimmten ID gehörenden Benutzer (Attribute siehe unten)
             $stmt = $this->pdo->prepare('
               UPDATE benutzer
               SET vorname = :vorname,
@@ -125,6 +129,7 @@ class benutzer_manager extends manager
     public function delete(benutzer $benutzer)
     {
         try {
+            // Löschen eines zu einer bestimmten ID gehörenden Benutzer
             $stmt = $this->pdo->prepare('
               DELETE FROM benutzer WHERE id= :id
             ');

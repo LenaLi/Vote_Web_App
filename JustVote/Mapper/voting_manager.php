@@ -16,7 +16,7 @@ class voting_manager extends manager
     {
         parent::__destruct();
     }
-
+    // Lese alle Votings aus der Datenbank aus
     public function findAll(){
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM voting');
@@ -34,6 +34,7 @@ class voting_manager extends manager
 
     public function findByVorlesungsId($vorlesungsid)
     {
+        // Lese alle Votings aus der Datenbank aus, welche zu einer bestimmten vorlesungsid gehören
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE  vorlesungsid= :vorlesungsid');
             $stmt->bindParam(':vorlesungsid', $vorlesungsid);
@@ -52,6 +53,7 @@ class voting_manager extends manager
 
     public function findByVotingId($votingid)
     {
+        // Lese alle Votings aus der Datenbank aus, die zu einer bestimmten Votingid gehören
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE votingid = :votingid');
             $stmt->bindParam(':votingid', $votingid);
@@ -70,7 +72,7 @@ class voting_manager extends manager
 
     public function create ($vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $startdatum, $enddatum)
     {
-
+        // Füge ein Voting der Datenbank hinzu (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO voting
@@ -95,7 +97,7 @@ class voting_manager extends manager
         }
         return true;
     }
-
+    // Updaten eines zu einer bestimmten ID gehörenden Benutzer (Attribute siehe unten)
     public function update($votingid, $vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2 ,$antwort_3,$antwort_4, $startdatum, $enddatum)
     {
         try {
