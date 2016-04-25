@@ -1,8 +1,9 @@
-<?php include("inc/session_check.php");?>
-<?php require_once ("Mapper/voting.php");?>
-<?php require_once ("Mapper/voting_manager.php");?>
-
 <?php
+include("inc/session_check.php");
+require_once ("Mapper/voting.php");
+require_once ("Mapper/voting_manager.php");
+
+
 $votingid=$_GET["id"];
 
 $voting_manager=new voting_manager();

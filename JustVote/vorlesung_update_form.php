@@ -1,10 +1,13 @@
-<?php include("inc/session_check.php"); ?>
-<?php include("inc/header.php"); ?>
-<?php require_once("Mapper/vorlesung_manager.php"); ?>
-<?php require_once("Mapper/vorlesung.php"); ?>
+<?php
+include("inc/session_check.php");
+require_once("Mapper/vorlesung_manager.php");
+require_once("Mapper/vorlesung.php");
+?>
 
 <!DOCTYPE html>
 <html>
+
+<?php include("inc/header.php"); ?>
 
 <?php
 
@@ -14,6 +17,7 @@ $vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsid);
 
 echo $vorlesungsid;
 ?>
+
 
 <body>
 

@@ -1,7 +1,8 @@
-<?php require_once("Mapper/vorlesung_manager.php");?>
-<?php require_once("Mapper/vorlesung.php");?>
-
 <?php
+require_once("Mapper/vorlesung_manager.php");
+require_once("Mapper/vorlesung.php");
+
+
 $vorlesungsid = (int)$_POST["vorlesungsid"];
 $vorlesungsname = htmlspecialchars($_POST["vorlesungsname"], ENT_QUOTES, "UTF-8");
 

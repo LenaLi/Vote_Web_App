@@ -1,9 +1,12 @@
-<?php include("inc/session_check.php"); ?>
-<?php include("inc/header.php"); ?>
-<?php include("inc/navigation.php"); ?>
+<?php
+include("inc/session_check.php");
+include("inc/navigation.php");
+?>
 
 <!DOCTYPE html>
 <html>
+
+<?php include("inc/header.php"); ?>
 <body>
 
     <div id="page-wrapper">
