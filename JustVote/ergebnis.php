@@ -1,5 +1,6 @@
 <?php include("inc/session_check.php"); ?>
 <?php include("inc/header.php"); ?>
+<?php include ("Mapper/voting_manager.php");?>
 
 <!DOCTYPE html>
 <html>
@@ -8,6 +9,19 @@
 
     <?php
 
+    $gesamt=$antwort_1 + $antwort_2 + $antwort_3 + $antwort_4;
+    $antwort_1prozent=$antwort_1*100 / $gesamt;
+    $antwort_2prozent=$antwort_2*100 / $gesamt;
+    $antwort_3prozent=$antwort_3*100 / $gesamt;
+    $antwort_4prozent=$antwort_4*100 / $gesamt;
+
+
+
+
+    ?>
+
+
+    <!--
     $balken_x = $abstand;
     $balken_y = $hoehe - $abstand;
     $balken_b = 2 * $abstand;
@@ -58,9 +72,9 @@
     $legende_versatz = $legende_versatz
     + 2 * $legende_abstand;
 
+-->
 
 
-?>
 
 
     <?php
