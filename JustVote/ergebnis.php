@@ -9,8 +9,9 @@
 
     <?php
 
-    $ergebnis= new voting_manager();
-    $ergebnis->findByAntwort($voting_id, $ergebnis);
+    $ergebnisse= new voting_manager();
+    $ergebnisse->findByAntwort($_SESSION ["voting_id"], "antwort_1");
+    foreach ($ergebnisse as $ergebnis)
 
     //$gesamt= 100 + 20 + 70 + 40;
 
