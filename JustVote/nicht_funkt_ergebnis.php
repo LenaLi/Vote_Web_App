@@ -8,8 +8,7 @@
 
 
     <?php
-
-    require_once("Mapper/voting_manager.php");
+    include("Mapper/voting_manager.php");
 
     $antwort_1=0;
     $antwort_2=0;
