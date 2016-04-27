@@ -3,17 +3,17 @@ include("inc/session_check.php");
 require_once("Mapper/benutzer.php");
 require_once("Mapper/benutzer_manager.php");
 
-//POST Parameter werden ausgelesen (vorname, nachname, email, role)
+//POST Parameter auslesen
 $vorname=$_POST["vorname"];
 $nachname=$_POST["nachname"];
 $email=$_POST["email"];
 $role=$_POST["role"];
 
-//Datenbankverbindung aufbauen
+// Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
 $manager=new benutzer_manager();
-
+// neuen Benutzer erzeugen mit den POST Parametern
 $manager->create($vorname,$nachname,$email,$role);
 
-//Weiterleitung auf benutzer_read oder Fehlermeldung (keine Dopplungen, keine Berechtigungen)
+//Weiterleitung auf benutzer_read
 header('Location: benutzer_read.php');
 ?>
