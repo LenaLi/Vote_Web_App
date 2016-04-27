@@ -2,6 +2,7 @@
 require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
 
+// POST Parameter auslesen
 $votingid = (int)htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
 $vorlesungsid=(int)htmlspecialchars($_POST["vorlesungsid"], ENT_QUOTES, "UTF-8");
 $votingname=htmlspecialchars($_POST["votingname"], ENT_QUOTES, "UTF-8");
@@ -15,6 +16,7 @@ $enddatum=htmlspecialchars($_POST["enddatum"], ENT_QUOTES, "UTF-8");
 
 
 if (!empty($votingid) && !empty($votingname)&& !empty($frage)&& !empty($antwort_1) && !empty($antwort_2)&& !empty($startdatum)&& !empty($enddatum)) {
+    // Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
     $voting_manager = new voting_manager();
     $voting_manager->update($votingid, $vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $startdatum, $enddatum );
 
