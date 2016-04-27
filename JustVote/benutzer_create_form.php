@@ -17,8 +17,8 @@ include("inc/session_check_admin.php");?>
                 <div class="col-lg-12">
 
                     <h2>Benutzer hinzufügen</h2>
-                    
-                    <!-- Beginn Formular "Benutzer hinzufügen -->
+
+                    <!-- Beginn Formular "Benutzer hinzufügen" -->
                     <form class="form-horizontal" role="form" action="benutzer_create_do.php" method="post">
 
                         <!-- Texteingabefeld für Vorname-->

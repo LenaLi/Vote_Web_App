@@ -12,7 +12,9 @@ require_once("Mapper/vorlesung.php");
 <?php
 
 $vorlesungsid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+
 $vorlesung_manager = new vorlesung_manager();
+
 $vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsid);
 
 echo $vorlesungsid;

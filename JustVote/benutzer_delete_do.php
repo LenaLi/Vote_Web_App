@@ -12,7 +12,7 @@ $benutzer_manager = new benutzer_manager();
 // lese Benutzer mit Benutzer-ID aus Datenbank aus
 $benutzer = $benutzer_manager->findById($id);
 
-// Objekt Benutzer löschen in der Datenbank löschen
+// Benutzer löschen in der Datenbank 
 $benutzer_manager->delete($benutzer);
 
 // Weiterleitung auf die Übersichtsseite der Benutzer
