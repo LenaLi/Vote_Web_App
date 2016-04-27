@@ -42,14 +42,13 @@ include("inc/session_check_admin.php");?>
                                 <select name="role">
                                     <option value="Benutzer" selected>Benutzer</option>
                                     <option value="Admin">Admin</option>
-                                    <option value="Student">Student</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class=" col-sm-6">
-                                <button type="submit" class="btn btn-warning"> Benutzer hinzufügen</button>
+                                <button type="submit" class="btn btn-warning"> Erstellen</button>
                             </div>
                         </div>
 

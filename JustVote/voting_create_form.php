@@ -13,7 +13,9 @@ require_once ("Mapper/vorlesung_manager.php");
 <?php include("inc/navigation.php"); ?>
 
 <?php
+// Datenbankobjekt Vorlesungsmanager erzeugen
 $vorlesungsmanager = new vorlesung_manager();
+// Benutzerid aus Session auslesen
 $benutzerid=$_SESSION["benutzerid"];
 $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid);
 ?>
@@ -35,7 +37,10 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid);
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
+                            <label>Vorlesung auswählen: </label>
+                            </div>
+                            <div class="col-sm-3">
                         <select class="c-select" name="vorlesungsid">
                             <?php
                             foreach($vorlesungen as $vorlesung){
@@ -47,7 +52,9 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid);
                             ?>
                         </select>
                             </div>
+
                         </div>
+
 
 
                         <div class="form-group">

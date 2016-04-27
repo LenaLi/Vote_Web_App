@@ -33,7 +33,7 @@
                         
                         <div class="form-group">
                             <div class=" col-sm-6">
-                                <button type="submit" class="btn btn-warning"> Vorlesung hinzufügen</button>
+                                <button type="submit" class="btn btn-warning"> Erstellen</button>
                             </div>
                         </div>
 
