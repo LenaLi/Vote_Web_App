@@ -2,7 +2,8 @@
 require_once ("Mapper/voting.php");
 require_once ("Mapper/voting_manager.php");
 
-$votingid=$_GET["id"];
+// Vorting-ID aus GET Parameter auslesen
+$votingId=(int)htmlspecialchars ($_GET["id"], ENT_QUOTES, "UTF-8");
 
 $voting_manager=new voting_manager();
 $voting=$voting_manager->findByVotingId($votingid);

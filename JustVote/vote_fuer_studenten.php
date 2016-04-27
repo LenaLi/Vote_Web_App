@@ -44,7 +44,7 @@
                         foreach($votings as $voting){
                             echo "<table class='table table-hover'>";
 
-                            $votings=$votingmanager->findByVotingId($votings->$votingid);
+                            $votings=$votingmanager->findByVotingId($votings->$votingId);
 
                             foreach($votings as $voting){
                                 echo "<tr>";

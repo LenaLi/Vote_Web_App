@@ -4,21 +4,17 @@ require_once("Mapper/voting.php");
 require_once("Mapper/voting_manager.php");
 
 //POST Parameter auslesen
-$vorlesungsid=$_POST["vorlesungsid"];
-$votingname=$_POST["votingname"];
-$frage=$_POST["frage"];
-$antwort_1=$_POST["antwort_1"];
-$antwort_2=$_POST["antwort_2"];
-$antwort_3=$_POST["antwort_3"];
-$antwort_4=$_POST["antwort_4"];
-$startdatum=$_POST["startdatum"]." ". $_POST["startzeit"];
-$enddatum=$_POST["enddatum"]." ". $_POST["endzeit"];
+$vorlesungsid=htmlspecialchars($_POST["vorlesungsid"], ENT_QUOTES, "UTF-8");
+$votingname=htmlspecialchars($_POST["votingname"], ENT_QUOTES, "UTF-8");;
+$frage=htmlspecialchars($_POST["frage"], ENT_QUOTES, "UTF-8");;
+$antwort_1=htmlspecialchars($_POST["antwort_1"], ENT_QUOTES, "UTF-8");;
+$antwort_2=htmlspecialchars($_POST["antwort_2"], ENT_QUOTES, "UTF-8");;
+$antwort_3=htmlspecialchars($_POST["antwort_3"], ENT_QUOTES, "UTF-8");;
+$antwort_4=htmlspecialchars($_POST["antwort_4"], ENT_QUOTES, "UTF-8");;
+$startdatum=htmlspecialchars($_POST["startdatum"]." ". $_POST["startzeit"], ENT_QUOTES, "UTF-8");;
+$enddatum=htmlspecialchars($_POST["enddatum"]." ". $_POST["endzeit"], ENT_QUOTES, "UTF-8");;
 
-//Datenbankverbindung aufbauen
-// Überprüfung, dass Felder nicht leer ist (z.B. Frage, antwort_1 darf nicht leer sein)
-
-$vorlesungsid = htmlspecialchars($_POST["vorlesungsid"], ENT_QUOTES, "UTF-8");
-
+// Prüfen ob alle Formularfelder ausgefüllt wurden
 if (!empty($votingname)&& !empty($frage)&& !empty($antwort_1) && !empty($antwort_2)&& !empty($startdatum)&& !empty($enddatum)) {
 
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
