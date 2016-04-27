@@ -4,10 +4,10 @@ require_once("Mapper/benutzer.php");
 require_once("Mapper/benutzer_manager.php");
 
 //POST Parameter auslesen
-$vorname=$_POST["vorname"];
-$nachname=$_POST["nachname"];
-$email=$_POST["email"];
-$role=$_POST["role"];
+$vorname=htmlspecialchars($_POST["vorname"];
+$nachname=htmlspecialchars($_POST["nachname"];
+$email=htmlspecialchars($_POST["email"];
+$role=htmlspecialchars($_POST["role"];
 
 // Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
 $manager=new benutzer_manager();
