@@ -10,6 +10,8 @@ $vorlesungsname = htmlspecialchars($_POST["vorlesungsname"], ENT_QUOTES, "UTF-8"
 if (!empty($vorlesungsid) && !empty($vorlesungsname)) {
     $vorlesung_manager = new vorlesung_manager();
     $vorlesung_manager->update($vorlesungsid, $vorlesungsname);
+    
+    // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
     header('Location: uebersicht.php');
 } else {
     echo "Error: Bitte alle Felder ausfüllen!";

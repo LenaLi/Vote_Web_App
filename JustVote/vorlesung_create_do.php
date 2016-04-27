@@ -14,8 +14,6 @@ $manager=new vorlesung_manager();
 // neue Vorlesung erzeugen mit den POST Parametern
 $manager->create($vorlesungsid,$benutzerid,$vorlesungsname);
 
-
-
-//Weiterleitung auf uebersicht.php oder Fehlermeldung (keine Dopplungen, keine Berechtigungen)
+// Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
 header('Location: uebersicht.php');
 ?>

@@ -16,12 +16,14 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)) {
 
     //Methode findById
     $benutzer = $benutzer_manager->findById($id);
+    
     $benutzer->vorname = $vorname;
     $benutzer->nachname = $nachname;
     $benutzer->email =$email;
+    
     $benutzer_manager->update($benutzer);
 
-    //Weiterleitung auf benutzer_read
+    // Weiterleitung auf die Übersichtsseite der Benutzer
     header('Location: benutzer_read.php');
 } else {
     echo "Error: Bitte alle Felder ausfüllen!";

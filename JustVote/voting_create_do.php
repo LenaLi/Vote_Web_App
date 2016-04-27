@@ -27,8 +27,7 @@ $manager=new voting_manager();
 // neues Voting erzeugen mit den POST Parametern
 $manager->create($vorlesungsid, $votingname, $frage, $antwort_1,$antwort_2,$antwort_3,$antwort_4,$startdatum,$enddatum);
 
-//Weiterleitung auf uebersicht oder Fehlermeldung (keine Dopplungen, keine Berechtigungen)
-
+// Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
 header('Location: uebersicht.php');
 }
 else {
