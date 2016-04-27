@@ -15,6 +15,7 @@ $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
 $voting_manager = new voting_manager();
 
+// lese Voting mit Voting-ID aus Datenbank aus
 $voting = $voting_manager->findByVotingId($votingid);
 echo $votingid;
 ?>
