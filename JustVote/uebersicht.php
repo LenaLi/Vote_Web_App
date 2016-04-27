@@ -1,11 +1,14 @@
-<?php include("inc/session_check.php"); ?>
-<?php include("inc/header.php"); ?>
-<?php include("inc/navigation.php"); ?>
+<?php
+include("inc/session_check.php");
+
+?>
 
 <!DOCTYPE html>
 <html>
-<body>
 
+<?php include("inc/header.php"); ?>
+<body>
+<?php include("inc/navigation.php");?>
     <div id="page-wrapper">
 
         <div class="container-fluid">
@@ -24,8 +27,8 @@
                         require_once("Mapper/voting_manager.php");
 
                     // DB student
-                        require_once ("Mapper/student.php");
-                        require_once ("Mapper/student_manager.php");
+                       // require_once ("Mapper/student.php");
+                        //require_once ("Mapper/student_manager.php");
 
                         //DB Abfrage zu Votings
                         $vorlesungsmanager =new vorlesung_manager();

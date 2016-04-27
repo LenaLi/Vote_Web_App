@@ -1,5 +1,4 @@
 <?php
-
 require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
 
@@ -25,4 +24,5 @@ if (!empty($votingid) && !empty($votingname)&& !empty($frage)&& !empty($antwort_
 } else {
     echo "Error: Bitte alle Felder ausfüllen!";
 }
+?>
 

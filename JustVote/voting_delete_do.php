@@ -1,6 +1,5 @@
-<?php include("inc/session_check.php"); ?>
-
 <?php
+include("inc/session_check.php");
 require_once("Mapper/voting.php");
 require_once("Mapper/voting_manager.php");
 
@@ -10,3 +9,5 @@ $voting_manager = new voting_manager();
 $voting_manager->delete($votingid);
 
 header('Location: uebersicht.php');
+?>
+

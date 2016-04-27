@@ -1,7 +1,7 @@
-<?php
-require_once("manager.php");
-require_once("vorlesung.php");
+<?php require_once("manager.php");?>
+<?php require_once("vorlesung.php");?>
 
+<?php
 class vorlesung_manager extends manager
 {
     protected $pdo;
@@ -119,3 +119,4 @@ class vorlesung_manager extends manager
         return null;
     }
 }
+?>

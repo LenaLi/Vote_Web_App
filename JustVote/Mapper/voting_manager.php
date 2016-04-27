@@ -17,7 +17,11 @@ class voting_manager extends manager
         parent::__destruct();
     }
 
-    public function findAll(){
+    // Lese alle Votings aus der Datenbank aus
+    public function findAll()
+    {
+
+
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM voting');
             $stmt->execute();
@@ -53,11 +57,11 @@ class voting_manager extends manager
     public function findByVotingId($votingid)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE  votingid= :votingid');
+            $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE votingid = :votingid');
             $stmt->bindParam(':votingid', $votingid);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting');
-            $voting = $stmt->fetch();
+            $voting = $stmt->fetchAll();
 
             return $voting;
 
@@ -136,4 +140,32 @@ class voting_manager extends manager
         }
         return null;
     }
+
+
+
+    public function beziehungvotingstudent ($voting_id, $student_id)
+    {
+
+        try {
+            $stmt = $this->pdo->prepare('
+              INSERT INTO voting_student
+                (voting_id, student_id)
+              VALUES
+                (:voting_id, :student_id)
+            ');
+            $stmt->bindParam(':voting_id', $voting_id);
+            $stmt->bindParam(':student_id', $student_id);
+
+
+
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            return null;
+        }
+        return true;
+    }
+
+
 }
+?>

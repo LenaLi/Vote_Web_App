@@ -2,7 +2,7 @@
 
 class vorlesung
 {
-    public $vorlesungsid; //nur Zahlen!!
+    public $vorlesungsid; // hier können nur Zahlen eingegeben werden!
     public $benutzerid;
     public $vorlesungsname;
 

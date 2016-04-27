@@ -122,9 +122,7 @@
                 <li>
                     <a href="voting_create_form.php"><i class="fa fa-plus"></i> Voting</a>
                 </li>
-                <li>
-                    <a href="student_create_form.php"><i class="fa fa-plus"></i> Student</a>
-                </li>
+
                 <?php
                 // Überprüfung ob Eingeloggter Admin ist oder normaler Benutzer --> Nur dann Zugriff auf Verwaltung der Benutzer
                 if ($_SESSION["role"]=="admin") {
@@ -133,6 +131,10 @@
                     <li>
                         <a href="benutzer_read.php"><span class="glyphicon glyphicon-user"></span> Benutzer verwalten</a>
                     </li>
+                    <li>
+                        <a href="benutzer_create_form.php"><span class="fa fa-plus"></span> Benutzer</a>
+                    </li>
+
                     <?php
 
                 }
@@ -141,6 +143,9 @@
 
                 <li>
                     <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i>  Übersicht Ergebnisse</a>
+                </li>
+                <li>
+                    <a href="student_create_form.php"><i class="fa fa-plus"></i> Student</a>
                 </li>
 
                <!-- <li>

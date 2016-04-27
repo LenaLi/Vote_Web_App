@@ -1,6 +1,5 @@
-<?php include("inc/session_check.php"); ?>
-
 <?php
+include("inc/session_check.php");
 require_once("Mapper/benutzer.php");
 require_once("Mapper/benutzer_manager.php");
 
@@ -11,4 +10,4 @@ $benutzer = $benutzer_manager->findById($id);
 $benutzer_manager->delete($benutzer);
 
 header('Location: benutzer_read.php');
-
+?>

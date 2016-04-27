@@ -1,12 +1,8 @@
-<?php include("inc/session_check.php");
-
+<?php
+include("inc/session_check.php");
 require_once("Mapper/vorlesung.php");
 require_once("Mapper/vorlesung_manager.php");
 
-?>
-
-<?php
-include("inc/session_check.php");
 //POST Parameter (vorlesungsid, benutzerid, vorlesungsname,)
 $vorlesungsid=$_POST["vorlesungsid"];
 $benutzerid=$_SESSION["benutzerid"];

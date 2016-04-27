@@ -1,14 +1,12 @@
-<?php include("inc/session_check.php"); ?>
-<?php include("inc/session_check_admin.php"); ?>
-
-<!DOCTYPE html>
-<html>
-
 <?php
-include("inc/header.php");
+include("inc/session_check.php");
+include("inc/session_check_admin.php");
 require_once("Mapper/benutzer_manager.php");
 require_once("Mapper/benutzer.php");
 ?>
+
+<!DOCTYPE html>
+<html>
 
 <?php
 $id = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
@@ -16,6 +14,8 @@ $benutzer_manager = new benutzer_manager();
 $benutzer = $benutzer_manager->findById($id);
 echo $id;
 ?>
+
+<?php include("inc/header.php"); ?>
 
 <body>
 
