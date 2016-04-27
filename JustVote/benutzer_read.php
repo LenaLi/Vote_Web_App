@@ -9,7 +9,7 @@ require_once("Mapper/benutzer_manager.php"); ?>
 <html>
 
 <?php
-//Datenbankverbindung aufbauen
+// Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
 $manager=new benutzer_manager();
 //Methode findAll
 $allebenutzer = $manager->findAll(); //??

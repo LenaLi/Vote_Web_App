@@ -3,7 +3,7 @@ include("inc/session_check.php");
 require_once("Mapper/voting.php");
 require_once("Mapper/voting_manager.php");
 
-//POST Parameter werden ausgelesen
+//POST Parameter auslesen
 $vorlesungsid=$_POST["vorlesungsid"];
 $votingname=$_POST["votingname"];
 $frage=$_POST["frage"];
@@ -21,11 +21,13 @@ $vorlesungsid = htmlspecialchars($_POST["vorlesungsid"], ENT_QUOTES, "UTF-8");
 
 if (!empty($votingname)&& !empty($frage)&& !empty($antwort_1) && !empty($antwort_2)&& !empty($startdatum)&& !empty($enddatum)) {
 
+// Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
 $manager=new voting_manager();
 
+// neues Voting erzeugen mit den POST Parametern
 $manager->create($vorlesungsid, $votingname, $frage, $antwort_1,$antwort_2,$antwort_3,$antwort_4,$startdatum,$enddatum);
 
-//Weiterleitung auf uebersicht.php oder Fehlermeldung (keine Dopplungen, keine Berechtigungen)
+//Weiterleitung auf uebersicht oder Fehlermeldung (keine Dopplungen, keine Berechtigungen)
 
 header('Location: uebersicht.php');
 }
