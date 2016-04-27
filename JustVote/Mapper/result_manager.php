@@ -40,12 +40,12 @@ class result_manager extends manager
 
 
 
-    public function findByErgebnis($votingid, $ergebnis11)
+    public function findByErgebnis($votingid, $result)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT COUNT(result) AS anzahl FROM ergebnis WHERE voting_id = :votingid ');
+            $stmt = $this->pdo->prepare('SELECT COUNT(result) AS anzahl FROM ergebnis WHERE voting_id = :votingid AND result= :result');
             $stmt->bindParam(':votingid', $votingid);
-            //$stmt->bindParam(':ergebnis', $ergebnis11);
+            $stmt->bindParam(':result', $result);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'ergebnis');
             $ergebnis = $stmt->fetchAll();
