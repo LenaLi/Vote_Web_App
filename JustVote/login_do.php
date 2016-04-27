@@ -35,14 +35,15 @@ if ($benutzer->password==$password && $benutzer->email==$email) {
 
 
 
-$pwvorrueber='admin';
-$benutzervorrueber='admin';
+$pwvorrueber=$_POST["email"];
+$benutzervorrueber=$_POST["password"];
 
 
 
 if ($pwvorrueber=='admin' && $benutzervorrueber=='admin') {
     //Passwort und Benutzername korrekt
     // Weiterleitung zur Übersichtsseite
+    session_start();
     header ('Location: uebersicht.php');
 } else {
     // Passwort oder Benutzername falsch
