@@ -34,7 +34,6 @@ echo $id;
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-
                     <h1>Eintrag <?php echo $benutzer->id ?></h1>
 
                     <form action='benutzer_update_do.php' method='post'>

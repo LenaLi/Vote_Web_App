@@ -2,8 +2,8 @@
 include("inc/session_check.php");
 require_once("Mapper/voting.php");
 require_once("Mapper/voting_manager.php");
-// Vorting-ID aus GET Parameter auslesen
 
+// Vorting-ID aus GET Parameter auslesen
 $votingId = (int)htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt

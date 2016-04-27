@@ -42,6 +42,7 @@ $alleBenutzer = $manager->findAll();
                         <tbody>
 
                         <?php
+                        // Zeilen der HTML-Tabelle werden erzeugt mit Hilfe der foreach-Schleife
                         foreach ($alleBenutzer as $benutzer ) {
                             echo "<tr>";
                             echo "<td>" . $benutzer->vorname . "</td>";

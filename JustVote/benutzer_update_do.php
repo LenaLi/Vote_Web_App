@@ -3,7 +3,7 @@ require_once("Mapper/benutzer_manager.php");
 require_once("Mapper/benutzer.php");
 
 //POST Parameter auslesen
-$id = (int)$_POST["id"];
+$id = htmlspecialchars((int)$_POST["id"], ENT_QUOTES, "UTF-8");
 $vorname = htmlspecialchars($_POST["vorname"], ENT_QUOTES, "UTF-8");
 $nachname = htmlspecialchars($_POST["nachname"], ENT_QUOTES, "UTF-8");
 $email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");

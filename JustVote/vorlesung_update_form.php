@@ -11,15 +11,15 @@ require_once("Mapper/vorlesung.php");
 
 <?php
 // Vorlesung-ID aus GET Parameter auslesen
-$vorlesungsid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+$vorlesungsId = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 
 // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
 $vorlesung_manager = new vorlesung_manager();
 
-// lese Vorlesung mit Vorlesungs-ID aus Datenbank aus
-$vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsid);
+// Lese Vorlesung mit Vorlesungs-ID aus Datenbank aus
+$vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsId);
 
-echo $vorlesungsid;
+echo $vorlesungsId;
 ?>
 
 

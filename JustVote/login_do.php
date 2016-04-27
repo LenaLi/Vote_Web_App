@@ -27,8 +27,7 @@ if ($password_correct && $benutzer->email==$email) {
     // Weiterleitung zur Übersichtsseite
     header ('Location: uebersicht.php');
 } else {
-    // Passwort oder Benutzername falsch
-    // Weiterleitung zur Statseite mit Login Dialog
+    // Weiterleitung zur Statseite mit Login Dialog (falls, Passwort oder Benutzername falsch)
     header('Location: index.php?error=1');
 }
 ?>
