@@ -9,8 +9,10 @@ require_once("Mapper/benutzer_manager.php"); ?>
 <html>
 
 <?php
+//Datenbankverbindung aufbauen
 $manager=new benutzer_manager();
-$allebenutzer = $manager->findAll();
+//Methode findAll
+$allebenutzer = $manager->findAll(); //??
 ?>
 
 <?php include("inc/header.php"); ?>
