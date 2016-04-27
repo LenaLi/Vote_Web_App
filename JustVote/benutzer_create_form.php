@@ -15,11 +15,10 @@ include("inc/session_check_admin.php");?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-
                     <h2>Benutzer hinzufügen</h2>
-
+                    <!-- Beginn Formular "Benutzer hinzufügen -->
                     <form class="form-horizontal" role="form" action="benutzer_create_do.php" method="post">
-
+                        <!-- Texteingabefeld für Vorname-->
                         <div class="form-group">
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" name="vorname" id="vorname" placeholder="Vorname">
@@ -51,7 +50,7 @@ include("inc/session_check_admin.php");?>
                                 <button type="submit" class="btn btn-warning"> Erstellen</button>
                             </div>
                         </div>
-
+                        <!-- Ende Formular "Benutzer hinzufügen -->
                 </div>
 
 

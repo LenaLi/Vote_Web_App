@@ -94,11 +94,13 @@ class benutzer_manager extends manager
             $stmt->bindParam(':password', $password_hashed);
             $stmt->bindParam(":salt", $salt);
             $stmt->execute();
+
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            return null;
+            //die();
+            return false;
         }
-        return true;
+       return true;
     }
 
     public function update(benutzer $benutzer)

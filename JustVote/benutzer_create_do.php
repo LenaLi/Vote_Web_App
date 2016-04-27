@@ -11,6 +11,7 @@ $role=$_POST["role"];
 
 // Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
 $manager=new benutzer_manager();
+
 // neuen Benutzer erzeugen mit den POST Parametern
 $manager->create($vorname,$nachname,$email,$role);
 
