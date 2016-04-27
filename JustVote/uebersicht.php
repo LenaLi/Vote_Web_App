@@ -12,8 +12,7 @@ include("inc/session_check.php");
     <div id="page-wrapper">
 
         <div class="container-fluid">
-
-            <!-- Page Heading -->
+            
             <div class="row">
                 <div class="col-lg-12">
 
@@ -21,16 +20,17 @@ include("inc/session_check.php");
                     <p></p>
 
                     <?php
-                        // DB Abfrage zu Vorlesungen von Benutzer.....
                         require_once("Mapper/vorlesung.php");
                         require_once("Mapper/vorlesung_manager.php");
                         require_once("Mapper/voting_manager.php");
 
-
-                        //DB Abfrage zu Votings
+                        // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
                         $vorlesungsmanager =new vorlesung_manager();
+
+                        // Lese vorlesungen mit Benutzer-ID aus Datenbank aus
                         $vorlesungen = $vorlesungsmanager->findByBenutzerId($_SESSION['benutzerid']);
 
+                        // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
                         $votingmanager =new voting_manager();
 
                         if($vorlesungen!=null)
@@ -45,6 +45,7 @@ include("inc/session_check.php");
                                 echo  "<th>";
                                 echo "</tr> </thead>";
 
+                            // Lese Votings mit Vorlesungs-ID aus Datenbank aus
                             $votings=$votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
 
                             foreach($votings as $voting){
