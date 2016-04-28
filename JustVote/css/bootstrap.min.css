@@ -4774,7 +4774,8 @@ textarea.input-group-sm > .input-group-addon, textarea.input-group-sm > .input-g
     height: 50px;
     padding: 15px 15px;
     font-size: 18px;
-    line-height: 20px
+    line-height: 20px;
+
 }
 
 .navbar-brand:focus, .navbar-brand:hover {
@@ -4782,7 +4783,7 @@ textarea.input-group-sm > .input-group-addon, textarea.input-group-sm > .input-g
 }
 
 .navbar-brand > img {
-    display: block
+    display: block;
 }
 
 @media (min-width:768px) {

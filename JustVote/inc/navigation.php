@@ -11,7 +11,8 @@
 <div id="wrapper">
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <!-- Toggle für die Mobile Version -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -19,11 +20,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" rel="home" href="uebersicht.php" title="JustVote"> 
-                <img style="width:100%;height:100%; margin-top:0px;" 
-                     src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg">  </a>
+
+                <img class="navbar-brand" href="uebersicht.php" title="JustVote"
+                     src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg">  </img>
+
         </div>
-        <!-- Top Menu Items -->
+
+
+        <!-- Header Top Menü (oben rechts) -->
         <ul class="nav navbar-right top-nav">
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
@@ -109,7 +113,10 @@
                 </ul>
             </li>
         </ul>
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screenss -->
+
+
+
+        <!-- Sidebar Links-->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li >
@@ -147,6 +154,7 @@
                 <li>
                     <a href="student_create_form.php"><i class="fa fa-plus"></i> Student</a>
                 </li>
+
 
                <!-- <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
