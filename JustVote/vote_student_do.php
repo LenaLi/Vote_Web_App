@@ -14,6 +14,32 @@ $manager->inputresult($voting_id, $ergebnis);
 
 <!-- TODO function beziehungvotingstudent noch anlegen wenn das mit dem einloggen von Studenten geklärt ist! -->
 
+<?php
+
+$result = antwort_1;
+
+switch ($result) {
+    case antwort_1:
+        $ausgabe = "Antwort 1";
+        break;
+
+    case antwort_2:
+        $ausgabe = "Antwort 2";
+        break;
+    case antwort_3:
+        $ausgabe = "Antwort 3";
+        break;
+
+    case antwort_4:
+        $ausgabe = "Antwort 4";
+        break;
+}
+
+echo 'Du hast ' . $ausgabe . ' angeklickt'
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <body>
