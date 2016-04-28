@@ -9,8 +9,11 @@ require_once("Mapper/benutzer_manager.php"); ?>
 <html>
 
 <?php
+// Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
 $manager=new benutzer_manager();
-$allebenutzer = $manager->findAll();
+
+// alle Benutzer aus der Datenbank auslesen und in Array alleBenutzer speichern
+$alleBenutzer = $manager->findAll();
 ?>
 
 <?php include("inc/header.php"); ?>
@@ -39,7 +42,8 @@ $allebenutzer = $manager->findAll();
                         <tbody>
 
                         <?php
-                        foreach ($allebenutzer as $benutzer ) {
+                        // Zeilen der HTML-Tabelle werden erzeugt mit Hilfe der foreach-Schleife
+                        foreach ($alleBenutzer as $benutzer ) {
                             echo "<tr>";
                             echo "<td>" . $benutzer->vorname . "</td>";
                             echo "<td>" . $benutzer->nachname . "</td>";

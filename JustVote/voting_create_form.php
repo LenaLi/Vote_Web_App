@@ -13,9 +13,14 @@ require_once ("Mapper/vorlesung_manager.php");
 <?php include("inc/navigation.php"); ?>
 
 <?php
+// Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
 $vorlesungsmanager = new vorlesung_manager();
-$benutzerid=$_SESSION["benutzerid"];
-$vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid);
+
+// BenutzerId aus Session auslesen
+$benutzerId=$_SESSION["benutzerid"];
+
+// lese Vorlesungen mit Benutzer-ID aus Datenbank und speichere Informationen in einem Vorlesungen-Array
+$vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
 ?>
 <div id="page-wrapper">
 
@@ -35,19 +40,25 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerid);
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
+                            <label>Vorlesung auswählen: </label>
+                            </div>
+
+                            <div class="col-sm-3">
                         <select class="c-select" name="vorlesungsid">
                             <?php
+                            // erzeugt die Auswahlmöglichkeiten der zum Benutzer gehörenden Vorlesungen
                             foreach($vorlesungen as $vorlesung){
                                 echo "<option value='".$vorlesung->vorlesungsid."''>";
                                 echo $vorlesung->vorlesungsname;
                                 echo "</option>"; 
                             }
-
                             ?>
                         </select>
                             </div>
+
                         </div>
+
 
 
                         <div class="form-group">

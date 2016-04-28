@@ -9,9 +9,16 @@ require_once("Mapper/benutzer.php");
 <html>
 
 <?php
+
+// Benutzer-ID aus GET Parameter auslesen
 $id = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+
+// Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
 $benutzer_manager = new benutzer_manager();
+
+// lese Benutzer mit Benutzer-ID aus Datenbank aus
 $benutzer = $benutzer_manager->findById($id);
+
 echo $id;
 ?>
 
@@ -27,22 +34,21 @@ echo $id;
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
+                    <h1>Eintrag <?php echo $benutzer->id ?></h1>
 
-    <h1>Eintrag <?php echo $benutzer->id ?></h1>
-
-    <form action='benutzer_update_do.php' method='post'>
-        <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' />
-        Vorname:<br>
-        <input type='text' name='vorname' value='<?php echo $benutzer->vorname ?>' /><br>
-        Nachname:<br>
-        <input type='text' name='nachname' value='<?php echo $benutzer->nachname ?>' /><br>
-        <br>
-        E-Mail:<br>
-        <input type='text' name='email' value='<?php echo $benutzer->email ?>' /><br>
-        <br>
-        <br>
-        <input type='submit' value='update!' />
-    </form>
+                    <form action='benutzer_update_do.php' method='post'>
+                        <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' />
+                        Vorname:<br>
+                        <input type='text' name='vorname' value='<?php echo $benutzer->vorname ?>' /><br>
+                        Nachname:<br>
+                        <input type='text' name='nachname' value='<?php echo $benutzer->nachname ?>' /><br>
+                        <br>
+                        E-Mail:<br>
+                        <input type='text' name='email' value='<?php echo $benutzer->email ?>' /><br>
+                        <br>
+                        <br>
+                        <input type='submit' value='update!' />
+                    </form>
                 </div>
             </div>
         </div>

@@ -11,7 +11,10 @@
 require_once("Mapper/voting_manager.php");
 
 $votingmanager =new voting_manager();
-$_SESSION["voting_id"] =11;
+
+//TODO muss mit der DB verbunden werden:
+//$_SESSION["voting_id"] =11;
+$voting_id = htmlspecialchars($_GET["voting_id"], ENT_QUOTES, "UTF-8");
 $votings = $votingmanager->findByVotingId($_SESSION["voting_id"]);
 
 ?>

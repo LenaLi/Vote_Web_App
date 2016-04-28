@@ -3,20 +3,17 @@ include("inc/session_check.php");
 require_once("Mapper/vorlesung.php");
 require_once("Mapper/vorlesung_manager.php");
 
-//POST Parameter (vorlesungsid, benutzerid, vorlesungsname,)
-$vorlesungsid=$_POST["vorlesungsid"];
-$benutzerid=$_SESSION["benutzerid"];
-$vorlesungsname=$_POST["vorlesungsname"];
-//Datenbankverbindung aufbauen
+//POST Parameter auslesen
+$vorlesungsId=$_POST["vorlesungsid"];
+$benutzerId=$_SESSION["benutzerid"];
+$vorlesungsName=$_POST["vorlesungsname"];
 
+// Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
 $manager=new vorlesung_manager();
 
-$manager->create($vorlesungsid,$benutzerid,$vorlesungsname);
+// neue Vorlesung erzeugen mit den POST Parametern
+$manager->create($vorlesungsId,$benutzerId,$vorlesungsName);
 
-
-//neuen Benutzer aus den POST Parametern in Datenbank speichern
-
-
-//Weiterleitung auf uebersicht.php oder Fehlermeldung (keine Dopplungen, keine Berechtigungen)
+// Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
 header('Location: uebersicht.php');
 ?>
