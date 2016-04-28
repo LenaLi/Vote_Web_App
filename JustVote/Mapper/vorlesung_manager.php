@@ -18,6 +18,7 @@ class vorlesung_manager extends manager
 
     public function findAll(){
         try {
+            // Lese alle Vorlesungen aus der Datenbank aus
             $stmt = $this->pdo->prepare('SELECT * FROM vorlesung');
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'vorlesung');
@@ -33,6 +34,7 @@ class vorlesung_manager extends manager
 
     public function findByVorlesungsId($vorlesungsid)
     {
+        // Lese zu einer VorlesungsId zugehörige Vorlesung aus
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM vorlesung WHERE  vorlesungsid= :vorlesungsid');
             $stmt->bindParam(':vorlesungsid', $vorlesungsid);
@@ -50,6 +52,7 @@ class vorlesung_manager extends manager
     }
     public function findByBenutzerID($benutzerid)
     {
+        // Lese einen zu einer bestimmten BenutzerId gehörigen Vorlesungen aus
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM vorlesung WHERE benutzerid = :benutzerid');
             $stmt->bindParam(':benutzerid', $benutzerid);
