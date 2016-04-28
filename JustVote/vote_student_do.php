@@ -15,9 +15,10 @@ $manager->inputresult($voting_id, $ergebnis);
 <!-- TODO function beziehungvotingstudent noch anlegen wenn das mit dem einloggen von Studenten geklärt ist! -->
 
 <?php
-
+// TODO: muss mit der DB verbunden werden damit richtige Antwort angezeigt wird
 $result = antwort_1;
 
+// switch-case anweisung als bessere Variante zur elseif anweisung
 switch ($result) {
     case antwort_1:
         $ausgabe = "Antwort 1";
