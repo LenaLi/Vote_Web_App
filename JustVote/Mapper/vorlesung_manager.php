@@ -92,6 +92,7 @@ class vorlesung_manager extends manager
 
     public function update($vorlesungsid, $vorlesungsname)
     {
+        // Updaten eines zu einer bestimmten VorlesungsId gehörenden Vorlesung (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               UPDATE vorlesung
@@ -109,6 +110,7 @@ class vorlesung_manager extends manager
 
     public function delete($vorlesungsid)
     {
+        // Löschen einer zu einer bestimmten VorlesungsId gehörenden Vorlesung
         try {
             $stmt = $this->pdo->prepare('
               DELETE FROM vorlesung WHERE vorlesungsid= :vorlesungsid

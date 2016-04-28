@@ -103,7 +103,7 @@ class voting_manager extends manager
 
     public function update($votingid, $vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2 ,$antwort_3,$antwort_4, $startdatum, $enddatum)
     {
-        // Updaten eines zu einer bestimmten ID gehörenden Benutzer (Attribute siehe unten)
+        // Updaten eines zu einer bestimmten VotingId gehörenden Voting (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               UPDATE voting
@@ -130,6 +130,7 @@ class voting_manager extends manager
 
     public function delete($votingid)
     {
+        // Löschen eines zu einer bestimmten VotingId gehörenden Votings
         try {
             $stmt = $this->pdo->prepare('
               DELETE FROM voting WHERE votingid= :votingid
