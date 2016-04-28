@@ -70,7 +70,7 @@ class vorlesung_manager extends manager
 
     public function create($vorlesungsid,$benutzerid,$vorlesungsname)
     {
-
+        // Füge eine Vorlesung der Datenbank hinzu (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO vorlesung
