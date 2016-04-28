@@ -34,7 +34,7 @@ echo $vorlesungsId;
                 <div class="col-lg-12">
 
                     <h1>Vorlesung bearbeiten</h1>
-
+                    <!-- Beginn Formular "Vorlesung aktualisieren" -->
                     <form action='vorlesung_update_do.php' method='post'>
                         <input type='hidden' name='vorlesungsid' value='<?php echo $vorlesung->vorlesungsid ?>' /
                         <br>
@@ -43,6 +43,7 @@ echo $vorlesungsId;
 
                         <input type='submit' value='update!' />
                     </form>
+                    <!-- Ende Formular "Vorlesung aktualisieren" -->
                 </div>
             </div>
         </div>
