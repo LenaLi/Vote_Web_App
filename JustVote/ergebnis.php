@@ -15,7 +15,9 @@ $ergebnismanager =new result_manager();
 //$_SESSION["voting_id"] =7;
 
 // lese Ergebnis mit voting-ID aus Datenbank aus
-$results = $ergebnismanager->findByErgebnis($_SESSION["voting_id"], "antwort_1");
+//$results = $ergebnismanager->findByErgebnis($_SESSION["voting_id"], "antwort_1");
+
+$results = $ergebnismanager->findByErgebnis($voting_id, $result);
 
 if($results==null)
 {
