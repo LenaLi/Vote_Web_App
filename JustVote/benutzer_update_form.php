@@ -34,7 +34,8 @@ echo $id;
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Eintrag <?php echo $benutzer->id ?></h1>
+                    <!-- Beginn Formular "Benutzer updaten" -->
+                    <h1>Benutzer aktualisieren <?php echo $benutzer->id ?></h1>
 
                     <form action='benutzer_update_do.php' method='post'>
                         <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' />
@@ -49,6 +50,7 @@ echo $id;
                         <br>
                         <input type='submit' value='update!' />
                     </form>
+                    <!-- Ende Formular "Benutzer aktualisieren" -->
                 </div>
             </div>
         </div>

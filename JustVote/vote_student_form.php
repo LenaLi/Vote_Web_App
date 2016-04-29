@@ -32,7 +32,7 @@ $votings = $votingmanager->findByVotingId($_SESSION["voting_id"]);
                 echo '<h2>Kein Datensatz wurde gefunden</h2>';
             }
 
-                //Schleife hier eigentlich nicht nötig, da id eindeutig und nur ein Datensatz zurückgegeben wird
+                //Schleife hier eigentlich nicht nï¿½tig, da id eindeutig und nur ein Datensatz zurï¿½ckgegeben wird
                 foreach($votings as $voting)
             {
 
@@ -70,7 +70,6 @@ $votings = $votingmanager->findByVotingId($_SESSION["voting_id"]);
                         echo '<input type="radio" name="voting" value="antwort_3"/>'.$voting->antwort_3;
                         echo '</td>
                     </tr>';
-
                 }
                 if ($voting->antwort_4!='')
                 {
@@ -79,9 +78,7 @@ $votings = $votingmanager->findByVotingId($_SESSION["voting_id"]);
                     echo '<input type="radio" name="voting" value="antwort_4"/>'.$voting->antwort_4;
                     echo '</td>
                     </tr>';
-
                 }
-
             }
         ?>
         <tr>
@@ -91,6 +88,5 @@ $votings = $votingmanager->findByVotingId($_SESSION["voting_id"]);
         </tr>
     </table>
     </form>
-
 </body>
 </html>

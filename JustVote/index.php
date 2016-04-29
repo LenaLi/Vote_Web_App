@@ -14,11 +14,14 @@
 <?php
     session_start();
     if ($_SESSION ["login"]<>"1") {
-        // user not logged in
+
+        // Benutzer ist noch nicht eingeloggt
         $_SESSION = array();
         session_destroy();
+
         // Einbinden von Login Dialog
         include("inc/login_form.php");
+
         // Prüfung ob Benutzername und Passwort schon einmal falsch eingegeben wurden
         if($_GET["error"]==1){
             //TODO:Email in der Datenbank unique machen!!! @Renate
@@ -27,7 +30,7 @@
             <?php
         }
     } else {
-        // user logged in
+        // Benutzer ist eingeloggt
         // Weiterleitung zur Übersichts-Seite
         header('Location: uebersicht.php');
     }

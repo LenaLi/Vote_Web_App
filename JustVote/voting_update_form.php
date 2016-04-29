@@ -30,7 +30,7 @@ echo $votingId;
                 <div class="col-lg-12">
 
                     <h1>Vorlesung bearbeiten</h1>
-
+                    <!-- Beginn Formular "Voting aktualisieren" -->
                     <form action='voting_update_do.php' method='post'>
                         <input type='hidden' name='votingid' value='<?php echo $voting->votingid ?>' /
                         <br>
@@ -55,6 +55,7 @@ echo $votingId;
                         
                         <input type='submit' value='update!' />
                     </form>
+                    <!-- Ende Formular "Voting aktualisieren" -->
                 </div>
             </div>
         </div>

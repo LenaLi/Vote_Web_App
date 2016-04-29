@@ -1,6 +1,10 @@
-<!-- Hier kommt Link + QR Code zum jeweiligen Voting hinein -->
-
-<?php include("inc/session_check.php"); ?>
+<?php
+include("inc/session_check.php");
+require_once("Mapper/vorlesung.php");
+require_once("Mapper/vorlesung_manager.php");
+require_once("Mapper/voting_manager.php");
+require_once("Mapper/voting.php");
+?>
 
 <!DOCTYPE html>
 <html>
@@ -20,11 +24,7 @@
                     <h1>Hier soll Voting Name stehen </h1>
                     <p></p>
                     <?php
-                    // DB Abfrage zu Vorlesungen von Benutzer.........
-                    require_once("Mapper/vorlesung.php");
-                    require_once("Mapper/vorlesung_manager.php");
-                    require_once("Mapper/voting_manager.php");
-                    require_once("Mapper/voting.php");
+
 
 
                     //DB Abfrage zu Votings TO DO --MUSS FERTIG GEMACHT WERDEN UND AUCH IN EINE MAPPER KLASSE?

@@ -17,11 +17,10 @@ class voting_manager extends manager
         parent::__destruct();
     }
 
-    // Lese alle Votings aus der Datenbank aus
+
     public function findAll()
     {
-
-
+        // Lese alle Votings aus der Datenbank aus
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM voting');
             $stmt->execute();
@@ -38,6 +37,7 @@ class voting_manager extends manager
 
     public function findByVorlesungsId($vorlesungsid)
     {
+        // Lese einer zur VorlesungsId zugehörigen Votings aus
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE  vorlesungsid= :vorlesungsid');
             $stmt->bindParam(':vorlesungsid', $vorlesungsid);
@@ -56,6 +56,7 @@ class voting_manager extends manager
 
     public function findByVotingId($votingid)
     {
+        // Lese zur VotingId zugehöriges Voting aus
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE votingid = :votingid');
             $stmt->bindParam(':votingid', $votingid);
@@ -74,7 +75,7 @@ class voting_manager extends manager
 
     public function create ($vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $startdatum, $enddatum)
     {
-
+        // Füge ein Voting der Datenbank hinzu (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO voting
@@ -102,6 +103,7 @@ class voting_manager extends manager
 
     public function update($votingid, $vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2 ,$antwort_3,$antwort_4, $startdatum, $enddatum)
     {
+        // Updaten eines zu einer bestimmten VotingId gehörenden Voting (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               UPDATE voting
@@ -128,6 +130,7 @@ class voting_manager extends manager
 
     public function delete($votingid)
     {
+        // Löschen eines zu einer bestimmten VotingId gehörenden Votings
         try {
             $stmt = $this->pdo->prepare('
               DELETE FROM voting WHERE votingid= :votingid
@@ -143,7 +146,7 @@ class voting_manager extends manager
 
 
 
-    public function beziehungvotingstudent ($voting_id, $student_id)
+    public function beziehungvotingstudent ($voting_id, $student_id) //????
     {
 
         try {
