@@ -42,9 +42,16 @@ require_once("Mapper/voting.php");
 
                     // TODO QR Code https://developers.google.com/chart/infographics/docs/qr_codes#syntax
 
+                    /*
+                    <a href="http://code.google.com/apis/chart/infographics/docs/qr_codes.html">Google Chart Tools: QR Codes</a>
+                    <a href="http://code.google.com/p/zxing/">Google ZXing</a>
+                    <a href="http://zxing.appspot.com/generator/">Google ZXing QR Code Generator</a>
+                    */
+
+
+                    //So muss der Link Aussehen
                     http://chart.apis.google.com/chart?chs=500x500&cht=qr&chld=L&chl=https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/$aktuellesvoing
 
-                    //function urlencode
 
 
 
