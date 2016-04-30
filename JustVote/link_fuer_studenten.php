@@ -40,7 +40,7 @@ require_once("Mapper/voting.php");
                     echo 'https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/';
 
 
-                    // TODO QR Code
+                    // TODO QR Code https://www.vektorkneter.de/google-charts-api-zum-erstellen-von-qr-codes/
 
                     //first include the library from your local path
                     include('../qrlib.php');
