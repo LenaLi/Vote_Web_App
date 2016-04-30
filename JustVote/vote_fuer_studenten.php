@@ -11,11 +11,6 @@
 
 <!-- Datenbankabfrage Voting -->
 
-
-<!DOCTYPE html>
-<html>
-
-
 <body>
 
 
@@ -82,5 +77,3 @@
 
 </body>
 </html>
-
-
