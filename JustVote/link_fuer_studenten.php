@@ -37,14 +37,30 @@ require_once("Mapper/voting.php");
 
                     echo $votingname['votingname']." "."<br />";
                     $aktuellesvoting=$_GET['id'];
-                    echo 'https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/
+                    echo 'https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/';
 
-     // HIER KOMMT NUR DER LINK UND QR-CODE
+
+                    // TODO QR Code
+
+                    //first include the library from your local path
+                    include('../qrlib.php');
+
+                    // then to output the image directly as PNG stream do for example:
+                    QRcode::png('your texte here...');
+                    // to save the result locally as a PNG image:
+
+                    $tempDir = EXAMPLE_TMP_SERVERPATH;
+
+                    $codeContents = 'your message here...';
+
+                    $fileName = 'qrcode_name.png';
+
+                    $pngAbsoluteFilePath = $tempDir.$fileName;
+                    $urlRelativeFilePath = EXAMPLE_TMP_URLRELPATH.$fileName;
+
+                    QRcode::png($codeContents, $pngAbsoluteFilePath);
+
                     ?>
-
-
-
-
 
                 </div>
             </div>
