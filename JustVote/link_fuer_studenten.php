@@ -42,6 +42,14 @@ require_once("Mapper/voting.php");
 
                     // TODO QR Code https://www.vektorkneter.de/google-charts-api-zum-erstellen-von-qr-codes/
 
+                    http://chart.apis.google.com/chart?chs=500x500&cht=qr&chld=L&chl={ZU-CODIERENDE-DATEN}
+
+                    //function urlencode
+
+
+
+                    /* ALT QR CODE (vielleicht brauch man das – wenn nicht löschen!
+
                     //first include the library from your local path
                     include('../qrlib.php');
 
@@ -59,7 +67,7 @@ require_once("Mapper/voting.php");
                     $urlRelativeFilePath = EXAMPLE_TMP_URLRELPATH.$fileName;
 
                     QRcode::png($codeContents, $pngAbsoluteFilePath);
-
+                       */
                     ?>
 
                 </div>
