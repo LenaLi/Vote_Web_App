@@ -28,8 +28,9 @@ $vorname = htmlspecialchars($_POST["vorname"], ENT_QUOTES, "UTF-8");
 $nachname = htmlspecialchars($_POST["nachname"], ENT_QUOTES, "UTF-8");
 $password = htmlspecialchars($_POST["password"], ENT_QUOTES, "UTF-8");
 $password2 = htmlspecialchars($_POST["password2"], ENT_QUOTES, "UTF-8");
+$role=$_POST["role"];
 
-if (!empty($login) && !empty($vorname) && !empty($nachname) && !empty($password) && !empty($password2)) {
+if (!empty($email) && !empty($vorname) && !empty($nachname) && !empty($password) && !empty($password2)) {
 $nutzerdaten = [
 "email" => $email,
 "vorname" => $vorname,
