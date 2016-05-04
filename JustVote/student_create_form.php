@@ -60,7 +60,7 @@
                         <div class="col-sm-6">
                             <select name="role">
 
-                                <option value="Student">Student</option>
+                                <option value="Student"</option>
                             </select>
                         </div>
                     </div>
