@@ -1,5 +1,4 @@
-<?php include("inc/session_check.php"); ?>
-<?php include("inc/session_check_admin.php"); ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +7,7 @@
 
 <body>
 
-<?php include("inc/navigation.php"); ?>
+<?php include("inc/navbar_vote.php"); ?>
 
 <div id="page-wrapper">
 
@@ -40,6 +39,10 @@
                     <div class="form-group">
                         <div class="col-sm-6">
                             <select name="role">
+
+
+
+
                                 <!-- <option value="Benutzer" selected>Benutzer</option>    Das auswählen von Benutzer und Admin sollte ja nicht m�glich sein wenn man einen Studentetn anlegt
                                 <option value="Admin">Admin</option> -->
                                 <option value="Student">Student</option>
