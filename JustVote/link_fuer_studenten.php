@@ -44,6 +44,11 @@ require_once ("Mapper/voting_student_manager.php");
                     echo 'https://mars.iuk.hdm-stuttgart.de/~rs095/JustVote/vote_student_form.php?id='.$aktuellesvoting;
 
 
+
+
+
+
+
                     // TODO QR Code https://developers.google.com/chart/infographics/docs/qr_codes#syntax
 
                     /*
