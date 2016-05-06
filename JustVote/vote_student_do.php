@@ -1,3 +1,5 @@
+<!-- Datensätze in DB einfügen -->
+
 <?php include("inc/session_check.php"); ?>
 <?php include("inc/header.php")?>
 <?php include("inc/navigation.php")?>
@@ -7,7 +9,7 @@
 <?php
 
 // POST Parameter auslesen
-$ergebnis=htmlspecialchars($_POST["voting"], ENT_QUOTES, "UTF-8");  //??? voting???
+$ergebnis=htmlspecialchars($_POST["voting"], ENT_QUOTES, "UTF-8");
 $voting_id=htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
 
 //$ergebnis=$_POST ["voting"];
