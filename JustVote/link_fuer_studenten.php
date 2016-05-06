@@ -1,9 +1,11 @@
 <?php
 include("inc/session_check.php");
-require_once("Mapper/vorlesung.php");
-require_once("Mapper/vorlesung_manager.php");
-require_once("Mapper/voting_manager.php");
-require_once("Mapper/voting.php");
+require_once ("Mapper/voting_student.php");
+require_once ("Mapper/voting_student_manager.php");
+//require_once("Mapper/vorlesung.php");
+//require_once("Mapper/vorlesung_manager.php");
+//require_once("Mapper/voting_manager.php");
+//require_once("Mapper/voting.php");
 ?>
 
 <!DOCTYPE html>
@@ -24,19 +26,20 @@ require_once("Mapper/voting.php");
 
                     <?php
 
-                    require_once ("Mapper/voting_student_manager.php");
 
                     // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
-                    $voting_student_manager = new voting_manager();
+                    $voting_student_manager = new voting_student_manager();
 
                     // votingname aus Session auslesen
                     $votingname=$_GET['votingname'];
 
                     // lese Votingname aus Datenbank und speichere Informationen in einem votingname-Array
-                    $votings=$voting_student_manager->GetVotingName($votingname);
+                    $name=$voting_student_manager->findByVotingName($votingname);
 
-                    echo $votingname['votingname']." "."<br />";
+                    echo $name['votingname']." "."<br />";
 
+
+                    // ID wird ausgelesen und an URL drangehängt
                     $aktuellesvoting=$_GET['id'];
                     echo 'https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/'.$aktuellesvoting;
 

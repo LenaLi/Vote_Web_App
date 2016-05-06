@@ -17,10 +17,22 @@ class voting_student_manager extends manager
     }
 
 
-    public function GetVotingName ()
+    public function findByVotingName ($votingname)
     {
+        // Lese Votingname aus
+        try {
+            $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE  votingname= :votingname');
+            $stmt->bindParam(':votingname', $votingname);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting');
+            $name = $stmt->fetchAll();
 
+            return $name;
 
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            die();
+        }
 
     }
 
