@@ -32,7 +32,17 @@ require_once("Mapper/voting_manager.php");
                                 echo '<h2>Kein Datensatz wurde gefunden</h2>';
                             }
 
-                                foreach($votings as $voting) {
+                                // Durchgehen der Datensätze
+                                // der Session wird der Wert des angeklickten Datensatz zugewiesen
+                                // votings ist der große container, foreach-schleife macht neue variable voting in der schleife ruft man aktuelles ergebnis ab
+                                foreach($votings as $voting)
+                               {
+
+                                    $_SESSION["A1"] = $voting->antwort_1;
+                                    $_SESSION["A2"] = $voting->antwort_2;
+                                    $_SESSION["A3"] = $voting->antwort_3;
+                                    $_SESSION["A4"] = $voting->antwort_4;
+                                }
 
                         ?>
                                     <tr>
@@ -47,7 +57,7 @@ require_once("Mapper/voting_manager.php");
                                     <tr>
                                         <td>
                                             <?php
-                                            echo '<input type="radio" name="voting" value="antwort_1"/>' . $voting->antwort_1;
+                                            echo '<input type="radio" name="rb_voting" value="antwort_1"/>' . $_SESSION["A1"];
                                             ?>
                                         </td>
                                     </tr>
@@ -55,27 +65,26 @@ require_once("Mapper/voting_manager.php");
                                     <tr>
                                         <td>
                                             <?php
-                                            echo '<input type="radio" name="voting" value="antwort_2"/>' . $voting->antwort_2;
+                                            echo '<input type="radio" name="rb_voting" value="antwort_2"/>' . $_SESSION["A2"];
                                             ?>
                                         </td>
                                     </tr>
 
                                     <?php
-                                    if ($voting->antwort_3 != '') {
+                                    if ($_SESSION["A3"] != '') {
                                         echo '<tr>
                                         <td>';
-                                        echo '<input type="radio" name="voting" value="antwort_3"/>' . $voting->antwort_3;
+                                        echo '<input type="radio" name="rb_voting" value="antwort_3"/>' . $_SESSION["A3"];
                                         echo '</td>
                                     </tr>';
                                     }
-                                    if ($voting->antwort_4 != '') {
+                                    if ($_SESSION["A4"] != '') {
                                         echo '<tr>
                                         <td>';
-                                        echo '<input type="radio" name="voting" value="antwort_4"/>' . $voting->antwort_4;
+                                        echo '<input type="radio" name="rb_voting" value="antwort_4"/>' . $_SESSION["A4"];
                                         echo '</td>
                                     </tr>';
                                     }
-                                }
                         ?>
 
                         <tr>

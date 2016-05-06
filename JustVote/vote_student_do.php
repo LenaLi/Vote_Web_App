@@ -9,8 +9,8 @@
 <?php
 
 // POST Parameter auslesen
-$ergebnis=htmlspecialchars($_POST["voting"], ENT_QUOTES, "UTF-8");
-$voting_id=htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
+$ergebnis=htmlspecialchars($_POST["rb_voting"], ENT_QUOTES, "UTF-8");
+$votingid=$_SESSION["votingid"];
 
 //$ergebnis=$_POST ["voting"];
 //$voting_id=$_SESSION ["voting_id"];
@@ -28,23 +28,23 @@ $manager->inputresult($votingid, $ergebnis);
 
 // TODO: muss mit der DB verbunden werden damit richtige Antwort angezeigt wird
 // POST Parameter auslesen
-$result = htmlspecialchars($_POST["result"], ENT_QUOTES, "UTF-8");
+//$result = htmlspecialchars($_POST["result"], ENT_QUOTES, "UTF-8");
 
 // switch-case anweisung als bessere Variante zur elseif anweisung
-switch ($result) {
+switch ($ergebnis) {
     case antwort_1:
-        $ausgabe = "Antwort 1";
+         $ausgabe = "Antwort 1: ''".$_SESSION["A1"]."''";
         break;
 
     case antwort_2:
-        $ausgabe = "Antwort 2";
+        $ausgabe = "Antwort 2: ''".$_SESSION["A2"]."''";
         break;
     case antwort_3:
-        $ausgabe = "Antwort 3";
+        $ausgabe = "Antwort 3: ''".$_SESSION["A3"]."''";
         break;
 
     case antwort_4:
-        $ausgabe = "Antwort 4";
+        $ausgabe = "Antwort 4: ''".$_SESSION["A4"]."''";
         break;
 }
 
