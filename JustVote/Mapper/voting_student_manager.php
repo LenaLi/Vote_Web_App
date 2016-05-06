@@ -17,7 +17,7 @@ class voting_student_manager extends manager
     }
 
 
-    public function GetVotingName ();
+    public function GetVotingName ()
     {
 
 

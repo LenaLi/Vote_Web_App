@@ -24,14 +24,19 @@ require_once("Mapper/voting.php");
 
                     <?php
 
+                    require_once ("Mapper/voting_student_manager.php");
 
-                    //DB Abfrage zu Votings TO DO --MUSS FERTIG GEMACHT WERDEN UND AUCH IN EINE MAPPER KLASSE?
+                    // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
+                    $voting_student_manager = new voting_manager();
 
-
+                    // votingname aus Session auslesen
                     $votingname=$_GET['votingname'];
-                    echo $votingname;
+
+                    // lese Votingname aus Datenbank und speichere Informationen in einem votingname-Array
+                    $votings=$voting_student_manager->GetVotingName($votingname);
 
                     echo $votingname['votingname']." "."<br />";
+
                     $aktuellesvoting=$_GET['id'];
                     echo 'https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/'.$aktuellesvoting;
 
