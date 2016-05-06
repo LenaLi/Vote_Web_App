@@ -26,7 +26,7 @@ require_once ("Mapper/voting_student_manager.php");
 
                     <?php
 
-
+                    //TODO votingname ausgeben lassen
                     // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
                     $voting_student_manager = new voting_student_manager();
 

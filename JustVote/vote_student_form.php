@@ -1,29 +1,21 @@
-<?php include("inc/session_check.php"); ?>
-<?php include("inc/header.php"); ?>
-<?php include("inc/navigation.php"); ?>
+<?php
+include("inc/session_check.php");
+include("inc/header.php");
+include("inc/navigation.php");
+require_once("Mapper/voting_manager.php");
 
+        $votingmanager =new voting_manager();
+        $_SESSION["votingid"] =htmlspecialchars($_GET["votingid"], ENT_QUOTES, "UTF-8");
+        $votings = $votingmanager->findByVotingId($_SESSION["votingid"]);
+       // $_SESSION["voting_id"] =29;
+        echo $_SESSION
+
+?>
 
 
 <!DOCTYPE html>
 <html>
 <body>
-    <?php
-        require_once("Mapper/voting_manager.php");
-
-        $votingmanager =new voting_manager();
-
-//TODO muss mit der DB verbunden werden:
-
-    $_SESSION["votingid"] =htmlspecialchars($_GET["votingid"], ENT_QUOTES, "UTF-8");
-//$votingid = htmlspecialchars($_GET["votingid"], ENT_QUOTES, "UTF-8");
-    $votings = $votingmanager->findByVotingId($_SESSION["votingid"]);
-
-        //TODO muss mit der DB verbunden werden:
-        //$_SESSION["voting_id"] =11;
-    $votingid = htmlspecialchars($_GET["votingid"], ENT_QUOTES, "UTF-8");
-    $votings = $votingmanager->findByVotingId($_SESSION["votingid"]);
-    ?>
-
     <div class="container-fluid">
 
         <div class="row">
@@ -90,6 +82,7 @@
                                 }
                             }
                         ?>
+
                         <tr>
                             <td>
                                 <input type="submit" name="Abschicken" value="Abschicken">
