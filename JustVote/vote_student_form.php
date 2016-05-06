@@ -7,11 +7,8 @@ require_once("Mapper/voting_manager.php");
 
         $votingmanager =new voting_manager();
         $votingid =htmlspecialchars($_GET["votingid"], ENT_QUOTES, "UTF-8");
+        //$votingid =29;
         $votings = $votingmanager->findByVotingId($votingid);
-        echo $votingid;
-
-
-       // $_SESSION["votingid"] =29;
 
 ?>
 
