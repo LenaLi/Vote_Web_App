@@ -12,6 +12,10 @@
 
         $votingmanager =new voting_manager();
 
+//TODO muss mit der DB verbunden werden:
+$_SESSION["voting_id"] =htmlspecialchars($_GET["voting_id"], ENT_QUOTES, "UTF-8");
+//$voting_id = htmlspecialchars($_GET["voting_id"], ENT_QUOTES, "UTF-8");
+$votings = $votingmanager->findByVotingId($_SESSION["voting_id"]);
         //TODO muss mit der DB verbunden werden:
         //$_SESSION["voting_id"] =11;
         $voting_id = htmlspecialchars($_GET["voting_id"], ENT_QUOTES, "UTF-8");
