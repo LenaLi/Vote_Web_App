@@ -16,7 +16,7 @@
 <div id="page-wrapper">
 
     <div class="container-fluid">
-        <div class="row">
+        <div class="form-group">
             <div class="col-lg-12">
 
                 <h2>Anmeldung für Studenten</h2>
@@ -43,27 +43,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="password">Kennwort:</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" name="password" id="password">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="password2">Kennwort (Wiederholung):</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" name="password2" id="password2">
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <select name="role">
-
-                                <option value="Student"</option>
-                            </select>
+                            <input type="password" class="form-control" name="password2" id="password2" placeholder="Passwort Wiederholung">
                         </div>
                     </div>
+
 
                     <div class="form-group">
                         <div class=" col-sm-6">
