@@ -2,13 +2,16 @@
 include("inc/session_check.php");
 include("inc/header.php");
 include("inc/navigation.php");
+require_once("Mapper/voting.php");
 require_once("Mapper/voting_manager.php");
 
         $votingmanager =new voting_manager();
-        $_SESSION["votingid"] =htmlspecialchars($_GET["votingid"], ENT_QUOTES, "UTF-8");
-        $votings = $votingmanager->findByVotingId($_SESSION["votingid"]);
-       // $_SESSION["voting_id"] =29;
-        echo $_SESSION
+        $votingid =htmlspecialchars($_GET["votingid"], ENT_QUOTES, "UTF-8");
+        $votings = $votingmanager->findByVotingId($votingid);
+        echo $votingid;
+
+
+       // $_SESSION["votingid"] =29;
 
 ?>
 
@@ -27,15 +30,15 @@ require_once("Mapper/voting_manager.php");
 
                         <?php
 
-                            if($votings==null)
+                           /* if($votings==null)
                             {
                                 //kein Datensatz gefunden
                                 echo '<h2>Kein Datensatz wurde gefunden</h2>';
                             }
 
                                 //Schleife hier eigentlich nicht n�tig, da id eindeutig und nur ein Datensatz zur�ckgegeben wird
-                                foreach($votings as $voting)
-                            {
+                                //foreach($votings as $voting)
+                            {*/
 
                         ?>
                                 <tr>
@@ -80,7 +83,7 @@ require_once("Mapper/voting_manager.php");
                                     echo '</td>
                                     </tr>';
                                 }
-                            }
+
                         ?>
 
                         <tr>
