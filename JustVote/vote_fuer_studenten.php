@@ -11,11 +11,6 @@
 
 <!-- Datenbankabfrage Voting -->
 
-
-<!DOCTYPE html>
-<html>
-
-
 <body>
 
 
@@ -68,7 +63,7 @@
 */
                     ?>
 
-                            echo "</table>";
+                     <?       echo "</table>";
                         }
                     ?>
 
@@ -82,9 +77,3 @@
 
 </body>
 </html>
-
-
-
-
-
-

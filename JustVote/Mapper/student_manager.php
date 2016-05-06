@@ -67,9 +67,9 @@ class student_manager extends student
     }
 
 
-    public function create($vorname,$nachname,$email,$role)
+/*  //public function create($vorname,$nachname,$email,$role)
     {
-        $salt=""; // benötigt für Hashfunktion
+        $salt=""; // benï¿½tigt fï¿½r Hashfunktion
         $password="Standardpassword/Hash"; // TODO: hier muss Funktion der Passworterzeugung und Hash
 
 
@@ -92,7 +92,30 @@ class student_manager extends student
             return null;
         }
         return true;
-    }
+    } */
+
+    public function create($vorname,$nachname,$email,$role,$hash)
+    {
+        try {
+            $stmt = $this->pdo->prepare('
+              INSERT INTO student
+                (nachname, vorname, email, hash)
+              VALUES
+                (:nachname, :vorname , :email, :hash)
+            ');
+            $stmt->bindParam(':nachname', $student->nachname);
+            $stmt->bindParam(':vorname', $student->vorname);
+            $stmt->bindParam(':email', $student->email);
+            $stmt->bindParam(':hash', $student->hash);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            return null;
+        }
+        return $student;
+
+
+
 
     public function update(student $student)
     {
