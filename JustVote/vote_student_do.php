@@ -12,9 +12,6 @@
 $ergebnis=htmlspecialchars($_POST["rb_voting"], ENT_QUOTES, "UTF-8");
 $votingid=$_SESSION["votingid"];
 
-//$ergebnis=$_POST ["voting"];
-//$voting_id=$_SESSION ["voting_id"];
-
 // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
 $manager=new result_manager();
 
@@ -26,11 +23,8 @@ $manager->inputresult($votingid, $ergebnis);
 
 <?php
 
-// TODO: muss mit der DB verbunden werden damit richtige Antwort angezeigt wird
-// POST Parameter auslesen
-//$result = htmlspecialchars($_POST["result"], ENT_QUOTES, "UTF-8");
-
 // switch-case anweisung als bessere Variante zur elseif anweisung
+// es wird auf die globale variable SESSION aufgerufen, man hätte auch ne neue DB Abfrage machen können, aber wenns in ner globalen Variable ist, ist das unnötig
 switch ($ergebnis) {
     case antwort_1:
          $ausgabe = "Antwort 1: ''".$_SESSION["A1"]."''";
