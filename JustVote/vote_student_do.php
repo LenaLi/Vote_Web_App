@@ -8,7 +8,7 @@
 
 // POST Parameter auslesen
 $ergebnis=htmlspecialchars($_POST["voting"], ENT_QUOTES, "UTF-8");  //??? voting???
-$voting_id=htmlspecialchars($_POST["voting_id"], ENT_QUOTES, "UTF-8");
+$voting_id=htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
 
 //$ergebnis=$_POST ["voting"];
 //$voting_id=$_SESSION ["voting_id"];
@@ -17,7 +17,7 @@ $voting_id=htmlspecialchars($_POST["voting_id"], ENT_QUOTES, "UTF-8");
 $manager=new result_manager();
 
 // neues Ergebnis erzeugen mit den POST Parametern
-$manager->inputresult($voting_id, $ergebnis);
+$manager->inputresult($votingid, $ergebnis);
 ?>
 
 <!-- TODO function beziehungvotingstudent noch anlegen wenn das mit dem einloggen von Studenten geklärt ist! -->

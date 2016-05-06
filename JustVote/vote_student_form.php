@@ -13,13 +13,13 @@
         $votingmanager =new voting_manager();
 
 //TODO muss mit der DB verbunden werden:
-$_SESSION["voting_id"] =htmlspecialchars($_GET["voting_id"], ENT_QUOTES, "UTF-8");
-//$voting_id = htmlspecialchars($_GET["voting_id"], ENT_QUOTES, "UTF-8");
-$votings = $votingmanager->findByVotingId($_SESSION["voting_id"]);
+$_SESSION["votingid"] =htmlspecialchars($_GET["votingid"], ENT_QUOTES, "UTF-8");
+//$votingid = htmlspecialchars($_GET["votingid"], ENT_QUOTES, "UTF-8");
+$votings = $votingmanager->findByVotingId($_SESSION["votingid"]);
         //TODO muss mit der DB verbunden werden:
         //$_SESSION["voting_id"] =11;
-        $voting_id = htmlspecialchars($_GET["voting_id"], ENT_QUOTES, "UTF-8");
-        $votings = $votingmanager->findByVotingId($_SESSION["voting_id"]);
+        $votingid = htmlspecialchars($_GET["votingid"], ENT_QUOTES, "UTF-8");
+        $votings = $votingmanager->findByVotingId($_SESSION["votingid"]);
     ?>
 
     <div class="container-fluid">
