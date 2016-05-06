@@ -41,7 +41,7 @@ require_once ("Mapper/voting_student_manager.php");
 
                     // ID wird ausgelesen und an URL drangehängt
                     $aktuellesvoting=$_GET['id'];
-                    echo 'https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/'.$aktuellesvoting;
+                    echo 'https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting;
 
 
                     // TODO QR Code https://developers.google.com/chart/infographics/docs/qr_codes#syntax
