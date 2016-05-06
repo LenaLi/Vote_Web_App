@@ -21,23 +21,19 @@ require_once("Mapper/voting.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Hier soll Voting Name stehen </h1>
-                    <p></p>
-                    <?php
 
+                    <?php
 
 
                     //DB Abfrage zu Votings TO DO --MUSS FERTIG GEMACHT WERDEN UND AUCH IN EINE MAPPER KLASSE?
 
-
-                    // Hier soll Votingname stehen
 
                     $votingname=$_GET['votingname'];
                     echo $votingname;
 
                     echo $votingname['votingname']." "."<br />";
                     $aktuellesvoting=$_GET['id'];
-                    echo 'https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/';
+                    echo 'https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/'.$aktuellesvoting;
 
 
                     // TODO QR Code https://developers.google.com/chart/infographics/docs/qr_codes#syntax
@@ -50,11 +46,7 @@ require_once("Mapper/voting.php");
 
 
                     //So muss der Link Aussehen
-                    http://chart.apis.google.com/chart?chs=500x500&cht=qr&chld=L&chl=https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/$aktuellesvoing
-
-
-
-
+                   // http://chart.apis.google.com/chart?chs=500x500&cht=qr&chld=L&chl=https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/$aktuellesvoing
 
 
 
