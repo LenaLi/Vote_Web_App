@@ -75,7 +75,7 @@ class benutzer_manager extends manager
             'salt' => $salt
         ];
         // Funktion, die zufällige Passwörter erzeugt
-        $password="password"; //TODO: Funktion, die zufällige Passwörter erzeugt statt "Passwort"
+        $password="vorname";
         // Password wird mit salt gehasht
         $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
 
@@ -94,6 +94,20 @@ class benutzer_manager extends manager
             $stmt->bindParam(':password', $password_hashed);
             $stmt->bindParam(":salt", $salt);
             $stmt->execute();
+
+            // Anmeldedaten  mit email versenden
+
+            // check if hdm email adress
+            $suffix = explode("@",$email)[1]; //zerlegt string $e-mail in einen string vor dem @ und nach dem @
+            if($suffix === "hdm-stuttgart.de"){
+                echo "email ist hdm mail ".$suffix;
+                $to = $email;
+                $subject = "Neues Benutzerkonto bei Just Vote";
+                $message = "Hallo ".$vorname." ".$nachname.",\n\n Es wurde ein Benutzerkonto für Sie bei JustVote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: ".$email."\n Passwort: ".$vorname."\n\n MFG\n Ihr Just Vote Team";
+                //mail($to,$subject,$message);
+            }
+
+
 
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
