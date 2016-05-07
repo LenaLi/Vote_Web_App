@@ -10,22 +10,26 @@ $password2 = htmlspecialchars($_POST["password2"], ENT_QUOTES, "UTF-8");
 // Prüfen ob alle Formularfelder ausgefüllt wurden
 if (!empty($password1) && !empty($password2)) {
 
-    // Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
-    $benutzer_manager = new benutzer_manager();
+    if ($password1 == $password2) {
+        // Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
+        $benutzer_manager = new benutzer_manager();
 
-    // lese Benutzer mit Benutzer-ID aus Datenbank und speichere Informationen in einem Benutzer-Objekt
-    $benutzer = $benutzer_manager->updatePassword($id);
+        // lese Benutzer mit Benutzer-ID aus Datenbank und speichere Informationen in einem Benutzer-Objekt
+        $benutzer = $benutzer_manager->findById($id);
 
-    // aktualisiere Attribute des Benutzer-Objektes
+        // aktualisiere Attribute das Passwort des Benutzer-Objektes
+        $benutzer->password =$password1;
 
-    $benutzer->email =$email; //darf eig nicht geändert werden
-    $benutzer->password =$password;
+        // Änderungen des Passwortes in Datenbank aktualisieren
+        $benutzer_manager->updatePassword($benutzer);
 
-    // Änderungen in Datenbank aktualisieren
-    $benutzer_manager->update($benutzer);
+        // Weiterleitung auf die Übersichtsseite der Benutzer
+        header('Location: benutzer_read.php');
+    }
+    else {
+        echo "Passwörter stimmen nicht überein!";
+    }
 
-    // Weiterleitung auf die Übersichtsseite der Benutzer
-    header('Location: benutzer_read.php');
 } else {
     echo "Error: Bitte alle Felder ausfüllen!";
 }
