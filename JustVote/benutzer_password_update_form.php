@@ -9,8 +9,8 @@ require_once("Mapper/benutzer.php");
 
 <?php
 
-// Benutzer-ID aus GET Parameter auslesen
-$id = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+// Benutzer-ID aus SESSION auslesen
+$id = htmlspecialchars($_SESSION["benutzerid"], ENT_QUOTES, "UTF-8");
 
 // Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
 $benutzer_manager = new benutzer_manager();
@@ -33,7 +33,7 @@ $benutzer = $benutzer_manager->findById($id);
             <div class="row">
                 <div class="col-lg-12">
                     <!-- Beginn Formular "Passwort aktualisieren" -->
-                    <h1>Passwort ändern<?php echo $benutzer->id ?></h1>
+                    <h1>Neues Passwort anlegen </h1>
 
                     <form action='benutzer_password_update_do.php' method='post'>
                         <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' />

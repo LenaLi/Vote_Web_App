@@ -17,7 +17,6 @@ if (!empty($password1) && !empty($password2)) {
         // lese Benutzer mit Benutzer-ID aus Datenbank und speichere Informationen in einem Benutzer-Objekt
         $benutzer = $benutzer_manager->findById($id);
 
-        
         // aktualisiere Attribute das Passwort des Benutzer-Objektes
         $benutzer->password =$password1;
 
