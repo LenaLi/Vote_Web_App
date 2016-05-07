@@ -148,8 +148,7 @@ class benutzer_manager extends manager
             // Updaten eines zu einer bestimmten ID gehörenden Passwortes eines Benutzers (Attribute siehe unten)
             $stmt = $this->pdo->prepare('
               UPDATE benutzer
-              SET email = :email,
-                  password = :password,
+              SET password = :password
               WHERE id = :id
             ');
             $stmt->bindParam(':id', $benutzer->id);

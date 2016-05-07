@@ -18,7 +18,6 @@ $benutzer_manager = new benutzer_manager();
 // lese Benutzer mit Benutzer-ID aus Datenbank aus
 $benutzer = $benutzer_manager->findById($id);
 
-echo $id;
 ?>
 
 <?php include("inc/header.php"); ?>
@@ -33,17 +32,20 @@ echo $id;
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <!-- Beginn Formular "Passwort updaten" -->
-                    <h1>Benutzer aktualisieren <?php echo $benutzer->id ?></h1>
+                    <!-- Beginn Formular "Passwort aktualisieren" -->
+                    <h1>Passwort ändern<?php echo $benutzer->id ?></h1>
 
-                    <form action='uebersicht.php' method='post'>
-                        <input type='hidden' name='password' value='<?php echo $benutzer->password ?>' />
-                        Vorname:<br>
-                        <input type='text' name='vorname' value='<?php echo $benutzer->vorname ?>' /><br>
+                    <form action='benutzer_password_update_do.php' method='post'>
+                        <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' />
+                        Neues Passwort eingeben:<br>
+                        <input type='password' name='password1'  /><br>
                         <br>
-                        <input type='submit' value='update!' />
+                        Neues Passwort wiederholen:<br>
+                        <input type='password' name='password2'  /><br>
+                        <br>
+                        <input type='submit' value='Passwort ändern' />
                     </form>
-                    <!-- Ende Formular "Benutzer aktualisieren" -->
+                    <!-- Ende Formular "Passwort aktualisieren" -->
                 </div>
             </div>
         </div>
