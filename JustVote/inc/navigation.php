@@ -104,8 +104,9 @@
                         <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        <a href="benutzer_password_update_form.php"><i class="fa fa-fw fa-gear"></i> Passwort ändern </a>
                     </li>
+
                     <li class="divider"></li>
                     <li>
                         <a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>

@@ -144,6 +144,17 @@ class benutzer_manager extends manager
 
     public function updatePassword(benutzer $benutzer)
     {
+        // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
+        $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+        $options = [
+            'salt' => $salt
+        ];
+        // Funktion, die zufällige Passwörter erzeugt
+        $password=$benutzer->password;
+        // Password wird mit salt gehasht
+        $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
+
+
         try {
             // Updaten eines zu einer bestimmten ID gehörenden Passwortes eines Benutzers (Attribute siehe unten)
             $stmt = $this->pdo->prepare('
@@ -152,13 +163,13 @@ class benutzer_manager extends manager
               WHERE id = :id
             ');
             $stmt->bindParam(':id', $benutzer->id);
-            $stmt->bindParam(':email', $benutzer->email);
+            $stmt->bindParam(':password', $password_hashed);
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             die();
         }
-        return $benutzer;
+        //return $benutzer;
     }
 
     public function delete(benutzer $benutzer)
