@@ -142,6 +142,26 @@ class benutzer_manager extends manager
         return $benutzer;
     }
 
+    public function updatePassword(benutzer $benutzer)
+    {
+        try {
+            // Updaten eines zu einer bestimmten ID gehörenden Passwortes eines Benutzers (Attribute siehe unten)
+            $stmt = $this->pdo->prepare('
+              UPDATE benutzer
+              SET email = :email,
+                  password = :password,
+              WHERE id = :id
+            ');
+            $stmt->bindParam(':id', $benutzer->id);
+            $stmt->bindParam(':email', $benutzer->email);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            die();
+        }
+        return $benutzer;
+    }
+
     public function delete(benutzer $benutzer)
     {
         try {

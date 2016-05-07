@@ -37,7 +37,7 @@ echo $id;
                     <h1>Benutzer aktualisieren <?php echo $benutzer->id ?></h1>
 
                     <form action='uebersicht.php' method='post'>
-                        <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' />
+                        <input type='hidden' name='password' value='<?php echo $benutzer->password ?>' />
                         Vorname:<br>
                         <input type='text' name='vorname' value='<?php echo $benutzer->vorname ?>' /><br>
                         <br>
