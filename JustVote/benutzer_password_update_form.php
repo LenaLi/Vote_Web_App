@@ -36,16 +36,10 @@ echo $id;
                     <!-- Beginn Formular "Passwort updaten" -->
                     <h1>Benutzer aktualisieren <?php echo $benutzer->id ?></h1>
 
-                    <form action='benutzer_update_do.php' method='post'>
+                    <form action='uebersicht.php' method='post'>
                         <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' />
                         Vorname:<br>
                         <input type='text' name='vorname' value='<?php echo $benutzer->vorname ?>' /><br>
-                        Nachname:<br>
-                        <input type='text' name='nachname' value='<?php echo $benutzer->nachname ?>' /><br>
-                        <br>
-                        E-Mail:<br>
-                        <input type='text' name='email' value='<?php echo $benutzer->email ?>' /><br>
-                        <br>
                         <br>
                         <input type='submit' value='update!' />
                     </form>
