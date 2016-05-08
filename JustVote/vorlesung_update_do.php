@@ -5,15 +5,16 @@ require_once("Mapper/vorlesung.php");
 //POST Parameter auslesen
 $vorlesungsId = (int)htmlspecialchars($_POST["vorlesungsid"],ENT_QUOTES, "UTF-8");
 $vorlesungsName = htmlspecialchars($_POST["vorlesungsname"], ENT_QUOTES, "UTF-8");
+$vorlesungsNummer = htmlspecialchars($_POST["vorlesungsnummer"], ENT_QUOTES, "UTF-8");
 
 // Prüfen ob alle Formularfelder ausgefüllt wurden
-if (!empty($vorlesungsId) && !empty($vorlesungsName)) {
+if (!empty($vorlesungsId) &&!empty($vorlesungsNummer) && !empty($vorlesungsName)) {
 
     // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
     $vorlesung_manager = new vorlesung_manager();
 
     // Änderungen in Datenbank aktualisieren
-    $vorlesung_manager->update($vorlesungsId, $vorlesungsName);
+    $vorlesung_manager->update($vorlesungsId, $vorlesungsName, $vorlesungsNummer);
     
     // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
     header('Location: uebersicht.php');

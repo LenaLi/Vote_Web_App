@@ -19,7 +19,6 @@ $vorlesung_manager = new vorlesung_manager();
 // Lese Vorlesung mit Vorlesungs-ID aus Datenbank aus
 $vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsId);
 
-echo $vorlesungsId;
 ?>
 
 
@@ -46,13 +45,12 @@ echo $vorlesungsId;
 
                     <!-- Beginn Formular "Vorlesung aktualisieren" -->
                     <form action='vorlesung_update_do.php' method='post'>
-                        
-                        Vorlesungsid:<br>
-                        <input type='text' name='vorlesungsid' value='<?php echo $vorlesung->vorlesungsid ?>'
-                        </br>
+
+                        <input type='hidden' name='vorlesungsid' value='<?php echo $vorlesung->vorlesungsid ?>'/></br>
+                        Vorlesungsnummer:<br>
+                        <input type='text' name='vorlesungsnummer' value='<?php echo $vorlesung->vorlesungsnummer ?>'/></br>
                         Vorlesungsname:<br>
-                        <input type='text' name='vorlesungsname' value='<?php echo $vorlesung->vorlesungsname ?>'
-                        </br>
+                        <input type='text' name='vorlesungsname' value='<?php echo $vorlesung->vorlesungsname ?>'/></br>                       </br>
 
                         <input type='submit' value='update!' />
                     </form>

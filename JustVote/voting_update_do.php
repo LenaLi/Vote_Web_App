@@ -26,7 +26,7 @@ if (!empty($votingId) && !empty($votingName)&& !empty($frage)&& !empty($antwort_
     // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
     header('Location: uebersicht.php');
 } else {
-    echo "Error: Bitte alle Felder ausfüllen!";
+    header('Location: voting_update_form.php?error=1');
 }
 ?>
 

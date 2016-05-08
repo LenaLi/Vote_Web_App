@@ -39,7 +39,7 @@ include("inc/session_check.php");
 
                             // Überschriften der Tabellen
                                 echo "<thead><tr>";
-                                echo "<th colspan='7'>" . $vorlesung->vorlesungsid .", ". $vorlesung->vorlesungsname;
+                                echo "<th colspan='7'>" . $vorlesung->vorlesungsnummer .", ". $vorlesung->vorlesungsname;
                                 echo " <a class='fa fa-edit' href ='vorlesung_update_form.php?id=".$vorlesung->vorlesungsid."'></a>";
                                 echo " <a class='fa fa-trash'href ='vorlesung_delete_do.php?id=".$vorlesung->vorlesungsid."'></a>";
                                 echo  "<th>";

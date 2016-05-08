@@ -28,10 +28,10 @@
 
                     <!-- Beginn Formular "Vorlesung hinzufügen" -->
                     <form class="form-horizontal" role="form" action="vorlesung_create_do.php" method="post">
-                        <!-- Texteingabefeld für ID der Vorlesung-->
+                        <!-- Texteingabefeld für Nummer der Vorlesung-->
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input type="number" class="form-control" name="vorlesungsid" id="vorlesungsid" placeholder="ID der Vorlesung">
+                                <input type="number" class="form-control" name="vorlesungsnummer" id="vorlesungsnummer" placeholder="Nummer der Vorlesung">
                             </div>
                         </div>
                         <!-- Texteingabefeld für Vorlesungsname-->

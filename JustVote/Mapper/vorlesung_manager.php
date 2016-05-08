@@ -68,19 +68,19 @@ class vorlesung_manager extends manager
     }
 
 
-    public function create($vorlesungsid,$benutzerid,$vorlesungsname)
+    public function create($benutzerid,$vorlesungsname,$vorlesungsnummer)
     {
         // Füge eine Vorlesung der Datenbank hinzu (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO vorlesung
-                (vorlesungsid, benutzerid, vorlesungsname)
+                (benutzerid, vorlesungsname, vorlesungsnummer)
               VALUES
-                (:vorlesungsid, :benutzerid, :vorlesungsname)
+                (:benutzerid, :vorlesungsname, :vorlesungsnummer)
             ');
-            $stmt->bindParam(':vorlesungsid', $vorlesungsid);
             $stmt->bindParam(':benutzerid', $benutzerid);
             $stmt->bindParam(':vorlesungsname', $vorlesungsname);
+            $stmt->bindParam(':vorlesungsnummer', $vorlesungsnummer);
 
             $stmt->execute();
         } catch (PDOException $e) {
@@ -90,17 +90,19 @@ class vorlesung_manager extends manager
         return true;
     }
 
-    public function update($vorlesungsid, $vorlesungsname)
+    public function update($vorlesungsid, $vorlesungsname, $vorlesungsnummer)
     {
         // Updaten eines zu einer bestimmten VorlesungsId gehörenden Vorlesung (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               UPDATE vorlesung
               SET vorlesungsname = :vorlesungsname
+                  vorlesungsnummer = :vorlesungsnummer
               WHERE vorlesungsid = :vorlesungsid
             ');
             $stmt->bindParam(':vorlesungsid', $vorlesungsid);
             $stmt->bindParam(':vorlesungsname', $vorlesungsname);
+            $stmt->bindParam(':vorlesungsnummer', $vorlesungsnummer);
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");

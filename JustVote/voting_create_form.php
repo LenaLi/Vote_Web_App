@@ -29,6 +29,16 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                 <div class="col-lg-12">
 
                     <h2>Neues Voting</h2>
+
+                    <?php
+                    // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
+                    if ($_GET["error"]=="1"){
+
+                        // HTML Code für Fehlermeldung erzeugen
+                        echo "<div class='alert alert-danger'> <strong> Fehler: </strong>Bitte alle Felder ausfüllen </div>";
+                    }
+                    ?>
+                    
                     <!-- Beginn Formular "Voting hinzufügen" -->
                     <form class="form-horizontal" role="form" action="voting_create_do.php" method="post">
 

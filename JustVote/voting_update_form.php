@@ -30,6 +30,16 @@ echo $votingId;
                 <div class="col-lg-12">
 
                     <h1>Vorlesung bearbeiten</h1>
+
+                    <?php
+                    // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
+                    if ($_GET["error"]=="1"){
+
+                        // HTML Code für Fehlermeldung erzeugen
+                        echo "<div class='alert alert-danger'> <strong> Fehler: </strong>Bitte alle Felder ausfüllen </div>";
+                    }
+                    ?>
+                    
                     <!-- Beginn Formular "Voting aktualisieren" -->
                     <form action='voting_update_do.php' method='post'>
                         <input type='hidden' name='votingid' value='<?php echo $voting->votingid ?>' /

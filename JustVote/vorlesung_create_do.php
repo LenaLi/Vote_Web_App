@@ -4,18 +4,18 @@ require_once("Mapper/vorlesung.php");
 require_once("Mapper/vorlesung_manager.php");
 
 //POST Parameter auslesen
-$vorlesungsId=$_POST["vorlesungsid"];
 $benutzerId=$_SESSION["benutzerid"];
 $vorlesungsName=$_POST["vorlesungsname"];
+$vorlesungsNummer=$_POST["vorlesungsnummer"];
 
 // Prüfen ob alle Formularfelder ausgefüllt wurden
-if (!empty($vorlesungsId) && !empty($vorlesungsName)) {
+if ( !empty($vorlesungsName)&& !empty($vorlesungsNummer)) {
 
     // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new vorlesung_manager();
 
     // neue Vorlesung erzeugen mit den POST Parametern
-    $manager->create($vorlesungsId,$benutzerId,$vorlesungsName);
+    $manager->create($benutzerId,$vorlesungsName,$vorlesungsNummer);
 
     // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
     header('Location: uebersicht.php');

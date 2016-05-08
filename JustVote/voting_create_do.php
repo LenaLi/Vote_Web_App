@@ -17,17 +17,17 @@ $endDatum=htmlspecialchars($_POST["enddatum"]." ". $_POST["endzeit"], ENT_QUOTES
 // Prüfen ob alle Formularfelder ausgefüllt wurden
 if (!empty($votingName)&& !empty($frage)&& !empty($antwort_1) && !empty($antwort_2)&& !empty($startDatum)&& !empty($endDatum)) {
 
-// Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
-$manager=new voting_manager();
+    // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
+    $manager=new voting_manager();
 
-// neues Voting erzeugen mit den POST Parametern
-$manager->create($vorlesungsId, $votingName, $frage, $antwort_1,$antwort_2,$antwort_3,$antwort_4,$startDatum,$endDatum);
+    // neues Voting erzeugen mit den POST Parametern
+    $manager->create($vorlesungsId, $votingName, $frage, $antwort_1,$antwort_2,$antwort_3,$antwort_4,$startDatum,$endDatum);
 
-// Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
-header('Location: uebersicht.php');
+    // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
+    header('Location: uebersicht.php');
 }
 else {
-    echo "Error: Bitte alle Felder ausfüllen!";
+    header('Location: voting_create_form.php?error=1');
 }
 ?>
 
