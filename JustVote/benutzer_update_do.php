@@ -28,6 +28,6 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)) {
     // Weiterleitung auf die Übersichtsseite der Benutzer
     header('Location: benutzer_read.php');
 } else {
-    echo "Error: Bitte alle Felder ausfüllen!";
+    header('Location: benutzer_update_form.php?error=1');
 }
 ?>

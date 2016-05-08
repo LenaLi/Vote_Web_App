@@ -35,7 +35,16 @@ echo $id;
             <div class="row">
                 <div class="col-lg-12">
                     <!-- Beginn Formular "Benutzer updaten" -->
-                    <h1>Benutzer aktualisieren <?php echo $benutzer->id ?></h1>
+                    <h1>Benutzer aktualisieren </h1>
+
+                    <?php
+                    // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
+                    if ($_GET["error"]=="1"){
+
+                        // HTML Code für Fehlermeldung erzeugen
+                        echo "<div class='alert alert-danger'> <strong> Fehler: </strong>Bitte alle Felder ausfüllen </div>";
+                    }
+                    ?>
 
                     <form action='benutzer_update_do.php' method='post'>
                         <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' />
