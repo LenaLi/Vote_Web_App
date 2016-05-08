@@ -152,10 +152,6 @@
                 <li>
                     <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i>  Übersicht Ergebnisse</a>
                 </li>
-                <li>
-                    <a href="student_create_form.php"><i class="fa fa-plus"></i> Student</a>
-                </li>
-
 
                <!-- <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
