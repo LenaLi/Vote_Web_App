@@ -36,7 +36,7 @@
                 }
 
                 // --------------- Für Anzahl pro Antwort ---------------------------------
-                for ($i=1; $i<=4; $i++)
+                for ($i=1; $i<=$_SESSION ["anzahlantworten"]; $i++)
                 {
 
                 // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
