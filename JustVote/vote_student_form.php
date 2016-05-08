@@ -1,7 +1,6 @@
 <?php
 include("inc/session_check.php");
 include("inc/header.php");
-include("inc/navigation.php");
 require_once("Mapper/voting.php");
 require_once("Mapper/voting_manager.php");
 
@@ -14,15 +13,21 @@ require_once("Mapper/voting_manager.php");
 
 <!DOCTYPE html>
 <html>
-<body>
-    <div class="container-fluid">
 
-        <div class="row">
-            <div class="col-lg-12">
+
+<body class="mitte">
+
+<!-- LOGO -->
+<div class="mitte">
+    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
+</div>
+
+
+
+<div >
 
                 <form action="vote_student_do.php" method="post">
                     <table>
-
 
                         <?php
 
@@ -95,7 +100,7 @@ require_once("Mapper/voting_manager.php");
 
                         <tr>
                             <td>
-                                <input type="submit" name="Abschicken" value="Abschicken">
+                                <input type="submit" name="Abschicken" value="Abschicken" class="btn-info">
                             </td>
                         </tr>
                     </table>
@@ -103,8 +108,6 @@ require_once("Mapper/voting_manager.php");
 
                 </div>
             </div>
-        </div>
 
-    </div>
 </body>
 </html>
