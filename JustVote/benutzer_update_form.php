@@ -48,14 +48,14 @@ echo $id;
                     ?>
 
                     <form action='benutzer_update_do.php' method='post'>
-                        <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' />
+                        <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' required="required"/>
                         Vorname:<br>
-                        <input type='text' name='vorname' value='<?php echo $benutzer->vorname ?>' /><br>
+                        <input type='text' name='vorname' value='<?php echo $benutzer->vorname ?>'required="required" /><br>
                         Nachname:<br>
-                        <input type='text' name='nachname' value='<?php echo $benutzer->nachname ?>' /><br>
+                        <input type='text' name='nachname' value='<?php echo $benutzer->nachname ?>'required="required" /><br>
                         <br>
                         E-Mail:<br>
-                        <input type='text' name='email' value='<?php echo $benutzer->email ?>' /><br>
+                        <input type='text' name='email' value='<?php echo $benutzer->email ?>'required="required" /><br>
                         <br>
                         <br>
                         <input type='submit' value='update!' />

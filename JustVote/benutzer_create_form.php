@@ -21,7 +21,7 @@ include("inc/session_check_admin.php");?>
                     <?php
                         // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
                         if ($_GET["error"]=="1"){
-                            
+
                             // HTML Code für Fehlermeldung erzeugen
                             echo "<div class='alert alert-danger'> <strong> Fehler: </strong>Bitte alle Felder ausfüllen </div>";
                         }
@@ -33,19 +33,19 @@ include("inc/session_check_admin.php");?>
                         <!-- Texteingabefeld für Vorname-->
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="vorname" id="vorname" placeholder="Vorname">
+                                <input type="text" class="form-control" name="vorname" id="vorname" placeholder="Vorname" required="required">
                             </div>
                         </div>
                         <!-- Texteingabefeld für Nachname-->
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="nachname" id="nachname" placeholder="Nachname">
+                                <input type="text" class="form-control" name="nachname" id="nachname" placeholder="Nachname" required="required">
                             </div>
                         </div>
                         <!-- Texteingabefeld für E-Mail-->
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail">
+                                <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail" required="required">
                             </div>
                         </div>
                         <!-- Auswahlfeld der Rolle (Benutzer oder Admin)-->

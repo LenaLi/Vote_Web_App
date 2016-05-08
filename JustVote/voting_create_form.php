@@ -46,7 +46,7 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                         <!-- Texteingabefeld für Name des Votings-->
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="votingname" id="votingname" placeholder="Name des Votings">
+                                <input type="text" class="form-control" name="votingname" id="votingname" placeholder="Name des Votings"required="required">
                             </div>
                         </div>
                         <!-- Vorlesung auswählen: -->
@@ -73,7 +73,7 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                         <div class="form-group">
                             <div class="col-sm-6"
                             <label for="frage"></label>
-                            <textarea class="form-control" name="frage" rows="3" placeholder="Frage"></textarea>
+                            <textarea class="form-control" name="frage" rows="3" placeholder="Frage"required="required"></textarea>
                             </div>
                         </div>
 
@@ -81,14 +81,14 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                          <div class="form-group">
                              <div class="col-sm-6"
                              <label for="antwort_1"></label>
-                             <textarea class="form-control" name="antwort_1" rows="2" placeholder="Antwortmöglichkeit 1"></textarea>
+                             <textarea class="form-control" name="antwort_1" rows="2" placeholder="Antwortmöglichkeit 1"required="required"></textarea>
                             </div>
                          </div>
                         <!-- Texteingabefeld für die Antwortmöglichkeit 2 -->
                         <div class="form-group">
                             <div class="col-sm-6"
                             <label for="antwort_2"</label>
-                            <textarea class="form-control" name="antwort_2" rows="2" placeholder="Antwortmöglichkeit 2"></textarea>
+                            <textarea class="form-control" name="antwort_2" rows="2" placeholder="Antwortmöglichkeit 2"required="required"></textarea>
                             </div>
                         </div>
                         <!-- Texteingabefeld für die Antwortmöglichkeit 3 -->
@@ -109,16 +109,16 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                         <div class="form-group">
                             <div class="col-sm-3"
                             <label for="startdatum"></label>
-                            <input class="form-control" type="date" name="startdatum" placeholder="Startdatum">
-                            <input class="form-control" type="time" name="startzeit" placeholder="Startzeit">
+                            <input class="form-control" type="date" name="startdatum" placeholder="Startdatum"required="required">
+                            <input class="form-control" type="time" name="startzeit" placeholder="Startzeit"required="required">
                         </div>
 
                         <!-- Eingabefeld für die Enddatum, Endzeit -->
                         <div class="form-group">
                             <div class="col-sm-3"
                             <label for="enddatum"></label>
-                            <input class="form-control" type="date" name="enddatum" placeholder="Enddatum">
-                            <input class="form-control" type="time" name="endzeit" placeholder="Endzeit">
+                            <input class="form-control" type="date" name="enddatum" placeholder="Enddatum"required="required">
+                            <input class="form-control" type="time" name="endzeit" placeholder="Endzeit"required="required">
                         </div>
                         <!-- Button "Erstellen"-->
                             </div>

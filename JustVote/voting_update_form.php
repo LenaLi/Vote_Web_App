@@ -48,21 +48,21 @@ echo $votingId;
                         <input type='hidden' name='vorlesungsid' value='<?php echo $voting->vorlesungsid ?>' /
                         <br>
                         Votingname:<br>
-                        <input type='text' name='votingname' value='<?php echo $voting->votingname ?>' /><br>
+                        <input type='text' name='votingname' value='<?php echo $voting->votingname ?>' required="required"/><br>
                         Frage:<br>
-                        <input type='text' name='frage' value='<?php echo $voting->frage ?>' /><br>
+                        <input type='text' name='frage' value='<?php echo $voting->frage ?>' required="required"/><br>
                         Antwortmöglichkeit 1:<br>
-                        <input type='text' name='antwort_1' value='<?php echo $voting->antwort_1 ?>' /><br>
+                        <input type='text' name='antwort_1' value='<?php echo $voting->antwort_1 ?>' required="required"/><br>
                         Antwortmöglichkeit 2:<br>
-                        <input type='text' name='antwort_2' value='<?php echo $voting->antwort_2 ?>' /><br>
+                        <input type='text' name='antwort_2' value='<?php echo $voting->antwort_2 ?>' required="required"/><br>
                         Antwortmöglichkeit 3:<br>
-                        <input type='text' name='antwort_3' value='<?php echo $voting->antwort_3 ?>' /><br>
+                        <input type='text' name='antwort_3' value='<?php echo $voting->antwort_3 ?>'/><br>
                         Antwortmöglichkeit 4:<br>
-                        <input type='text' name='antwort_4' value='<?php echo $voting->antwort_4 ?>' /><br>
+                        <input type='text' name='antwort_4' value='<?php echo $voting->antwort_4 ?>'/><br>
                         Startdatum:<br>
-                        <input type='text' name='startdatum' value='<?php echo $voting->startdatum ?>' /><br>
+                        <input type='text' name='startdatum' value='<?php echo $voting->startdatum ?>'required="required"/><br>
                         Enddatum:<br>
-                        <input type='text' name='enddatum' value='<?php echo $voting->enddatum ?>' /><br>
+                        <input type='text' name='enddatum' value='<?php echo $voting->enddatum ?>'required="required"/><br>
                         
                         <input type='submit' value='update!' />
                     </form>

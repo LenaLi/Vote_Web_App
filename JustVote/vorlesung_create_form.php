@@ -39,7 +39,7 @@
                         <!-- Texteingabefeld für Vorlesungsname-->
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="vorlesungsname" id="vorlesungsname" placeholder="Vorlesungsname">
+                                <input type="text" class="form-control" name="vorlesungsname" id="vorlesungsname" placeholder="Vorlesungsname" required="required">
                             </div>
                         </div>
                         <!-- Button "Erstellen"-->
