@@ -32,11 +32,9 @@
                 //results großer container an datensätzen, result ist nur ein datensatz
                 foreach($results as $result)
                 {
-                    echo '<h2> Teilnehmeranzahl: '.$result->Anzahl.'</h2>';
+                    // variable wird zum Rechnen benötigt
+                    $gesamtanzahlTeilnemer = $result->Anzahl;
                 }
-
-                // variable wird zum Rechnen benötigt
-                $gesamtanzahlTeilnemer = $result->Anzahl;
 
                 // --------------- Für Anzahl pro Antwort ---------------------------------
                 for ($i=1; $i<=$_SESSION ["anzahlantworten"]; $i++)
@@ -56,32 +54,39 @@
                         {
                            // array, speichert anzahl der antworten rein, minus eins weil: array fängt bei null an, unsere schleife fängt bei 1 an, aber müssen bei null anfangen wegen array
                             $countAntwort[$i-1] = $result2->Antwort;
-                            echo '<h2> Teilnehmeranzahl: f&uumlr Antwort '.$i. ':    '.$result2->Antwort.'</h2>';
                         }
                 }
 
-                echo '<h2>'.$countAntwort[1].'</h2>';
-                echo '<h2>'.$countAntwort[2].'</h2>';
 
 
                 //<------------------  Rechnung  -------------------------
 
+                echo '<div id="ergebnis" style="width: 500px;">';
 
                 //for schleife: countAntwort minus 1 weil wir ja mim array bei null anfangen, dh immer eins weniger
                 for ($i=0; $i<=$_SESSION ["anzahlantworten"]-1; $i++)
                 {
                     // array immer das was man haben will minus eins weil sich alles verschiebt
-                    echo round($countAntwort [$i]/$gesamtanzahlTeilnemer*100,2);
+                    echo "<p>".round($countAntwort[$i]/$gesamtanzahlTeilnemer*100,2)."%</p>";
                     $resultinpercent = round($countAntwort [$i]/$gesamtanzahlTeilnemer*100,2);
                     echo'
                         <div class="progress">
-                          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="'.$resultinpercent.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$resultinpercent.'%">
+                          <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="'.$resultinpercent.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$resultinpercent.'%">
                             <span class="sr-only">'.$resultinpercent.'</span>
                           </div>
                         </div>
                     ';
                 }
 
+                echo '</div>';
+
+                // ---------------  Details --------------------
+
+                echo '<h3> Teilnehmeranzahl: ' . $gesamtanzahlTeilnemer . '</h3>';
+                for ($i=0; $i<=$_SESSION ["anzahlantworten"]-1; $i++)
+                {
+                    echo '<p>Teilnehmeranzahl f&uumlr Antwort ' . ($i+1) . ':    ' . $countAntwort[$i] . '</p>';
+                }
 
                 ?>
 
