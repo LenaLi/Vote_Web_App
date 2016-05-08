@@ -67,7 +67,7 @@
                 for ($i=0; $i<=$_SESSION ["anzahlantworten"]-1; $i++)
                 {
                     // array immer das was man haben will minus eins weil sich alles verschiebt
-                    echo "<p>".round($countAntwort[$i]/$gesamtanzahlTeilnemer*100,2)."%</p>";
+                    echo "<p>".round($countAntwort[$i]/$gesamtanzahlTeilnemer*100,2)."% haben" . $ ."angeklickt</p>";
                     $resultinpercent = round($countAntwort [$i]/$gesamtanzahlTeilnemer*100,2);
                     echo'
                         <div class="progress">
