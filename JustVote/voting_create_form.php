@@ -31,6 +31,7 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                     <h2>Neues Voting</h2>
 
                     <?php
+                    // Fehlermeldung, da Problem bei serverseitiger Überprüfung
                     // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
                     if ($_GET["error"]=="1"){
 

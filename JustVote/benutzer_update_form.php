@@ -38,6 +38,7 @@ echo $id;
                     <h1>Benutzer aktualisieren </h1>
 
                     <?php
+                    // Fehlermeldung, da Problem bei serverseitiger Überprüfung
                     // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
                     if ($_GET["error"]=="1"){
 

@@ -35,6 +35,7 @@ $vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsId);
                     <h1>Vorlesung bearbeiten</h1>
 
                     <?php
+                    // Fehlermeldung, da Problem bei serverseitiger Überprüfung
                     // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
                     if ($_GET["error"]=="1"){
 

@@ -96,7 +96,7 @@ class vorlesung_manager extends manager
         try {
             $stmt = $this->pdo->prepare('
               UPDATE vorlesung
-              SET vorlesungsname = :vorlesungsname
+              SET vorlesungsname = :vorlesungsname,
                   vorlesungsnummer = :vorlesungsnummer
               WHERE vorlesungsid = :vorlesungsid
             ');

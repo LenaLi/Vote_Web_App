@@ -17,7 +17,9 @@
 
                     <h2>Vorlesung hinzufügen</h2>
 
+                 
                     <?php
+                    // Fehlermeldung, da Problem bei serverseitiger Überprüfung
                     // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
                     if ($_GET["error"]=="1"){
 
@@ -31,7 +33,7 @@
                         <!-- Texteingabefeld für Nummer der Vorlesung-->
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input type="number" class="form-control" name="vorlesungsnummer" id="vorlesungsnummer" placeholder="Nummer der Vorlesung">
+                                <input type="number" class="form-control" name="vorlesungsnummer" id="vorlesungsnummer" placeholder="Nummer der Vorlesung" required="required">
                             </div>
                         </div>
                         <!-- Texteingabefeld für Vorlesungsname-->
