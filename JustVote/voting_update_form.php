@@ -59,10 +59,11 @@ echo $votingId;
                         <input type='text' name='antwort_3' value='<?php echo $voting->antwort_3 ?>'/><br>
                         Antwortmöglichkeit 4:<br>
                         <input type='text' name='antwort_4' value='<?php echo $voting->antwort_4 ?>'/><br>
-                        Startdatum:<br>
+                        Startzeitpunkt:<br>
                         <input type='text' name='startdatum' value='<?php echo $voting->startdatum ?>'required="required"/><br>
-                        Enddatum:<br>
+                        Endzeitpunkt:<br>
                         <input type='text' name='enddatum' value='<?php echo $voting->enddatum ?>'required="required"/><br>
+
                         
                         <input type='submit' value='update!' />
                     </form>

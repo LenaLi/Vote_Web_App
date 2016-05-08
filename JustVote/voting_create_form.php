@@ -28,7 +28,7 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
             <div class="row">
                 <div class="col-lg-12">
 
-                    <h2>Neues Voting</h2>
+                    <h2>Voting hinzufügen</h2>
 
                     <?php
                     // Fehlermeldung, da Problem bei serverseitiger Überprüfung
@@ -108,6 +108,7 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                         <!-- Eingabefeld für die Startdatum, Startzeit -->
                         <div class="form-group">
                             <div class="col-sm-3"
+                            <label>Startzeitpunkt: </label>
                             <label for="startdatum"></label>
                             <input class="form-control" type="date" name="startdatum" placeholder="Startdatum"required="required">
                             <input class="form-control" type="time" name="startzeit" placeholder="Startzeit"required="required">
@@ -116,6 +117,7 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                         <!-- Eingabefeld für die Enddatum, Endzeit -->
                         <div class="form-group">
                             <div class="col-sm-3"
+                            <label>Endzeitpunkt: </label>
                             <label for="enddatum"></label>
                             <input class="form-control" type="date" name="enddatum" placeholder="Enddatum"required="required">
                             <input class="form-control" type="time" name="endzeit" placeholder="Endzeit"required="required">
