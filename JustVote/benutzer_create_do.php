@@ -9,12 +9,20 @@ $nachname=htmlspecialchars($_POST["nachname"], ENT_QUOTES, "UTF-8");
 $email=htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
 $role=htmlspecialchars($_POST["role"], ENT_QUOTES, "UTF-8");
 
-// Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
-$manager=new benutzer_manager();
 
-// neuen Benutzer erzeugen mit den POST Parametern
-$manager->create($vorname,$nachname,$email,$role);
+// Prüfen ob alle Formularfelder ausgefüllt wurden
+if (!empty($vorname) && !empty($nachname) && !empty($email)&& !empty($role)) {
+    
+    // Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
+    $manager=new benutzer_manager();
 
-// Weiterleitung auf die Übersichtsseite der Benutzer
-header('Location: benutzer_read.php');
+    // neuen Benutzer erzeugen mit den POST Parametern
+    $manager->create($vorname,$nachname,$email,$role);
+
+    // Weiterleitung auf die Übersichtsseite der Benutzer
+    header('Location: benutzer_read.php');
+
+} else {
+    echo "Error: Bitte alle Felder ausfüllen!";
+}
 ?>
