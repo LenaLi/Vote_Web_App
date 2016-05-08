@@ -23,6 +23,6 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)&& !empty($role)) {
     header('Location: benutzer_read.php');
 
 } else {
-    echo "Error: Bitte alle Felder ausfüllen!";
+    header('Location: benutzer_create_form.php?error=1');
 }
 ?>
