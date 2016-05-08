@@ -29,11 +29,14 @@
                     echo '<h2>Kein Datensatz wurde gefunden</h2>';
                 }
 
-                //Schleife hier eigentlich nicht n?tig, da id eindeutig und nur ein Datensatz zur?ckgegeben wird
+                //results großer container an datensätzen, result ist nur ein datensatz
                 foreach($results as $result)
                 {
                     echo '<h2> Teilnehmeranzahl: '.$result->Anzahl.'</h2>';
                 }
+
+                // variable wird zum Rechnen benötigt
+                $gesamtanzahlTeilnemer = $result->Anzahl;
 
                 // --------------- Für Anzahl pro Antwort ---------------------------------
                 for ($i=1; $i<=$_SESSION ["anzahlantworten"]; $i++)
@@ -58,9 +61,29 @@
                 }
 
                 echo '<h2>'.$countAntwort[1].'</h2>';
-                echo '<h2>'.$countAntwort[2].'</h2>'
+                echo '<h2>'.$countAntwort[2].'</h2>';
 
+
+                //<------------------  Rechnung  -------------------------
+
+                // array immer das was man haben will minus eins weil sich alles verschiebt
+                echo round($countAntwort [0]/$gesamtanzahlTeilnemer*100,2);
+                $resultinpercent = round($countAntwort [0]/$gesamtanzahlTeilnemer*100,2);
+
+
+                //for schleife: countAntwort minus 1 weil wir ja mim array bei null anfangen, dh immer eins weniger
+                for ($i=0; $i<=$countAntwort-1; $i++)
+                echo'
+                        <div class="progress">
+                          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="'.$resultinpercent.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$resultinpercent.'%">
+                            <span class="sr-only">'.$resultinpercent.'</span>
+                          </div>
+                        </div>
+                ';
                 ?>
+
+
+
 
             </div>
          </div>
