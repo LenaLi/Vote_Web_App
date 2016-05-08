@@ -43,7 +43,7 @@ class result_manager extends manager
     public function findByErgebnis($votingid, $antwort)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT COUNT(*) AS Antwort FROM ergebnis WHERE voting_id = :votingid AND result = :antwort');
+            $stmt = $this->pdo->prepare('SELECT COUNT(*) AS Antwort FROM ergebnis WHERE (voting_id = :votingid AND result = :antwort)');
             $stmt->bindParam(':votingid', $votingid);
             $stmt->bindParam(':antwort', $antwort);
             $stmt->execute();
