@@ -26,6 +26,10 @@ require_once("Mapper/voting_manager.php");
 
                         <?php
 
+                        //sessionvariable mit anzahl der antwortmöglichkeiten
+                        $_SESSION ["anzahlantworten"]=2;
+
+
                            if($votings==null)
                             {
                                 //kein Datensatz gefunden
@@ -77,6 +81,7 @@ require_once("Mapper/voting_manager.php");
                                         echo '<input type="radio" name="rb_voting" value="antwort_3"/>' . $_SESSION["A3"];
                                         echo '</td>
                                     </tr>';
+                                        $_SESSION ["anzahlantworten"]++;
                                     }
                                     if ($_SESSION["A4"] != '') {
                                         echo '<tr>
@@ -84,6 +89,7 @@ require_once("Mapper/voting_manager.php");
                                         echo '<input type="radio" name="rb_voting" value="antwort_4"/>' . $_SESSION["A4"];
                                         echo '</td>
                                     </tr>';
+                                        $_SESSION ["anzahlantworten"]++;
                                     }
                         ?>
 

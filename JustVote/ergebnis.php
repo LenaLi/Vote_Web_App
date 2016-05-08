@@ -36,24 +36,26 @@
                 }
 
                 // --------------- Für Anzahl pro Antwort ---------------------------------
+                for ($i=1; $i<=4; $i++)
+                {
 
                 // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
                 $ergebnismanager2 =new result_manager();
                 // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
-                $results2 = $ergebnismanager2->findByErgebnis($_SESSION["votingid"], "antwort_1");
+                $results2 = $ergebnismanager2->findByErgebnis($_SESSION["votingid"], "antwort_".$i);
 
                 if($results2==null)
                 {
                     echo '<h2>Kein Datensatz wurde gefunden</h2>';
                 }
 
-                //Schleife hier eigentlich nicht n?tig, da id eindeutig und nur ein Datensatz zur?ckgegeben wird
+                //Schleife hier eigentlich nicht noetig, da id eindeutig und nur ein Datensatz zurueckgegeben wird
                 foreach($results2 as $result2)
                 {
                    // echo '<h2>Kein Datensatz wurde gefunden'.$_SESSION["votingid"].'</h2>';
-                    echo '<h2> Teilnehmeranzahl: für Antwort 1   '.$result2->Antwort.'</h2>';
+                    echo '<h2> Teilnehmeranzahl: f&uumlr Antwort '.$i. ':    '.$result2->Antwort.'</h2>';
                 }
-
+                }
                 ?>
 
             </div>
