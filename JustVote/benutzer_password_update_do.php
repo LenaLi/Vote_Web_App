@@ -31,6 +31,6 @@ if (!empty($password1) && !empty($password2)) {
     }
 
 } else {
-    echo "Error: Bitte alle Felder ausfüllen!";
+    header('Location: benutzer_password_update_form.php?error=1');
 }
 ?>

@@ -8,12 +8,19 @@ $vorlesungsId=$_POST["vorlesungsid"];
 $benutzerId=$_SESSION["benutzerid"];
 $vorlesungsName=$_POST["vorlesungsname"];
 
-// Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
-$manager=new vorlesung_manager();
+// Prüfen ob alle Formularfelder ausgefüllt wurden
+if (!empty($vorlesungsId) && !empty($vorlesungsName)) {
 
-// neue Vorlesung erzeugen mit den POST Parametern
-$manager->create($vorlesungsId,$benutzerId,$vorlesungsName);
+    // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
+    $manager=new vorlesung_manager();
 
-// Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
-header('Location: uebersicht.php');
+    // neue Vorlesung erzeugen mit den POST Parametern
+    $manager->create($vorlesungsId,$benutzerId,$vorlesungsName);
+
+    // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
+    header('Location: uebersicht.php');
+
+} else {
+    header('Location: vorlesung_create_form.php?error=1');
+}
 ?>

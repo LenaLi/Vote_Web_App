@@ -18,6 +18,6 @@ if (!empty($vorlesungsId) && !empty($vorlesungsName)) {
     // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
     header('Location: uebersicht.php');
 } else {
-    echo "Error: Bitte alle Felder ausfüllen!";
+    header('Location: vorlesung_update_form.php?error=1');
 }
 ?>

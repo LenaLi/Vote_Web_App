@@ -35,6 +35,15 @@ $benutzer = $benutzer_manager->findById($id);
                     <!-- Beginn Formular "Passwort aktualisieren" -->
                     <h1>Neues Passwort anlegen </h1>
 
+                    <?php
+                    // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
+                    if ($_GET["error"]=="1"){
+
+                        // HTML Code für Fehlermeldung erzeugen
+                        echo "<div class='alert alert-danger'> <strong> Fehler: </strong>Bitte alle Felder ausfüllen </div>";
+                    }
+                    ?>
+
                     <form action='benutzer_password_update_do.php' method='post'>
                         <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' />
                         Neues Passwort eingeben:<br>
