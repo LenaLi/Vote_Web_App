@@ -43,7 +43,7 @@ class result_manager extends manager
     public function findByErgebnis($votingid, $result)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT COUNT(result) AS anzahl FROM ergebnis WHERE voting_id = :votingid AND result= :result');
+            $stmt = $this->pdo->prepare('SELECT COUNT(*) FROM ergebnis WHERE voting_id = :votingid AND result= :result');
             $stmt->bindParam(':votingid', $votingid);
             $stmt->bindParam(':result', $result);
             $stmt->execute();
@@ -58,5 +58,22 @@ class result_manager extends manager
         }
     }
 
+
+    public function countTeilnehmer($votingid)
+    {
+        try {
+            $stmt = $this->pdo->prepare('SELECT COUNT(*) FROM ergebnis WHERE voting_id = :votingid');
+            $stmt->bindParam(':votingid', $votingid);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'ergebnis');
+            $ergebnis = $stmt->fetchAll();
+
+            return $ergebnis;
+
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            die();
+        }
+    }
 }
     ?>
