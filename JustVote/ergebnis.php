@@ -66,20 +66,23 @@
 
                 //<------------------  Rechnung  -------------------------
 
-                // array immer das was man haben will minus eins weil sich alles verschiebt
-                echo round($countAntwort [0]/$gesamtanzahlTeilnemer*100,2);
-                $resultinpercent = round($countAntwort [0]/$gesamtanzahlTeilnemer*100,2);
-
 
                 //for schleife: countAntwort minus 1 weil wir ja mim array bei null anfangen, dh immer eins weniger
-                for ($i=0; $i<=$countAntwort-1; $i++)
-                echo'
+                for ($i=0; $i<=$_SESSION ["anzahlantworten"]-1; $i++)
+                {
+                    // array immer das was man haben will minus eins weil sich alles verschiebt
+                    echo round($countAntwort [$i]/$gesamtanzahlTeilnemer*100,2);
+                    $resultinpercent = round($countAntwort [$i]/$gesamtanzahlTeilnemer*100,2);
+                    echo'
                         <div class="progress">
                           <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="'.$resultinpercent.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$resultinpercent.'%">
                             <span class="sr-only">'.$resultinpercent.'</span>
                           </div>
                         </div>
-                ';
+                    ';
+                }
+
+
                 ?>
 
 
