@@ -22,10 +22,6 @@ $manager=new student_manager();
 $manager->create($vorname,$nachname,$email,$password,$password2);
 
 
-//Weiterleitung auf benutzer_read oder Fehlermeldung (keine Dopplungen, keine Berechtigungen)
-//header('Location: student_read.php');
-
-
 if (!empty($vorname) && !empty($nachname) && !empty($email) && !empty($password) && !empty($password2)) {
 $nutzerdaten = [
 "email" => $email,
@@ -36,7 +32,7 @@ $nutzerdaten = [
 $student = new student_manager();
 $student_manager = new student_manager();
 $student_manager->create($vorname,$nachname,$email,$role);
-header('Location: link_fuer_studenten.php');
+header('Location: vote_student_form.php');
 } else {
 echo "Error: Bitte alle Felder ausfüllen!<br/>";
 }
