@@ -24,11 +24,7 @@ require_once("Mapper/voting_manager.php");
 
 
 
-<div id="page-wrapper">
-
-    <div class="container-fluid">
-        <div class="form-group">
-            <div class="col-lg-12">
+<div >
 
                 <form action="vote_student_do.php" method="post">
                     <table>
@@ -104,7 +100,7 @@ require_once("Mapper/voting_manager.php");
 
                         <tr>
                             <td>
-                                <input type="submit" name="Abschicken" value="Abschicken" class="btn btn-warning">
+                                <input type="submit" name="Abschicken" value="Abschicken">
                             </td>
                         </tr>
                     </table>
@@ -112,8 +108,6 @@ require_once("Mapper/voting_manager.php");
 
                 </div>
             </div>
-        </div>
-    </div>
 
 </body>
 </html>
