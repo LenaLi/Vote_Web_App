@@ -50,7 +50,7 @@ include("inc/session_check.php");
 
                             foreach($votings as $voting){
                                     echo "<tr>";
-                                    echo "<th>" . $voting->votingname . "</th>";
+                                    echo "<th colspan='7'>" . $voting->votingname . "</th>";
 
 
                                 //Zeitraum des Votings
@@ -58,10 +58,10 @@ include("inc/session_check.php");
                                     $startdatum = date("d.m.y H:i",strtotime($startdatum))." Uhr";
                                     $enddatum = $voting->enddatum;
                                     $enddatum = date("d.m.y H:i",strtotime($enddatum))." Uhr";
-                                    echo "<td>" . $startdatum ." - ".$enddatum ."</td>";
+                                    echo "<td colspan='4'>" . $startdatum ." - ".$enddatum ."</td>";
 
                                 // Status des Votings
-                                echo "<td>";
+                                echo "<td colspan='1'>";
                                 if (strtotime($voting->startdatum)<=time()){
                                     if (strtotime($voting->enddatum)<=time()){
                                         echo "<td class='danger'> beendet";
