@@ -55,17 +55,45 @@ echo $votingId;
                         <input type='text' name='antwort_1' value='<?php echo $voting->antwort_1 ?>' required="required"/><br>
                         Antwortmöglichkeit 2:<br>
                         <input type='text' name='antwort_2' value='<?php echo $voting->antwort_2 ?>' required="required"/><br>
-                        Antwortmöglichkeit 3:<br>
+                        Antwortmöglichkeit 3: (optional)<br>
                         <input type='text' name='antwort_3' value='<?php echo $voting->antwort_3 ?>'/><br>
-                        Antwortmöglichkeit 4:<br>
+                        Antwortmöglichkeit 4: (optional)<br>
                         <input type='text' name='antwort_4' value='<?php echo $voting->antwort_4 ?>'/><br>
-                        Startzeitpunkt:<br>
-                        <input type='text' name='startdatum' value='<?php echo $voting->startdatum ?>'required="required"/><br>
-                        Endzeitpunkt:<br>
-                        <input type='text' name='enddatum' value='<?php echo $voting->enddatum ?>'required="required"/><br>
 
-                        
-                        <input type='submit' value='update!' />
+                        <!-- Updatefeld für die Startdatum, Startzeit -->
+                        <div class="form-group">
+                            <div class="col-sm-3"
+                            <label>Startzeitpunkt: </label>
+                            <label for="startdatum"></label>
+                            <?php
+                            $startDatum = date("Y-m-d",strtotime($voting->startdatum));
+                            $startZeit = date("H:i",strtotime($voting->startdatum));
+                            ?>
+                            <input class="form-control" type="date" name="startdatum" placeholder="Startdatum"required="required" value='<?php echo $startDatum ?>'/>
+                            <input class="form-control" type="time" name="startzeit" placeholder="Startzeit"required="required"value='<?php echo $startZeit ?>'/>
+                        </div>
+
+
+                        <!-- Updatefeld für die Enddatum, Endzeit -->
+                        <div class="form-group">
+                            <div class="col-sm-3"
+                            <label>Endzeitpunkt: </label>
+                            <label for="enddatum"></label>
+                            <?php
+                             $endDatum = date("Y-m-d",strtotime($voting->enddatum));
+                            $endZeit = date("H:i",strtotime($voting->enddatum));
+                            ?>
+                            <input class="form-control" type="date" name="enddatum" placeholder="Enddatum"required="required" value='<?php echo $endDatum ?>'/>
+                            <input class="form-control" type="time" name="endzeit" placeholder="Endzeit"required="required"value='<?php echo $endZeit ?>'/>
+                        </div>
+
+                        <!-- Button "Update"-->
+                        <div class="form-group">
+                            <div class=" col-sm-6">
+                                <button type="submit" class="btn btn-warning">Update</button>
+                            </div>
+                        </div>
+
                     </form>
                     <!-- Ende Formular "Voting aktualisieren" -->
                 </div>

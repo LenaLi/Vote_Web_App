@@ -95,14 +95,14 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                         <div class="form-group">
                             <div class="col-sm-6"
                             <label for="antwort_3"</label>
-                            <textarea class="form-control" name="antwort_3" rows="2" placeholder="Antwortmöglichkeit 3"></textarea>
+                            <textarea class="form-control" name="antwort_3" rows="2" placeholder="Antwortmöglichkeit 3 (optional)"></textarea>
                             </div>
                         </div>
                         <!-- Texteingabefeld für die Antwortmöglichkeit 4 -->
                         <div class="form-group">
                              <div class="col-sm-6"
                             <label for="antwort_4"</label>
-                            <textarea class="form-control" name="antwort_4" rows="2" placeholder="Antwortmöglichkeit 4"></textarea>
+                            <textarea class="form-control" name="antwort_4" rows="2" placeholder="Antwortmöglichkeit 4 (optional)"></textarea>
                         </div>
 
                         <!-- Eingabefeld für die Startdatum, Startzeit -->
@@ -123,12 +123,12 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                             <input class="form-control" type="time" name="endzeit" placeholder="Endzeit"required="required">
                         </div>
                         <!-- Button "Erstellen"-->
-                            </div>
+                        </div>
                             <div class="form-group">
                             <div class=" col-sm-6">
                                 <button type="submit" class="btn btn-warning">Erstellen</button>
                             </div>
-                        </div>
+                            </div>
                     </form>
                     <!-- Ende Formular "Voting hinzufügen" -->
                 </div>
