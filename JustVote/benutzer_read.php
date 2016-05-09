@@ -60,6 +60,8 @@ $alleBenutzer = $manager->findAll();
 
                             </td>";
                             echo "</tr>";
+
+                            
                         }
                         ?>
 
