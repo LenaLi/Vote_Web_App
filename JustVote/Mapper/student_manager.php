@@ -114,18 +114,23 @@ class student_manager extends student
         }
         return $student; */
 
-    public function create($vorname,$nachname,$email,$role)
+    public function create($vorname,$nachname,$email,$role,$password)
     {
         // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
         $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
         $options = [
             'salt' => $salt
         ];
+
         // Funktion, die zufällige Passwörter erzeugt
+
+        'password'=> $password
+
+
         // Password wird mit salt gehasht
         $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
 
-        // Füge einen Benutzer der Datenbank hinzu (Attribute siehe unten)
+        // Füge einen Student der Datenbank hinzu (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO student
