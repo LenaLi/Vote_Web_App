@@ -41,7 +41,7 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)&& !empty($password)&
 
 
 
-
+<!--
 
 $manager=new student_manager();
 
