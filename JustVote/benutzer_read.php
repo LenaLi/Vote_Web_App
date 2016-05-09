@@ -50,11 +50,14 @@ $alleBenutzer = $manager->findAll();
                             echo "<td>" . $benutzer->email . "</td>";
                             echo "<td>" . $benutzer->role . "</td>";
                             echo "<td>
-                                <a class='fa fa-edit' href ='benutzer_update_form.php?id=".$benutzer->id."'></a>
+                                <a class='fa fa-edit'href ='benutzer_update_form.php?id=".$benutzer->id."'></a>
                                 
                                 </td>";
                             echo "<td>
-                                <a class='fa fa-trash'href ='benutzer_delete_do.php?id=".$benutzer->id."'></a>
+
+<!-- TODO: bei Klick auf Abbrechen nicht löschen  -->
+                                <a class='fa fa-trash' onclick=confirm('xxx') href ='benutzer_delete_do.php?id=".$benutzer->id."' ></a>
+
                             </td>";
                             echo "</tr>";
                         }
@@ -71,21 +74,6 @@ $alleBenutzer = $manager->findAll();
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
