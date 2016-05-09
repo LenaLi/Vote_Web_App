@@ -55,8 +55,8 @@ $alleBenutzer = $manager->findAll();
                                 </td>";
                             echo "<td>
 
-<!-- TODO: bei Klick auf Abbrechen nicht löschen  -->
-                                <a class='fa fa-trash' onclick=confirm('xxx') href ='benutzer_delete_do.php?id=".$benutzer->id."' ></a>
+                                <!-- Fenster: Benutzer wirklich löschen?-->
+                                <a class='fa fa-trash' onclick='var r = confirm(\"Möchten Sie den Benutzer wirklich löschen?\");' href ='benutzer_delete_do.php?id=".$benutzer->id."' ></a>
 
                             </td>";
                             echo "</tr>";

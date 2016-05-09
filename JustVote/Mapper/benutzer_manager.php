@@ -75,7 +75,7 @@ class benutzer_manager extends manager
             'salt' => $salt
         ];
         // Funktion, die zufällige Passwörter erzeugt
-        $password="vorname";
+        $password=$vorname;
         // Password wird mit salt gehasht
         $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
 
@@ -104,14 +104,14 @@ class benutzer_manager extends manager
                 $to = $email;
                 $subject = "Neues Benutzerkonto bei Just Vote";
                 $message = "Hallo ".$vorname." ".$nachname.",\n\n Es wurde ein Benutzerkonto für Sie bei JustVote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: ".$email."\n Passwort: ".$vorname."\n\n MFG\n Ihr Just Vote Team";
-                //mail($to,$subject,$message);
+                mail($to,$subject,$message);
             }
 
 
 
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            //die();
+            die();
             return false;
         }
        return true;
