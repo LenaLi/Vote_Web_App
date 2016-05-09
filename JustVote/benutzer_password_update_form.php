@@ -26,14 +26,15 @@ $benutzer = $benutzer_manager->findById($id);
 
 <?php include("inc/navigation.php");?>
 
-<div id="wrapper">
 
-    <div id="page-content-wrapper">
+    <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
+
+
                     <!-- Beginn Formular "Passwort aktualisieren" -->
-                    <h1>Neues Passwort anlegen </h1>
+                    <h2>Passwort aktualisieren</h2>
 
                     <?php
                     // Fehlermeldung, da Problem bei serverseitiger Überprüfung
@@ -45,21 +46,47 @@ $benutzer = $benutzer_manager->findById($id);
                     }
                     ?>
 
-                    <form action='benutzer_password_update_do.php' method='post'>
-                        <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' />
-                        Neues Passwort eingeben:<br>
-                        <input type='password' name='password1'  /><br>
-                        <br>
-                        Neues Passwort wiederholen:<br>
-                        <input type='password' name='password2'  /><br>
-                        <br>
-                        <input type='submit' value='Passwort ändern' />
+                    <!-- Beginn Formular "Passwort ändern" -->
+                    <form class="form-horizontal" role="form" action="benutzer_password_update_do.php" method="post">
+
+                        <!-- Übergabe der Benutzer ID-->
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' />
+                            </div>
+                        </div>
+
+                        <!-- Eingabe neues Passwort-->
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                Neues  Passwort eingeben:
+                                <input class=form-control type='password' name='password1'>
+                            </div>
+                        </div>
+
+                        <!-- Neues Passwort wiederholen-->
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                Neues Passwort wiederholen:
+                                <input class=form-control type='password' name='password2'>
+                            </div>
+                        </div>
+
+                        <!-- Button "Passwort ändern"-->
+                        <div class="form-group">
+                            <div class=" col-sm-6">
+                                <button type="submit" class="btn btn-warning"> Passwort ändern</button>
+                            </div>
+                        </div>
+                        <!-- Ende Formular "Passwort aktualisieren" -->
+
                     </form>
-                    <!-- Ende Formular "Passwort aktualisieren" -->
                 </div>
             </div>
+
         </div>
     </div>
+
 
 </div>
 
