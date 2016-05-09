@@ -26,7 +26,7 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)&& !empty($password)&
     $manager->create($vorname,$nachname,$email,$role);
 
     // Weiterleitung auf die Übersichtsseite der Benutzer
-    header('Location: benutzer_read.php');
+    header('Location: student_uebersicht.php');
 
 } else {
     header('Location: index.php');
