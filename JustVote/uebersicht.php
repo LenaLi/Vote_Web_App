@@ -103,7 +103,15 @@ include("inc/session_check.php");
                                 echo "</td>";
 
                                 // Bearbeiten des Votings
-                                echo "<td><a class='fa fa-edit' href ='voting_update_form.php?id=".$voting->votingid."'></a></td>";
+                                    if (strtotime($voting->enddatum)<=time()){
+                                        echo "<td><a class='fa fa-bar-chart' href = 'ergebnis_read.php?id=".$voting->votingid."'></a></td>";
+                                    } else {
+                                        echo "<td><a class='fa fa-edit' href ='voting_update_form.php?id=".$voting->votingid."'></a></td>";
+                                    }
+
+
+
+
                                 //Löschen des Votings
                                 echo "<td><a class='fa fa-trash' href ='voting_delete_do.php?id=".$voting->votingid."'></a></td>";
 
