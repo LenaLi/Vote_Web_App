@@ -58,21 +58,19 @@ include("inc/session_check.php");
                                     $startdatum = date("d.m.y H:i",strtotime($startdatum))." Uhr";
                                     $enddatum = $voting->enddatum;
                                     $enddatum = date("d.m.y H:i",strtotime($enddatum))." Uhr";
-                                    echo "<td colspan='4'>" . $startdatum ." - ".$enddatum ."</td>";
+                                    echo "<td colspan='3'>" . $startdatum ." - ".$enddatum ."</td>";
 
                                 // Status des Votings
-                                echo "<td colspan='1'>";
                                 if (strtotime($voting->startdatum)<=time()){
                                     if (strtotime($voting->enddatum)<=time()){
-                                        echo "<td class='danger'> beendet";
+                                        echo "<td colspan='6' class='danger'> beendet";
                                     } else {
-                                        echo "<td class='success'> aktiv";
+                                        echo "<td colspan='6' class='success'> aktiv";
                                     }
                                 }
                                 else {
-                                    echo "<td class='warning'> ausstehend";
+                                    echo "<td colspan='6'  class='warning'> ausstehend";
                                 }
-                                echo "</td>";
 
 
                                 //Start + Stoppbutton
@@ -92,24 +90,22 @@ include("inc/session_check.php");
 
                                 // Link des Votings // TODO: Link für das Voting (QR usw.) eingeben
 
-                                echo "<td>";
                                 if (strtotime($voting->startdatum)<=time()){
                                     if (strtotime($voting->enddatum)<=time()){
-                                        echo "";
+
+                                        //Wenn Umfrage beendet: Ergebnisse der Umfrage
+                                        echo "<td><a class='fa fa-bar-chart' href = 'ergebnis_read.php?id=".$voting->votingid."'></a></td>";
+
                                     } else {
+
+                                        //Wenn Umfrage läuft: Link zum Abstimmen
                                         echo "<td><a href = 'link_fuer_studenten.php?id=".$voting->votingid."'>Link</a></td>";
                                     }
                                 }
-                                echo "</td>";
-
-                                // Bearbeiten des Votings
-                                    if (strtotime($voting->enddatum)<=time()){
-                                        echo "<td><a class='fa fa-bar-chart' href = 'ergebnis_read.php?id=".$voting->votingid."'></a></td>";
-                                    } else {
-                                        echo "<td><a class='fa fa-edit' href ='voting_update_form.php?id=".$voting->votingid."'></a></td>";
-                                    }
-
-
+                                else {
+                                    //Wenn Umfrage aussteht
+                                    echo "<td><a class='fa fa-edit' href ='voting_update_form.php?id=".$voting->votingid."'></a></td>";
+                                }
 
 
                                 //Löschen des Votings
