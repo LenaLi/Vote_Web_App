@@ -1,3 +1,7 @@
+
+<!-- Navigation für die Link Bereitstellung für die Studenten (QR Code etc.) dass nicht alles sichtbar ist -->
+
+
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
