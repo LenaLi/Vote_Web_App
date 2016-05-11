@@ -29,7 +29,7 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)&& !empty($password)&
     header('Location: student_uebersicht.php');
 
 } else {
-    header('Location: index.php');
+    header('Location: student_uebersicht.php?error=1');
 }
 ?>
 
