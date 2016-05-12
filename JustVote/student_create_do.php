@@ -11,9 +11,9 @@ require_once("Mapper/student_manager.php");
 $vorname=$_POST["vorname"];
 $nachname=$_POST["nachname"];
 $email=$_POST["email"];
-$role=htmlspecialchars($_POST["role"], ENT_QUOTES, "UTF-8");
+//$role=htmlspecialchars($_POST["role"], ENT_QUOTES, "UTF-8");
 $password = htmlspecialchars($_POST["password"], ENT_QUOTES, "UTF-8");
-$password2 = htmlspecialchars($_POST["password2"], ENT_QUOTES, "UTF-8");
+//$password2 = htmlspecialchars($_POST["password2"], ENT_QUOTES, "UTF-8");
 
 
 // Prüfen ob alle Formularfelder ausgefüllt wurden
