@@ -75,7 +75,7 @@ class student_manager extends student
             'salt' => $salt
         ];
         // Funktion, die zufällige Passwörter erzeugt
-        $password=$vorname;
+        //$password=$vorname;
         // Password wird mit salt gehasht
         $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
 
