@@ -1,15 +1,30 @@
 <!-- Datensätze in DB einfügen -->
 
-<?php include("inc/session_check.php"); ?>
-<?php include("inc/header.php")?>
-<?php include("inc/navigation.php")?>
-<?php require_once("Mapper/result_manager.php");?>
+<?php require_once("inc/session_check.php"); ?>
+<?php require_once("Mapper/auswertung_manager.php");
 
 
-<?php
+//die benötigten IDs werden mittels post hergeholt
+$postantwort=htmlspecialchars($_POST["rb_antworten"], ENT_QUOTES, "UTF-8");
+$postvoting=htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
+$postfrage=htmlspecialchars($_POST["frageid"], ENT_QUOTES, "UTF-8");
 
+$_SESSION["votingid"] = $postvoting;
+
+
+//neue auswertung wird erstellt, dh ergebnis in tabelle geschrieben
+$auswertungsmanager =new auswertung_manager();
+$auswertungsmanager ->create($postfrage, $postantwort, $postvoting);
+
+
+//header redirect
+header('Location: ergebnis.php?id=' . $postvoting);
+
+
+
+/*
 // POST Parameter auslesen
-$ergebnis=htmlspecialchars($_POST["rb_voting"], ENT_QUOTES, "UTF-8");
+$ergebnis=htmlspecialchars($_POST["rb_antworten"], ENT_QUOTES, "UTF-8");
 $votingid=$_SESSION["votingid"];
 
 // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
@@ -17,6 +32,15 @@ $manager=new result_manager();
 
 // neues Ergebnis erzeugen mit den POST Parametern
 $manager->inputresult($votingid, $ergebnis);
+
+//speichert ob ich schon am den ding teilgenommen habe, weil ich an mehreren teilnehmen kann und jedes mal schreib ich id in arry wenn form aufrufen muss ich abfragen einbrauen ob id schon mal irgendwo steht wenn schon mal teilgenommen dann ergebnissen angezeigt, leeres array das befüllt wird mit 0 bis x werten
+//speichert in session in welcher voiting id ich teilngenommen hab
+$_SESSION["voting"][]=$votingid;
+
+//header redirect--------------------------------------------------------
+header('Location: vote_student_form.php?id=' . $votingid . '&' . $antwortID);
+
+$antwortID
 ?>
 
 <!-- TODO function beziehungvotingstudent noch anlegen wenn das mit dem einloggen von Studenten geklärt ist! -->
@@ -58,3 +82,4 @@ echo 'Du hast ' . $ausgabe . ' angeklickt'
 </body>
 
 </html>
+*/
