@@ -11,9 +11,9 @@ require_once("Mapper/student_manager.php");
 $vorname=$_POST["vorname"];
 $nachname=$_POST["nachname"];
 $email=$_POST["email"];
-$role=htmlspecialchars($_POST["role"], ENT_QUOTES, "UTF-8");
+//$role=htmlspecialchars($_POST["role"], ENT_QUOTES, "UTF-8");
 $password = htmlspecialchars($_POST["password"], ENT_QUOTES, "UTF-8");
-$password2 = htmlspecialchars($_POST["password2"], ENT_QUOTES, "UTF-8");
+//$password2 = htmlspecialchars($_POST["password2"], ENT_QUOTES, "UTF-8");
 
 
 // Prüfen ob alle Formularfelder ausgefüllt wurden
@@ -22,14 +22,14 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)&& !empty($password)&
     // Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new student_manager();
 
-    // neuen Benutzer erzeugen mit den POST Parametern
-    $manager->create($vorname,$nachname,$email,$role,$password);
+    // neuen Student erzeugen mit den POST Parametern
+    $manager->create($vorname,$nachname,$email);
 
     // Weiterleitung auf die Übersichtsseite der Benutzer
     header('Location: student_uebersicht.php');
 
 } else {
-    header('Location: index.php');
+    header('Location: student_uebersicht.php?error=1');
 }
 ?>
 
