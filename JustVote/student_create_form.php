@@ -41,6 +41,13 @@
                             <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail">
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="col-sm-6">
                             <select name="role">

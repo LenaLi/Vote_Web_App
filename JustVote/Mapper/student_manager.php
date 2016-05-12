@@ -82,10 +82,10 @@ class student_manager extends student
         // Füge einen Benutzer der Datenbank hinzu (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
-              INSERT INTO benutzer
-                (vorname, nachname, email, role, password, salt)
+              INSERT INTO student
+                (vorname, nachname, email, password, salt, role)
               VALUES
-                (:vorname, :nachname, :email , :role, :password, :salt)
+                (:vorname, :nachname, :email , :password, :salt, :role)
             ');
             $stmt->bindParam(':vorname', $vorname);
             $stmt->bindParam(':nachname', $nachname);
