@@ -23,7 +23,7 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)&& !empty($password)&
     $manager=new student_manager();
 
     // neuen Student erzeugen mit den POST Parametern
-    $manager->create($vorname,$nachname,$email,$password);
+    $manager->create($vorname,$nachname,$email);
 
     // Weiterleitung auf die Übersichtsseite der Benutzer
     header('Location: student_uebersicht.php');

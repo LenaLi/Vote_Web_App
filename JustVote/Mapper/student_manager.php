@@ -66,7 +66,7 @@ class student_manager extends student
 
     }
 
-    public function create($vorname,$nachname,$email,$password)
+    public function create($vorname,$nachname,$email)
     {
         // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
         $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
@@ -74,7 +74,7 @@ class student_manager extends student
             'salt' => $salt
         ];
         // Funktion, die zufällige Passwörter erzeugt
-        // $password=$vorname;
+        $password=$vorname;
         // Password wird mit salt gehasht
         $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
 
