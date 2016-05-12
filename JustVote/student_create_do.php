@@ -22,7 +22,7 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)&& !empty($password)&
     // Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new student_manager();
 
-    // neuen Benutzer erzeugen mit den POST Parametern
+    // neuen Student erzeugen mit den POST Parametern
     $manager->create($vorname,$nachname,$email,$role,$password);
 
     // Weiterleitung auf die Übersichtsseite der Benutzer
