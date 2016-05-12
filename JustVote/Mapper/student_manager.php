@@ -66,7 +66,7 @@ class student_manager extends student
 
     }
 
-    public function create($vorname,$nachname,$email,$role,$password)
+    public function create($vorname,$nachname,$email,$password)
     {
         // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
         $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
@@ -89,7 +89,7 @@ class student_manager extends student
             $stmt->bindParam(':vorname', $vorname);
             $stmt->bindParam(':nachname', $nachname);
             $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':role', $role);
+           // $stmt->bindParam(':role', $role);
             $stmt->bindParam(':password', $password_hashed);
             $stmt->bindParam(":salt", $salt);
             $stmt->execute();
@@ -97,14 +97,14 @@ class student_manager extends student
             // Anmeldedaten  mit email versenden
 
             // check if hdm email adress
-            $suffix = explode("@",$email)[1]; //zerlegt string $e-mail in einen string vor dem @ und nach dem @
+        /*    $suffix = explode("@",$email)[1]; //zerlegt string $e-mail in einen string vor dem @ und nach dem @
             if($suffix === "hdm-stuttgart.de"){
                 echo "email ist hdm mail ".$suffix;
                 $to = $email;
                 $subject = "Neues Benutzerkonto bei Just Vote";
                 $message = "Hallo ".$vorname." ".$nachname.",\n\n Es wurde ein Benutzerkonto für Sie bei JustVote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: ".$email."\n Passwort: ".$vorname."\n\n MFG\n Ihr Just Vote Team";
                 mail($to,$subject,$message);
-            }
+            } */
 
 
 
@@ -114,7 +114,7 @@ class student_manager extends student
             return false;
         }
         return true;
-    }
+    }}
 
 /*  //public function create($vorname,$nachname,$email,$role)
     {
