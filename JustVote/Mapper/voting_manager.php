@@ -107,7 +107,7 @@ class voting_manager extends manager
         try {
             $stmt = $this->pdo->prepare('
               UPDATE voting
-              SET vorlesungsid = :vorlesungsid, votingname = :votingname, frage = :frage,  antwort_1 = :antwort_1,antwort_2 = :antwort_2,antwort_3 = :antwort_3, antwort_4 = :antwort_4,startdatum = :startdatum, enddatum = :enddatum 
+              SET vorlesungsid = :vorlesungsid, votingname = :votingname, frage = :frage,  antwort_1 = :antwort_1,antwort_2 = :antwort_2,antwort_3 = :antwort_3, antwort_4 = :antwort_4,startdatum = :startdatum, enddatum = :enddatum
               WHERE votingid = :votingid
             ');
             $stmt->bindParam(':vorlesungsid', $vorlesungsid);
