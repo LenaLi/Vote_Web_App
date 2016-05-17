@@ -30,6 +30,6 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)&& !empty($role)) {
     header('Location: student_uebersicht.php');
 
 } else {
-    header('Location: benutzer_create_form.php?error=1');
+    header('Location: index.php?error=1');
 }
 ?>
