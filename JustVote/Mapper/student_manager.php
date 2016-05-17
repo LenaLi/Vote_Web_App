@@ -67,6 +67,13 @@ class student_manager extends student
     }
 
 
+    /**
+     * @param $vorname
+     * @param $nachname
+     * @param $email
+     * @param $role
+     * @return bool
+     */
     public function create($vorname,$nachname,$email,$role)
     {
         // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
