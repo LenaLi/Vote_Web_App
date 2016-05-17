@@ -103,7 +103,7 @@ class student_manager extends student
                 echo "email ist hdm mail ".$suffix;
                 $to = $email;
                 $subject = "Neues Benutzerkonto bei Just Vote";
-                $message = "Hallo ".$vorname." ".$nachname.",\n\n Es wurde ein Benutzerkonto für Sie bei JustVote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: ".$email."\n Passwort: ".$vorname."\n\n MFG\n Ihr Just Vote Team";
+                $message = "Hallo ".$vorname." ".$nachname.",\n\n Es sie haben ein Benutzerkonto bei Just Vote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: ".$email."\n Passwort: ".$vorname."\n\n MFG\n Ihr Just Vote Team";
                 mail($to,$subject,$message);
             }
 
