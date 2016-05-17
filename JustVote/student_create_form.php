@@ -22,7 +22,7 @@
                 <h2>Anmeldung für Studenten</h2>
                 <h5>der Hochschule der Medien Stuttgart mit dem Hochschul-Account</h5>
 
-                <form class="form-horizontal" role="form" action="benutzer_create_do.php" method="post">
+                <form class="form-horizontal" role="form" action="student_create_do.php" method="post">
 
                     <!-- Texteingabefeld für Vorname-->
                     <div class="form-group">
@@ -46,7 +46,7 @@
                     <!-- TODO: Auswahlfeld der Rolle STUDENT-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <select name="role">
+                            <select name="role" id="role">
 
                                 <option value="Student">Student</option>
                             </select>

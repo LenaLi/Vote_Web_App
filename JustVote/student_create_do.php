@@ -1,4 +1,4 @@
-<?php include("inc/session_check.php");
+<?php
 
 require_once("Mapper/student.php");
 require_once("Mapper/student_manager.php");
@@ -6,9 +6,6 @@ require_once("Mapper/student_manager.php");
 ?>
 
 <?php
-include("inc/session_check.php");
-require_once("Mapper/benutzer.php");
-require_once("Mapper/benutzer_manager.php");
 
 // POST Parameter auslesen
 $vorname=htmlspecialchars($_POST["vorname"], ENT_QUOTES, "UTF-8");

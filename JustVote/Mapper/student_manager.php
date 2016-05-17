@@ -67,7 +67,7 @@ class student_manager extends student
     }
 
 
-    public function create($vorname,$nachname,$email,$password, $role)
+    public function create($vorname,$nachname,$email,$role)
     {
         // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
         $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
@@ -75,7 +75,7 @@ class student_manager extends student
             'salt' => $salt
         ];
         // Funktion, die zufällige Passwörter erzeugt
-        //$password=$vorname;
+        $password=$vorname;
         // Password wird mit salt gehasht
         $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
 
@@ -83,9 +83,9 @@ class student_manager extends student
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO student
-                (vorname, nachname, email, password, salt, role)
+                (vorname, nachname, email, role, password, salt)
               VALUES
-                (:vorname, :nachname, :email , :password, :salt, :role)
+                (:vorname, :nachname, :email , :role, :password, :salt)
             ');
             $stmt->bindParam(':vorname', $vorname);
             $stmt->bindParam(':nachname', $nachname);
@@ -103,9 +103,11 @@ class student_manager extends student
                 echo "email ist hdm mail ".$suffix;
                 $to = $email;
                 $subject = "Neues Benutzerkonto bei Just Vote";
-                $message = "Hallo ".$vorname." ".$nachname.",\n\n Es sie haben ein Benutzerkonto bei Just Vote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: ".$email."\n Passwort: ".$vorname."\n\n MFG\n Ihr Just Vote Team";
+                $message = "Hallo ".$vorname." ".$nachname.",\n\n Es wurde ein Benutzerkonto für Sie bei JustVote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: ".$email."\n Passwort: ".$vorname."\n\n MFG\n Ihr Just Vote Team";
                 mail($to,$subject,$message);
             }
+
+
 
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");

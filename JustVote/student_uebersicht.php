@@ -1,8 +1,3 @@
-<?php
-include("inc/session_check.php");
-
-?>
-
 <!DOCTYPE html>
 <html>
 
