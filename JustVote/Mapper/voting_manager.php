@@ -89,8 +89,8 @@ class voting_manager extends manager
             $stmt->bindParam(':enddatum', $enddatum);
 
             $stmt->execute();
-            
-
+            return $stmt->fetch(PDO::FETCH_NUM);
+            //return $this->pdo->lastInsertedId;
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             return null;
