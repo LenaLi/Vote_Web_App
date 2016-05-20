@@ -73,32 +73,28 @@ class voting_manager extends manager
 
     }
 
-    public function create ($vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2, $antwort_3, $antwort_4, $startdatum, $enddatum)
+    public function create ($vorlesungsid, $votingname, $startdatum, $enddatum)
     {
         // Füge ein Voting der Datenbank hinzu (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO voting
-                (vorlesungsid, votingname, frage, antwort_1, antwort_2, antwort_3, antwort_4, startdatum, enddatum)
+                (vorlesungsid, votingname, startdatum, enddatum)
               VALUES
-                (:vorlesungsid, :votingname,:frage, :antwort_1, :antwort_2, :antwort_3, :antwort_4, :startdatum, :enddatum)
+                (:vorlesungsid, :votingname, :startdatum, :enddatum)
             ');
             $stmt->bindParam(':vorlesungsid', $vorlesungsid);
             $stmt->bindParam(':votingname', $votingname);
-            $stmt->bindParam(':frage', $frage);
-            $stmt->bindParam(':antwort_1', $antwort_1);
-            $stmt->bindParam(':antwort_2', $antwort_2);
-            $stmt->bindParam(':antwort_3', $antwort_3);
-            $stmt->bindParam(':antwort_4', $antwort_4);
             $stmt->bindParam(':startdatum', $startdatum);
             $stmt->bindParam(':enddatum', $enddatum);
 
             $stmt->execute();
+            
+
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             return null;
         }
-        return true;
     }
 
     public function update($votingid, $vorlesungsid, $votingname, $frage, $antwort_1, $antwort_2 ,$antwort_3,$antwort_4, $startdatum, $enddatum)
@@ -107,17 +103,12 @@ class voting_manager extends manager
         try {
             $stmt = $this->pdo->prepare('
               UPDATE voting
-              SET vorlesungsid = :vorlesungsid, votingname = :votingname, frage = :frage,  antwort_1 = :antwort_1,antwort_2 = :antwort_2,antwort_3 = :antwort_3, antwort_4 = :antwort_4,startdatum = :startdatum, enddatum = :enddatum
+              SET vorlesungsid = :vorlesungsid, votingname = :votingname, startdatum = :startdatum, enddatum = :enddatum
               WHERE votingid = :votingid
             ');
             $stmt->bindParam(':vorlesungsid', $vorlesungsid);
             $stmt->bindParam(':votingid', $votingid);
             $stmt->bindParam(':votingname', $votingname);
-            $stmt->bindParam(':frage', $frage);
-            $stmt->bindParam(':antwort_1', $antwort_1);
-            $stmt->bindParam(':antwort_2', $antwort_2);
-            $stmt->bindParam(':antwort_3', $antwort_3);
-            $stmt->bindParam(':antwort_4', $antwort_4);
             $stmt->bindParam(':startdatum', $startdatum);
             $stmt->bindParam(':enddatum', $enddatum);
             $stmt->execute();

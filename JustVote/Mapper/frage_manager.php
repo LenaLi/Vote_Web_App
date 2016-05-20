@@ -43,7 +43,7 @@ class frage_manager extends manager
             $stmt = $this->pdo->prepare('SELECT * FROM frage WHERE voting_id = :voting_id');
             $stmt->bindParam(':voting_id', $voting_id);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC); //alles in array, kommt in array zurück nicht in objektform
+            $stmt->setFetchMode(PDO::FETCH_ASSOC); //alles in array, kommt in array zurï¿½ck nicht in objektform
             $result = $stmt->fetch();
 
             return $result;
@@ -59,7 +59,7 @@ class frage_manager extends manager
                 $stmt = $this->pdo->prepare('SELECT * FROM frage WHERE text = :text');
                 $stmt->bindParam(':text', $text);
                 $stmt->execute();
-                $stmt->setFetchMode(PDO::FETCH_ASSOC); //alles in array, kommt in arry zurück nicht in objektform
+                $stmt->setFetchMode(PDO::FETCH_ASSOC); //alles in array, kommt in arry zurï¿½ck nicht in objektform
                 $result = $stmt->fetch();
 
                 return $result;
@@ -71,5 +71,46 @@ class frage_manager extends manager
 
         }*/
     }
+    public function create ($voting_id, $text)
+    {
+        // FÃ¼ge neue Antwort in Tabelle Antwort der Datenbank hinzu (Attribute siehe unten)
+        try {
+            $stmt = $this->pdo->prepare('
+                  INSERT INTO frage
+                    (voting_id, text)
+                  VALUES
+                    (:voting_id, :text)
+                ');
+            $stmt->bindParam(':voting_id', $voting_id);
+            $stmt->bindParam(':text', $text);
+
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            return null;
+        }
+        return true;
+    }
+
+    public function update($ID, $voting_id, $text)
+    {
+        // Updaten eines zu einer bestimmten FrageId gehÃ¶renden Antwort (Attribute siehe unten)
+        try {
+            $stmt = $this->pdo->prepare('
+                  UPDATE frage
+                  SET voting_id = :voting_id, text = :text
+                  WHERE ID = :ID
+                ');
+            $stmt->bindParam(':ID', $ID);
+            $stmt->bindParam(':voting_id', $voting_id);
+            $stmt->bindParam(':text', $text);
+
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            die();
+        }
+    }
+
 }
 ?>
