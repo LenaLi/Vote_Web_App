@@ -85,11 +85,12 @@ class frage_manager extends manager
             $stmt->bindParam(':text', $text);
 
             $stmt->execute();
+            return $this->pdo->lastInsertId();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             return null;
         }
-        return true;
+
     }
 
     public function update($ID, $voting_id, $text)

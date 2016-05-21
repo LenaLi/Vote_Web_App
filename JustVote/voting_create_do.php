@@ -2,6 +2,10 @@
 include("inc/session_check.php");
 require_once("Mapper/voting.php");
 require_once("Mapper/voting_manager.php");
+require_once("Mapper/frage.php");
+require_once("Mapper/frage_manager.php");
+require_once("Mapper/antwort.php");
+require_once("Mapper/antwort_manager.php");
 
 //POST Parameter auslesen
 $vorlesungsId=htmlspecialchars($_POST["vorlesungsid"], ENT_QUOTES, "UTF-8");
@@ -21,16 +25,13 @@ if (!empty($votingName)&& !empty($frage)&& !empty($antwort_1) && !empty($antwort
     $manager=new voting_manager();
 
     // neues Voting erzeugen mit den POST Parametern
-    $votingid = $manager->create($vorlesungsId, $votingName, $startDatum,$endDatum);
-
-    echo "voting id lst inserted:".$votingid;
-
+    $voting_id = $manager->create($vorlesungsId, $votingName, $startDatum,$endDatum);
+    
     // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new frage_manager();
 
     // neue Frage in Datenbank erzeugen mit den POST Parametern
-    $manager->create($voting_id, $frage);
-    $frageID = $manager->getFragebyVotingid(voting_id);
+    $frageID =$manager->create($voting_id, $frage);
 
     // Objekt von antwort_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new antwort_manager();
@@ -43,7 +44,7 @@ if (!empty($votingName)&& !empty($frage)&& !empty($antwort_1) && !empty($antwort
 
 
     // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
-   // header('Location: uebersicht.php');
+   header('Location: uebersicht.php');
 }
 else {
     header('Location: voting_create_form.php?error=1');

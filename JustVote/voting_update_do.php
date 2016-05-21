@@ -1,6 +1,11 @@
 <?php
 require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
+require_once("Mapper/frage.php");
+require_once("Mapper/frage_manager.php");
+require_once("Mapper/antwort.php");
+require_once("Mapper/antwort_manager.php");
+
 
 // POST Parameter auslesen
 $votingId = (int)htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");

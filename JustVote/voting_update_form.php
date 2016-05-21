@@ -2,6 +2,11 @@
 include("inc/session_check.php");
 require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
+require_once("Mapper/frage.php");
+require_once("Mapper/frage_manager.php");
+require_once("Mapper/antwort.php");
+require_once("Mapper/antwort_manager.php");
+
 ?>
 
 <!DOCTYPE html>
