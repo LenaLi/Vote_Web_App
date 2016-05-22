@@ -22,7 +22,19 @@ $voting_manager = new voting_manager();
 
 // lese Voting mit Voting-ID aus Datenbank aus
 $voting = $voting_manager->findByVotingId($votingId);
-echo $votingId;
+
+// Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
+$frage_manager = new frage_manager();
+
+// lese Frage mit Voting-ID aus Datenbank aus
+$frage = $frage_manager->getFragebyVotingid($votingId);
+
+$antwort_manager = new antwort_manager();
+
+// lese Frage mit Voting-ID aus Datenbank aus
+$antworten = $antwort_manager->getAllByFrageID($frage->ID);
+
+
 ?>
 
 <body>
@@ -55,15 +67,15 @@ echo $votingId;
                         Votingname:<br>
                         <input type='text' name='votingname' value='<?php echo $voting->votingname ?>' required="required"/><br>
                         Frage:<br>
-                        <input type='text' name='frage' value='<?php echo $voting->frage ?>' required="required"/><br>
+                        <input type='text' name='frage' value='<?php echo $frage->text ?>' required="required"/><br>
                         Antwortmöglichkeit 1:<br>
-                        <input type='text' name='antwort_1' value='<?php echo $voting->antwort_1 ?>' required="required"/><br>
+                        <input type='text' name='antwort_1' value='<?php echo $antworten[0]->text ?>' required="required"/><br>
                         Antwortmöglichkeit 2:<br>
-                        <input type='text' name='antwort_2' value='<?php echo $voting->antwort_2 ?>' required="required"/><br>
+                        <input type='text' name='antwort_2' value='<?php echo $antworten[1]->text  ?>' required="required"/><br>
                         Antwortmöglichkeit 3: (optional)<br>
-                        <input type='text' name='antwort_3' value='<?php echo $voting->antwort_3 ?>'/><br>
+                        <input type='text' name='antwort_3' value='<?php echo $antworten[2]->text  ?>'/><br>
                         Antwortmöglichkeit 4: (optional)<br>
-                        <input type='text' name='antwort_4' value='<?php echo $voting->antwort_4 ?>'/><br>
+                        <input type='text' name='antwort_4' value='<?php echo $antworten[3]->text  ?>'/><br>
 
                         <!-- Updatefeld für die Startdatum, Startzeit -->
                         <div class="form-group">

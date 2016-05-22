@@ -18,14 +18,14 @@ class antwort_manager extends manager
     }
 
 
-    public function getbyFrageID ($frageID)
+    public function getAllByFrageID ($frageID)
     {
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM antwort WHERE frageID = :frageID');
             $stmt->bindParam(':frageID', $frageID);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $result = $stmt->fetch();
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'antwort');
+            $result = $stmt->fetchAll();
 
             return $result;
 
@@ -63,7 +63,7 @@ class antwort_manager extends manager
         try {
             $stmt = $this->pdo->prepare('
                   UPDATE antwort
-                  SET frageid = :frageid, text = :text
+                  SET frageID = :frageID, text = :text
                   WHERE ID = :ID
                 ');
             $stmt->bindParam(':ID', $ID);
@@ -76,6 +76,22 @@ class antwort_manager extends manager
             die();
         }
     }
+    public function deleteByFrageId($frageID)
+    {
+        // Löschen eines zu einer bestimmten VotingId gehörenden Votings
+        try {
+            $stmt = $this->pdo->prepare('
+              DELETE FROM antwort WHERE frageID= :frageID
+            ');
+            $stmt->bindParam(':frageID', $frageID);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            return null;
+        }
+        return null;
+    }
+
 
 
 

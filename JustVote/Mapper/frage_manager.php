@@ -43,7 +43,7 @@ class frage_manager extends manager
             $stmt = $this->pdo->prepare('SELECT * FROM frage WHERE voting_id = :voting_id');
             $stmt->bindParam(':voting_id', $voting_id);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC); //alles in array, kommt in array zur�ck nicht in objektform
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'frage');
             $result = $stmt->fetch();
 
             return $result;
@@ -111,6 +111,21 @@ class frage_manager extends manager
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             die();
         }
+    }
+    public function deleteByVotingId($votingid)
+    {
+        // Löschen eines zu einer bestimmten VotingId gehörenden Votings
+        try {
+            $stmt = $this->pdo->prepare('
+              DELETE FROM frage WHERE votingid= :votingid
+            ');
+            $stmt->bindParam(':votingid', $votingid);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            return null;
+        }
+        return null;
     }
 
 }
