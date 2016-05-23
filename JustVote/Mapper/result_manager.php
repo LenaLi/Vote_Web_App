@@ -62,7 +62,7 @@ class result_manager extends manager
     public function countTeilnehmer($votingid)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT COUNT(*) as Anzahl FROM ergebnis WHERE voting_id = :votingid');
+            $stmt = $this->pdo->prepare('SELECT COUNT(*) as Anzahl FROM auswer WHERE voting_id = :votingid');
             $stmt->bindParam(':votingid', $votingid);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'ergebnis');

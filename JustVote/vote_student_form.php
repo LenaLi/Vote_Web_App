@@ -4,6 +4,7 @@ include("inc/header.php");
 include("inc/navigation.php");
 require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort_manager.php");
+require_once("Mapper/auswertung_manager.php");
 
 
 //holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
@@ -21,136 +22,181 @@ $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
 $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votingmanager =new frage_manager();
-$_SESSION["votingid"] = $VOTINGID;
+//$_SESSION["votingid"] = $VOTINGID;*/
 $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
-//warum ohne sessions
 
-$key = in_array ($votingid);
+// wenn key 1 dann hat er schon abgestimmt, daher ausgabe in if block
+$key = in_array ($VOTINGID, $_SESSION["votingid"]);
 if ($key==1) {
 
 
+    // --------------- Für Anzahl Teilnehmer ---------------------------------
+    // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
+    $auswertungsmanager =new auswertung_manager();
+    // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
+    $gesamtanzahlTeilnemer = $auswertungsmanager->countTeilnehmer($votingid);
+
+print_r ($gesamtanzahlTeilnemer);
+    $resultinpercent=60;
+
+    echo '<div id="ergebnis" style="width: 500px;">';
+
+
+    // --------------- Für Anzahl pro Antwort ---------------------------------
+
+    // einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
+    echo '<div class="col-md-6">';
+    foreach ($antworten as $eintrag) {
+
+        $countAntwortInstanz = new auswertung_manager();
+        $auswertung= $countAntwortInstanz->countAntwort($eintrag["antwortID"]);
+
+        //$resultinpercent = round($auswertung/$gesamtanzahlTeilnemer*100,2);
+
+         // $eintrag ["text"] . $auswertung . "</br>";
+        print_r($auswertung);
+         echo   '
+            <div class="progress">
+                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
+                    aria-valuenow="'.$resultinpercent.'" aria-valuemin="0" aria-valuemax="100" style="width:'.$resultinpercent.'%">;
+                    <span class="sr-only">'.$resultinpercent.'</span>
+                    </div>
+            </div>';
+
+    }
+    echo "</div>";
+
+
+
+    // ---------------  Details --------------------
+
+
+
+    echo '<h3> Teilnehmeranzahl: ' . '</h3>';
+
 
 }
-else{
-        echo '<form action="vote_student_do.php" method="post">';
+else {
+    echo "else teil der schleife";
+    echo '<form action="vote_student_do.php" method="post">';
 
 
 //alle antworten ausgeben
-        foreach ($antworten as $eintrag) {
-            echo "<input type='radio' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag ["text"] . "</br>";
-        }
-        //hiddenfields um die felder zu übertragen
-        echo '<input type="hidden" value="' . $votingid . '" name="votingid">';
-        echo '<input type="hidden" value="' . $frageid . '" name="frageid">';
-
-        //abschicken-button - ende des forms
-        echo '<input type="submit" name="Abschicken" value="Abschicken">';
-        echo '</form>';
+    foreach ($antworten as $eintrag) {
+        echo "<input type='radio' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag ["text"] . "</br>";
     }
+    //hiddenfields um die felder zu übertragen
+    echo '<input type="hidden" value="' . $votingid . '" name="votingid">';
+    echo '<input type="hidden" value="' . $frageid . '" name="frageid">';
+
+    //abschicken-button - ende des forms
+    echo '<input type="submit" name="Abschicken" value="Abschicken">';
+    echo '</form>';
+}
 ?>
-<!------------------------- ENDE ------------------------------
+    <!------------------------- ENDE ------------------------------
 
-<?php
+    <?php
 
-   /*<!DOCTYPE html>
-    <html>
-    <body>
-    <div class="container-fluid">
+/*<!DOCTYPE html>
+ <html>
+ <body>
+ <div class="container-fluid">
 
-        <div class="row">
-            <div class="col-lg-12">
-                <form action="vote_student_do.php" method="post">
-                    <table>
-                        debug1
+     <div class="row">
+         <div class="col-lg-12">
+             <form action="vote_student_do.php" method="post">
+                 <table>
+                     debug1
 
-                        <?php
+                     <?php
 
-                        //sessionvariable mit anzahl der antwortmöglichkeiten
-                        $_SESSION ["anzahlantworten"]=2;
-
-
-                        if($votings==null)
-                        {
-                            //kein Datensatz gefunden
-                            echo '<h2>Kein Datensatz wurde gefunden</h2>';
-                        }
-
-                        // Durchgehen der Datensätze
-                        // der Session wird der Wert des angeklickten Datensatz zugewiesen
-                        // votings ist der große container, foreach-schleife macht neue variable voting in der schleife ruft man aktuelles ergebnis ab
-                        foreach($votings as $voting)
-                        {
-
-                            $_SESSION["A1"] = $voting->antwort_1;
-                            $_SESSION["A2"] = $voting->antwort_2;
-                            $_SESSION["A3"] = $voting->antwort_3;
-                            $_SESSION["A4"] = $voting->antwort_4;
-                        }
-
-                        ?>
-                        <tr>
-                            <td>
-                                <?php
-                                echo '<h2>' . $votings->frage . '</h2>';
-                                ?>
-                            </td>
-                        </tr>
+                     //sessionvariable mit anzahl der antwortmöglichkeiten
+                     $_SESSION ["anzahlantworten"]=2;
 
 
-                        <tr>
-                            <td>
-                                <?php
-                                echo '<input type="radio" name="rb_voting" value="antwort_1"/>' . $_SESSION["A1"];
-                                ?>
-                            </td>
-                        </tr>
+                     if($votings==null)
+                     {
+                         //kein Datensatz gefunden
+                         echo '<h2>Kein Datensatz wurde gefunden</h2>';
+                     }
 
-                        <tr>
-                            <td>
-                                <?php
-                                echo '<input type="radio" name="rb_voting" value="antwort_2"/>' . $_SESSION["A2"];
-                                ?>
-                            </td>
-                        </tr>
+                     // Durchgehen der Datensätze
+                     // der Session wird der Wert des angeklickten Datensatz zugewiesen
+                     // votings ist der große container, foreach-schleife macht neue variable voting in der schleife ruft man aktuelles ergebnis ab
+                     foreach($votings as $voting)
+                     {
 
-                        <?php
-                        if ($_SESSION["A3"] != '') {
-                            echo '<tr>
-                                        <td>';
-                            echo '<input type="radio" name="rb_voting" value="antwort_3"/>' . $_SESSION["A3"];
-                            echo '</td>
-                                    </tr>';
-                            $_SESSION ["anzahlantworten"]++;
-                        }
-                        if ($_SESSION["A4"] != '') {
-                            echo '<tr>
-                                        <td>';
-                            echo '<input type="radio" name="rb_voting" value="antwort_4"/>' . $_SESSION["A4"];
-                            echo '</td>
-                                    </tr>';
-                            $_SESSION ["anzahlantworten"]++;
-                        }
-                        ?>
+                         $_SESSION["A1"] = $voting->antwort_1;
+                         $_SESSION["A2"] = $voting->antwort_2;
+                         $_SESSION["A3"] = $voting->antwort_3;
+                         $_SESSION["A4"] = $voting->antwort_4;
+                     }
 
-                        <tr>
-                            <td>
-                                <input type="submit" name="Abschicken" value="Abschicken">
-                            </td>
-                        </tr>
-                    </table>
-                </form>
+                     ?>
+                     <tr>
+                         <td>
+                             <?php
+                             echo '<h2>' . $votings->frage . '</h2>';
+                             ?>
+                         </td>
+                     </tr>
 
-            </div>
-        </div>
-    </div>
 
-    </div>
+                     <tr>
+                         <td>
+                             <?php
+                             echo '<input type="radio" name="rb_voting" value="antwort_1"/>' . $_SESSION["A1"];
+                             ?>
+                         </td>
+                     </tr>
 
-    };
-    ?>
-    </body>
-    </html>
+                     <tr>
+                         <td>
+                             <?php
+                             echo '<input type="radio" name="rb_voting" value="antwort_2"/>' . $_SESSION["A2"];
+                             ?>
+                         </td>
+                     </tr>
+
+                     <?php
+                     if ($_SESSION["A3"] != '') {
+                         echo '<tr>
+                                     <td>';
+                         echo '<input type="radio" name="rb_voting" value="antwort_3"/>' . $_SESSION["A3"];
+                         echo '</td>
+                                 </tr>';
+                         $_SESSION ["anzahlantworten"]++;
+                     }
+                     if ($_SESSION["A4"] != '') {
+                         echo '<tr>
+                                     <td>';
+                         echo '<input type="radio" name="rb_voting" value="antwort_4"/>' . $_SESSION["A4"];
+                         echo '</td>
+                                 </tr>';
+                         $_SESSION ["anzahlantworten"]++;
+                     }
+                     ?>
+
+                     <tr>
+                         <td>
+                             <input type="submit" name="Abschicken" value="Abschicken">
+                         </td>
+                     </tr>
+                 </table>
+             </form>
+
+         </div>
+     </div>
+ </div>
+
+ </div>
+
+ };
+ ?>
+ </body>
+ </html>
 
 
 
@@ -168,26 +214,26 @@ print_r($_SESSION);
 $key = in_array ($VOTINGID, $_SESSION["voting"]);
 if ($key==1) {
 
-    // switch-case anweisung als bessere Variante zur elseif anweisung
-    // es wird auf die globale variable SESSION aufgerufen, man hätte auch ne neue DB Abfrage machen können, aber wenns in ner globalen Variable ist, ist das unnötig
-    switch ($ergebnis) {
-        case antwort_1:
-            $ausgabe = "Antwort 1: ''".$_SESSION["A1"]."''";
-            break;
+ // switch-case anweisung als bessere Variante zur elseif anweisung
+ // es wird auf die globale variable SESSION aufgerufen, man hätte auch ne neue DB Abfrage machen können, aber wenns in ner globalen Variable ist, ist das unnötig
+ switch ($ergebnis) {
+     case antwort_1:
+         $ausgabe = "Antwort 1: ''".$_SESSION["A1"]."''";
+         break;
 
-        case antwort_2:
-            $ausgabe = "Antwort 2: ''".$_SESSION["A2"]."''";
-            break;
-        case antwort_3:
-            $ausgabe = "Antwort 3: ''".$_SESSION["A3"]."''";
-            break;
+     case antwort_2:
+         $ausgabe = "Antwort 2: ''".$_SESSION["A2"]."''";
+         break;
+     case antwort_3:
+         $ausgabe = "Antwort 3: ''".$_SESSION["A3"]."''";
+         break;
 
-        case antwort_4:
-            $ausgabe = "Antwort 4: ''".$_SESSION["A4"]."''";
-            break;
-    }
+     case antwort_4:
+         $ausgabe = "Antwort 4: ''".$_SESSION["A4"]."''";
+         break;
+ }
 
-    echo 'Du hast ' . $ausgabe . ' angeklickt'
+ echo 'Du hast ' . $ausgabe . ' angeklickt'
 
 }
 else {
@@ -203,91 +249,91 @@ print_r($key);
 <body>
 <div class="container-fluid">
 
-    <div class="row">
-        <div class="col-lg-12">
-            <form action="vote_student_do.php" method="post">
-                <table>
-                    debug1
+ <div class="row">
+     <div class="col-lg-12">
+         <form action="vote_student_do.php" method="post">
+             <table>
+                 debug1
 
-                    <?php
+                 <?php
 
-                    //sessionvariable mit anzahl der antwortmöglichkeiten
-                    $_SESSION ["anzahlantworten"]=2;
-
-
-                    if($votings==null)
-                    {
-                        //kein Datensatz gefunden
-                        echo '<h2>Kein Datensatz wurde gefunden</h2>';
-                    }
-
-                    // Durchgehen der Datensätze
-                    // der Session wird der Wert des angeklickten Datensatz zugewiesen
-                    // votings ist der große container, foreach-schleife macht neue variable voting in der schleife ruft man aktuelles ergebnis ab
-                    foreach($votings as $voting)
-                    {
-
-                        $_SESSION["A1"] = $voting->antwort_1;
-                        $_SESSION["A2"] = $voting->antwort_2;
-                        $_SESSION["A3"] = $voting->antwort_3;
-                        $_SESSION["A4"] = $voting->antwort_4;
-                    }
-
-                    ?>
-                    <tr>
-                        <td>
-                            <?php
-                            echo '<h2>' . $votings->frage . '</h2>';
-                            ?>
-                        </td>
-                    </tr>
+                 //sessionvariable mit anzahl der antwortmöglichkeiten
+                 $_SESSION ["anzahlantworten"]=2;
 
 
-                    <tr>
-                        <td>
-                            <?php
-                            echo '<input type="radio" name="rb_voting" value="antwort_1"/>' . $_SESSION["A1"];
-                            ?>
-                        </td>
-                    </tr>
+                 if($votings==null)
+                 {
+                     //kein Datensatz gefunden
+                     echo '<h2>Kein Datensatz wurde gefunden</h2>';
+                 }
 
-                    <tr>
-                        <td>
-                            <?php
-                            echo '<input type="radio" name="rb_voting" value="antwort_2"/>' . $_SESSION["A2"];
-                            ?>
-                        </td>
-                    </tr>
+                 // Durchgehen der Datensätze
+                 // der Session wird der Wert des angeklickten Datensatz zugewiesen
+                 // votings ist der große container, foreach-schleife macht neue variable voting in der schleife ruft man aktuelles ergebnis ab
+                 foreach($votings as $voting)
+                 {
 
-                    <?php
-                    if ($_SESSION["A3"] != '') {
-                        echo '<tr>
-                                        <td>';
-                        echo '<input type="radio" name="rb_voting" value="antwort_3"/>' . $_SESSION["A3"];
-                        echo '</td>
-                                    </tr>';
-                        $_SESSION ["anzahlantworten"]++;
-                    }
-                    if ($_SESSION["A4"] != '') {
-                        echo '<tr>
-                                        <td>';
-                        echo '<input type="radio" name="rb_voting" value="antwort_4"/>' . $_SESSION["A4"];
-                        echo '</td>
-                                    </tr>';
-                        $_SESSION ["anzahlantworten"]++;
-                    }
-                    ?>
+                     $_SESSION["A1"] = $voting->antwort_1;
+                     $_SESSION["A2"] = $voting->antwort_2;
+                     $_SESSION["A3"] = $voting->antwort_3;
+                     $_SESSION["A4"] = $voting->antwort_4;
+                 }
 
-                    <tr>
-                        <td>
-                            <input type="submit" name="Abschicken" value="Abschicken">
-                        </td>
-                    </tr>
-                </table>
-            </form>
+                 ?>
+                 <tr>
+                     <td>
+                         <?php
+                         echo '<h2>' . $votings->frage . '</h2>';
+                         ?>
+                     </td>
+                 </tr>
 
-        </div>
-    </div>
+
+                 <tr>
+                     <td>
+                         <?php
+                         echo '<input type="radio" name="rb_voting" value="antwort_1"/>' . $_SESSION["A1"];
+                         ?>
+                     </td>
+                 </tr>
+
+                 <tr>
+                     <td>
+                         <?php
+                         echo '<input type="radio" name="rb_voting" value="antwort_2"/>' . $_SESSION["A2"];
+                         ?>
+                     </td>
+                 </tr>
+
+                 <?php
+                 if ($_SESSION["A3"] != '') {
+                     echo '<tr>
+                                     <td>';
+                     echo '<input type="radio" name="rb_voting" value="antwort_3"/>' . $_SESSION["A3"];
+                     echo '</td>
+                                 </tr>';
+                     $_SESSION ["anzahlantworten"]++;
+                 }
+                 if ($_SESSION["A4"] != '') {
+                     echo '<tr>
+                                     <td>';
+                     echo '<input type="radio" name="rb_voting" value="antwort_4"/>' . $_SESSION["A4"];
+                     echo '</td>
+                                 </tr>';
+                     $_SESSION ["anzahlantworten"]++;
+                 }
+                 ?>
+
+                 <tr>
+                     <td>
+                         <input type="submit" name="Abschicken" value="Abschicken">
+                     </td>
+                 </tr>
+             </table>
+         </form>
+
+     </div>
+ </div>
 </div>
 
 </div>

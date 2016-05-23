@@ -43,11 +43,29 @@ class auswertung_manager extends manager
     public function countTeilnehmer($votingid)
     {
         try {
-            $stmt = $this->pdo->prepare('SELECT COUNT(*) as Anzahl FROM ergebnis WHERE voting_id = :votingid');
+            $stmt = $this->pdo->prepare('SELECT COUNT(*) as Anzahl FROM auswertung WHERE voting_id = :votingid');
             $stmt->bindParam(':votingid', $votingid);
             $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'ergebnis');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'auswertung');
             $ergebnis = $stmt->fetchAll();
+
+            return $ergebnis;
+
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            die();
+        }
+    }
+
+    //in voiting id die antworten zur frageid rausholen weil nich überall die gleichen antworten gegeben wurden
+    public function countAntwort($antwortid)
+    {
+        try {
+            $stmt = $this->pdo->prepare('SELECT COUNT(*) as Anzahl FROM auswertung WHERE antwortID = :antwortid');
+            $stmt->bindParam(':antwortid', $antwortid);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'auswertung');
+            $ergebnis = $stmt->fetch();
 
             return $ergebnis;
 
