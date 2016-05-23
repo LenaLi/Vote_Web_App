@@ -16,7 +16,7 @@ echo $votings ["text"]."</br>";
 //holt die zur frageID dazugehoerigen antworten aus der DB-Abfrage
 $antwortmanager =new antwort_manager();
 $frageid = $votings ["ID"];
-$antworten = $antwortmanager->getbyFrageID($frageid);
+$antworten = $antwortmanager->getAllbyFrageID($frageid);
 
 
 $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
