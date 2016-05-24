@@ -1,31 +1,26 @@
 <?php
 include("inc/session_check.php");
+include("inc/header.php");
+include("inc/navigation.php");
+require_once("Mapper/vorlesung.php");
+require_once("Mapper/vorlesung_manager.php");
+require_once("Mapper/voting_manager.php");
 ?>
-<?php include("inc/header.php"); ?>
-<?php include("inc/navigation.php");?>
 
 
 <!DOCTYPE html>
 <html>
-
-
 <body>
-
     <div id="page-wrapper">
-
         <div class="container-fluid">
-            
             <div class="row">
                 <div class="col-lg-12">
-
                     <h1>Ihre Vorlesungen und Votings</h1>
-                    <p></p>
-
                     <?php
-                        require_once("Mapper/vorlesung.php");
-                        require_once("Mapper/vorlesung_manager.php");
-                        require_once("Mapper/voting_manager.php");
 
+
+
+                    
                         // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
                         $vorlesungsmanager =new vorlesung_manager();
 
@@ -38,6 +33,10 @@ include("inc/session_check.php");
                         if($vorlesungen!=null)
                         foreach($vorlesungen as $vorlesung){
                             echo "<table class='table table-hover'>";
+
+
+
+
 
                             // Überschriften der Tabellen
                                 echo "<thead><tr>";

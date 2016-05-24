@@ -15,12 +15,14 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)&& !empty($role)) {
     
     // Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new benutzer_manager();
-
+    
     // neuen Benutzer erzeugen mit den POST Parametern
-    $manager->create($vorname,$nachname,$email,$role);
+    $success=$manager->create($vorname,$nachname,$email,$role);
 
     // Weiterleitung auf die Übersichtsseite der Benutzer
-    header('Location: benutzer_read.php');
+    if (success ==true) {
+    header('Location: benutzer_read.php?success=1');
+    else
 
 } else {
     header('Location: benutzer_create_form.php?error=1');

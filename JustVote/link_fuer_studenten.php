@@ -20,10 +20,9 @@ require_once("Mapper/voting.php");
             <div class="row">
                 <div class="col-lg-12">
 
-                    <h2>Votingname</h2>
+
 
                     <?php
-
                     // ID wird ausgelesen und an URL drangehängt
                     $aktuellesvoting=$_GET['id'];
 
@@ -34,7 +33,8 @@ require_once("Mapper/voting.php");
                     $voting=$voting_manager->findByVotingId($aktuellesvoting);
 
                     //Ausgeben des Votingnamen zur zugehörigen ID
-                    echo  $voting->votingname;
+                    echo "<h2>".$voting->votingname."</h2>";
+
 
                     // Ausgeben des Links mit der jeweiligen ID
                     echo ' <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting.">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";

@@ -8,14 +8,6 @@ require_once("Mapper/benutzer_manager.php"); ?>
 <!DOCTYPE html>
 <html>
 
-<?php
-// Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
-$manager=new benutzer_manager();
-
-// alle Benutzer aus der Datenbank auslesen und in Array alleBenutzer speichern
-$alleBenutzer = $manager->findAll();
-?>
-
 <?php include("inc/header.php"); ?>
 
 <body>
@@ -27,8 +19,22 @@ $alleBenutzer = $manager->findAll();
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
+
+                    <?php
+                    // Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
+                    $manager=new benutzer_manager();
+
+                    // alle Benutzer aus der Datenbank auslesen und in Array alleBenutzer speichern
+                    $alleBenutzer = $manager->findAll();
+
+                    // Successmeldung anzeigen, wenn Success Parameter mitgeliefert wird
+                    if ($_GET["success"]=="1"){
+
+                        // HTML Code für Successmeldung erzeugen
+                        echo "<div class='alert alert-success'> <strong> Erfolgreich: </strong>Benutzer wurde angelegt und E-Mail mit den Zugangsdaten wurde versendet! </div>";
+                    }
+                    ?>
                     <h1>Benutzerübersicht</h1>
-                    <p></p>
 
                     <table  class="table table-hover">
                         <thead>
@@ -56,7 +62,7 @@ $alleBenutzer = $manager->findAll();
                             echo "<td>
 
                                 <!-- Fenster: Benutzer wirklich löschen?-->
-                                <a class='fa fa-trash' onclick='var r = confirm(\"Möchten Sie den Benutzer wirklich löschen?\");' href ='benutzer_delete_do.php?id=".$benutzer->id."' ></a>
+                                <a class='fa fa-trash' href ='benutzer_delete_do.php?id=".$benutzer->id."' ></a>
 
                             </td>";
                             echo "</tr>";
