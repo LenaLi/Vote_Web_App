@@ -46,7 +46,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
             <div class="row">
                 <div class="col-lg-12">
 
-                    <h1>Vorlesung bearbeiten</h1>
+                    <h1>Voting bearbeiten</h1>
 
                     <?php
                     // Fehlermeldung, da Problem bei serverseitiger Überprüfung
