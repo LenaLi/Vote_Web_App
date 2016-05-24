@@ -1,11 +1,7 @@
 <?php
 include("inc/session_check.php");
-require_once ("Mapper/voting_student.php");
-require_once ("Mapper/voting_student_manager.php");
-//require_once("Mapper/vorlesung.php");
-//require_once("Mapper/vorlesung_manager.php");
-//require_once("Mapper/voting_manager.php");
-//require_once("Mapper/voting.php");
+require_once("Mapper/voting_manager.php");
+require_once("Mapper/voting.php");
 ?>
 
 <!DOCTYPE html>
@@ -24,31 +20,27 @@ require_once ("Mapper/voting_student_manager.php");
             <div class="row">
                 <div class="col-lg-12">
 
+                    <h2>Votingname</h2>
+
                     <?php
-
-                    //TODO votingname ausgeben lassen funktioniert noch nicht
-                    // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
-                    $voting_student_manager = new voting_student_manager();
-
-                    // votingname aus Session auslesen
-                    $votingname=$_GET['votingname'];
-
-                    // lese Votingname aus Datenbank und speichere Informationen in einem votingname-Array
-                    $name=$voting_student_manager->findByVotingName($votingname);
-
-                    echo $name['votingname']." "."<br />";
-
 
                     // ID wird ausgelesen und an URL drangehängt
                     $aktuellesvoting=$_GET['id'];
 
+                    // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
+                    $voting_manager = new voting_manager();
+
+                    // lese Voting aus Datenbank mit der Funktion findByVotingID
+                    $voting=$voting_manager->findByVotingId($aktuellesvoting);
+
+                    //Ausgeben des Votingnamen zur zugehörigen ID
+                    echo  $voting->votingname;
+
+                    // Ausgeben des Links mit der jeweiligen ID
                     echo ' <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting.">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
+
+                    //echo "<button onclick='window.clipboard.setData()'\"https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=".$aktuellesvoting."\";'>Link kopieren</button>";
                     ?>
-
-
-
-
-
 
                 </div>
             </div>
@@ -71,8 +63,6 @@ require_once ("Mapper/voting_student_manager.php");
 
 //So muss der Link Aussehen
 // http://chart.apis.google.com/chart?chs=500x500&cht=qr&chld=L&chl=https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/$aktuellesvoing
-
-
 
 
 
