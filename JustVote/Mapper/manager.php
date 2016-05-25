@@ -20,6 +20,8 @@ class manager
                 );
                 
             }
+            // Bei SQL Fehler Exception Handling (Fehlerbehandlung) aktivieren
+            $this->pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             die();

@@ -19,11 +19,12 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)&& !empty($role)) {
     // neuen Benutzer erzeugen mit den POST Parametern
     $success=$manager->create($vorname,$nachname,$email,$role);
 
-    // Weiterleitung auf die Übersichtsseite der Benutzer
-    if (success ==true) {
+    // Weiterleitung auf die Übersichtsseite der Benutzer, wenn Eingabe erfolgreich (Benutzer darf nur einmal existieren)
+    if ($success==true) {
     header('Location: benutzer_read.php?success=1');
-    else
-
+    }else {
+        header('Location: benutzer_create_form.php?error=2');
+        }
 } else {
     header('Location: benutzer_create_form.php?error=1');
 }

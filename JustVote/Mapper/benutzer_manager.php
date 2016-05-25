@@ -69,6 +69,8 @@ class benutzer_manager extends manager
 
     public function create($vorname,$nachname,$email,$role)
     {
+        $success=true;
+
         // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
         $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
         $options = [
@@ -111,10 +113,9 @@ class benutzer_manager extends manager
 
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            die();
-            return false;
+            $success=false;
         }
-       return true;
+       return $success;
     }
 
     public function update(benutzer $benutzer)

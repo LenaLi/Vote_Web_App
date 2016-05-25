@@ -16,16 +16,23 @@ include("inc/session_check_admin.php");?>
             <div class="row">
                 <div class="col-lg-12">
 
+                    <?php
+                    // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
+                    if ($_GET["error"]=="1"){
+
+                        // HTML Code für Fehlermeldung erzeugen
+                        echo "<div class='alert alert-danger'> <strong> Fehler: </strong>Bitte alle Felder ausfüllen </div>";
+                    }
+                    // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
+                    if ($_GET["error"]=="2"){
+
+                        // HTML Code für Fehlermeldung erzeugen
+                        echo "<div class='alert alert-danger'> <strong> Fehler: </strong>Benutzer mit E-Mail existiert bereits </div>";
+                    }
+                    ?>
+
                     <h2>Benutzer hinzufügen</h2>
 
-                    <?php
-                        // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
-                        if ($_GET["error"]=="1"){
-
-                            // HTML Code für Fehlermeldung erzeugen
-                            echo "<div class='alert alert-danger'> <strong> Fehler: </strong>Bitte alle Felder ausfüllen </div>";
-                        }
-                    ?>
 
                     <!-- Beginn Formular "Benutzer hinzufügen" -->
                     <form class="form-horizontal" role="form" action="benutzer_create_do.php" method="post">
