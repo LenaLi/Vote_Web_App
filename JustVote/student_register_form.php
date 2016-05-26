@@ -21,7 +21,6 @@
                 if($_GET["error"]=="1"){
                     ?>
                     <div class=h5 style="color: #F07F31; font-weight: bold">Passwort stimmt nicht überein!</div>
-
                     <?php
                 }
                 ?>
@@ -29,7 +28,6 @@
                 if($_GET["error"]=="2"){
                     ?>
                     <div class=h5 style="color: #F07F31; font-weight: bold">Bitte Felder ausfüllen!</div>
-
                     <?php
                 }
                 ?>
@@ -47,7 +45,7 @@
                     <!-- Texteingabefeld für Nachname-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <input type="password" class="form-control" name="nachname" id="nachname" placeholder="Nachname" required="required">
+                            <input type="text" class="form-control" name="nachname" id="nachname" placeholder="Nachname" required="required">
                         </div>
                     </div>
 

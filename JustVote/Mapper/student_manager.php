@@ -2,7 +2,7 @@
 require_once("manager.php");
 require_once("student.php");
 
-class student_manager extends student
+class student_manager extends manager
 {
     protected $pdo;
 
@@ -92,7 +92,6 @@ class student_manager extends student
 
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            die();
             return false;
         }
         return true;
