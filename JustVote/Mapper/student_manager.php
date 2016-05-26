@@ -1,5 +1,3 @@
-<!-- Hier kommen die Funktionen der Klasse Student rein -->
-
 <?php
 require_once("manager.php");
 require_once("student.php");
@@ -66,23 +64,13 @@ class student_manager extends student
 
     }
 
-
-    /**
-     * @param $vorname
-     * @param $nachname
-     * @param $email
-     * @param $role
-     * @return bool
-     */
-    public function create($vorname,$nachname,$email,$role)
+    public function create($vorname,$nachname,$email,$password)
     {
         // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
         $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
         $options = [
             'salt' => $salt
         ];
-        // Funktion, die zufällige Passwörter erzeugt
-        $password=$vorname;
         // Password wird mit salt gehasht
         $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
 
@@ -90,30 +78,16 @@ class student_manager extends student
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO student
-                (vorname, nachname, email, role, password, salt)
+                (vorname, nachname, email, password, salt)
               VALUES
-                (:vorname, :nachname, :email , :role, :password, :salt)
+                (:vorname, :nachname, :email , :password, :salt)
             ');
             $stmt->bindParam(':vorname', $vorname);
             $stmt->bindParam(':nachname', $nachname);
             $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':role', $role);
+            $stmt->bindParam(':salt', $salt);
             $stmt->bindParam(':password', $password_hashed);
-            $stmt->bindParam(":salt", $salt);
             $stmt->execute();
-
-            // Anmeldedaten  mit email versenden
-
-            // check if hdm email adress
-            $suffix = explode("@",$email)[1]; //zerlegt string $e-mail in einen string vor dem @ und nach dem @
-            if($suffix === "hdm-stuttgart.de"){
-                echo "email ist hdm mail ".$suffix;
-                $to = $email;
-                $subject = "Neues Benutzerkonto bei Just Vote";
-                $message = "Hallo ".$vorname." ".$nachname.",\n\n Es wurde ein Benutzerkonto für Sie bei JustVote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: ".$email."\n Passwort: ".$vorname."\n\n MFG\n Ihr Just Vote Team";
-                mail($to,$subject,$message);
-            }
-
 
 
         } catch (PDOException $e) {
@@ -133,14 +107,12 @@ class student_manager extends student
               SET vorname = :vorname,
                   nachname = :nachname,
                   email = :email,
-                  role = :role
               WHERE student_id = :student_id
             ');
             $stmt->bindParam(':student_id', $student->student_id);
             $stmt->bindParam(':vorname', $student->vorname);
             $stmt->bindParam(':nachname', $student->nachname);
             $stmt->bindParam(':email', $student->email);
-            $stmt->bindParam(':role', $student->role);
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
