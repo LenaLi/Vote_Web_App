@@ -27,7 +27,7 @@
             </form>
 
                 <form action="student_create_form.php">
-                    <button type="submit" class="btn btn-warning">Anmeldung für Studenten </button>
+                    <button type="submit" class="btn btn-warning">Student? hier gehts zum Studentlogin </button>
                 </form>
 
 
