@@ -15,10 +15,7 @@ if (!empty($email)&& !empty($password)) {
 
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new student_manager();
-
-    // neuen Student erzeugen mit den POST Parametern
-    $manager->create($email,$password);
-
+    
 
 // Lese Benutzer mit email aus Datenbank und speichere Informationen in einem Benutzer-Objekt
     $student=$manager->findByEmail($email);
@@ -26,10 +23,11 @@ if (!empty($email)&& !empty($password)) {
 // Überprüfen, ob das vom Benutzer eingegebene Passwort mit dem aus der Datenbank übereinstimmt
     $password_correct=password_verify($password,$student->password);
 
-// überprüfen ob Passwort und E-Mail(Benutzername) korrekt sind
+
+    // überprüfen ob Passwort und E-Mail(Benutzername) korrekt sind
     if ($password_correct && $student->email==$email) {
 
-        //Passwort und Email (Benutzername) korrekt
+        //Passwort und Email korrekt
         session_start();
         // Speichere Logged in Information in Session
         $_SESSION['login'] = "1";
@@ -42,5 +40,6 @@ if (!empty($email)&& !empty($password)) {
 
     } else {
     header('Location: index.php?error=1');
+    }
 }
 ?>

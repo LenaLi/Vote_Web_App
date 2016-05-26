@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -19,47 +17,31 @@
         <div class="row">
             <div class="col-lg-12">
 
-                <h2>Anmeldung für Studenten</h2>
+                <h2>Login für Studenten</h2>
                 <h5>der Hochschule der Medien Stuttgart mit dem Hochschul-Account</h5>
 
-                <form class="form-horizontal" role="form" action="student_create_do.php" method="post">
+                <form class="form-horizontal" role="form" action="student_login_do.php" method="post">
 
-                    <!-- Texteingabefeld für Vorname-->
-                    <div class="form-group">
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="vorname" id="vorname" placeholder="Vorname" required="required">
-                        </div>
-                    </div>
-                    <!-- Texteingabefeld für Nachname-->
-                    <div class="form-group">
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="nachname" id="nachname" placeholder="Nachname" required="required">
-                        </div>
-                    </div>
                     <!-- Texteingabefeld für E-Mail-->
                     <div class="form-group">
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail" required="required">
                         </div>
                     </div>
-
-                    <!-- TODO: Auswahlfeld der Rolle STUDENT-->
+                    <!-- Texteingabefeld für Passwort-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <select name="role" id="role">
-
-                                <option value="Student">Student</option>
-                            </select>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
                         </div>
                     </div>
-
-
+                    <!-- Login Button-->
                     <div class="form-group">
-                        <div class=" col-sm-6">
-                            <button type="submit" class="btn btn-warning"> Anmelden</button>
+                        <div class=" col-sm-9">
+                            <button type="submit" class="btn btn-warning"> Login</button>
                         </div>
                     </div>
-
+                    <!-- Link Registrieren-->
+                    <a href="student_register_form.php">Registrieren</a>
             </div>
 
 
@@ -70,3 +52,6 @@
 
 </body>
 </html>
+
+
+

@@ -1,6 +1,4 @@
 <!-- TO DO: Passwort vergessen Button?? -->
-
-
 <div class="login">
 
 
@@ -8,34 +6,23 @@
 
                <div class="form-group">
                         <div class="col-sm-12">
-                               <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail">
-                            </div>
-                    </div>
+                            <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail">
+                        </div>
+               </div>
 
                 <div class="form-group">
                         <div class="col-sm-12">
-                                   <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
-                            </div>
-                    </div>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
+                        </div>
+                </div>
 
                 <div class="form-group">
                         <div class=" col-sm-offset-4 col-sm-12">
-                                <button type="submit" class="btn btn-warning">Login</button>
-                            </div>
-                    </div>
+                            <button type="submit" class="btn btn-warning">Login</button>
+                        </div>
+                </div>
 
-            </form>
-
-                <form action="student_login_form.php">
-                    <button type="submit" class="btn btn-warning">Student? hier gehts zum Studentlogin </button>
-                </form>
-
-
-    </div>
-
-
-<div>
-
-
-
+       </form>
+                    <a href="student_login_form.php">Student? Hier gehts zum Studentenlogin</a>
+    
 </div>
