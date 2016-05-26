@@ -39,7 +39,7 @@ if (!empty($email)&& !empty($password)) {
 
 
     } else {
-    header('Location: index.php?error=1');
+    header('Location: student_login_form.php?error=1');
     }
 }
 ?>

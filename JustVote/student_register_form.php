@@ -16,7 +16,23 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
+                
+                <?php
+                if($_GET["error"]=="1"){
+                    ?>
+                    <div class=h5 style="color: #F07F31; font-weight: bold">Passwort stimmt nicht überein!</div>
 
+                    <?php
+                }
+                ?>
+                <?php
+                if($_GET["error"]=="2"){
+                    ?>
+                    <div class=h5 style="color: #F07F31; font-weight: bold">Bitte Felder ausfüllen!</div>
+
+                    <?php
+                }
+                ?>
                 <h2>Registrierung für Studenten</h2>
                 <h5>der Hochschule der Medien Stuttgart mit dem Hochschul-Account</h5>
 
@@ -44,13 +60,13 @@
                     <!-- Texteingabefeld für Passwort-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <input type="password" class="form-control" name="password1" id="password1" placeholder="Passwort">
+                            <input type="password" class="form-control" name="password1" id="password1" placeholder="Passwort"required="required">
                         </div>
                     </div>
                     <!-- Texteingabefeld für Passwort-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <input type="password" class="form-control" name="password2" id="password2" placeholder="Passwort wiederholen">
+                            <input type="password" class="form-control" name="password2" id="password2" placeholder="Passwort wiederholen"required="required">
                         </div>
                     </div>
                     <!-- Login Button-->

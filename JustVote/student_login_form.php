@@ -17,18 +17,18 @@
         <div class="row">
             <div class="col-lg-12">
 
+                <?php
+                if($_GET["error"]=="1"){
+                    ?>
+                    <div class=h5 style="color: #F07F31; font-weight: bold">E-Mail oder Passwort falsch!</div>
+
+                    <?php
+                }
+                ?>
+
                 <h2>Login für Studenten</h2>
                 <h5>der Hochschule der Medien Stuttgart mit dem Hochschul-Account</h5>
 
-
-                <?php
-                if($_GET["error"]=="1"){
-                ?>
-                <div class=h5 style="color: #F07F31; font-weight: bold">E-Mail oder Passwort falsch!</div>
-
-                <?php
-                }
-                ?>
 
 
                 <form class="form-horizontal" role="form" action="student_login_do.php" method="post">
