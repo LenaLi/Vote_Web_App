@@ -19,19 +19,22 @@ if (!empty($vorname)&& !empty($nachname)&&!empty($email)&& !empty($password1)&& 
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new student_manager();
 
-    // neuen Benutzer erzeugen mit den POST Parametern
-    $manager->create($vorname,$nachname,$email,$password1, $password2);
+    //Überprüfung die beiden Passwörter übereinstimmen
 
 
     if ($password1==$password2){
-        $password;
+
+        // neuen Student erzeugen mit den POST Parametern
+        $manager->create($vorname,$nachname,$email,$password1, $password2);
 
         // Weiterleitung auf die Übersichtsseite der Studenten
         header('Location: student_login_form.php');
 
 
     } else {
-        header('Location: index.php?error=1');
+        header('Location: student_register_form.php?error=1');
     }
+} else {
+    header('Location: student_register_form.php?error=1');
 }
 ?>
