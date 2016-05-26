@@ -59,15 +59,10 @@
                             <button type="submit" class="btn btn-warning">Registrieren</button>
                         </div>
                     </div>
-
             </div>
-
-
         </div>
     </div>
 </div>
-
-
 </body>
 </html>
 
