@@ -26,7 +26,7 @@ $votingmanager =new frage_manager();
 $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 
-// wenn key 1 dann hat er schon abgestimmt, daher ausgabe in if block
+// wenn key 1 dann hat er schon abgestimmt, daher ausgabe des if blocks
 $key = in_array ($VOTINGID, $_SESSION["votingid"]);
 if ($key==1) {
 
