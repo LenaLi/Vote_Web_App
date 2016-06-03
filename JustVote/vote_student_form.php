@@ -8,8 +8,7 @@
     <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
 </div>
 
-<div class="white">
-
+<div class="page-wrapper">
 <?php
 include("inc/session_check.php");
 include("inc/header.php");
