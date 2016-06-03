@@ -2,16 +2,6 @@
 <!-- Navigation für die Link Bereitstellung für die Studenten (QR Code etc.) dass nicht alles sichtbar ist -->
 
 
-<!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<!-- Custom CSS -->
-<link href="css/sb-admin.css" rel="stylesheet">
-<!-- Morris Charts CSS -->
-<link href="css/plugins/morris.css" rel="stylesheet">
-<!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
 <div id="wrapper">
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -25,7 +15,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <img class="navbar-brand" href="uebersicht.php" title="JustVote"
+            <img class="navbar-logo" href="uebersicht.php" title="JustVote"
                  src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg">  </img>
 
         </div>

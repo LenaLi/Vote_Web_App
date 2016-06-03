@@ -6,9 +6,21 @@
 
 /* Global Styles */
 
+.white {
+    font-size: 50px;
+    line-height: normal;
+    color: #FFF;
+}
+
+
 body {
     margin-top: 100px;
     background-color: #FFF;
+}
+
+@media (min-width: 768px){
+    #wrapper {padding-right: 0px; padding-left: 0;}
+    .side-nav{right: 0;left: auto;}
 }
 
 @media(min-width:768px) {

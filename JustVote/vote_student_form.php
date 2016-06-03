@@ -1,10 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Klasse Login-Body richtet alles mittig aus -->
+<body class="mitte">
+<!-- LOGO -->
+<div class="mitte">
+    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
+</div>
+
+<div class="white">
+
 <?php
 include("inc/session_check.php");
 include("inc/header.php");
-include("inc/navigation.php");
 require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort_manager.php");
 require_once("Mapper/auswertung_manager.php");
+
 
 
 //holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
@@ -101,6 +113,7 @@ else {
     echo '</form>';
 }
 ?>
+</div>
     <!------------------------- ENDE ------------------------------
 
     <?php
