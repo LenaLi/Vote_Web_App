@@ -16,7 +16,7 @@ class voting_student_manager extends manager
         parent::__destruct();
     }
 
-
+/// FÜR WAS DA??????????
     public function findByVotingName ($votingname)
     {
         // Lese Votingname aus

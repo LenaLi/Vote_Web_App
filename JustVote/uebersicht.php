@@ -17,9 +17,6 @@ require_once("Mapper/voting_manager.php");
                 <div class="col-lg-12">
                     <h1>Ihre Vorlesungen und Votings</h1>
                     <?php
-
-
-
                     
                         // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
                         $vorlesungsmanager =new vorlesung_manager();
@@ -34,9 +31,7 @@ require_once("Mapper/voting_manager.php");
                         foreach($vorlesungen as $vorlesung){
                             echo "<table class='table table-hover'>";
 
-
-
-
+                            
 
                             // Überschriften der Tabellen
                                 echo "<thead><tr>";
