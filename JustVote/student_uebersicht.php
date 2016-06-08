@@ -24,10 +24,10 @@ include("Mapper/voting_manager.php");
                         $votings = $voting_student_manager->findVotingsByStudent(92,12);
 
                         foreach ($votings as $voting){
-                            echo "id". $voting->votingid."\n";
-                            echo "vorlesungsid".$voting->vorlesungsid."\n";
-                            echo "enddatum".$voting->enddatum."\n";
-                            echo "startdatum".$voting->startdatum."\n"."\n";
+                            echo "id". $voting->votingid."<br>";
+                            echo "vorlesungsid".$voting->vorlesungsid."<br>";
+                            echo "enddatum".$voting->enddatum."<br>";
+                            echo "startdatum".$voting->startdatum."<br>"."<br>";
 
 }
 
