@@ -16,7 +16,6 @@ class voting_student_manager extends manager
         parent::__destruct();
     }
 
-/// FÜR WAS DA??????????
     public function findByVotingName ($votingname)
     {
         // Lese Votingname aus
@@ -37,11 +36,8 @@ class voting_student_manager extends manager
     }
 
 
-
-
-    /*public function beziehungvotingstudent ($voting_id, $student_id)
+    public function create ($voting_id, $student_id)
     {
-
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO voting_student
@@ -60,7 +56,29 @@ class voting_student_manager extends manager
             return null;
         }
         return true;
-    }*/
+    }
+
+    public function findVotingsByStudent($voting_id, $student_id)
+    {
+        try {
+            $stmt = $this->pdo->prepare('
+              SELECT voting_student
+              FROM
+              WHRERE
+                (:voting_id, :student_id)
+            ');
+            $stmt->bindParam(':voting_id', $voting_id);
+            $stmt->bindParam(':student_id', $student_id);
+
+
+
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            return null;
+        }
+        return true;
+    }
 
 
 

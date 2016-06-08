@@ -19,5 +19,5 @@ include("inc/voting_manager.php");
                         // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
                         $votingmanager =new voting_manager();
 
-                        // Lese vorlesungen mit Benutzer-ID aus Datenbank aus
+                        // Lese voting mit Voting-ID aus Datenbank aus
                         $voting = $votingmanager->findByBenutzerId($_SESSION['benutzerid']);
