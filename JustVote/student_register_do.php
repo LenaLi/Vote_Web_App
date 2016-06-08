@@ -20,6 +20,7 @@ if (!empty($vorname)&& !empty($nachname)&&!empty($email)&& !empty($password1)&& 
     $manager=new student_manager();
 
     //Überprüfung die beiden Passwörter übereinstimmen
+    
 
     if ($password1==$password2){
 
@@ -33,6 +34,8 @@ if (!empty($vorname)&& !empty($nachname)&&!empty($email)&& !empty($password1)&& 
     } else {
         header('Location: student_register_form.php?error=1');
     }
+    
+    
 } else {
     header('Location: student_register_form.php?error=2');
 }

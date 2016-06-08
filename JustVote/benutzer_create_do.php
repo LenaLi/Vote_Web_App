@@ -21,7 +21,7 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)&& !empty($role)) {
 
     // Weiterleitung auf die Übersichtsseite der Benutzer, wenn Eingabe erfolgreich (Benutzer darf nur einmal existieren)
     if ($success==true) {
-    header('Location: benutzer_read.php?success=1');
+        header('Location: benutzer_read.php?success=1');
     }else {
         header('Location: benutzer_create_form.php?error=2');
         }

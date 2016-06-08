@@ -52,7 +52,7 @@
                     <!-- Texteingabefeld für E-Mail-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail" required="required">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" required="required">
                         </div>
                     </div>
                     <!-- Texteingabefeld für Passwort-->
