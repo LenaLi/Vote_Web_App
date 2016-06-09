@@ -6,15 +6,6 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 
-.mitte {
-  background: #000000;
-  display: table;
-  text-align: center;
-  margin: auto;
-  padding-top: 5%;
-  color: #FFF;
-
-}
 
 html {
   font-family: sans-serif;

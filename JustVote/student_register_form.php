@@ -2,28 +2,24 @@
 <html>
 
 <?php include("inc/header.php"); ?>
+<?php include("inc/navigation_mitte.php"); ?>
+
 
 <body class="mitte">
-
-<!-- LOGO -->
-<div class="mitte">
-    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
-</div>
-
 
 
                 
                 <?php
                 if($_GET["error"]=="1"){
                     ?>
-                    <div class=h5 style="color: #F07F31; font-weight: bold">Passwort stimmt nicht überein!</div>
+                    <div class=btn-danger style="color: #F07F31; font-weight: bold">Passwort stimmt nicht überein!</div>
                     <?php
                 }
                 ?>
                 <?php
                 if($_GET["error"]=="2"){
                     ?>
-                    <div class=h5 style="color: #F07F31; font-weight: bold">Bitte Felder ausfüllen!</div>
+                    <div class=btn-danger style="color: #F07F31; font-weight: bold">Bitte Felder ausfüllen!</div>
                     <?php
                 }
                 ?>
