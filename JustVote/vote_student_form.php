@@ -39,13 +39,7 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 // wenn key 1 dann hat er schon abgestimmt, daher ausgabe des if blocks
 $key = in_array ($VOTINGID, $_SESSION["votingid"]);
 if ($key==1) {
-    include("/vote_student_ergebnis.php");
-
-    echo '<form action="vote_student_ergebnis.php" method="post">';}
-
-
-
-
+    include("vote_student_ergebnis.php");}
 
 else {
     echo "else teil der schleife";

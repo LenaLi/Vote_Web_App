@@ -2,7 +2,7 @@
 <html>
 
 <?php include("inc/header.php"); ?>
-<?php include("inc/navigation_mitte.php"); ?>
+
 
 
 <?php
@@ -16,10 +16,6 @@ $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votingmanager =new frage_manager();
 //$_SESSION["votingid"] = $VOTINGID;*/
 $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
-
-
-
-
 
 
 // --------------- Für Anzahl Teilnehmer ---------------------------------
@@ -119,4 +115,3 @@ echo "</div>"; ?>
 
 
 echo '<h3> Teilnehmeranzahl: ' . '</h3>';
-}
