@@ -6,6 +6,22 @@
 
 
 <?php
+//holt die zur frageID dazugehoerigen antworten aus der DB-Abfrage
+$antwortmanager =new antwort_manager();
+$frageid = $votings ["ID"];
+$antworten = $antwortmanager->getAllbyFrageID($frageid);
+
+
+$VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+$votingmanager =new frage_manager();
+//$_SESSION["votingid"] = $VOTINGID;*/
+$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
+
+
+
+
+
+
 // --------------- Für Anzahl Teilnehmer ---------------------------------
 // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
 $auswertungsmanager =new auswertung_manager();
