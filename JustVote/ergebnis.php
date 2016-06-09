@@ -17,7 +17,7 @@
 
                 require_once("Mapper/result_manager.php");
 
-                // --------------- Für Anzahl Teilnehmer ---------------------------------
+                // --------------- Fï¿½r Anzahl Teilnehmer ---------------------------------
 
                 // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
                 $ergebnismanager =new result_manager();
@@ -29,14 +29,14 @@
                     echo '<h2>Kein Datensatz wurde gefunden</h2>';
                 }
 
-                //results großer container an datensätzen, result ist nur ein datensatz
+                //results groï¿½er container an datensï¿½tzen, result ist nur ein datensatz
                 foreach($results as $result)
                 {
-                    // variable wird zum Rechnen benötigt
+                    // variable wird zum Rechnen benï¿½tigt
                     $gesamtanzahlTeilnemer = $result->Anzahl;
                 }
 
-                // --------------- Für Anzahl pro Antwort ---------------------------------
+                // --------------- Fï¿½r Anzahl pro Antwort ---------------------------------
                 for ($i=1; $i<=$_SESSION ["anzahlantworten"]; $i++)
                 {
 
@@ -52,7 +52,7 @@
 
                         foreach($results2 as $result2)
                         {
-                           // array, speichert anzahl der antworten rein, minus eins weil: array fängt bei null an, unsere schleife fängt bei 1 an, aber müssen bei null anfangen wegen array
+                           // array, speichert anzahl der antworten rein, minus eins weil: array fï¿½ngt bei null an, unsere schleife fï¿½ngt bei 1 an, aber mï¿½ssen bei null anfangen wegen array
                             $countAntwort[$i-1] = $result2->Antwort;
                         }
                 }
