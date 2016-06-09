@@ -90,7 +90,7 @@ require_once("Mapper/voting_manager.php");
                                     if (strtotime($voting->enddatum)<=time()){
 
                                         //Wenn Umfrage beendet: Ergebnisse der Umfrage
-                                        echo "<td><a class='fa fa-bar-chart' href = 'ergebnis_read.php?id=".$voting->votingid."'></a></td>";
+                                        echo "<td><a class='fa fa-bar-chart' href = 'vote_student_ergebnis.php?id=".$voting->votingid."'></a></td>";
 
                                     } else {
 
