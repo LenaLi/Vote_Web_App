@@ -24,11 +24,18 @@ require_once("Mapper/voting.php");
 
                     // lese Voting aus Datenbank mit der Funktion findByVotingID
                     $voting=$voting_manager->findByVotingId($aktuellesvoting);
+                    ?>
 
+                    <h1> Name der Umfrage:  </h1>
+
+                    <?php
                     //Ausgeben des Votingnamen zur zugehörigen ID
                     echo "<h1>".$voting->votingname."</h1>";
+                    ?>
 
+                    <br>
 
+                    <?php
                     // Ausgeben des Links mit der jeweiligen ID
                     echo ' <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting.">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
 

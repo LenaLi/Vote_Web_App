@@ -1,3 +1,12 @@
+<?php
+include("inc/session_check.php");
+include("inc/header.php");
+require_once("Mapper/frage_manager.php");
+require_once("Mapper/antwort_manager.php");
+require_once("Mapper/auswertung_manager.php");
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -5,26 +14,24 @@
 <body class="mitte">
 <!-- LOGO -->
 <div class="mitte">
-    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
+    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" href="http://mars.iuk.hdm-stuttgart.de/~cm102/uebersicht.php"/>
 </div>
 
-<div class="page-wrapper">
+
 <?php
-include("inc/session_check.php");
-include("inc/header.php");
-require_once("Mapper/frage_manager.php");
-require_once("Mapper/antwort_manager.php");
-require_once("Mapper/auswertung_manager.php");
-
-
-
 //holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
 $fragemanager =new frage_manager();
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votings = $fragemanager->getFragebyVotingid ($votingid);
+?>
 
+<h1>
+<?php
 echo $votings ["text"]."</br>";
+?>
+</h1>
 
+<?php
 //holt die zur frageID dazugehoerigen antworten aus der DB-Abfrage
 $antwortmanager =new antwort_manager();
 $frageid = $votings ["ID"];
@@ -108,11 +115,11 @@ else {
     echo '<input type="hidden" value="' . $frageid . '" name="frageid">';
 
     //abschicken-button - ende des forms
-    echo '<input type="submit" name="Abschicken" value="Abschicken">';
+    echo '<input type="submit" class="btn btn-warning" name="Abschicken" value="Abschicken">';
     echo '</form>';
 }
 ?>
-</div>
+</body>
     <!------------------------- ENDE ------------------------------
 
     <?php
