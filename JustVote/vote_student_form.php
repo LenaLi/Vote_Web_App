@@ -85,35 +85,12 @@ echo $auswertung->Anzahl;
             </div>';
 
         }
-        echo "</div>";
 
 
-        // ---------------  Details --------------------
+        echo "</div>"; ?>
 
 
-        echo '<h3> Teilnehmeranzahl: ' . '</h3>';
-}
-
-else {
-    echo "else teil der schleife";
-    echo '<form action="vote_student_do.php" method="post">';
-
-
-//alle antworten ausgeben
-    foreach ($antworten as $eintrag) {
-        echo "<input type='radio' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag ["text"] . "</br>";
-    }
-    //hiddenfields um die felder zu übertragen
-    echo '<input type="hidden" value="' . $votingid . '" name="votingid">';
-    echo '<input type="hidden" value="' . $frageid . '" name="frageid">';
-
-    //abschicken-button - ende des forms
-    echo '<input type="submit" class="btn btn-warning" name="Abschicken" value="Abschicken">';
-    echo '</form>';
-}
-?>
-
-<canvas id="myChart" width="400" height="400"></canvas>
+    <canvas id="myChart" width="400" height="400"></canvas>
 <script>
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
@@ -154,8 +131,36 @@ else {
     });
 </script>
 
+    <?php
 
-</body>
+
+        // ---------------  Details --------------------
+
+
+        echo '<h3> Teilnehmeranzahl: ' . '</h3>';
+}
+
+else {
+    echo "else teil der schleife";
+    echo '<form action="vote_student_do.php" method="post">';
+
+
+//alle antworten ausgeben
+    foreach ($antworten as $eintrag) {
+        echo "<input type='radio' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag ["text"] . "</br>";
+    }
+    //hiddenfields um die felder zu übertragen
+    echo '<input type="hidden" value="' . $votingid . '" name="votingid">';
+    echo '<input type="hidden" value="' . $frageid . '" name="frageid">';
+
+    //abschicken-button - ende des forms
+    echo '<input type="submit" class="btn btn-warning" name="Abschicken" value="Abschicken">';
+    echo '</form>';
+}
+?>
+
+
+
     <!------------------------- ENDE ------------------------------
 
     <?php
