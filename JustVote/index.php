@@ -2,13 +2,9 @@
 <html>
 
 <?php include("inc/header.php"); ?>
+<!-- LOGO + mittige Ausrichtung -->
+<?php include("inc/navigation_mitte.php"); ?>
 
-<!-- Klasse Login-Body richtet alles mittig aus -->
-<body class="mitte">
-<!-- LOGO -->
-<div class="mitte">
-    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
-</div>
 
 
 <?php
