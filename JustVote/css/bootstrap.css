@@ -2645,7 +2645,17 @@ input[type="search"] {
 }
 .form-group {
   margin-bottom: 15px;
+
 }
+
+.form-group-middle {
+    margin-bottom: 15px;
+    display: table-cell;
+    vertical-align: middle;
+
+
+}
+
 .radio,
 .checkbox {
   position: relative;

@@ -10,10 +10,6 @@
     <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
 </div>
 
-
-<div id="page-wrapper">
-
-    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
 
@@ -57,8 +53,6 @@
 
 
         </div>
-    </div>
-</div>
 
 
 </body>

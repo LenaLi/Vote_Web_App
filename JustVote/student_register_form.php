@@ -11,11 +11,7 @@
 </div>
 
 
-<div id="page-wrapper">
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
                 
                 <?php
                 if($_GET["error"]=="1"){
@@ -73,10 +69,7 @@
                             <button type="submit" class="btn btn-warning">Registrieren</button>
                         </div>
                     </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 </body>
 </html>
 
