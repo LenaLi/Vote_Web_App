@@ -62,9 +62,14 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
         $countAntwortInstanz = new auswertung_manager();
         $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
 
+        echo "Anzahl Votes: ";
         echo $auswertung->Anzahl;
         echo "<br/>";
+        echo "Anzahl Teilnehmer: ";
         echo $zahlDerTeilnehmer;
+        echo "<br/>";
+        echo "Antwort: ";
+        echo $eintraege ["text"];
         echo "<br/>";
 
         $resultinpercent = round(($auswertung->Anzahl)/$zahlDerTeilnehmer*100,2);
@@ -87,7 +92,7 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
     // ---------------  Details --------------------
 
 
-    echo '<h3> Teilnehmeranzahl: ' . '</h3>';
+
 
 
 ?>
