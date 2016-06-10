@@ -60,7 +60,7 @@ require_once("Mapper/voting_manager.php");
                                     } else {
                                       echo  "<div class='col-xs-5'>";
                                       echo  "<div class='list-group'>";
-                                      echo  "<div class='list-group-item list-group-item-info'>";
+                                      echo  "<div class='list-group-item list-group-item-success'>";
                                       echo  "<div class='panel-heading'> Umfrage  $voting->votingname  (aktiv) </div>";
                                     }
                                 }
@@ -109,7 +109,7 @@ require_once("Mapper/voting_manager.php");
                                     } else {
 
                                         //Wenn Umfrage läuft: Link zum Abstimmen
-                                        echo "<td><a href = 'link_fuer_studenten.php?id=".$voting->votingid."'>Link</a></td>";
+                                        echo "<td><a class='fa fa-external-link' href = 'link_fuer_studenten.php?id=".$voting->votingid."'></aclass></td>";
                                     }
                                 }
                                 else {
