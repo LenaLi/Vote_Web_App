@@ -14,9 +14,11 @@ require_once("Mapper/voting_manager.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Ihre Vorlesungen und Votings</h1>
+                    <h1>Ihre Vorlesungen und Votings (neue Darstellung)</h1>
 
                     </br>
+
+
 
                     <?php
 
@@ -34,27 +36,39 @@ require_once("Mapper/voting_manager.php");
                             echo " <h4> Vorlesungsnummer:  $vorlesung->vorlesungsnummer  "," Name der Vorlesung:  $vorlesung->vorlesungsname;
                             <a class='fa fa-edit' href ='vorlesung_update_form.php?id=".$vorlesung->vorlesungsid."'></a>
                             <a class='fa fa-trash'href ='vorlesung_delete_do.php?id=".$vorlesung->vorlesungsid."'></a> </h4> " ;
+                            echo "<div class='container'>";
+                            echo "<div class='row'>";
 
 
                             // Lese Votings mit Vorlesungs-ID aus Datenbank aus
                             $votings=$votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
+
+
+
 
                             foreach($votings as $voting){
 
                                 // Status des Votings
                                 if (strtotime($voting->startdatum)<=time()){
                                     if (strtotime($voting->enddatum)<=time()){
-                                       echo "<div class='panel panel-danger'>";
-                                       echo "<div class='panel-heading'> Umfrage  $voting->votingname  (beendet) </div>";
+
+                                      echo  "<div class='col-xs-5'>";
+                                      echo  "<div class='list-group'>";
+                                      echo  "<div class='list-group-item list-group-item-danger'>";
+                                      echo  "<div class='panel-heading'> Umfrage  $voting->votingname  (beendet) </div>";
 
                                     } else {
-                                        echo "<div class='panel panel-success'>";
-                                        echo "<div class='panel-heading'> Umfrage  $voting->votingname  (aktiv) </div>";
+                                      echo  "<div class='col-xs-5'>";
+                                      echo  "<div class='list-group'>";
+                                      echo  "<div class='list-group-item list-group-item-info'>";
+                                      echo  "<div class='panel-heading'> Umfrage  $voting->votingname  (aktiv) </div>";
                                     }
                                 }
                                 else {
-                                    echo "<div class='panel panel-warning'>";
-                                    echo "<div class='panel-heading'> Umfrage $voting->votingname  (ausstehend) </div>";
+                                    echo  "<div class='col-xs-5'>";
+                                    echo  "<div class='list-group'>";
+                                    echo "<div class='list-group-item list-group-item-warning'>";
+                                    echo "<div class='panel-heading'> Umfrage  $voting->votingname  (ausstehend) </div>";
                                 }
 
 
@@ -84,7 +98,7 @@ require_once("Mapper/voting_manager.php");
                                 echo "</td>";
 
 
-                                // Link des Votings // TODO: Link für das Voting (QR usw.) eingeben
+                                // Link des Votings //
 
                                 if (strtotime($voting->startdatum)<=time()){
                                     if (strtotime($voting->enddatum)<=time()){
@@ -113,6 +127,8 @@ require_once("Mapper/voting_manager.php");
 
                                echo "</div>";
                                echo "</div>";
+                                echo "</div>";
+                                echo "</div>";
 
 
 
@@ -122,13 +138,17 @@ require_once("Mapper/voting_manager.php");
 
                         }
                     ?>
+                </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
 
 
 
-
+                    <h1>Ihre Vorlesungen und Votings (alte Darstellung)</h1>
 
                     <?php
                     

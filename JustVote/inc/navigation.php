@@ -149,6 +149,12 @@
                     <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i>  Übersicht Ergebnisse</a>
                 </li>
 
+                </br>
+
+                <li >
+                    <h10><a href="impressum.php"><i class="fa fa-info "></i> Impressum </a> </h10>
+                </li>
+
                <!-- <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="demo" class="collapse">

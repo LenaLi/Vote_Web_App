@@ -48,7 +48,14 @@ else {
 
 //alle antworten ausgeben
     foreach ($antworten as $eintrag) {
-        echo "<input type='radio' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag ["text"] . "</br>";
+      echo "<div class='input-group'>";
+      echo "<span class='input-group-addon'>";
+      echo "<input type='checkbox' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag [""] . "</br>";
+      echo "</span>";
+      echo "<input type='text' class='form-control' aria-label='...' value='" . $eintrag ["text"] . "' />";
+      echo "</div>";
+      echo "</br>";
+      //echo "<input type='checkbox' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag ["text"] . "</br>";
     }
     //hiddenfields um die felder zu übertragen
     echo '<input type="hidden" value="' . $votingid . '" name="votingid">';
