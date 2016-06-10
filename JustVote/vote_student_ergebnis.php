@@ -57,7 +57,7 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
     //echo '<div class="col-md-6">';
 
     echo "<br/>";
-    for ($antworten as $eintraege) {
+    foreach ($antworten as $eintraege) {
 
         $countAntwortInstanz = new auswertung_manager();
         $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
