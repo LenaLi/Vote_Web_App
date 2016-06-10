@@ -39,7 +39,7 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 // wenn key 1 dann hat er schon abgestimmt, daher ausgabe des if blocks
 $key = in_array ($VOTINGID, $_SESSION["votingid"]);
 if ($key==1) {
-    include("vote_student_ergebnis.php");}
+    header('Location:vote_student_ergebnis.php?id='.$votingid);}
 
 else {
     echo "else teil der schleife";
@@ -48,14 +48,18 @@ else {
 
 //alle antworten ausgeben
     foreach ($antworten as $eintrag) {
-      echo "<div class='input-group'>";
-      echo "<span class='input-group-addon'>";
-      echo "<input type='checkbox' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag [""] . "</br>";
-      echo "</span>";
-      echo "<a class='form-control' aria-label='...' > " . $eintrag ["text"] . "";
-      echo "</a>";
-      echo "</div>";
-      echo "</br>";
+
+        if (!empty ($eintrag["text"])) {
+            echo "<div class='input-group'>";
+            echo "<span class='input-group-addon'>";
+            echo "<input type='radio' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag [""] . "</br>";
+            echo "</span>";
+            echo "<span class='form-control' aria-label='...' > " . $eintrag ["text"] . "";
+            echo "</span>";
+            echo "</div>";
+            echo "</br>";
+        }
+
       //echo "<input type='checkbox' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag ["text"] . "</br>";
     }
     //hiddenfields um die felder zu übertragen

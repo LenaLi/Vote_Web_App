@@ -56,11 +56,17 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
     // einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
     //echo '<div class="col-md-6">';
 
+        $countAntwortInstanz = new auswertung_manager();
+
     echo "<br/>";
     foreach ($antworten as $eintraege) {
 
-        $countAntwortInstanz = new auswertung_manager();
+if (!empty ($eintraege["text"])) {
+
+
         $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
+
+
 
         echo "Anzahl Votes: ";
         echo $auswertung->Anzahl;
@@ -85,6 +91,7 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
                     </div>
             </div>';
 
+    }
     }
     echo "</div>";
 
