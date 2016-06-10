@@ -8,7 +8,7 @@ include("inc/header.php");
 require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort_manager.php");
 require_once("Mapper/auswertung_manager.php");
-include("inc/navigation_mitte.php");
+//include("inc/navigation_mitte.php");
 ?>
 
 
@@ -21,7 +21,7 @@ $votings = $fragemanager->getFragebyVotingid ($votingid);
 
 <h1>
     <?php
-    echo  $votings ["text"]."</br>";
+  //  echo  $votings ["text"]."</br>";
     ?>
 </h1>
 
@@ -54,7 +54,7 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
     // --------------- Für Anzahl pro Antwort ---------------------------------
 
     // einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
-    echo '<div class="col-md-6">';
+    //echo '<div class="col-md-6">';
 
     echo "<br/>";
     foreach ($antworten as $eintraege) {
