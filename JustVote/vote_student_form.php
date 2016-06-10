@@ -52,7 +52,8 @@ else {
       echo "<span class='input-group-addon'>";
       echo "<input type='checkbox' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag [""] . "</br>";
       echo "</span>";
-      echo "<input type='text' class='form-control' aria-label='...' value='" . $eintrag ["text"] . "' />";
+      echo "<a class='form-control' aria-label='...' > " . $eintrag ["text"] . "";
+      echo "</a>";
       echo "</div>";
       echo "</br>";
       //echo "<input type='checkbox' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag ["text"] . "</br>";
