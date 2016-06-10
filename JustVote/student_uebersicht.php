@@ -21,7 +21,7 @@ include("Mapper/voting_manager.php");
                         $voting_student_manager =new voting_student_manager();
 
                         // Lese voting mit Voting-ID aus Datenbank aus
-                        $votings = $voting_student_manager->findVotingsByStudent(92,12);
+                        $votings = $voting_student_manager->findVotingsByStudent(100,12);
 
                         foreach ($votings as $voting){
                             echo "id". $voting->votingid."<br>";
