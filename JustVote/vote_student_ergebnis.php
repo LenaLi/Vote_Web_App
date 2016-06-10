@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+
+
 <?php
 include("inc/session_check.php");
 include("inc/header.php");
@@ -6,14 +10,6 @@ require_once("Mapper/antwort_manager.php");
 require_once("Mapper/auswertung_manager.php");
 include("inc/navigation_mitte.php");
 ?>
-
-
-<!DOCTYPE html>
-<html>
-
-<!-- Klasse Login-Body richtet alles mittig aus -->
-<body class="mitte">
-
 
 
 <?php
@@ -34,7 +30,6 @@ $votings = $fragemanager->getFragebyVotingid ($votingid);
 $antwortmanager =new antwort_manager();
 $frageid = $votings ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
-
 
 $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votingmanager =new frage_manager();
