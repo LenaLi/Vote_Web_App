@@ -20,7 +20,7 @@ $votings = $fragemanager->getFragebyVotingid ($votingid);
 
 <h1>
     <?php
-  //  echo  $votings ["text"]."</br>";
+  echo  $votings ["text"]."</br>";
     ?>
 </h1>
 
@@ -42,11 +42,14 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
     // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
         $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
 
-        echo "Teilnehmeranzahl: ";
-        echo $gesamtanzahlTeilnehmer;
-        foreach ($gesamtanzahlTeilnehmer as $eintrag) {
-        $zahlDerTeilnehmer = $eintrag->Anzahl;
-    }
+
+            foreach ($gesamtanzahlTeilnehmer as $eintrag) {
+                $zahlDerTeilnehmer = $eintrag->Anzahl;
+            }
+
+        echo "Anzahl Teilnehmer: ";
+        echo $zahlDerTeilnehmer;
+
 
     echo '<div id="ergebnis" style="width: 500px;">';
 
@@ -67,15 +70,12 @@ if (!empty ($eintraege["text"])) {
         echo "Anzahl Votes: ";
         echo $auswertung->Anzahl;
         echo "<br/>";
-        echo "Anzahl Teilnehmer: ";
-        echo $zahlDerTeilnehmer;
-        echo "<br/>";
         echo "Antwort: ";
         echo $eintraege ["text"];
         echo "<br/>";
 
         $resultinpercent = round(($auswertung->Anzahl)/$zahlDerTeilnehmer*100,2);
-        echo $resultinpercent;
+        echo $resultinpercent ." %";
 
 
         echo '
