@@ -42,7 +42,6 @@ if ($key==1) {
     header('Location:vote_student_ergebnis.php?id='.$votingid);}
 
 else {
-    echo "else teil der schleife";
     echo '<form action="vote_student_do.php" method="post">';
 
 
