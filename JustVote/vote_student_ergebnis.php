@@ -75,7 +75,7 @@ if (!empty ($eintraege["text"])) {
         echo "<br/>";
 
         $resultinpercent = round(($auswertung->Anzahl)/$zahlDerTeilnehmer*100,2);
-        echo $resultinpercent ."%";
+        echo $resultinpercent ." %";
 
 
         echo '
