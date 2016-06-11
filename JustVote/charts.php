@@ -16,7 +16,7 @@ include("inc/navigation_mitte.php");
 
 
 $votingmanager =new voting_manager();
-$AllVotings = $votingmanager->getAll();
+$AllVotings = $votingmanager->findAll();
 foreach ($AllVotings as $alleVotings) {
 
 
