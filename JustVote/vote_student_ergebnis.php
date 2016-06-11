@@ -8,10 +8,7 @@ require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort_manager.php");
 require_once("Mapper/auswertung_manager.php");
 include("inc/navigation_mitte.php");
-?>
 
-
-<?php
 //holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
 $fragemanager =new frage_manager();
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
@@ -34,6 +31,9 @@ $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votingmanager =new frage_manager();
 //$_SESSION["votingid"] = $VOTINGID;*/
 $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
+
+$Antwortarray = array();
+$Antwortanzahl = array();
 
 
     // --------------- Für Anzahl Teilnehmer ---------------------------------
@@ -63,22 +63,26 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
     echo "<br/>";
     foreach ($antworten as $eintraege) {
 
-if (!empty ($eintraege["text"])) {
+        if (!empty ($eintraege["text"])) {
 
-        $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
+            $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
 
-        echo "Anzahl Votes: ";
-        echo $auswertung->Anzahl;
-        echo "<br/>";
-        echo "Antwort: ";
-        echo $eintraege ["text"];
-        echo "<br/>";
+            echo "Anzahl Votes: ";
+            echo $auswertung->Anzahl;
+            array_push($Antwortanzahl, $auswertung->Anzahl);
+            echo "<br/>";
+            echo "Antwort: ";
+            echo $eintraege["text"];
+            array_push($Antwortarray, $eintraege["text"]);
+            echo "<br/>";
 
-        $resultinpercent = round(($auswertung->Anzahl)/$zahlDerTeilnehmer*100,2);
-        echo $resultinpercent ." %";
+            $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
+            echo $resultinpercent . " %";
+        }
+    }
 
 
-        echo '
+   /*     echo '
             <div class="progress">
                 <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
                     aria-valuenow="' . $resultinpercent . '" aria-valuemin="0" aria-valuemax="100" style="width:' . $resultinpercent . '%">
@@ -88,11 +92,10 @@ if (!empty ($eintraege["text"])) {
 
     }
     }
-    echo "</div>"; 
+    echo "</div>"; */
 
 
     // ---------------  Details --------------------
-
 
 
 
@@ -109,17 +112,31 @@ if (!empty ($eintraege["text"])) {
              // hier    müssen die Antwortmöglichkeiten rein
 
                 <?php
-
-
-
-                echo $eintraege ["text"];
+                foreach ($Antwortarray as $a) {
+                echo $a;
+                }
             ?>
 
             ],
             datasets: [{
                 label: '# of Votes',
                 // hier kommen die Anzahl der Abstimmungen pro Antwort rein
-                data: [12, 19, 3, 5],
+                data: [
+                    <?php
+                $lines = "";
+              for ($i = 0; $i < sizeof($Antwortanzahl); $i++)
+              {
+              if ($i == sizeof($Antwortanzahl)-1)
+              {
+                $lines += $a;
+               }else
+               {
+               $lines += $a.', ';
+               }
+               }
+                 echo $lines;
+                ?>
+                ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
