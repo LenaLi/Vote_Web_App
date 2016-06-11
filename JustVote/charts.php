@@ -107,7 +107,7 @@ foreach ($AllVotings as $alleVotings) {
 
 
 ?>
-<!--
+
 <canvas id="myChart" width="400" height="400"></canvas>
 <script>
     var ctx = document.getElementById("myChart");
@@ -155,5 +155,4 @@ echo $zahlDerTeilnehmer
     });
 </script>
 
--->
 </body>
