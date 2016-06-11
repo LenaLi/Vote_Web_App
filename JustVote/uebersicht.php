@@ -109,7 +109,7 @@ require_once("Mapper/voting_manager.php");
                                     } else {
 
                                         //Wenn Umfrage läuft: Link zum Abstimmen
-                                        echo "<td><a class='fa fa-external-link' href = 'link_fuer_studenten.php?id=".$voting->votingid."'></aclass></td>";
+                                        echo "<td><a class='fa fa-external-link' href = 'link_fuer_studenten.php?id=".$voting->votingid."'></a></td>";
                                     }
                                 }
                                 else {
@@ -163,24 +163,45 @@ require_once("Mapper/voting_manager.php");
 
                         if($vorlesungen!=null)
                         foreach($vorlesungen as $vorlesung){
+
+                            echo " <h4>. $vorlesung->vorlesungsnummer .", ". $vorlesung->vorlesungsname</h4>";
+                            echo " <a class='fa fa-edit' href ='vorlesung_update_form.php?id=".$vorlesung->vorlesungsid."'></a>";
+                            echo " <a class='fa fa-trash'href ='vorlesung_delete_do.php?id=".$vorlesung->vorlesungsid."'></a>";
+
                             echo "<table class='table table-hover'>";
+
+
 
                             
 
                             // Überschriften der Tabellen
                                 echo "<thead><tr>";
-                                echo "<th colspan='7'>" . $vorlesung->vorlesungsnummer .", ". $vorlesung->vorlesungsname;
-                                echo " <a class='fa fa-edit' href ='vorlesung_update_form.php?id=".$vorlesung->vorlesungsid."'></a>";
-                                echo " <a class='fa fa-trash'href ='vorlesung_delete_do.php?id=".$vorlesung->vorlesungsid."'></a>";
-                                echo  "<th>";
-                                echo "</tr> </thead>";
+                                echo "<th colspan='7'> Voting Name </th>";
+                                echo "<th colspan='3'> Zeitraum </th>";
+
+                                echo " </tr></thead>";
 
                             // Lese Votings mit Vorlesungs-ID aus Datenbank aus
                             $votings=$votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
 
                             foreach($votings as $voting){
-                                    echo "<tr>";
-                                    echo "<th colspan='7'>" . $voting->votingname . "</th>";
+
+                                // Farbe der Zeile (Status des Votings)
+                                if (strtotime($voting->startdatum)<=time()){
+                                    if (strtotime($voting->enddatum)<=time()){
+                                        echo "<tr class='danger'>";
+                                        echo "<th colspan='7'>" . $voting->votingname .  " </th>";
+                                    } else {
+                                        echo "<tr class='success'>";
+                                        echo "<th colspan='7'>" . $voting->votingname . " </th>";
+                                    }
+                                }
+                                else {
+                                    echo "<tr class='warning'>";
+                                    echo "<th colspan='7'>" . $voting->votingname . " </th>";
+                                }
+
+
 
 
                                 //Zeitraum des Votings
@@ -190,16 +211,17 @@ require_once("Mapper/voting_manager.php");
                                     $enddatum = date("d.m.y H:i",strtotime($enddatum))." Uhr";
                                     echo "<td colspan='3'>" . $startdatum ." - ".$enddatum ."</td>";
 
+
                                 // Status des Votings
                                 if (strtotime($voting->startdatum)<=time()){
                                     if (strtotime($voting->enddatum)<=time()){
-                                        echo "<td colspan='6' class='danger'> beendet";
+                                        echo "<td colspan='3'> beendet </td>";
                                     } else {
-                                        echo "<td colspan='6' class='success'> aktiv";
+                                        echo "<td colspan='3'> aktiv</td>";
                                     }
                                 }
                                 else {
-                                    echo "<td colspan='6'  class='warning'> ausstehend";
+                                    echo "<td colspan='3'> ausstehend</td>";
                                 }
 
 
@@ -229,7 +251,7 @@ require_once("Mapper/voting_manager.php");
                                     } else {
 
                                         //Wenn Umfrage läuft: Link zum Abstimmen
-                                        echo "<td><a href = 'link_fuer_studenten.php?id=".$voting->votingid."'>Link</a></td>";
+                                        echo "<td><a class='fa fa-external-link' href = 'link_fuer_studenten.php?id=".$voting->votingid."'></a></td>";
                                     }
                                 }
                                 else {

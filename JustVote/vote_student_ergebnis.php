@@ -110,10 +110,20 @@ if (!empty ($eintraege["text"])) {
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Red", "Blue", "Yellow", "Green"],
+            labels: [
+
+                <?php
+                  echo $eintraege;
+
+            ?>,
+
+            ],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5],
+                data: [  <?php
+                echo $zahlDerTeilnehmer
+            ?>,
+                ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
