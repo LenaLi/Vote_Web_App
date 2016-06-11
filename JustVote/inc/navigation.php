@@ -146,7 +146,7 @@
 
 
                 <li>
-                    <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i>  Übersicht Ergebnisse</a>
+                    <a href="charts.php"><i class="fa fa-fw fa-bar-chart-o"></i>  Übersicht Ergebnisse</a>
                 </li>
 
                 </br>

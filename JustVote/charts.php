@@ -20,7 +20,7 @@ $AllVotings = $votingmanager->getAll();
 foreach ($AllVotings as $alleVotings) {
 
 
-        //holt die zur votingid dazugehoerige Frage aus der DB-Abfrage------------
+        //holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
         $fragemanager =new frage_manager();
         $votingid = $alleVotings->votingid;
         $votings = $fragemanager->getFragebyVotingid ($votingid);
