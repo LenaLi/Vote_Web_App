@@ -93,14 +93,6 @@ if (!empty ($eintraege["text"])) {
 
     // ---------------  Details --------------------
 
-<?php
-    $data = array();
-    $label = array();
-    foreach ($this->list_excercise as $value) :
-        $data[] = $value['data'];
-        $label[] = $value['label'];
-    endforeach;
-?>
 
 
 
@@ -114,7 +106,11 @@ if (!empty ($eintraege["text"])) {
         data: {
             labels: [
 
+             // hier    müssen die Antwortmöglichkeiten rein
+
                 <?php
+
+
 
                 echo $eintraege ["text"];
             ?>
@@ -122,6 +118,7 @@ if (!empty ($eintraege["text"])) {
             ],
             datasets: [{
                 label: '# of Votes',
+                // hier kommen die Anzahl der Abstimmungen pro Antwort rein
                 data: [12, 19, 3, 5],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
