@@ -88,12 +88,19 @@ if (!empty ($eintraege["text"])) {
 
     }
     }
-    echo "</div>";
+    echo "</div>"; 
 
 
     // ---------------  Details --------------------
 
-
+<?php
+    $data = array();
+    $label = array();
+    foreach ($this->list_excercise as $value) :
+        $data[] = $value['data'];
+        $label[] = $value['label'];
+    endforeach;
+?>
 
 
 
@@ -108,17 +115,14 @@ if (!empty ($eintraege["text"])) {
             labels: [
 
                 <?php
-                  echo $eintraege;
 
-            ?>,
+                echo $eintraege ["text"];
+            ?>
 
             ],
             datasets: [{
                 label: '# of Votes',
-                data: [  <?php
-                echo $zahlDerTeilnehmer
-            ?>,
-                ],
+                data: [12, 19, 3, 5],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
