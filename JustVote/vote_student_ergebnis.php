@@ -40,10 +40,11 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
     // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
         $auswertungsmanager =new auswertung_manager();
     // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
-        $gesamtanzahlTeilnemer = $auswertungsmanager->countTeilnehmer($votingid);
+        $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
 
-        print_r ($gesamtanzahlTeilnemer);
-        foreach ($gesamtanzahlTeilnemer as $eintrag) {
+        echo "Teilnehmeranzahl: ";
+        echo $gesamtanzahlTeilnehmer;
+        foreach ($gesamtanzahlTeilnehmer as $eintrag) {
         $zahlDerTeilnehmer = $eintrag->Anzahl;
     }
 
@@ -53,7 +54,6 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
     // --------------- Für Anzahl pro Antwort ---------------------------------
 
     // einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
-    //echo '<div class="col-md-6">';
 
         $countAntwortInstanz = new auswertung_manager();
 
@@ -62,10 +62,7 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 if (!empty ($eintraege["text"])) {
 
-
         $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
-
-
 
         echo "Anzahl Votes: ";
         echo $auswertung->Anzahl;
@@ -80,8 +77,7 @@ if (!empty ($eintraege["text"])) {
         $resultinpercent = round(($auswertung->Anzahl)/$zahlDerTeilnehmer*100,2);
         echo $resultinpercent;
 
-        // $eintrag ["text"] . $auswertung . "</br>";
-        //print_r($auswertung);
+
         echo '
             <div class="progress">
                 <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
