@@ -6,13 +6,6 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 
-.mitte {
-  background: #000000;
-  display: table;
-  text-align: center;
-  margin: auto;
-  padding-top: 5%;
-}
 
 html {
   font-family: sans-serif;
@@ -2643,7 +2636,17 @@ input[type="search"] {
 }
 .form-group {
   margin-bottom: 15px;
+
 }
+
+.form-group-middle {
+    margin-bottom: 15px;
+    display: table-cell;
+    vertical-align: middle;
+
+
+}
+
 .radio,
 .checkbox {
   position: relative;
@@ -4287,11 +4290,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-  height: 50px;
+  height: 0px;
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
 }
+
+.navbar-logo {
+  float: left;
+  height: 111px;
+}
+
+
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none;

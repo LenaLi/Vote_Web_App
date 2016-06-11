@@ -17,7 +17,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-                <img class="navbar-brand" href="uebersicht.php" title="JustVote"
+                <img class="navbar-logo" href="uebersicht.php" title="JustVote"
                      src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg">  </img>
 
         </div>
@@ -147,6 +147,12 @@
 
                 <li>
                     <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i>  Übersicht Ergebnisse</a>
+                </li>
+
+                </br>
+
+                <li >
+                    <h10><a href="impressum.php"><i class="fa fa-info "></i> Impressum </a> </h10>
                 </li>
 
                <!-- <li>

@@ -8,7 +8,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
-    <link href="css/sb-admin-rtl.css" rel="stylesheet">
     <!-- Morris Charts CSS -->
     <link href="css/plugins/morris.css" rel="stylesheet">
 
@@ -19,6 +18,7 @@
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/delete.js"></script>
+    <script src="js/Chart.js"></script>
 </head>
 
 

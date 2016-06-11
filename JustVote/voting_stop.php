@@ -14,7 +14,7 @@ $voting=$voting_manager->findByVotingId($votingId);
 $endDatum=date("y-m-d H:i:s",time());
 
 // Änderungen in Datenbank aktualisieren
-$voting_manager->update($voting->votingid,$voting->vorlesungsid, $voting->votingname, $voting->frage, $voting->antwort_1, $voting->antwort_2 ,$voting->antwort_3, $voting->antwort_4, $voting->startdatum, $endDatum);
+$voting_manager->update($voting->votingid,$voting->vorlesungsid, $voting->votingname, $voting->startdatum, $endDatum);
 
 // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
 header('Location: uebersicht.php');

@@ -1,3 +1,4 @@
+//nichct notwendig!!
 <?php
 
 require_once("Mapper/student_manager.php");
@@ -17,6 +18,6 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)) {
     $student_manager->update($student);
     header('Location: student_read.php');
 } else {
-    echo "Error: Bitte alle Felder ausfüllen!";
+    echo "Error: Bitte alle Felder ausfï¿½llen!";
 }
 

@@ -78,16 +78,27 @@ class student_manager extends manager
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO student
-                (vorname, nachname, email, password, salt)
+                (vorname, nachname, email, password)
               VALUES
-                (:vorname, :nachname, :email , :password, :salt)
+                (:vorname, :nachname, :email , :password)
             ');
             $stmt->bindParam(':vorname', $vorname);
             $stmt->bindParam(':nachname', $nachname);
             $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':salt', $salt);
             $stmt->bindParam(':password', $password_hashed);
             $stmt->execute();
+
+            // Benachrichtigung per Mail, dass ein Studentkonto angelegt wurde
+
+            // check if hdm email adress
+            $suffix = explode("@",$email)[1]; //zerlegt string $e-mail in einen string vor dem @ und nach dem @
+            if($suffix === "hdm-stuttgart.de"){
+                echo "email ist hdm mail ".$suffix;
+                $to = $email;
+                $subject = "Neues Konto bei Just Vote";
+                $message = "Hallo ".$vorname." ".$nachname.",\n\n Es wurde ein Konto für Sie bei JustVote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: ".$email."\n Das Passwort haben Sie selbst eingegeben\n\n MFG\n Ihr Just Vote Team";
+                //mail($to,$subject,$message);
+            }
 
 
         } catch (PDOException $e) {

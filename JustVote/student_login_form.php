@@ -2,25 +2,12 @@
 <html>
 
 <?php include("inc/header.php"); ?>
-
-<body class="mitte">
-
-<!-- LOGO -->
-<div class="mitte">
-    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
-</div>
-
-
-<div id="page-wrapper">
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
+<?php include("inc/navigation_mitte.php"); ?>
 
                 <?php
                 if($_GET["error"]=="1"){
                     ?>
-                    <div class=h5 style="color: #F07F31; font-weight: bold">E-Mail oder Passwort falsch!</div>
+                    <div class="btn btn-danger">E-Mail oder Passwort falsch!</div>
 
                     <?php
                 }
@@ -30,38 +17,41 @@
                 <h5>der Hochschule der Medien Stuttgart mit dem Hochschul-Account</h5>
 
 
+<div class="login">
 
                 <form class="form-horizontal" role="form" action="student_login_do.php" method="post">
 
                     <!-- Texteingabefeld für E-Mail-->
                     <div class="form-group">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail" required="required">
                         </div>
                     </div>
+
                     <!-- Texteingabefeld für Passwort-->
                     <div class="form-group">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
                         </div>
                     </div>
+
                     <!-- Login Button-->
                     <div class="form-group">
-                        <div class=" col-sm-9">
+                        <div class=" col-sm-12">
                             <button type="submit" class="btn btn-warning"> Login</button>
                         </div>
                     </div>
+
                     <!-- Link Registrieren-->
                     <a href="student_register_form.php">Registrieren</a>
-            </div>
 
-
-        </div>
+                </form>
     </div>
-</div>
 
 
-</body>
+
+
+
 </html>
 
 

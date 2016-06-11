@@ -2,32 +2,24 @@
 <html>
 
 <?php include("inc/header.php"); ?>
+<?php include("inc/navigation_mitte.php"); ?>
+
 
 <body class="mitte">
 
-<!-- LOGO -->
-<div class="mitte">
-    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
-</div>
 
-
-<div id="page-wrapper">
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
                 
                 <?php
                 if($_GET["error"]=="1"){
                     ?>
-                    <div class=h5 style="color: #F07F31; font-weight: bold">Passwort stimmt nicht überein!</div>
+                    <div class=btn-danger style="color: #F07F31; font-weight: bold">Passwort stimmt nicht überein!</div>
                     <?php
                 }
                 ?>
                 <?php
                 if($_GET["error"]=="2"){
                     ?>
-                    <div class=h5 style="color: #F07F31; font-weight: bold">Bitte Felder ausfüllen!</div>
+                    <div class=btn-danger style="color: #F07F31; font-weight: bold">Bitte Felder ausfüllen!</div>
                     <?php
                 }
                 ?>
@@ -52,7 +44,7 @@
                     <!-- Texteingabefeld für E-Mail-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail" required="required">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" required="required">
                         </div>
                     </div>
                     <!-- Texteingabefeld für Passwort-->
@@ -73,10 +65,7 @@
                             <button type="submit" class="btn btn-warning">Registrieren</button>
                         </div>
                     </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 </body>
 </html>
 

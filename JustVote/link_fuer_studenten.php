@@ -4,24 +4,17 @@ require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
 ?>
 
-<!DOCTYPE html>
-<html>
 
 <?php include("inc/header.php"); ?>
 
-<body>
-
-<?php include("inc/navbar_vote.php"); ?>
-
-<div id="page-wrapper">
-
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-
-
-
+<!DOCTYPE html>
+<html>
+<body class="mitte">
+<!-- LOGO -->
+<div class="mitte">
+    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
+</div>
+<div>
                     <?php
                     // ID wird ausgelesen und an URL drangehängt
                     $aktuellesvoting=$_GET['id'];
@@ -31,20 +24,25 @@ require_once("Mapper/voting.php");
 
                     // lese Voting aus Datenbank mit der Funktion findByVotingID
                     $voting=$voting_manager->findByVotingId($aktuellesvoting);
+                    ?>
 
+                    <h1> Name der Umfrage:  </h1>
+
+                    <?php
                     //Ausgeben des Votingnamen zur zugehörigen ID
-                    echo "<h2>".$voting->votingname."</h2>";
+                    echo "<h1>".$voting->votingname."</h1>";
+                    ?>
 
+                    <br>
 
+                    <?php
                     // Ausgeben des Links mit der jeweiligen ID
                     echo ' <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting.">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
 
                     //echo "<button onclick='window.clipboard.setData()'\"https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=".$aktuellesvoting."\";'>Link kopieren</button>";
                     ?>
+                <h5>Klicke auf den Link oder scanne den QR-Code ein, um am Voting teilzunehmen</h5>
 
-                </div>
-            </div>
-        </div>
 </div>
 
 
