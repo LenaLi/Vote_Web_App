@@ -20,7 +20,7 @@ $votings = $fragemanager->getFragebyVotingid ($votingid);
 
 <h1>
     <?php
-    //  echo  $votings ["text"]."</br>";
+    echo  $votings ["text"]."</br>";
     ?>
 </h1>
 
@@ -98,7 +98,7 @@ echo "</div>";
 
 
 ?>
-
+<!--
 <canvas id="myChart" width="400" height="400"></canvas>
 <script>
     var ctx = document.getElementById("myChart");
@@ -108,16 +108,16 @@ echo "</div>";
             labels: [
 
                 <?php
-                  echo $eintraege;
+echo $eintraege;
 
-            ?>,
+?>,
 
             ],
             datasets: [{
                 label: '# of Votes',
                 data: [  <?php
-                echo $zahlDerTeilnehmer
-            ?>,
+echo $zahlDerTeilnehmer
+?>,
                 ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -146,5 +146,5 @@ echo "</div>";
     });
 </script>
 
-
+-->
 </body>

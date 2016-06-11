@@ -20,7 +20,7 @@ $votings = $fragemanager->getFragebyVotingid ($votingid);
 
 <h1>
     <?php
-  //  echo  $votings ["text"]."</br>";
+  echo  $votings ["text"]."</br>";
     ?>
 </h1>
 
@@ -98,7 +98,7 @@ if (!empty ($eintraege["text"])) {
 
 
 ?>
-
+<!--
 <canvas id="myChart" width="400" height="400"></canvas>
 <script>
     var ctx = document.getElementById("myChart");
@@ -146,5 +146,5 @@ if (!empty ($eintraege["text"])) {
     });
 </script>
 
-
+-->
 </body>
