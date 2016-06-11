@@ -7,89 +7,98 @@ include("inc/header.php");
 require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort_manager.php");
 require_once("Mapper/auswertung_manager.php");
+require_once ("Mapper/voting_manager.php");
 include("inc/navigation_mitte.php");
 ?>
 
 
 <?php
-//holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
-$fragemanager =new frage_manager();
-$votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
-$votings = $fragemanager->getFragebyVotingid ($votingid);
-?>
-
-<h1>
-    <?php
-    echo  $votings ["text"]."</br>";
-    ?>
-</h1>
-
-<?php
-//holt die zur frageID dazugehoerigen antworten aus der DB-Abfrage
-$antwortmanager =new antwort_manager();
-$frageid = $votings ["ID"];
-$antworten = $antwortmanager->getAllbyFrageID($frageid);
-
-$VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
-$votingmanager =new frage_manager();
-//$_SESSION["votingid"] = $VOTINGID;*/
-$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 
-// --------------- Für Anzahl Teilnehmer ---------------------------------
-// Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
-$auswertungsmanager =new auswertung_manager();
-// lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
-$gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
+$votingmanager =new voting_manager();
+$AllVotings = $votingmanager->getAll();
+foreach ($AllVotings as $alleVotings) {
 
 
-foreach ($gesamtanzahlTeilnehmer as $eintrag) {
-    $zahlDerTeilnehmer = $eintrag->Anzahl;
-}
+        //holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
+        $fragemanager =new frage_manager();
+        $votingid = $alleVotings->votingid;
+        $votings = $fragemanager->getFragebyVotingid ($votingid);
+        ?>
 
-echo "Anzahl Teilnehmer: ";
-echo $zahlDerTeilnehmer;
+        <h1>
+            <?php
+            echo  $votings ["text"]."</br>";
+            ?>
+        </h1>
+
+        <?php
+        //holt die zur frageID dazugehoerigen antworten aus der DB-Abfrage
+        $antwortmanager =new antwort_manager();
+        $frageid = $votings ["ID"];
+        $antworten = $antwortmanager->getAllbyFrageID($frageid);
+
+        $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+        $votingmanager =new frage_manager();
+        //$_SESSION["votingid"] = $VOTINGID;*/
+        $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 
-echo '<div id="ergebnis" style="width: 500px;">';
+        // --------------- Für Anzahl Teilnehmer ---------------------------------
+        // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
+        $auswertungsmanager =new auswertung_manager();
+        // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
+        $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
 
 
-// --------------- Für Anzahl pro Antwort ---------------------------------
+        foreach ($gesamtanzahlTeilnehmer as $eintrag) {
+            $zahlDerTeilnehmer = $eintrag->Anzahl;
+        }
 
-// einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
+        echo "Anzahl Teilnehmer: ";
+        echo $zahlDerTeilnehmer;
 
-$countAntwortInstanz = new auswertung_manager();
 
-echo "<br/>";
-foreach ($antworten as $eintraege) {
+        echo '<div id="ergebnis" style="width: 500px;">';
 
-    if (!empty ($eintraege["text"])) {
 
-        $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
+        // --------------- Für Anzahl pro Antwort ---------------------------------
 
-        echo "Anzahl Votes: ";
-        echo $auswertung->Anzahl;
+        // einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
+
+        $countAntwortInstanz = new auswertung_manager();
+
         echo "<br/>";
-        echo "Antwort: ";
-        echo $eintraege ["text"];
-        echo "<br/>";
+        foreach ($antworten as $eintraege) {
 
-        $resultinpercent = round(($auswertung->Anzahl)/$zahlDerTeilnehmer*100,2);
-        echo $resultinpercent ." %";
+            if (!empty ($eintraege["text"])) {
+
+                $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
+
+                echo "Anzahl Votes: ";
+                echo $auswertung->Anzahl;
+                echo "<br/>";
+                echo "Antwort: ";
+                echo $eintraege ["text"];
+                echo "<br/>";
+
+                $resultinpercent = round(($auswertung->Anzahl)/$zahlDerTeilnehmer*100,2);
+                echo $resultinpercent ." %";
 
 
-        echo '
-            <div class="progress">
-                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
-                    aria-valuenow="' . $resultinpercent . '" aria-valuemin="0" aria-valuemax="100" style="width:' . $resultinpercent . '%">
-                    <span class="sr-only">' . $resultinpercent . '</span>
-                    </div>
-            </div>';
+                echo '
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
+                            aria-valuenow="' . $resultinpercent . '" aria-valuemin="0" aria-valuemax="100" style="width:' . $resultinpercent . '%">
+                            <span class="sr-only">' . $resultinpercent . '</span>
+                            </div>
+                    </div>';
 
-    }
+            }
+        }
+        echo "</div>";
+
 }
-echo "</div>";
-
 
 // ---------------  Details --------------------
 
