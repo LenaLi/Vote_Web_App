@@ -20,7 +20,7 @@ $votings = $fragemanager->getFragebyVotingid ($votingid);
 
 <h1>
     <?php
-  //  echo  $votings ["text"]."</br>";
+    //  echo  $votings ["text"]."</br>";
     ?>
 </h1>
 
@@ -36,34 +36,34 @@ $votingmanager =new frage_manager();
 $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 
-    // --------------- FÃ¼r Anzahl Teilnehmer ---------------------------------
-    // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
-        $auswertungsmanager =new auswertung_manager();
-    // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
-        $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
+// --------------- Für Anzahl Teilnehmer ---------------------------------
+// Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
+$auswertungsmanager =new auswertung_manager();
+// lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
+$gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
 
 
-            foreach ($gesamtanzahlTeilnehmer as $eintrag) {
-                $zahlDerTeilnehmer = $eintrag->Anzahl;
-            }
+foreach ($gesamtanzahlTeilnehmer as $eintrag) {
+    $zahlDerTeilnehmer = $eintrag->Anzahl;
+}
 
-        echo "Anzahl Teilnehmer: ";
-        echo $zahlDerTeilnehmer;
-
-
-    echo '<div id="ergebnis" style="width: 500px;">';
+echo "Anzahl Teilnehmer: ";
+echo $zahlDerTeilnehmer;
 
 
-    // --------------- FÃ¼r Anzahl pro Antwort ---------------------------------
+echo '<div id="ergebnis" style="width: 500px;">';
 
-    // einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
 
-        $countAntwortInstanz = new auswertung_manager();
+// --------------- Für Anzahl pro Antwort ---------------------------------
 
-    echo "<br/>";
-    foreach ($antworten as $eintraege) {
+// einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
 
-if (!empty ($eintraege["text"])) {
+$countAntwortInstanz = new auswertung_manager();
+
+echo "<br/>";
+foreach ($antworten as $eintraege) {
+
+    if (!empty ($eintraege["text"])) {
 
         $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
 
@@ -87,11 +87,11 @@ if (!empty ($eintraege["text"])) {
             </div>';
 
     }
-    }
-    echo "</div>";
+}
+echo "</div>";
 
 
-    // ---------------  Details --------------------
+// ---------------  Details --------------------
 
 
 
