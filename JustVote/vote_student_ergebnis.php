@@ -8,7 +8,7 @@ include("inc/header.php");
 require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort_manager.php");
 require_once("Mapper/auswertung_manager.php");
-//include("inc/navigation_mitte.php");
+include("inc/navigation_mitte.php");
 ?>
 
 

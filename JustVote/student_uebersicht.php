@@ -1,5 +1,5 @@
 <?php
-//include("inc/session_check_student.php");
+include("inc/session_check_student.php");
 include("Mapper/voting_student.php");
 include("Mapper/voting_student_manager.php");
 include("Mapper/voting.php");
@@ -18,12 +18,20 @@ include("Mapper/voting_manager.php");
                         <?php
 
                         // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
+                        $voting_manager =new voting_manager();
+
+                        // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
                         $voting_student_manager =new voting_student_manager();
 
                         // Lese voting mit Voting-ID aus Datenbank aus
-                        $votings = $voting_student_manager->findVotingsByStudent(100,12);
+                        $voting_students = $voting_student_manager->findVotingsByStudent($_SESSION["studentid"]);
+                        echo $_SESSION["studentid"];
 
-                        foreach ($votings as $voting){
+                        foreach ($voting_students as $voting_student){
+
+                            $votingid=$voting_student->votingid;
+                            $voting=$voting_manager->findByVotingId($votingid);
+
                             echo "id". $voting->votingid."<br>";
                             echo "vorlesungsid".$voting->vorlesungsid."<br>";
                             echo "enddatum".$voting->enddatum."<br>";

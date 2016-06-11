@@ -58,13 +58,13 @@ class voting_student_manager extends manager
         return true;
     }
 
-    public function findVotingsByStudent($voting_id, $student_id)
+    public function findVotingsByStudent($student_id)
     {
         try {
             $stmt = $this->pdo->prepare('
-              SELECT voting.votingid, voting.vorlesungsid, voting.startdatum, voting.enddatum, voting.votingname 
-              FROM voting, voting_student
-              WHERE voting_student.student_id = :student_id 
+              SELECT *
+              FROM voting_student 
+              WHERE student_id= :student_id
             ');
 
             //$stmt = $this->pdo->prepare('
@@ -73,12 +73,11 @@ class voting_student_manager extends manager
               //WHERE voting.votingid = :voting_id and (voting_student.student_id = :student_id and voting_student.votingid=:voting_id)
             //');
 
-            $stmt->bindParam(':voting_id', $voting_id);
             $stmt->bindParam(':student_id', $student_id);
 
             $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting_student');
             return $stmt->fetchAll();
 
         } catch (PDOException $e) {

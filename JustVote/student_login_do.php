@@ -30,9 +30,9 @@ if (!empty($email)&& !empty($password)) {
         //Passwort und Email korrekt
         session_start();
         // Speichere Logged in Information in Session
-        $_SESSION['login'] = "1";
+        $_SESSION['studentlogin'] = "1";
         $_SESSION ['name'] = $student->vorname." ".$student->nachname; //damit bei Herzlich Willkommen - Max Müller steht!
-        $_SESSION ['studentid'] =$student->id;
+        $_SESSION ['studentid'] =$student->student_id;
 
         // Weiterleitung auf die Übersichtsseite der Studenten
         header('Location: student_uebersicht.php');
