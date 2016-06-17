@@ -37,6 +37,10 @@ if (!empty($email)&& !empty($password)) {
         $_SESSION ['studentid'] =$student->student_id;
 
         $votingStudentManager=new voting_student_manager();
+
+        $votings = $votingStudentManager->findVotingsByStudent($student->student_id);
+        $_SESSION["votings"]=
+
         if (!empty($votingid)){
             //Weiterleitung Link votingID
             header('Location: vote_student_form.php?id='.$votingid);

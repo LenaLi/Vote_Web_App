@@ -38,7 +38,7 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 
 // wenn key 1 dann hat er schon abgestimmt, daher ausgabe des if blocks
-$key = in_array ($VOTINGID, $_SESSION["votingid"]);
+$key = in_array ($VOTINGID, $_SESSION["votings"]);
 if ($key==1) {
     header('Location:vote_student_ergebnis.php?id='.$votingid);
 }
