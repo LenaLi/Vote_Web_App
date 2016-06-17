@@ -36,6 +36,8 @@ include("Mapper/voting_manager.php");
                             echo "vorlesungsid".$voting->vorlesungsid."<br>";
                             echo "enddatum".$voting->enddatum."<br>";
                             echo "startdatum".$voting->startdatum."<br>"."<br>";
+                            //echo "votingname".$voting->votingname."<br>";
+
 
 }
 
