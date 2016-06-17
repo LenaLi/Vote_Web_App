@@ -22,7 +22,7 @@ if($_SESSION["studentlogin"]!="1"){
             <div class="row">
                 <div class="col-lg-12">
                     <a href="">Logout</a>
-                    <h1>Votings für Student</h1>
+                    <h1>Votings an denen du teilgenommen hast</h1>
 
                         <?php
 
@@ -34,7 +34,7 @@ if($_SESSION["studentlogin"]!="1"){
 
                         // Lese voting mit Voting-ID aus Datenbank aus
                         $voting_students = $voting_student_manager->findVotingsByStudent($_SESSION["studentid"]);
-                        
+
 
                         foreach ($voting_students as $voting_student){
 
