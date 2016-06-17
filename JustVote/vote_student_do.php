@@ -43,8 +43,6 @@ foreach ($votings as $voting){
     array_push($votingIds,$voting->votingid);
 }
 
-$_SESSION["votingIds"] = $votingIds;
-
 //header redirect
 header('Location: vote_student_ergebnis.php?id=' . $postvoting);
 //header('Location: vote_student_form.php?id=' . $postvoting);
