@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-
-
 <?php
-include("inc/session_check.php");
+//include("inc/session_check.php");
 include("inc/header.php");
 require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort_manager.php");
@@ -16,6 +14,12 @@ include("inc/navigation_mitte.php");
 $fragemanager =new frage_manager();
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votings = $fragemanager->getFragebyVotingid ($votingid);
+
+//FEHLERMELDUNG
+if($_GET["error"]=="1"){
+    echo "Du hast schon abgestimmt!";
+}
+
 ?>
 
 <h1>
@@ -34,6 +38,7 @@ $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votingmanager =new frage_manager();
 //$_SESSION["votingid"] = $VOTINGID;*/
 $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
+
 
 
     // --------------- Für Anzahl Teilnehmer ---------------------------------

@@ -73,7 +73,9 @@ class student_manager extends manager
         ];
         // Password wird mit salt gehasht
         $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
-
+        if($password==null){
+            $password_hashed = null;
+        }
         // Füge einen Benutzer der Datenbank hinzu (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
@@ -97,7 +99,7 @@ class student_manager extends manager
                 $to = $email;
                 $subject = "Neues Konto bei Just Vote";
                 $message = "Hallo ".$vorname." ".$nachname.",\n\n Es wurde ein Konto für Sie bei JustVote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: ".$email."\n Das Passwort haben Sie selbst eingegeben.\n\n MFG\n Ihr Just Vote Team";
-                mail($to,$subject,$message);
+                //mail($to,$subject,$message);
             }
 
 
@@ -112,17 +114,20 @@ class student_manager extends manager
     public function update(student $student)
     {
         try {
+
             $stmt = $this->pdo->prepare('
               UPDATE student
               SET vorname = :vorname,
                   nachname = :nachname,
                   email = :email,
+                  password = :password
               WHERE student_id = :student_id
             ');
             $stmt->bindParam(':student_id', $student->student_id);
             $stmt->bindParam(':vorname', $student->vorname);
             $stmt->bindParam(':nachname', $student->nachname);
             $stmt->bindParam(':email', $student->email);
+            $stmt->bindParam(':password', $student->password);
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");

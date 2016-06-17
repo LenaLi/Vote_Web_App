@@ -27,7 +27,7 @@ if (!empty($email)&& !empty($password)) {
 
 
     // überprüfen ob Passwort und E-Mail(Benutzername) korrekt sind
-    if ($password_correct && $student->email==$email) {
+    if ($password_correct && $student->email==$email ) {
 
         //Passwort und Email korrekt
         session_start();
@@ -35,22 +35,21 @@ if (!empty($email)&& !empty($password)) {
         $_SESSION['studentlogin'] = "1";
         $_SESSION ['name'] = $student->vorname." ".$student->nachname; //damit bei Herzlich Willkommen - Max Müller steht!
         $_SESSION ['studentid'] =$student->student_id;
-
+        $_SESSION['kuerzel'] = explode("@",$student->email)[0];
         $votingStudentManager=new voting_student_manager();
 
         $votings = $votingStudentManager->findVotingsByStudent($student->student_id);
-        $_SESSION["votings"]=
 
-        if (!empty($votingid)){
-            //Weiterleitung Link votingID
-            header('Location: vote_student_form.php?id='.$votingid);
-        }else {
-            // Weiterleitung auf die Übersichtsseite der Studenten
-            header('Location: student_uebersicht.php');
-        }
+
+        // Weiterleitung auf die Übersichtsseite der Studenten
+        header('Location: student_uebersicht.php');
+
 
     } else {
     header('Location: student_login_form.php?error=1');
     }
+}
+else {
+    header('Location: student_login_form.php?error=1');
 }
 ?>

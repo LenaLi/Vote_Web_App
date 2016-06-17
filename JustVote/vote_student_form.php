@@ -37,37 +37,48 @@ $votingmanager =new frage_manager();
 $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 
-// wenn key 1 dann hat er schon abgestimmt, daher ausgabe des if blocks
-$key = in_array ($VOTINGID, $_SESSION["votings"]);
-if ($key==1) {
-    header('Location:vote_student_ergebnis.php?id='.$votingid);
+// Prüfung ob Student schon für Votings abgestimmt hat
+/*if ($_SESSION["votingIds"] != null){
+    // wenn key 1 dann hat er schon für dieses Voting abgestimmt, daher ausgabe des if blocks
+    $key = in_array ($VOTINGID, $_SESSION["votingIds"]);
+    if ($key==1) {
+        header('Location:vote_student_ergebnis.php?id='.$votingid);
+    }
 }
-else {
-    echo '<form action="vote_student_do.php" method="post">';
+else {*/
+
+echo '<form action="vote_student_do.php" method="post">';
 
 
 //alle antworten ausgeben
-    foreach ($antworten as $eintrag) {
+foreach ($antworten as $eintrag) {
 
-        if (!empty ($eintrag["text"])) {
-            echo "<div class='input-group'>";
-            echo "<span class='input-group-addon'>";
-            echo "<input type='radio' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag [""] . "</br>";
-            echo "</span>";
-            echo "<span class='form-control' aria-label='...' > " . $eintrag ["text"] . "";
-            echo "</span>";
-            echo "</div>";
-            echo "</br>";
-        }
-
-      //echo "<input type='checkbox' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag ["text"] . "</br>";
+    if (!empty ($eintrag["text"])) {
+        echo "<div class='input-group'>";
+        echo "<span class='input-group-addon'>";
+        echo "<input type='radio' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag [""] . "</br>";
+        echo "</span>";
+        echo "<span class='form-control' aria-label='...' > " . $eintrag ["text"] . "";
+        echo "</span>";
+        echo "</div>";
+        echo "</br>";
     }
-    //hiddenfields um die felder zu übertragen
-    echo '<input type="hidden" value="' . $votingid . '" name="votingid">';
-    echo '<input type="hidden" value="' . $frageid . '" name="frageid">';
 
-    //abschicken-button - ende des forms
-    echo '<input type="submit" class="btn btn-warning" name="Abschicken" value="Abschicken">';
-    echo '</form>';
+  //echo "<input type='checkbox' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag ["text"] . "</br>";
 }
+//hiddenfields um die felder zu übertragen
+echo '<input type="hidden" value="' . $votingid . '" name="votingid">';
+echo '<input type="hidden" value="' . $frageid . '" name="frageid">';
+
+echo $_SESSION["kuerzel"];
+echo 'Kürzel:';
+echo '<input type="text" name ="email" value="'.$_SESSION["kuerzel"].'"/>';
+echo '@hdm-stuttgart.de';
+
+//abschicken-button - ende des forms
+echo '<input type="submit" class="btn btn-warning" name="Abschicken" value="Abschicken">';
+
+echo '</form>';
+//}
 ?>
+<a href="vote_student_ergebnis.php?id=<?php echo $votingid?>">Ergebnisse ansehen</a>

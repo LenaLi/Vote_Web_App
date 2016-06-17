@@ -27,9 +27,24 @@ if (!empty($vorname)&& !empty($nachname)&&!empty($email)&& !empty($password1)&& 
     }
     //Überprüfung die beiden Passwörter übereinstimmen
     if ($password1==$password2){
-
-        // neuen Student erzeugen mit den POST Parametern
-        $manager->create($vorname,$nachname,$email,$password1);
+        $student = $manager->findByEmail($email);
+        if( $student != null){
+            if($student->password != null){
+                die();
+            }
+            $student->vorname = $vorname;
+            $student->nachname = $nachname;
+            $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+            $options = [
+                'salt' => $salt
+            ];
+            $student->password = $password_hashed=password_hash($password1, PASSWORD_BCRYPT, $options);
+            $manager->update($student);
+        }
+        else{
+            // neuen Student erzeugen mit den POST Parametern
+            $manager->create($vorname,$nachname,$email,$password1);
+        }
 
         // Weiterleitung auf die Übersichtsseite der Studenten
         header('Location: student_login_form.php');
