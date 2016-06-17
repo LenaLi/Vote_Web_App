@@ -13,12 +13,8 @@
         // Benutzer ist noch nicht eingeloggt
         $_SESSION = array();
         session_destroy();
-        ?>
-
-        // Einbinden von Login Dialog
-        <div class="login">
-
-
+?>
+<div class="login">
        <form class="form-horizontal" role="form" action="login_do.php" method="post">
 
            <!-- Texteingabefeld für E-Mail-->
@@ -40,15 +36,11 @@
                             <button type="submit" class="btn btn-warning">Login</button>
                         </div>
                 </div>
-
        </form>
                     <a href="student_login_form.php">Student? Hier gehts zum Studentenlogin</a>
-
 </div>
 
-        <?php
-
-
+<?php
         // Prüfung ob Benutzername und Passwort schon einmal falsch eingegeben wurden
         if($_GET["error"]==1){
             ?>
