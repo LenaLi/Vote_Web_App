@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <?php
 include("inc/session_check.php");
 include("inc/header.php");
@@ -44,7 +43,7 @@ foreach ($AllVotings as $alleVotings) {
         $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 
-        // --------------- Für Anzahl Teilnehmer ---------------------------------
+        // --------------- Fï¿½r Anzahl Teilnehmer ---------------------------------
         // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
         $auswertungsmanager =new auswertung_manager();
         // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
@@ -62,7 +61,7 @@ foreach ($AllVotings as $alleVotings) {
         echo '<div id="ergebnis" style="width: 500px;">';
 
 
-        // --------------- Für Anzahl pro Antwort ---------------------------------
+        // --------------- Fï¿½r Anzahl pro Antwort ---------------------------------
 
         // einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
 

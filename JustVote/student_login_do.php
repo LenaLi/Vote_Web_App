@@ -1,6 +1,8 @@
 <?php
 require_once("Mapper/student.php");
 require_once("Mapper/student_manager.php");
+require_once("Mapper/voting_student.php");
+require_once("Mapper/voting_student_manager.php");
 ?>
 
 <?php
@@ -8,7 +10,7 @@ require_once("Mapper/student_manager.php");
 // POST Parameter auslesen
 $email=htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
 $password=htmlspecialchars($_POST["password"], ENT_QUOTES, "UTF-8");
-
+$votingid=htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
 
 // Prüfen ob alle Formularfelder ausgefüllt wurden
 if (!empty($email)&& !empty($password)) {
@@ -34,9 +36,14 @@ if (!empty($email)&& !empty($password)) {
         $_SESSION ['name'] = $student->vorname." ".$student->nachname; //damit bei Herzlich Willkommen - Max Müller steht!
         $_SESSION ['studentid'] =$student->student_id;
 
-        // Weiterleitung auf die Übersichtsseite der Studenten
-        header('Location: student_uebersicht.php');
-
+        $votingStudentManager=new voting_student_manager();
+        if (!empty($votingid)){
+            //Weiterleitung Link votingID
+            header('Location: vote_student_form.php?id='.$votingid);
+        }else {
+            // Weiterleitung auf die Übersichtsseite der Studenten
+            header('Location: student_uebersicht.php');
+        }
 
     } else {
     header('Location: student_login_form.php?error=1');

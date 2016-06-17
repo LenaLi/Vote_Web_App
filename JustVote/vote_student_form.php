@@ -1,5 +1,6 @@
 <?php
 include("inc/session_check_student.php");
+//include("inc/session_check.php");
 include("inc/header.php");
 require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort_manager.php");
@@ -39,8 +40,8 @@ $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 // wenn key 1 dann hat er schon abgestimmt, daher ausgabe des if blocks
 $key = in_array ($VOTINGID, $_SESSION["votingid"]);
 if ($key==1) {
-    header('Location:vote_student_ergebnis.php?id='.$votingid);}
-
+    header('Location:vote_student_ergebnis.php?id='.$votingid);
+}
 else {
     echo '<form action="vote_student_do.php" method="post">';
 
