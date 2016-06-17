@@ -110,32 +110,36 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                             <textarea class="form-control" name="antwort_4" rows="2" placeholder="Antwortmöglichkeit 4 (optional)"></textarea>
                         </div>
 
+
                         <!-- Eingabefeld für die Startdatum, Startzeit -->
-                        <div class="form-group">
-                            <div class="col-sm-3"
+                        <div class="form-inline">
+                            <div class="col-sm-6"
                             <label>Startzeitpunkt: </label>
                             <label for="startdatum"></label>
                             <input class="form-control" type="date" name="startdatum" placeholder="Startdatum"required="required">
                             <input class="form-control" type="time" name="startzeit" placeholder="Startzeit"required="required">
                         </div>
 
+
                         <!-- Eingabefeld für die Enddatum, Endzeit -->
-                        <div class="form-group">
-                            <div class="col-sm-3"
+                        <div class="form-inline">
+                            <div class="col-sm-6"
                             <label>Endzeitpunkt: </label>
                             <label for="enddatum"></label>
                             <input class="form-control" type="date" name="enddatum" placeholder="Enddatum"required="required">
                             <input class="form-control" type="time" name="endzeit" placeholder="Endzeit"required="required">
                         </div>
-                        <!-- Button "Erstellen"-->
-                        </div>
+                            <!-- Button "Erstellen"-->
                             <div class="form-group">
-                            <div class=" col-sm-6">
-                                <button type="submit" class="btn btn-warning">Erstellen</button>
-                            </div>
+                                <div class=" col-sm-6">
+                                    <button type="submit" class="btn btn-warning"> Erstellen</button>
+                                </div>
                             </div>
                     </form>
                     <!-- Ende Formular "Voting hinzufügen" -->
+
+
+
                 </div>
             </div>
         </div>
