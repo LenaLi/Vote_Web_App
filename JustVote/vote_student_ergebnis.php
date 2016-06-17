@@ -115,7 +115,6 @@ $Antwortanzahl = array();
             labels: [
 
              // hier    müssen die Antwortmöglichkeiten rein
-
                 <?php
                 foreach ($Antwortarray as $a) {
                 echo $a;
