@@ -15,7 +15,7 @@ require_once("Mapper/voting_manager.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Ihre Vorlesungen und Votings (neue Darstellung)</h1>
+          <!--          <h1>Ihre Vorlesungen und Votings (neue Darstellung)</h1>
 
                     </br>
 
@@ -142,15 +142,15 @@ require_once("Mapper/voting_manager.php");
                 </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
 
 
 
 
 
-                    <h1>Ihre Vorlesungen und Votings (alte Darstellung)</h1>
-
+                    <h1>Ihre Vorlesungen und Votings </h1>
+                    </br>
                     <?php
                     
                         // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
@@ -165,7 +165,7 @@ require_once("Mapper/voting_manager.php");
                         if($vorlesungen!=null)
                         foreach($vorlesungen as $vorlesung){
 
-                            echo " <h4>. $vorlesung->vorlesungsnummer .", ". $vorlesung->vorlesungsname</h4>";
+                            echo " <h4> Vorlesung: $vorlesung->vorlesungsname ", " $vorlesung->vorlesungsnummer</h4>";
                             echo " <a class='fa fa-edit' href ='vorlesung_update_form.php?id=".$vorlesung->vorlesungsid."'></a>";
                             echo " <a class='fa fa-trash'href ='vorlesung_delete_do.php?id=".$vorlesung->vorlesungsid."'></a>";
 
@@ -266,7 +266,10 @@ require_once("Mapper/voting_manager.php");
 
                                     echo "</tr>";
                             }
+
+
                             echo "</table>";
+                            echo "</br>";
                         }
                     ?>
                 </div>

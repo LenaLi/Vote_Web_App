@@ -112,7 +112,6 @@ if (!empty ($eintraege["text"])) {
             labels: [
 
              // hier    müssen die Antwortmöglichkeiten rein
-
                 <?php
 
 
