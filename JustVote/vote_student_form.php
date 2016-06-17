@@ -12,7 +12,6 @@ include("inc/navigation_mitte.php");
 <html>
 
 <?php
-//holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
 $fragemanager =new frage_manager();
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votings = $fragemanager->getFragebyVotingid ($votingid);
@@ -25,7 +24,7 @@ echo  $votings ["text"]."</br>";
 </h1>
 
 <?php
-//holt die zur frageID dazugehoerigen antworten aus der DB-Abfrage
+
 $antwortmanager =new antwort_manager();
 $frageid = $votings ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
@@ -33,11 +32,11 @@ $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
 $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votingmanager =new frage_manager();
-//$_SESSION["votingid"] = $VOTINGID;*/
+
 $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 
-// Prüfung ob Student schon für Votings abgestimmt hat
+// Prüfung ob Student schon für Votings abgestimmt hat --> ÜBER DATENBANK!!!!!!!!!!
 /*if ($_SESSION["votingIds"] != null){
     // wenn key 1 dann hat er schon für dieses Voting abgestimmt, daher ausgabe des if blocks
     $key = in_array ($VOTINGID, $_SESSION["votingIds"]);

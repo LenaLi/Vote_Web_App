@@ -17,7 +17,7 @@ $votings = $fragemanager->getFragebyVotingid ($votingid);
 
 //FEHLERMELDUNG
 if($_GET["error"]=="1"){
-    echo "Du hast schon abgestimmt!";
+    echo "Du hast bereits abgestimmt!";
 }
 
 ?>

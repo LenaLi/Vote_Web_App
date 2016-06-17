@@ -3,13 +3,12 @@ require_once("inc/session_check_student.php");
 require_once("Mapper/auswertung_manager.php");
 require_once("Mapper/voting_student_manager.php");
 require_once("Mapper/student_manager.php");
-//die ben�tigten IDs werden mittels post hergeholt
+
+
 $postantwort=htmlspecialchars($_POST["rb_antworten"], ENT_QUOTES, "UTF-8");
 $postvoting=htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
 $postfrage=htmlspecialchars($_POST["frageid"], ENT_QUOTES, "UTF-8");
 $email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
-
-//neue auswertung wird erstellt, dh ergebnis in tabelle geschrieben
 
 
 $student_manager = new student_manager();
@@ -29,7 +28,7 @@ if($status == null){
     header('Location: vote_student_ergebnis.php?id=' . $postvoting.'&error=1');
     die();
 }
-
+//Objekt von Auswertung wird erzeugt
 $auswertungsmanager =new auswertung_manager();
 $auswertungsmanager ->create($postfrage, $postantwort, $postvoting);
 
