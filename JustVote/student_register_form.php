@@ -23,6 +23,13 @@
                     <?php
                 }
                 ?>
+                <?php
+                if($_GET["error"]=="3"){
+                    ?>
+                    <div class=btn-danger style="color: #F07F31; font-weight: bold">Keine HdM E-Mail Adresse!</div>
+                    <?php
+                }
+                ?>
                 <h2>Registrierung für Studenten</h2>
                 <h5>der Hochschule der Medien Stuttgart mit dem Hochschul-Account</h5>
 

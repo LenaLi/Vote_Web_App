@@ -1,5 +1,6 @@
 <?php
 include("inc/session_check_student.php");
+
 include("Mapper/voting_student.php");
 include("Mapper/voting_student_manager.php");
 include("Mapper/voting.php");

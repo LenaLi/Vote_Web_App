@@ -19,9 +19,13 @@ if (!empty($vorname)&& !empty($nachname)&&!empty($email)&& !empty($password1)&& 
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new student_manager();
 
+    //Überprüfung ob hdm-stuttgart.de eingegeben wurde
+    $suffix = explode("@",$email)[1];
+    if ($suffix != "hdm-stuttgart.de"){
+        header('Location: student_register_form.php?error=3');
+        die();
+    }
     //Überprüfung die beiden Passwörter übereinstimmen
-    
-
     if ($password1==$password2){
 
         // neuen Student erzeugen mit den POST Parametern
