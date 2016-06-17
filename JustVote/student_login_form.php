@@ -21,6 +21,12 @@
 
                 <form class="form-horizontal" role="form" action="student_login_do.php" method="post">
 
+
+                    <input type="hidden" name="votingid" value ="
+                    
+                    <?php echo $_GET["votingid"] ?>"
+                           />
+                    
                     <!-- Texteingabefeld für E-Mail-->
                     <div class="form-group">
                         <div class="col-sm-12">

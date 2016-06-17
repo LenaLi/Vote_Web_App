@@ -1,22 +1,13 @@
+<?php
+include("inc/session_check.php");
+include("inc/header.php");
+include("inc/navbar_vote.php");
+?>
 
-<!-- TODO Abstimm seite für studenten
-
-<?php include("inc/session_check.php"); ?>
-<?php include("inc/header.php"); ?>
-<?php include("inc/navbar_vote.php"); ?>
-
-<!-- TODO Datenbankabfrage: Voting und Antwortmöglichkeiten-->
 <!DOCTYPE html>
 <html>
-
-<!-- Datenbankabfrage Voting -->
-
 <body>
-
-
-
 <div id="page-wrapper">
-
 
     <div id="page-content-wrapper">
         <div class="container-fluid">

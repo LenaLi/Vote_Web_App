@@ -1,9 +1,17 @@
 <?php
 include("inc/session_check_student.php");
+
 include("Mapper/voting_student.php");
 include("Mapper/voting_student_manager.php");
 include("Mapper/voting.php");
 include("Mapper/voting_manager.php");
+
+// session check
+if($_SESSION["studentlogin"]!="1"){
+    header('Location: student_login_form.php');
+    die();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +21,8 @@ include("Mapper/voting_manager.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Votings für Student</h1>
+                    <a href="">Logout</a>
+                    <h1>Votings an denen du teilgenommen hast</h1>
 
                         <?php
 
@@ -25,7 +34,7 @@ include("Mapper/voting_manager.php");
 
                         // Lese voting mit Voting-ID aus Datenbank aus
                         $voting_students = $voting_student_manager->findVotingsByStudent($_SESSION["studentid"]);
-                        echo $_SESSION["studentid"];
+
 
                         foreach ($voting_students as $voting_student){
 
@@ -36,6 +45,8 @@ include("Mapper/voting_manager.php");
                             echo "vorlesungsid".$voting->vorlesungsid."<br>";
                             echo "enddatum".$voting->enddatum."<br>";
                             echo "startdatum".$voting->startdatum."<br>"."<br>";
+                            //echo "votingname".$voting->votingname."<br>";
+
 
 }
 

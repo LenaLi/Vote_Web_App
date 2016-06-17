@@ -41,7 +41,7 @@ class voting_student_manager extends manager
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO voting_student
-                (voting_id, student_id)
+                (votingid, student_id)
               VALUES
                 (:voting_id, :student_id)
             ');
