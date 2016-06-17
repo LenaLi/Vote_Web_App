@@ -44,7 +44,10 @@ require_once("Mapper/voting.php");
                 <h5>Klicke auf den Link oder scanne den QR-Code ein, um am Voting teilzunehmen</h5>
 
 </div>
+        <?php
 
+
+        ?>
 
 </body>
 </html>
