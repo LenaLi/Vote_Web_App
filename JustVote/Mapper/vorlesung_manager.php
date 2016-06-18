@@ -50,6 +50,8 @@ class vorlesung_manager extends manager
         }
 
     }
+    
+    
     public function findByBenutzerID($benutzerid)
     {
         // Lese einen zu einer bestimmten BenutzerId gehörigen Vorlesungen aus
