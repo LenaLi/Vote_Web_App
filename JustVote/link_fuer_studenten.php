@@ -44,18 +44,7 @@ require_once("Mapper/voting.php");
                 <h5>Klicke auf den Link oder scanne den QR-Code ein, um am Voting teilzunehmen</h5>
 
 </div>
-        <?php
 
-            require_once ('src/QrCode.php');
-            use Endroid\QrCode\QrCode;
-            $qr = new QrCode();
-
-            $qr->setText("https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=".$aktuellesvoting);
-            $qr->setSize (200);
-            $qr->setPadding(10);
-            $qr->render();
-
-        ?>
 
 </body>
 </html>
