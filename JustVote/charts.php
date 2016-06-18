@@ -61,7 +61,7 @@ foreach ($AllVotings as $alleVotings) {
         echo '<div id="ergebnis" style="width: 500px;">';
 
 
-        // --------------- F�r Anzahl pro Antwort ---------------------------------
+        //  Für Anzahl pro Antwort
 
         // einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
 
