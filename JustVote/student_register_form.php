@@ -7,6 +7,10 @@
 
 <body>
 
+<div class="mitte">
+    <h1>Registrierung</h1>
+    <h4>für Studenten der HdM Stuttgart</h4>
+</div>
 
 
 
@@ -49,7 +53,7 @@
 
                         <!-- Login Button-->
                         <div class="form-group">
-                            <div class=" col-sm-offset-4 col-sm-12">
+                            <div class=" col-sm-offset-3 col-sm-12">
                                 <button type="submit" class="btn btn-warning">Registrieren</button>
                             </div>
                         </div>
