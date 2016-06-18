@@ -6,6 +6,9 @@ include("Mapper/voting.php");
 include("Mapper/voting_manager.php");
 include("Mapper/vorlesung.php");
 include("Mapper/vorlesung_manager.php");
+include("inc/navigation_student.php");
+include("inc/header.php");
+
 
 // session check
 if($_SESSION["studentlogin"]!="1"){

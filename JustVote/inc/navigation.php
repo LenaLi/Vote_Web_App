@@ -49,13 +49,18 @@
         <!-- Sidebar Links-->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
+
+                <!-- Übersicht -->
                 <li >
                     <a href="uebersicht.php"><i class="fa fa-fw fa-dashboard"></i> Übersicht</a>
                 </li>
 
+                <!-- Vorlesung -->
                 <li>
                     <a href="vorlesung_create_form.php"><i class="fa fa-plus"></i> Vorlesung</a>
                 </li>
+
+                <!-- Voting -->
                 <li>
                     <a href="voting_create_form.php"><i class="fa fa-plus"></i> Voting</a>
                 </li>
@@ -66,10 +71,12 @@
 
                     ?>
 
+                    <!-- Benutzer erstellen -->
                     <li>
                         <a href="benutzer_create_form.php"><span class="fa fa-plus"></span> Benutzer</a>
                     </li>
 
+                    <!-- Benutzer Übersicht -->
                     <li>
                         <a href="benutzer_read.php"><span class="glyphicon glyphicon-user"></span> Benutzer verwalten</a>
                     </li>
