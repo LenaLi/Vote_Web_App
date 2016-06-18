@@ -7,28 +7,7 @@
 
 <body>
 
-                <!--Fehlermeldungen -->
-                <?php
-                if($_GET["error"]=="1"){
-                    ?>
-                    <div class="btn-warning">Passwort stimmt nicht überein!</div>
-                    <?php
-                }
-                ?>
-                <?php
-                if($_GET["error"]=="2"){
-                    ?>
-                    <div class=btn-danger style="color: #F07F31; font-weight: bold">Bitte Felder ausfüllen!</div>
-                    <?php
-                }
-                ?>
-                <?php
-                if($_GET["error"]=="3"){
-                    ?>
-                    <div class=btn-danger style="color: #F07F31; font-weight: bold">Keine HdM E-Mail Adresse!</div>
-                    <?php
-                }
-                ?>
+
 
 
                 <div class="login">
@@ -77,6 +56,28 @@
                     </form>
                 </div>
 
+                <!--Fehlermeldungen -->
+                <?php
+                if($_GET["error"]=="1"){
+                    ?>
+                    <div class="btn btn-danger">Passwort stimmt nicht überein!</div>
+                    <?php
+                }
+                ?>
+                <?php
+                if($_GET["error"]=="2"){
+                    ?>
+                    <div class="btn btn-danger">Bitte Felder ausfüllen!</div>
+                    <?php
+                }
+                ?>
+                <?php
+                if($_GET["error"]=="3"){
+                    ?>
+                    <div class="btn btn-danger">Keine HdM E-Mail Adresse!</div>
+                    <?php
+                }
+                ?>
 
 
 </body>
