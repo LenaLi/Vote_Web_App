@@ -102,31 +102,19 @@ foreach ($AllVotings as $alleVotings) {
 // ---------------  Details --------------------
 
 
-
-
-
 ?>
+
 
 <canvas id="myChart" width="400" height="400"></canvas>
 <script>
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'doughnut',
         data: {
-            labels: [
-
-                <?php
-echo $eintraege;
-
-?>,
-
-            ],
+            labels: [1,2,3,4],
             datasets: [{
                 label: '# of Votes',
-                data: [  <?php
-echo $zahlDerTeilnehmer
-?>,
-                ],
+                data: [1,2,3,4],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

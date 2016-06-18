@@ -65,11 +65,13 @@
                 if ($_SESSION["role"]=="admin") {
 
                     ?>
-                    <li>
-                        <a href="benutzer_read.php"><span class="glyphicon glyphicon-user"></span> Benutzer verwalten</a>
-                    </li>
+
                     <li>
                         <a href="benutzer_create_form.php"><span class="fa fa-plus"></span> Benutzer</a>
+                    </li>
+
+                    <li>
+                        <a href="benutzer_read.php"><span class="glyphicon glyphicon-user"></span> Benutzer verwalten</a>
                     </li>
 
                     <?php
@@ -85,7 +87,7 @@
                 </br>
 
                 <li >
-                    <a href="impressum.php"><i class="fa fa-info "></i> Impressum </a>
+                    <a align="bo" href="impressum.php"><i class="fa fa-info "></i> Impressum </a>
                 </li>
 
                <!-- <li>
