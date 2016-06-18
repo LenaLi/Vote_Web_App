@@ -55,11 +55,11 @@ if($_SESSION["studentlogin"]!="1"){
                             //Zeitraum des Votings
                             $startdatum = $voting->startdatum;
                             $startdatum = date("d.m.y H:i",strtotime($startdatum))." Uhr";
-                            echo "Startdatum:".$startdatum."<br>";
+                            echo "Startdatum: ".$startdatum."<br>";
 
                             $enddatum = $voting->enddatum;
                             $enddatum = date("d.m.y H:i",strtotime($enddatum))." Uhr";
-                            echo "Enddatum:".$enddatum."<br>";
+                            echo "Enddatum: ".$enddatum."<br>";
 
 
                             //Button "Ergebnis einsehen"
