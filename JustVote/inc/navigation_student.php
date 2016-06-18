@@ -50,10 +50,12 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
 
-
+                <li >
+                    <a  href="ueber_just_vote.php"><i class="fa fa-info "></i> Über Just Vote </a>
+                </li>
 
                 <li >
-                    <a align="bo" href="impressum.php"><i class="fa fa-info "></i> Impressum </a>
+                    <a  href="impressum.php"><i class="fa fa-info "></i> Impressum </a>
                 </li>
 
 
