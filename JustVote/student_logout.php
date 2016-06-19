@@ -1,4 +1,4 @@
-<?php include("inc/session_check_student.php"); ?>
+<?php include("inc/session_student.php"); ?>
 
 <?php
 

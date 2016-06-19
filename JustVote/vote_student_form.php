@@ -1,5 +1,5 @@
 <?php
-include("inc/session_check_student.php");
+include("inc/session_student.php");
 //include("inc/session_check.php");
 include("inc/header.php");
 require_once("Mapper/frage_manager.php");

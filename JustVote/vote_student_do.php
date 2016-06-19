@@ -1,5 +1,5 @@
 <?php
-require_once("inc/session_check_student.php");
+require_once("inc/session_student.php");
 require_once("Mapper/auswertung_manager.php");
 require_once("Mapper/voting_student_manager.php");
 require_once("Mapper/student_manager.php");
