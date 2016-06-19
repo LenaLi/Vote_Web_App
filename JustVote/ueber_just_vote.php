@@ -1,6 +1,8 @@
-
-<?php include("inc/header.php"); ?>
-<?php include("inc/navigation_student.php");?>
+<?php
+include("inc/session_check_student.php");
+include("inc/header.php");
+include("inc/navigation_student.php");
+?>
 
 
 <!DOCTYPE html>

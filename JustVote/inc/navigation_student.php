@@ -38,7 +38,7 @@
 
                     <li class="divider"></li>
                     <li>
-                        <a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="student_logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                     </li>
                 </ul>
             </li>
@@ -55,7 +55,7 @@
                 </li>
 
                 <li >
-                    <a  href="impressum.php"><i class="fa fa-info "></i> Impressum </a>
+                    <a  href="student_impressum.php"><i class="fa fa-info "></i> Impressum </a>
                 </li>
 
 
