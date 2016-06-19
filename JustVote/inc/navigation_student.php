@@ -33,7 +33,7 @@
 
 
                     <li>
-                        <a href="benutzer_password_update_form.php"><i class="fa fa-fw fa-gear"></i> Passwort ändern </a>
+                        <a href="student_password_update_form.php"><i class="fa fa-fw fa-gear"></i> Passwort ändern </a>
                     </li>
 
                     <li class="divider"></li>

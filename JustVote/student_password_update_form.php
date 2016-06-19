@@ -53,7 +53,7 @@ $student = $student_manager->findById($id);
                     <!-- Übergabe der Benutzer ID-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <input type='hidden' name='id' value='<?php echo $student->id ?>' />
+                            <input type='hidden' name='id' value='<?php echo $student->student_id ?>' />
                         </div>
                     </div>
 

@@ -136,6 +136,36 @@ class student_manager extends manager
         return $student;
     }
 
+    public function updatePassword(student $student)
+    {
+        // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
+        $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+        $options = [
+            'salt' => $salt
+        ];
+        // Funktion, die zufällige Passwörter erzeugt
+        $password=$student->password;
+        // Password wird mit salt gehasht
+        $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
+
+
+        try {
+            // Updaten eines zu einer bestimmten ID gehörenden Passwortes eines Studenten (Attribute siehe unten)
+            $stmt = $this->pdo->prepare('
+              UPDATE student
+              SET password = :password
+              WHERE student_id = :student_id
+            ');
+            $stmt->bindParam(':student_id', $student->student_id);
+            $stmt->bindParam(':password', $password_hashed);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            die();
+        }
+        //return $student;
+    }
+
     public function delete(student $student)
     {
         try {
