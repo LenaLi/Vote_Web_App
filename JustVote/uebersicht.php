@@ -18,7 +18,7 @@ require_once("Mapper/voting_manager.php");
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
                     <h1>Ihre Vorlesungen und Votings </h1>
-
+                     </br>
                     <?php
 
                     // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
@@ -36,8 +36,8 @@ require_once("Mapper/voting_manager.php");
                                 "<div class='panel panel-default'>
                                     <div class='panel-heading' role='tab' id='heading.$vorlesung->vorlesungsid'>
                                         <h4 class='panel-title'>
-                                             <a role='button' data-toggle='collapse' data-parent='#accordion' href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'>
-                                              Vorlesungsnummer:  $vorlesung->vorlesungsnummer  "," Name der Vorlesung:  $vorlesung->vorlesungsname;
+                                             <a class= 'fa-plus-square-o' role='button' data-toggle='collapse' data-parent='#accordion' href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'>
+                                              $vorlesung->vorlesungsname  "," ($vorlesung->vorlesungsnummer)
                                               <a class='fa fa-edit' href ='vorlesung_update_form.php?id=".$vorlesung->vorlesungsid."'></a>
                                               <a class='fa fa-trash'href ='vorlesung_delete_do.php?id=".$vorlesung->vorlesungsid."'></a>
                                               </a>
@@ -50,14 +50,17 @@ require_once("Mapper/voting_manager.php");
 
 
 
-                            
+
+
 
                             // Überschriften der Tabellen
                                 echo "<thead><tr>";
                                 echo "<th colspan='7'> Voting Name </th>";
                                 echo "<th colspan='3'> Zeitraum </th>";
+                                echo "<th colspan='3'> Status </th>";
 
-                                echo " </tr></thead>";
+
+                            echo " </tr></thead>";
 
                             // Lese Votings mit Vorlesungs-ID aus Datenbank aus
                             $votings=$votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
@@ -149,6 +152,7 @@ require_once("Mapper/voting_manager.php");
 
                             echo "</table>";
                             echo "</br>";
+                            echo "</div>";
                             echo "</div>";
                             echo "</div>";
                             echo "</div>";
