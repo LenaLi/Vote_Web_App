@@ -21,7 +21,7 @@ require_once("Mapper/voting_manager.php");
                      </br>
 
 
-                    <?php
+                        <?php
 
                     // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
                     $vorlesungsmanager =new vorlesung_manager();
