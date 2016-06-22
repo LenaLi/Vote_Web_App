@@ -75,7 +75,6 @@ include("inc/navigation_mitte.php");
                 $resultinpercent = $auswertung->Anzahl;
                 echo $resultinpercent ;
 
-
             }
         }
         echo '<canvas id="myChart.$vorlesung->vorlesungsid " width="400" height="400"></canvas>';
