@@ -47,89 +47,123 @@ include("inc/navigation_mitte.php");
 
     // --------------- Für Anzahl Teilnehmer ---------------------------------
     // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
-    $auswertungsmanager =new auswertung_manager();
+        $auswertungsmanager =new auswertung_manager();
     // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
-    $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
+        $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
 
 
-    foreach ($gesamtanzahlTeilnehmer as $eintrag) {
-        $zahlDerTeilnehmer = $eintrag->Anzahl;
-    }
+        foreach ($gesamtanzahlTeilnehmer as $eintrag) {
+            $zahlDerTeilnehmer = $eintrag->Anzahl;
+        }
 
         echo "Anzahl Teilnehmer:";
         echo $zahlDerTeilnehmer;
 
         //  Für Anzahl pro Antwort einmal jede antwort durchlaufen und zu jewelige antwort die zahl reinschreiben
         $countAntwortInstanz = new auswertung_manager();
-
-
+        $Antwortarray = array();
+        $Antwortanzahl = array();
+        $resultsinpercent = array();
         //Jede Antwort und die Zahl die dafür abgestimmt haben
         foreach ($antworten as $eintraege) {
 
             if (!empty ($eintraege["text"])) {
+
                 $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
+
+                echo "Anzahl Votes: ";
+                echo $auswertung->Anzahl;
+                array_push($Antwortanzahl, $auswertung->Anzahl);
                 echo "<br/>";
                 echo "Antwort: ";
-                echo $eintraege ["text"];
+                echo $eintraege["text"];
+                array_push($Antwortarray, $eintraege["text"]);
                 echo "<br/>";
-                $resultinpercent = $auswertung->Anzahl;
-                echo $resultinpercent ;
+
+                $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
+                echo $resultinpercent . " %";
+                array_push ($resultsinpercent, $resultinpercent);
 
             }
         }
-        echo '<canvas id="myChart.$vorlesung->vorlesungsid " width="400" height="400"></canvas>';
-        echo "</div>";
-        }
+
+
 
 
 ?>
-    <script>
-            var ctx = document.getElementById("myChart.$vorlesung->vorlesungsid");
-            var myChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: [
-                        <?php $antworten[0]->$eintrag  ?>,
-                        <?php $antworten[1]->$eintrag  ?>,
-                        <?php $antworten[2]->$eintrag  ?>,
-                        <?php $antworten[3]->$eintrag   ?>],
-                    datasets: [{
-                        label: '# of Votes',
-                        data: [
-                            <?php $resultinpercent[0]  ?>,
-                            <?php $resultinpercent[1]  ?>,
-                            <?php $resultinpercent[2]   ?>,
-                            <?php $resultinpercent[3]   ?>],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
+<canvas id="myChart<?php echo $alleVotings->votingid?>" width="400" height="400"></canvas>
+<script>
+    var ctx = document.getElementById("myChart<?php echo $alleVotings->votingid?>");
+    var myChart<?php echo $alleVotings->votingid?> = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+
+                // hier    müssen die Antwortmöglichkeiten rein
+
+                "<?php echo $antworten[0]->text  ?>",
+                "<?php echo $antworten[1]->text   ?>",
+                "<?php echo $antworten[2]->text   ?>",
+                "<?php echo $antworten[3]->text   ?>"
+
+            ],
+            datasets: [{
+                label: '# of Votes',
+                // hier kommen die Anzahl der Abstimmungen pro Antwort rein
+                data: [
+                    <?php echo $resultsinpercent[0]  ?>,
+                    <?php echo $resultsinpercent[1]  ?>,
+                    <?php echo $resultsinpercent[2]   ?>,
+                    <?php echo $resultsinpercent[3]   ?>
+
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            },
+            ]
+        },
+        options: {
+            legend:{
+                display:true,
+
+            },
+            labels:{
+                display: true,
+                fontSize: 20,
+                fontColor:"#ccc"
+            },
+            scales: {
+
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true,
+                        max:100
                     }
-                }
-            });
-        </script>
+                }],
+                xAxes:[{
+                    display:true,
+                    position:'bottom'
+                }]
+            },
 
+        }
+    });
+</script>
 
-
-
+<?php
+echo "</div>";
+} ?>
 
 </body>
 

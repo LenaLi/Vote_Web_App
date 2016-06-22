@@ -1,4 +1,4 @@
-<script type="text/javascript">
+
     function checkdelete(){
         var conf = confirm("Daten wirklich löschen?");
         if (conf == true)
@@ -12,4 +12,3 @@
             return false;
         }
     }
-    </script>
