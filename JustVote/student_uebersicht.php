@@ -49,9 +49,16 @@ if($_SESSION["studentlogin"]!="1"){
                             $voting=$voting_manager->findByVotingId($votingid);
                             $vorlesung=$vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
 
-                            //echo "id". $voting->votingid."<br>";
-                            echo "<div>";
-                            echo "<h1>"."Votingname:".$voting->votingname."</h1>";
+                            echo
+                            "<div class='panel panel-default'>
+                                    <div class='panel-heading' role='tab' id='heading.$voting->votingid'>
+                                        <h4 class='panel-title'>
+                                             <a class= 'fa-plus-square-o' role='button' data-toggle='collapse' data-parent='#accordion' href='#$voting->votingid' aria-expanded='true' aria-controls='$voting->votingid'>
+                                             $voting->votingname  ","  </a>
+                                        </h4>
+                                        <div id='$voting->votingid' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='heading.$voting->votingid'>
+                                        <div class='panel-body'>
+                                        <table class='table table-hover'>";
 
                             echo "Vorlesung:".$vorlesung->vorlesungsname."<br>";
 
