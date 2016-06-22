@@ -148,16 +148,35 @@ $Antwortanzahl = array();
                     'rgba(75, 192, 192, 1)'
                 ],
                 borderWidth: 1
-            }]
+            },
+            ]
         },
         options: {
+            title: {
+                display: true,
+                text: 'Custom Chart Title'
+            },
+            legend:{
+                display:false,
+
+            },
+            labels:{
+            fontSize: 20,
+                fontColor:"#ccc"
+            },
             scales: {
+
                 yAxes: [{
                     ticks: {
                         beginAtZero:true
                     }
+                }],
+                xAxes:[{
+                    display:true,
+                    position:'bottom'
                 }]
-            }
+            },
+
         }
     });
 </script>
