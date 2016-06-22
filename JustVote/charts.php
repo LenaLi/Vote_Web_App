@@ -85,13 +85,13 @@ include("inc/navigation_mitte.php");
 ?>
     <script>
             var ctx = document.getElementById("myChart.$vorlesung->vorlesungsid");
-            var myChart<?php>.$vorlesung->vorlesungsid?> = new Chart(ctx, {
+            var myChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels: [
                         <?php $antworten[0]->$eintrag  ?>,
-                        <?php $antworten[1]->$eintrag   ?>,
-                        <?php $antworten[2]->$eintrag   ?>,
+                        <?php $antworten[1]->$eintrag  ?>,
+                        <?php $antworten[2]->$eintrag  ?>,
                         <?php $antworten[3]->$eintrag   ?>],
                     datasets: [{
                         label: '# of Votes',

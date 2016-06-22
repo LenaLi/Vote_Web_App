@@ -6,6 +6,15 @@
 
 /* Global Styles */
 
+
+.line {
+    border :none;
+    border-top: 0.5px solid #000;
+    background-color:#000;
+    height: 0.5px; margin: 0px 0px 0px 0px; }
+
+
+
 .mitte {
     background: #000000;
     display: table;

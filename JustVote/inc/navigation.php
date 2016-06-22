@@ -65,6 +65,12 @@
                     <a href="voting_create_form.php"><i class="fa fa-plus"></i> Voting</a>
                 </li>
 
+                <li>
+                    <a href="charts.php"><i class="fa fa-fw fa-bar-chart-o"></i>  Übersicht Ergebnisse</a>
+                </li>
+
+                <hr class="line">  </hr>
+
                 <?php
                 // Überprüfung ob Eingeloggter Admin ist oder normaler Benutzer --> Nur dann Zugriff auf Verwaltung der Benutzer
                 if ($_SESSION["role"]=="admin") {
@@ -87,11 +93,7 @@
                 ?>
 
 
-                <li>
-                    <a href="charts.php"><i class="fa fa-fw fa-bar-chart-o"></i>  Übersicht Ergebnisse</a>
-                </li>
-
-                </br>
+                <hr class="line">  </hr>
 
                 <li >
                     <a align="bo" href="impressum.php"><i class="fa fa-info "></i> Impressum </a>
