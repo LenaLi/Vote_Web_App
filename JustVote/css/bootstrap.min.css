@@ -6304,7 +6304,7 @@ button.list-group-item-danger.active:focus, button.list-group-item-danger.active
 }
 
 .panel-default {
-    border-color: #ddd
+   /*border-color: #ddd */
 }
 
 .panel-default > .panel-heading {

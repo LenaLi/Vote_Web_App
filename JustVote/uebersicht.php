@@ -19,6 +19,8 @@ require_once("Mapper/voting_manager.php");
 
                     <h1>Ihre Vorlesungen und Votings </h1>
                      </br>
+
+
                     <?php
 
                     // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
@@ -44,14 +46,7 @@ require_once("Mapper/voting_manager.php");
                                               </h4>
                                         <div id='$vorlesung->vorlesungsid' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='heading.$vorlesung->vorlesungsid'>
                                         <div class='panel-body'>
-
-
                                         <table class='table table-hover'>";
-
-
-
-
-
 
                             // Überschriften der Tabellen
                                 echo "<thead><tr>";
@@ -89,10 +84,14 @@ require_once("Mapper/voting_manager.php");
 
                                 //Zeitraum des Votings
                                     $startdatum = $voting->startdatum;
-                                    $startdatum = date("d.m.y H:i",strtotime($startdatum))." Uhr";
+                                    $startdatum = date("d.m.y, H:i",strtotime($startdatum))." Uhr";
                                     $enddatum = $voting->enddatum;
-                                    $enddatum = date("d.m.y H:i",strtotime($enddatum))." Uhr";
-                                    echo "<td colspan='3'>" . $startdatum ." - ".$enddatum ."</td>";
+                                    $enddatum = date("d.m.y, H:i",strtotime($enddatum))." Uhr";
+                                    echo "<td colspan='3'>Start: " . $startdatum ." Ende: ".$enddatum .
+
+
+                                        "</td>";
+
 
 
                                 // Status des Votings
@@ -149,20 +148,19 @@ require_once("Mapper/voting_manager.php");
                                     echo "</tr>";
                             }
 
-
                             echo "</table>";
                             echo "</br>";
                             echo "</div>";
                             echo "</div>";
                             echo "</div>";
                             echo "</div>";
-                        }
-                    ?>
+                            }
+                        ?>
+
+                    </div>
                 </div>
-                </div>
-                </div>
+            </div>
         </div>
-    </div>
 
 
 </body>
