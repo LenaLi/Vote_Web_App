@@ -50,6 +50,12 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
 
+
+                <!-- Übersicht -->
+                <li >
+                    <a href="student_uebersicht.php"><i class="fa fa-fw fa-dashboard"></i> Übersicht</a>
+                </li>
+
                 <li >
                     <a  href="ueber_just_vote.php"><i class="fa fa-info "></i> Über Just Vote </a>
                 </li>

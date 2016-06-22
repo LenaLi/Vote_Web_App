@@ -30,12 +30,23 @@
                             </div>
                         </div>
 
-                        <!-- Eingabefeld für E-Mail-->
+                        <!-- Eingabefeld für E-Mail
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" required="required">
                             </div>
+                        </div> -->
+
+                        <div class="input-group">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Kürzel" required="required" aria-describedby="basic-addon2">
+                            <span class="input-group-addon" id="basic-addon2">@hdm-stuttgart.de</span>
                         </div>
+                        </br>
+
+
+
+
+
                         <!-- Eingabefeld für Passwort-->
                         <div class="form-group">
                             <div class="col-sm-12">

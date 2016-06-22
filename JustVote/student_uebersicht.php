@@ -24,9 +24,8 @@ if($_SESSION["studentlogin"]!="1"){
 <body>
     <div id="page-wrapper">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <a href="student_logout.php">Logout</a>
+
+
                     <h1>Votings, an denen du teilgenommen hast</h1>
 
                         <?php
