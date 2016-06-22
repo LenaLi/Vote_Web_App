@@ -42,12 +42,11 @@ require_once("Mapper/voting_manager.php");
                                               <a class='fa fa-trash'href ='vorlesung_delete_do.php?id=".$vorlesung->vorlesungsid."'></a>
                                               </a>
                                               </h4>
-                                        <div id='$vorlesung->vorlesungsid' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='heading.$vorlesung->vorlesungsid'>
+                                        <div id='$vorlesung->vorlesungsid' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='heading.$vorlesung->vorlesungsid'>
                                         <div class='panel-body'>
 
 
-
-      <table class='table table-hover'>";
+                                        <table class='table table-hover'>";
 
 
 
