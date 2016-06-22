@@ -19,7 +19,7 @@ include ("inc/navigation.php");
 
                 require_once("Mapper/result_manager.php");
 
-                // --------------- F�r Anzahl Teilnehmer ---------------------------------
+                // --------------- Für Anzahl Teilnehmer ---------------------------------
 
                 // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
                 $ergebnismanager =new result_manager();
