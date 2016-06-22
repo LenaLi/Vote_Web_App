@@ -74,19 +74,17 @@ include("inc/navigation_mitte.php");
                 echo "<br/>";
                 $resultinpercent = $auswertung->Anzahl;
                 echo $resultinpercent ;
-
-
             }
         }
-        echo '<canvas id="myChart.$vorlesung->vorlesungsid " width="400" height="400"></canvas>';
+        echo '<canvas id="myChart" width="400" height="400"></canvas>';
         echo "</div>";
         }
 
 
 ?>
     <script>
-            var ctx = document.getElementById("myChart.$vorlesung->vorlesungsid");
-            var myChart<?php>.$vorlesung->vorlesungsid?> = new Chart(ctx, {
+            var ctx = document.getElementById("myChart");
+            var myChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels: [
@@ -105,13 +103,13 @@ include("inc/navigation_mitte.php");
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
                             'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(75, 192, 192, 0.2)'
                         ],
                         borderColor: [
                             'rgba(255,99,132,1)',
                             'rgba(54, 162, 235, 1)',
                             'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
+                            'rgba(75, 192, 192, 1)'
                         ],
                         borderWidth: 1
                     }]

@@ -66,6 +66,7 @@ $Antwortanzahl = array();
         $countAntwortInstanz = new auswertung_manager();
 
     echo "<br/>";
+    $resultsinpercent = array();
     foreach ($antworten as $eintraege) {
 
         if (!empty ($eintraege["text"])) {
@@ -83,6 +84,8 @@ $Antwortanzahl = array();
 
             $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
             echo $resultinpercent . " %";
+            array_push ($resultsinpercent, $resultinpercent);
+
         }
     }
 
@@ -115,43 +118,34 @@ $Antwortanzahl = array();
             labels: [
 
              // hier    müssen die Antwortmöglichkeiten rein
-                <?php
-                foreach ($Antwortarray as $a) {
-                echo $a;
-                }
-            ?>
+
+                "<?php echo $antworten[0]->text  ?>",
+                "<?php echo $antworten[1]->text   ?>",
+                "<?php echo $antworten[2]->text   ?>",
+                "<?php echo $antworten[3]->text   ?>"
 
             ],
             datasets: [{
                 label: '# of Votes',
                 // hier kommen die Anzahl der Abstimmungen pro Antwort rein
                 data: [
-                    <?php
-                $lines = "";
-              for ($i = 0; $i < sizeof($Antwortanzahl); $i++)
-              {
-              if ($i == sizeof($Antwortanzahl)-1)
-              {
-                $lines += $a;
-               }else
-               {
-               $lines += $a.', ';
-               }
-               }
-                 echo $lines;
-                ?>
+                    <?php echo $resultsinpercent[0]  ?>,
+                    <?php echo $resultsinpercent[1]  ?>,
+                    <?php echo $resultsinpercent[2]   ?>,
+                    <?php echo $resultsinpercent[3]   ?>
+
                 ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
                 ],
                 borderColor: [
                     'rgba(255,99,132,1)',
                     'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
+                    'rgba(75, 192, 192, 1)'
                 ],
                 borderWidth: 1
             }]
