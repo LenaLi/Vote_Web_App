@@ -29,6 +29,8 @@ $vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsId);
 <div id="page-wrapper">
 
         <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
 
                     <h1>Vorlesung aktualisieren</h1>
 

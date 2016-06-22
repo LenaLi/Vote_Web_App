@@ -29,10 +29,11 @@ echo $id;
 <?php include("inc/navigation.php");?>
 
 <div id="page-wrapper">
-
         <div class="container-fluid">
-
+            <div class="row">
+                <div class="col-lg-12">
                     <!-- Beginn Formular "Benutzer updaten" -->
+
                     <h1>Benutzer aktualisieren </h1>
 
                     <?php
@@ -45,26 +46,8 @@ echo $id;
                     }
                     ?>
 
-                    <form action='benutzer_update_do.php' method='post'>
-                        <input type='hidden' name='id' value='<?php echo $benutzer->id ?>' required="required"/>
-
-                        Vorname:<br>
-                        <input type='text' name='vorname' value='<?php echo $benutzer->vorname ?>'required="required" /><br>
-
-                        Nachname:<br>
-                        <input type='text' name='nachname' value='<?php echo $benutzer->nachname ?>'required="required" /><br>
-                        <br>
-                        E-Mail:<br>
-                        <input type='text' name='email' value='<?php echo $benutzer->email ?>'required="required" /><br>
-                        <br>
-                        <br>
-                        <input type='submit' value='update!' />
-                    </form>
-                    <!-- Ende Formular "Benutzer aktualisieren" -->
-
-
                     <!-- Beginn Formular "Benutzer bearbeiten" -->
-                    <form class="form-horizontal" role="form" action="benutzer_update_do.php" method="post">
+                    <form class=form-horizontal role="form" action='benutzer_update_do.php' method='post'>
 
                         <!-- Feld für ID der Vorlesung-->
                         <div class="form-group">
@@ -87,13 +70,12 @@ echo $id;
                             </div>
                         </div>
 
-                        <!-- Texteingabefeld für Nachname-->
+                        <!-- Texteingabefeld für Email-->
                         <div class="form-group">
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" value='<?php echo $benutzer->email ?>'required="required" />
+                                <input type="text" class="form-control" name="email" value='<?php echo $benutzer->email ?>'required="required" />
                             </div>
                         </div>
-
 
                         <!-- Button "Bearbeiten"-->
                         <div class="form-group">
@@ -101,20 +83,12 @@ echo $id;
                                 <button type="submit" class="btn btn-warning"> Bearbeiten</button>
                             </div>
                         </div>
-                        <!-- Ende Formular "Benutzer bearbeiten" -->
-
-
-
-
-
-
-
-
+                    </form>
+                    <!-- Ende Formular "Benutzer aktualisieren" -->
 
                 </div>
             </div>
         </div>
-    </div>
 
 </div>
 
