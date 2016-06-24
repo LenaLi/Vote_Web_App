@@ -59,13 +59,30 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     ?>
                     
                     <!-- Beginn Formular "Voting aktualisieren" -->
+
+
                     <form action='voting_update_do.php' method='post'>
-                        <input type='hidden' name='votingid' value='<?php echo $voting->votingid ?>' /
-                        <br>
-                        <input type='hidden' name='vorlesungsid' value='<?php echo $voting->vorlesungsid ?>' /
-                        <br>
-                        Votingname:<br>
-                        <input type='text' name='votingname' value='<?php echo $voting->votingname ?>' required="required"/><br>
+
+                        <div class="form-group">
+                            <div class="col-sm-6"
+                                <input type='hidden' name='votingid' value='<?php echo $voting->votingid ?>' /
+                            </div>
+                        </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-6"
+                            <input type='hidden' name='vorlesungsid' value='<?php echo $voting->vorlesungsid ?>' /
+                        </div>
+                    </div>
+
+            <div class="form-group">
+                <div class="col-sm-6"
+                     Votingname:
+                <input type='text' name='votingname' value='<?php echo $voting->votingname ?>' required="required"/><br>            </div>
+        </div>
+
+
+
                         Frage:<br>
                         <input type='text' name='frage' value='<?php echo $frage->text ?>' required="required"/><br>
                         Antwortmöglichkeit 1:<br>

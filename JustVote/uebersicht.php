@@ -38,7 +38,8 @@ require_once("Mapper/voting_manager.php");
                                 "<div class='panel panel-default'>
                                     <div class='panel-heading' role='tab' id='heading.$vorlesung->vorlesungsid'>
                                         <h4 class='panel-title'>
-                                             <a class= 'fa-plus-square-o' role='button' data-toggle='collapse' data-parent='#accordion' href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'>
+                                             <a class= 'fa-plus-square-o' role='button' data-toggle='collapse' data-parent='#accordion'
+                                             href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'>
                                               $vorlesung->vorlesungsname  "," ($vorlesung->vorlesungsnummer)
                                               <a class='fa fa-edit' href ='vorlesung_update_form.php?id=".$vorlesung->vorlesungsid."'></a>
                                               <a class='fa fa-trash'href ='vorlesung_delete_do.php?id=".$vorlesung->vorlesungsid."'></a>
@@ -146,9 +147,12 @@ require_once("Mapper/voting_manager.php");
                                 echo "<td><a class='fa fa-trash' href ='voting_delete_do.php?id=".$voting->votingid."'></a></td>";
 
                                     echo "</tr>";
+
                             }
 
                             echo "</table>";
+                            echo "
+                            <a href='voting_create_form.php'><i class='fa fa-plus'></i> Voting</a>";
                             echo "</br>";
                             echo "</div>";
                             echo "</div>";
