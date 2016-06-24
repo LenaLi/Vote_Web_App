@@ -30,11 +30,9 @@ echo $id;
 
 <div id="page-wrapper">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
                     <!-- Beginn Formular "Benutzer updaten" -->
 
-                    <h1>Benutzer aktualisieren </h1>
+                    <h2>Benutzer aktualisieren </h2>
 
                     <?php
                     // Fehlermeldung, da Problem bei serverseitiger Überprüfung
