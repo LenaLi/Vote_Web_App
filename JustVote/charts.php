@@ -102,14 +102,17 @@ echo
             $zahlDerTeilnehmer = $eintrag->Anzahl;
         }
 
-        echo "Anzahl Teilnehmer:";
+        echo "Anzahl Teilnehmer: ";
         echo $zahlDerTeilnehmer;
+
+        echo "<br/>";
 
         //  Für Anzahl pro Antwort einmal jede antwort durchlaufen und zu jewelige antwort die zahl reinschreiben
         $countAntwortInstanz = new auswertung_manager();
         $Antwortarray = array();
         $Antwortanzahl = array();
         $resultsinpercent = array();
+        $results = array();
         //Jede Antwort und die Zahl die dafür abgestimmt haben
         foreach ($antworten as $eintraege) {
 
@@ -117,18 +120,25 @@ echo
 
                 $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
 
-                echo "Anzahl Votes: ";
-                echo $auswertung->Anzahl;
-                array_push($Antwortanzahl, $auswertung->Anzahl);
-                echo "<br/>";
                 echo "Antwort: ";
                 echo $eintraege["text"];
                 array_push($Antwortarray, $eintraege["text"]);
                 echo "<br/>";
 
-                $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
-                echo $resultinpercent . " %";
+                echo "Anzahl Votes: ";
+                echo $auswertung->Anzahl;
+                array_push($Antwortanzahl, $auswertung->Anzahl);
+                echo "<br/>";
+
+                if ($zahlDerTeilnehmer!=0){
+                    $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
+                }
+                else{
+                    $resultinpercent = 0;
+                }
+
                 array_push ($resultsinpercent, $resultinpercent);
+                array_push($results,$auswertung->Anzahl);
 
             }
         }
@@ -137,30 +147,35 @@ echo
 
 
 ?>
-<canvas id="myChart<?php echo $alleVotings->votingid?>" width="400" height="400"></canvas>
+<canvas id="myChart<?php echo $alleVotings->votingid?>" width="600" height="400" ></canvas>
 <script>
     var ctx = document.getElementById("myChart<?php echo $alleVotings->votingid?>");
     var myChart<?php echo $alleVotings->votingid?> = new Chart(ctx, {
-        type: 'bar',
+        type: 'doughnut',
         data: {
             labels: [
 
                 // hier    müssen die Antwortmöglichkeiten rein
 
-                "<?php echo $antworten[0]->text  ?>",
-                "<?php echo $antworten[1]->text   ?>",
-                "<?php echo $antworten[2]->text   ?>",
-                "<?php echo $antworten[3]->text   ?>"
+                <?php
+                foreach($antworten as $antwort){
+                    if(!empty($antwort["text"])){
+                        echo "'".$antwort["text"]."',";
+                    }
+
+                }
+                ?>
 
             ],
             datasets: [{
                 label: '# of Votes',
                 // hier kommen die Anzahl der Abstimmungen pro Antwort rein
                 data: [
-                    <?php echo $resultsinpercent[0]  ?>,
-                    <?php echo $resultsinpercent[1]  ?>,
-                    <?php echo $resultsinpercent[2]   ?>,
-                    <?php echo $resultsinpercent[3]   ?>
+                    <?php
+                    for($i=0; $i<sizeof($resultsinpercent); $i++){
+                        echo $resultsinpercent[$i].",";
+                    }
+                    ?>
 
                 ],
                 backgroundColor: [
@@ -184,22 +199,15 @@ echo
                 display:true,
 
             },
-            labels:{
-                display: true,
-                fontSize: 20,
-                fontColor:"#ccc"
-            },
             scales: {
 
                 yAxes: [{
                     ticks: {
+                        display:false,
                         beginAtZero:true,
-                        max:100
+                        max:100,
+                        stepSize:10
                     }
-                }],
-                xAxes:[{
-                    display:true,
-                    position:'bottom'
                 }]
             },
 
