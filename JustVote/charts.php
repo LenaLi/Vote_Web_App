@@ -154,7 +154,7 @@ echo
 
             ],
             datasets: [{
-                label: '# of Votes',
+                label: '% der Stimmen',
                 // hier kommen die Anzahl der Abstimmungen pro Antwort rein
                 data: [
                     <?php echo $resultsinpercent[0]  ?>,
