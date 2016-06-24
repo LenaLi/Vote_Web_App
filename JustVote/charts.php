@@ -119,14 +119,13 @@ echo
             if (!empty ($eintraege["text"])) {
 
                 $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
-
                 echo "Antwort: ";
                 echo $eintraege["text"];
                 array_push($Antwortarray, $eintraege["text"]);
-                echo "<br/>";
 
-                echo "Anzahl Votes: ";
+                echo " (";
                 echo $auswertung->Anzahl;
+                echo " Stimmen)";
                 array_push($Antwortanzahl, $auswertung->Anzahl);
                 echo "<br/>";
 
