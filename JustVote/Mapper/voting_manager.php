@@ -135,7 +135,22 @@ class voting_manager extends manager
         }
         return null;
     }
+    public function countvorlesungid($vorlesungsid) //benutzer sind über vorlesungen mit votings verknüpft
+    {
+        try {
+            $stmt = $this->pdo->prepare('SELECT COUNT(vorlesungsid) as Anzahl FROM voting WHERE vorlesungsid = :vorlesungsid');
+            $stmt->bindParam(':vorlesungsid', $vorlesungsid);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'vorlesungsid');
+            $ergebnis = $stmt->fetchAll();
 
+            return $ergebnis;
+
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            die();
+        }
+    }
 
 }
 ?>
