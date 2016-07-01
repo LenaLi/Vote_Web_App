@@ -129,6 +129,8 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                             <input class="form-control" type="date" name="enddatum" placeholder="Enddatum"required="required">
                             <input class="form-control" type="time" name="endzeit" placeholder="Endzeit"required="required">
                         </div>
+
+
                             <!-- Button "Erstellen"-->
                             <div class="form-group">
                                 <div class=" col-sm-6">
