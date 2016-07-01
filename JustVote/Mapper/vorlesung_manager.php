@@ -127,5 +127,25 @@ class vorlesung_manager extends manager
         }
         return null;
     }
+
+    public function countbenutzerid($benutzerid)
+    {
+        try {
+            $stmt = $this->pdo->prepare('SELECT COUNT(benutzerid) as Anzahl FROM voting WHERE benutzerid = :benutzerid');
+            $stmt->bindParam(':benutzerid', $benutzerid);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'benutzerid');
+            $ergebnis = $stmt->fetchAll();
+
+            return $ergebnis;
+
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            die();
+        }
+    }
+
+
 }
+
 ?>
