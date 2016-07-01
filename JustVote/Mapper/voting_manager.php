@@ -73,7 +73,7 @@ class voting_manager extends manager
 
     }
 
-    public function create ($vorlesungsid, $votingname, $startdatum, $enddatum, $benutzer_id)
+    public function create ($vorlesungsid, $votingname, $startdatum, $enddatum)
     {
         // Füge ein Voting der Datenbank hinzu (Attribute siehe unten)
         try {
