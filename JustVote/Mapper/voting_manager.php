@@ -136,21 +136,22 @@ class voting_manager extends manager
         return null;
     }
 
-    public function findbybenutzer_id($benutzer_id)
-    {
-        // Löschen eines zu einer bestimmten VotingId gehörenden Votings
-        try {
-            $stmt = $this->pdo->prepare('
-              DELETE FROM voting WHERE benutzer_id= :benutzer_id
-            ');
-            $stmt->bindParam(':benutzer_id', $benutzer_id);
-            $stmt->execute();
-        } catch (PDOException $e) {
-            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            return null;
-        }
-        return null;
-    }
+    public function countbenutzer_id($benutzer_id)
+      {
+          try {
+              $stmt = $this->pdo->prepare('SELECT COUNT(benutzer_id) as Anzahl FROM voting WHERE benutzer_id = :benutzer_id');
+              $stmt->bindParam(':benutzer_id', $benutzer_id);
+              $stmt->execute();
+              $stmt->setFetchMode(PDO::FETCH_CLASS, 'benutzer_id');
+              $ergebnis = $stmt->fetchAll();
+
+              return $ergebnis;
+
+          } catch (PDOException $e) {
+              echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+              die();
+          }
+      }
 
 }
 ?>

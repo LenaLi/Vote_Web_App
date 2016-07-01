@@ -2,7 +2,9 @@
 include("inc/session_check.php");
 include("inc/session_check_admin.php");
 require_once("Mapper/benutzer.php");
-require_once("Mapper/benutzer_manager.php"); ?>
+require_once("Mapper/benutzer_manager.php");
+require_once("Mapper/voting_manager.php");
+?>
 
 
 <!DOCTYPE html>
@@ -41,6 +43,7 @@ require_once("Mapper/benutzer_manager.php"); ?>
                     <th>Vorname</th>
                     <th>Nachname</th>
                     <th>Anzahl Votings</th>
+                    <th></th>
                     </thead>
                     <tbody>
 
@@ -50,7 +53,22 @@ require_once("Mapper/benutzer_manager.php"); ?>
                         echo "<tr>";
                         echo "<td>" . $benutzer->vorname . "</td>";
                         echo "<td>" . $benutzer->nachname . "</td>";
-                        echo "<td>" . $benutzer->nachname . "</td>";
+
+                        $manager=new voting_manager();
+                        $AnzahlVotings = $manager->countbenutzer_id($benutzer->id);
+
+                        foreach ($AnzahlVotings as $AnzahlVotingBenutzer)
+                        {
+                            $ZahlDerVotings = $AnzahlVotingBenutzer[Anzahl];
+                            echo "<td>" . $ZahlDerVotings . "</td>";
+                        }
+
+                        echo "<td>
+                                <a class='fa fa-edit'href ='benutzer_profil.php?id=".$benutzer->id."'></a>
+
+                        </td>";
+
+
                         echo "</tr>";
 
 
