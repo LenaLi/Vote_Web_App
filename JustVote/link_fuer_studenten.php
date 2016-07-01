@@ -39,7 +39,6 @@ require_once("Mapper/voting.php");
                     // Ausgeben des Links mit der jeweiligen ID
                     echo ' <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting.">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
 
-                    //echo "<button onclick='window.clipboard.setData()'\"https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=".$aktuellesvoting."\";'>Link kopieren</button>";
                     ?>
                 <h5>Klicke auf den Link oder scanne den QR-Code ein, um am Voting teilzunehmen</h5>
 
@@ -50,6 +49,7 @@ require_once("Mapper/voting.php");
     echo "https://chart.googleapis.com/chart?cht=qrchl=https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting.=UTF-8"
 ?>
 </div>
+
 
 <a href="http://code.google.com/apis/chart/infographics/docs/qr_codes.html">Google Chart Tools: QR Codes</a>
 <a href="http://code.google.com/p/zxing/">Google ZXing</a>
