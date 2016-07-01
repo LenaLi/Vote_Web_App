@@ -13,7 +13,7 @@ $qr->render();*/
 
 
 
-
+require_once ('src/QrCode.php');
 use Endroid\QrCode\QrCode;
 
 $qrCode = new QrCode();
