@@ -1,3 +1,5 @@
+//FÜr WAS?????
+
 <?php
 include ("inc/session_check.php");
 include ("inc/header.php");
