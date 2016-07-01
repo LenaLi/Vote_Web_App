@@ -40,10 +40,7 @@ require_once("Mapper/benutzer_manager.php"); ?>
                     <thead>
                     <th>Vorname</th>
                     <th>Nachname</th>
-                    <th>E-Mail</th>
-                    <th>Rolle</th>
-                    <th> </th>
-                    <th> </th>
+                    <th>Anzahl Votings</th>
                     </thead>
                     <tbody>
 
@@ -53,18 +50,7 @@ require_once("Mapper/benutzer_manager.php"); ?>
                         echo "<tr>";
                         echo "<td>" . $benutzer->vorname . "</td>";
                         echo "<td>" . $benutzer->nachname . "</td>";
-                        echo "<td>" . $benutzer->email . "</td>";
-                        echo "<td>" . $benutzer->role . "</td>";
-                        echo "<td>
-                                <a class='fa fa-edit'href ='benutzer_update_form.php?id=".$benutzer->id."'></a>
-
-                                </td>";
-                        echo "<td>
-
-                                <!-- Fenster: Benutzer wirklich löschen?-->
-                                <a class='fa fa-trash' href ='benutzer_delete_do.php?id=".$benutzer->id."' ></a>
-
-                            </td>";
+                        echo "<td>" . $benutzer->nachname . "</td>";
                         echo "</tr>";
 
 

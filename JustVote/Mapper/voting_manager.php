@@ -73,20 +73,21 @@ class voting_manager extends manager
 
     }
 
-    public function create ($vorlesungsid, $votingname, $startdatum, $enddatum)
+    public function create ($vorlesungsid, $votingname, $startdatum, $enddatum, $benutzer_id)
     {
         // Füge ein Voting der Datenbank hinzu (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO voting
-                (vorlesungsid, votingname, startdatum, enddatum)
+                (vorlesungsid, votingname, startdatum, enddatum, benutzer_id)
               VALUES
-                (:vorlesungsid, :votingname, :startdatum, :enddatum)
+                (:vorlesungsid, :votingname, :startdatum, :enddatum, :benutzer_id)
             ');
             $stmt->bindParam(':vorlesungsid', $vorlesungsid);
             $stmt->bindParam(':votingname', $votingname);
             $stmt->bindParam(':startdatum', $startdatum);
             $stmt->bindParam(':enddatum', $enddatum);
+            $stmt->bindParam(':benutzer_id', $benutzer_id);
 
             $stmt->execute();
             //return $stmt->fetch(PDO::FETCH_NUM);
