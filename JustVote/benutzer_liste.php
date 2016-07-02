@@ -55,12 +55,12 @@ require_once("Mapper/vorlesung_manager.php");
                         echo "<td>" . $benutzer->nachname . "</td>";
 
                         $manager=new vorlesung_manager();
-                        $AnzahlVotings = $manager->countByBenutzerID($benutzer->id);
+                        $AnzahlVorlesungen = $manager->countByBenutzerID($benutzer->benutzerid); //$benutzer->id
 
-                        foreach ($AnzahlVotings as $AnzahlVotingBenutzer)
+                        foreach ($AnzahlVorlesungen as $AnzahlVorlesungenBenutzer)
                         {
-                            $ZahlDerVotings = $AnzahlVotingBenutzer[Anzahl];
-                            echo "<td>" . $ZahlDerVotings . "</td>";
+                            $ZahlDerVorlesungen = $AnzahlVorlesungenBenutzer[Anzahl];
+                            echo "<td>" . $ZahlDerVorlesungen . "</td>";
                         }
 
                         echo "<td>
