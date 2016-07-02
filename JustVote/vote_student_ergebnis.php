@@ -72,26 +72,18 @@ $Antwortanzahl = array();
         if (!empty ($eintraege["text"])) {
 
             $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
-            
 
+            echo "Anzahl Votes: ";
+            echo $auswertung->Anzahl;
+            array_push($Antwortanzahl, $auswertung->Anzahl);
+            echo "<br/>";
             echo "Antwort: ";
             echo $eintraege["text"];
             array_push($Antwortarray, $eintraege["text"]);
-
-            echo " (";
-            echo $auswertung->Anzahl;
-            echo " Stimmen)";
-            array_push($Antwortanzahl, $auswertung->Anzahl);
             echo "<br/>";
 
-            if ($zahlDerTeilnehmer!=0){
-                $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
-            }
-            else{
-                $resultinpercent = 0;
-            }
-
-
+            $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
+            echo $resultinpercent . " %";
             array_push ($resultsinpercent, $resultinpercent);
 
         }
@@ -117,35 +109,30 @@ $Antwortanzahl = array();
 
 ?>
 
-<canvas id="myChart" width="600" height="400"></canvas>
+<canvas id="myChart" width="400" height="400"></canvas>
 <script>
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
-        type: 'doughnut',
+        type: 'bar',
         data: {
             labels: [
 
-                // hier    müssen die Antwortmöglichkeiten rein
+             // hier    müssen die Antwortmöglichkeiten rein
 
-                <?php
-                foreach($antworten as $antwort){
-                    if(!empty($antwort["text"])){
-                        echo "'".$antwort["text"]."',";
-                    }
-
-                }
-                ?>
+                "<?php echo $antworten[0]->text  ?>",
+                "<?php echo $antworten[1]->text   ?>",
+                "<?php echo $antworten[2]->text   ?>",
+                "<?php echo $antworten[3]->text   ?>"
 
             ],
             datasets: [{
                 label: '# of Votes',
                 // hier kommen die Anzahl der Abstimmungen pro Antwort rein
                 data: [
-                    <?php
-                    for($i=0; $i<sizeof($resultsinpercent); $i++){
-                        echo $resultsinpercent[$i].",";
-                    }
-                    ?>
+                    <?php echo $resultsinpercent[0]  ?>,
+                    <?php echo $resultsinpercent[1]  ?>,
+                    <?php echo $resultsinpercent[2]   ?>,
+                    <?php echo $resultsinpercent[3]   ?>
 
                 ],
                 backgroundColor: [
@@ -165,19 +152,28 @@ $Antwortanzahl = array();
             ]
         },
         options: {
+            title: {
+                display: true,
+                text: 'Custom Chart Title'
+            },
             legend:{
-                display:true,
+                display:false,
 
+            },
+            labels:{
+            fontSize: 20,
+                fontColor:"#ccc"
             },
             scales: {
 
                 yAxes: [{
                     ticks: {
-                        display:false,
-                        beginAtZero:true,
-                        max:100,
-                        stepSize:10
+                        beginAtZero:true
                     }
+                }],
+                xAxes:[{
+                    display:true,
+                    position:'bottom'
                 }]
             },
 
