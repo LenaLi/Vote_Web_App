@@ -1,20 +1,17 @@
 <?php
 include("inc/session_check.php");
-include("phpqrcode/qrlib.php");
 require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
-?>
+include("inc/header.php"); ?>
 
 
-<?php include("inc/header.php"); ?>
-
-<!DOCTYPE html>
-<html>
 <body class="mitte">
 <!-- LOGO -->
 <div class="mitte">
     <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
 </div>
+
+
 <div>
                     <?php
                     // ID wird ausgelesen und an URL drangehängt
@@ -27,7 +24,7 @@ require_once("Mapper/voting.php");
                     $voting=$voting_manager->findByVotingId($aktuellesvoting);
                     ?>
 
-                    <h1> Name der Umfrage:  </h1>
+            <h5> Name der Umfrage:  </h5>
 
                     <?php
                     //Ausgeben des Votingnamen zur zugehörigen ID
@@ -36,23 +33,21 @@ require_once("Mapper/voting.php");
 
                     <br>
 
-                    <?php
-                    // Ausgeben des Links mit der jeweiligen ID
-                    echo ' <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting.">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
+                        <?php
+                        // Ausgeben des Links mit der jeweiligen ID
+                        echo ' <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting.">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
+                        ?>
 
-                    ?>
-                <h5>Klicke auf den Link oder scanne den QR-Code ein, um am Voting teilzunehmen</h5>
+                    <br>
 
-                <?php
-                // generierter QR Code wird mit entspechender ID eingefügt
-                echo '<img src="link_fuer_studenten_qrcode.php?id='.$aktuellesvoting.'" />';
-                ?>
+                        <?php
+                        // generierter QR Code wird mit entspechender ID eingefügt
+                        echo '<img src="link_fuer_studenten_qrcode.php?id='.$aktuellesvoting.'" />';
+                        ?>
 
+                     <h5>Klicke auf den Link oder scanne den QR-Code ein, um am Voting teilzunehmen</h5>
 
-    </div>
-
-
-
+</div>
 </body>
 </html>
 
