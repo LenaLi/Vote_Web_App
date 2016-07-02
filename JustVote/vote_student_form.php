@@ -9,18 +9,22 @@ require_once("Mapper/voting.php");
 require_once("Mapper/voting_manager.php");
 include("inc/navigation_mitte.php");
 
+// Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
 $fragemanager =new frage_manager();
 
+// Voting-ID aus GET Parameter auslesen
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 
-$votings = $fragemanager->getFragebyVotingid ($votingid);
+$fragen = $fragemanager->getFragebyVotingid ($votingid);
+
+$voting_manager=new voting_manager();
 
 $voting=$voting_manager->findByVotingId($votingid);
 
 //Verhindert Manupulation nachdem Voting beendet ist
-if (date()>=strtotime($voting->enddatum)) {
+if (time()>=strtotime($voting->enddatum)) {
 
-    header('Location: .php');
+    header('Location: student_login_form.php');
     die();
 }
 ?>
@@ -30,23 +34,23 @@ if (date()>=strtotime($voting->enddatum)) {
 
 <h1>
 <?php
-echo  $votings ["text"]."</br>";
+echo  $fragen ["text"]."</br>";
 ?>
 </h1>
 
 <?php
 
-$votingmanager =new frage_manager();
+//$votingmanager =new frage_manager();
 
 
 
 //verwirrrend geschrieben!!!!
-$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
+//$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 $antwortmanager =new antwort_manager();
 
 //verwirrrend geschrieben!!!!
-$frageid = $votings ["ID"];
+$frageid = $fragen ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
 
