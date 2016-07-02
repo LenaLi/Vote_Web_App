@@ -116,7 +116,7 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                             <div class="col-sm-6"
                             <label>Startzeitpunkt: </label>
                             <label for="startdatum"></label>
-                            <input class="form-control" type="date" name="startdatum" placeholder="Startdatum" value="<?php echo date("d.m.y",time()) ?>" required="required">
+                            <input class="form-control" type="date" name="startdatum" placeholder="Startdatum" value="<?php echo date("d.m.Y",time()) ?>" required="required">
                             <input class="form-control" type="time" name="startzeit" placeholder="Startzeit"value="<?php echo date("H:i",time()) ?>"required="required">
                         </div>
 
