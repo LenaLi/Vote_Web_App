@@ -79,62 +79,62 @@ $vorlesungen=$vorlesungsmanager->findByBenutzerID($benutzerId);
                         <div class="col-sm-6"
                         <label for="frage"></label>
                         <textarea class="form-control" name="frage" rows="3" placeholder="Frage"required="required"></textarea>
+                        </div>
                     </div>
-            </div>
 
-                            <!-- Texteingabefeld für die Antwortmöglichkeit 1 -->
-                            <div class="form-group">
-                                <div class="col-sm-6"
-                                <label for="antwort_1"></label>
-                                <textarea class="form-control" name="antwort_1" rows="2" placeholder="Antwortmöglichkeit 1"required="required"></textarea>
-                            </div>
-                        </div>
-                        <!-- Texteingabefeld für die Antwortmöglichkeit 2 -->
-                        <div class="form-group">
-                            <div class="col-sm-6"
-                            <label for="antwort_2"</label>
-                            <textarea class="form-control" name="antwort_2" rows="2" placeholder="Antwortmöglichkeit 2"required="required"></textarea>
-                        </div>
-                    </div>
-                    <!-- Texteingabefeld für die Antwortmöglichkeit 3 -->
+                    <!-- Texteingabefeld für die Antwortmöglichkeit 1 -->
                     <div class="form-group">
                         <div class="col-sm-6"
-                        <label for="antwort_3"</label>
-                        <textarea class="form-control" name="antwort_3" rows="2" placeholder="Antwortmöglichkeit 3 (optional)"></textarea>
+                        <label for="antwort_1"></label>
+                        <textarea class="form-control" name="antwort_1" rows="2" placeholder="Antwortmöglichkeit 1"required="required"></textarea>
+                        </div>
                     </div>
-                </div>
-                <!-- Texteingabefeld für die Antwortmöglichkeit 4 -->
-                <div class="form-group">
-                    <div class="col-sm-6"
-                    <label for="antwort_4"</label>
-                    <textarea class="form-control" name="antwort_4" rows="2" placeholder="Antwortmöglichkeit 4 (optional)"></textarea>
-                </div>
+                    <!-- Texteingabefeld für die Antwortmöglichkeit 2 -->
+                    <div class="form-group">
+                        <div class="col-sm-6"
+                        <label for="antwort_2"</label>
+                        <textarea class="form-control" name="antwort_2" rows="2" placeholder="Antwortmöglichkeit 2"required="required"></textarea>
+                        </div>
+                     </div>
+                    <!-- Texteingabefeld für die Antwortmöglichkeit 3 -->
+                        <div class="form-group">
+                            <div class="col-sm-6"
+                                <label for="antwort_3"</label>
+                                <textarea class="form-control" name="antwort_3" rows="2" placeholder="Antwortmöglichkeit 3 (optional)"></textarea>
+                            </div>
+                        </div>
+                    <!-- Texteingabefeld für die Antwortmöglichkeit 4 -->
+                        <div class="form-group">
+                            <div class="col-sm-6"
+                            <label for="antwort_4"</label>
+                            <textarea class="form-control" name="antwort_4" rows="2" placeholder="Antwortmöglichkeit 4 (optional)"></textarea>
+                        </div>
 
 
-                <!-- Eingabefeld für die Startdatum, Startzeit -->
-                <div class="form-inline">
-                    <div class="col-sm-6"
-                    <label>Startzeitpunkt: </label>
-                    <label for="startdatum"></label>
-                    <input class="form-control" type="date" name="startdatum" placeholder="Startdatum" value="<?php echo date("d.m.y",time()) ?>" required="required">
-                    <input class="form-control" type="time" name="startzeit" placeholder="Startzeit"value="<?php echo date("H:i",time()) ?>"required="required">
-                </div>
+                    <!-- Eingabefeld für die Startdatum, Startzeit -->
+                        <div class="form-inline">
+                            <div class="col-sm-6"
+                            <label>Startzeitpunkt: </label>
+                            <label for="startdatum"></label>
+                            <input class="form-control" type="date" name="startdatum" placeholder="Startdatum" value="<?php echo date("d.m.y",time()) ?>" required="required">
+                            <input class="form-control" type="time" name="startzeit" placeholder="Startzeit"value="<?php echo date("H:i",time()) ?>"required="required">
+                        </div>
 
 
-                <!-- Eingabefeld für die Enddatum, Endzeit -->
-                <div class="form-inline">
-                    <div class="col-sm-6"
-                    <label>Endzeitpunkt: </label>
-                    <label for="enddatum"></label>
-                    <input class="form-control" type="date" name="enddatum" placeholder="Enddatum"required="required">
-                    <input class="form-control" type="time" name="endzeit" placeholder="Endzeit"required="required">
-                </div>
-                <!-- Button "Erstellen"-->
-                <div class="form-group">
-                    <div class=" col-sm-6">
-                        <button type="submit" class="btn btn-warning"> Erstellen</button>
-                    </div>
-                </div>
+                    <!-- Eingabefeld für die Enddatum, Endzeit -->
+                        <div class="form-inline">
+                            <div class="col-sm-6"
+                            <label>Endzeitpunkt: </label>
+                            <label for="enddatum"></label>
+                            <input class="form-control" type="date" name="enddatum" placeholder="Enddatum"required="required">
+                            <input class="form-control" type="time" name="endzeit" placeholder="Endzeit"required="required">
+                        </div>
+                    <!-- Button "Erstellen"-->
+                        <div class="form-group">
+                            <div class=" col-sm-6">
+                                <button type="submit" class="btn btn-warning"> Erstellen</button>
+                            </div>
+                        </div>
                 </form>
                 <!-- Ende Formular "Voting hinzufügen" -->
 

@@ -50,13 +50,30 @@ class vorlesung_manager extends manager
         }
 
     }
-    
-    
+
     public function findByBenutzerID($benutzerid)
     {
         // Lese einen zu einer bestimmten BenutzerId gehörigen Vorlesungen aus
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM vorlesung WHERE benutzerid = :benutzerid');
+            $stmt->bindParam(':benutzerid', $benutzerid);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'vorlesung');
+            $vorlesungen = $stmt->fetchAll();
+            return $vorlesungen;
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            die();
+        }
+
+    }
+
+
+    public function countByBenutzerID($benutzerid)
+    {
+        // Lese einen zu einer bestimmten BenutzerId gehörigen Vorlesungen aus
+        try {
+            $stmt = $this->pdo->prepare('SELECT COUNT (benutzerid) AS Anzahl FROM vorlesung WHERE benutzerid = :benutzerid');
             $stmt->bindParam(':benutzerid', $benutzerid);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'vorlesung');
