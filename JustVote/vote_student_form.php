@@ -92,7 +92,7 @@ echo '<input type="hidden" value="' . $frageid . '" name="frageid">';
 
 echo $_SESSION["kuerzel"];
 echo 'Kürzel:';
-echo '<input type="text" name ="email" value="'.$_SESSION["kuerzel"].'"/>';
+echo '<input type="text" name ="email" value="'.$_SESSION["kuerzel"].'"required="required"/>';
 echo '@hdm-stuttgart.de';
 
 //abschicken-button - ende des forms
