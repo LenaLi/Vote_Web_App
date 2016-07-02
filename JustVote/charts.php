@@ -12,7 +12,7 @@ include("inc/navigation_mitte.php");
 ?>
 
 
-    <!-- Test Darstellung -->
+<!-- Test Darstellung -->
 
 <?php
 // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
@@ -25,9 +25,9 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerId($_SESSION['benutzerid']);
 $votingmanager =new voting_manager();
 
 if($vorlesungen!=null)
-foreach($vorlesungen as $vorlesung){
-echo
-"<div class='panel panel-default'>
+    foreach($vorlesungen as $vorlesung){
+        echo
+        "<div class='panel panel-default'>
     <div class='panel-heading' role='tab' id='heading.$vorlesung->vorlesungsid'>
         <h4 class='panel-title'>
             <a class= 'fa-plus-square-o' role='button' data-toggle='collapse' data-parent='#accordion' href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'>
@@ -37,20 +37,20 @@ echo
         <div id='$vorlesung->vorlesungsid' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='heading.$vorlesung->vorlesungsid'>
             <div class='panel-body'>";
 
-                    // Lese Votings mit Vorlesungs-ID aus Datenbank aus
-                    $votings=$votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
+        // Lese Votings mit Vorlesungs-ID aus Datenbank aus
+        $votings=$votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
 
-                    foreach($votings as $voting){
+        foreach($votings as $voting){
 
 
-                    }
+        }
 
-                echo "</br>";
-                echo "</div>";
-            echo "</div>";
+        echo "</br>";
         echo "</div>";
-    echo "</div>";
-}
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+    }
 ?>
 
 
@@ -60,107 +60,121 @@ echo
 
 <?php
 
-    $votingmanager =new voting_manager();
-    $AllVotings = $votingmanager->findAll();
+$votingmanager =new voting_manager();
+$AllVotings = $votingmanager->findAll();
 
 
-    foreach ($AllVotings as $alleVotings) {
+foreach ($AllVotings as $alleVotings) {
 
 
-        //holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
-        $fragemanager =new frage_manager();
-        $votingid = $alleVotings->votingid;
-        $votings = $fragemanager->getFragebyVotingid ($votingid);
-        ?>
+//holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
+$fragemanager =new frage_manager();
+$votingid = $alleVotings->votingid;
+$votings = $fragemanager->getFragebyVotingid ($votingid);
+?>
 
-            <h1>
-                <?php
-                echo  $votings ["text"]."</br>";
-                ?>
-            </h1>
+<h1>
+    <?php
+    echo  $votings ["text"]."</br>";
+    ?>
+</h1>
 
-        <?php
-        //holt die zur frageID dazugehoerigen antworten aus der DB-Abfrage
-        $antwortmanager =new antwort_manager();
-        $frageid = $votings ["ID"];
-        $antworten = $antwortmanager->getAllbyFrageID($frageid);
+<?php
+//holt die zur frageID dazugehoerigen antworten aus der DB-Abfrage
+$antwortmanager =new antwort_manager();
+$frageid = $votings ["ID"];
+$antworten = $antwortmanager->getAllbyFrageID($frageid);
 
-        $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
-        $votingmanager =new frage_manager();
-        //$_SESSION["votingid"] = $VOTINGID;*/
-        $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
-
-
-    // --------------- Für Anzahl Teilnehmer ---------------------------------
-    // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
-        $auswertungsmanager =new auswertung_manager();
-    // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
-        $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
+$VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+$votingmanager =new frage_manager();
+//$_SESSION["votingid"] = $VOTINGID;*/
+$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 
-        foreach ($gesamtanzahlTeilnehmer as $eintrag) {
-            $zahlDerTeilnehmer = $eintrag->Anzahl;
+// --------------- Für Anzahl Teilnehmer ---------------------------------
+// Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
+$auswertungsmanager =new auswertung_manager();
+// lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
+$gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
+
+
+foreach ($gesamtanzahlTeilnehmer as $eintrag) {
+    $zahlDerTeilnehmer = $eintrag->Anzahl;
+}
+
+echo "Anzahl Teilnehmer: ";
+echo $zahlDerTeilnehmer;
+
+echo "<br/>";
+
+//  Für Anzahl pro Antwort einmal jede antwort durchlaufen und zu jewelige antwort die zahl reinschreiben
+$countAntwortInstanz = new auswertung_manager();
+$Antwortarray = array();
+$Antwortanzahl = array();
+$resultsinpercent = array();
+$results = array();
+//Jede Antwort und die Zahl die dafür abgestimmt haben
+foreach ($antworten as $eintraege) {
+
+    if (!empty ($eintraege["text"])) {
+
+        $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
+        echo "Antwort: ";
+        echo $eintraege["text"];
+        array_push($Antwortarray, $eintraege["text"]);
+
+        echo " (";
+        echo $auswertung->Anzahl;
+        echo " Stimmen)";
+        array_push($Antwortanzahl, $auswertung->Anzahl);
+        echo "<br/>";
+
+        if ($zahlDerTeilnehmer!=0){
+            $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
+        }
+        else{
+            $resultinpercent = 0;
         }
 
-        echo "Anzahl Teilnehmer:";
-        echo $zahlDerTeilnehmer;
+        array_push ($resultsinpercent, $resultinpercent);
+        array_push($results,$auswertung->Anzahl);
 
-        //  Für Anzahl pro Antwort einmal jede antwort durchlaufen und zu jewelige antwort die zahl reinschreiben
-        $countAntwortInstanz = new auswertung_manager();
-        $Antwortarray = array();
-        $Antwortanzahl = array();
-        $resultsinpercent = array();
-        //Jede Antwort und die Zahl die dafür abgestimmt haben
-        foreach ($antworten as $eintraege) {
-
-            if (!empty ($eintraege["text"])) {
-
-                $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
-
-                echo "Anzahl Votes: ";
-                echo $auswertung->Anzahl;
-                array_push($Antwortanzahl, $auswertung->Anzahl);
-                echo "<br/>";
-                echo "Antwort: ";
-                echo $eintraege["text"];
-                array_push($Antwortarray, $eintraege["text"]);
-                echo "<br/>";
-
-                $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
-                echo $resultinpercent . " %";
-                array_push ($resultsinpercent, $resultinpercent);
-
-            }
-        }
+    }
+}
 
 
 
 
 ?>
-<canvas id="myChart<?php echo $alleVotings->votingid?>" width="400" height="400"></canvas>
+<canvas id="myChart<?php echo $alleVotings->votingid?>" width="600" height="400" ></canvas>
 <script>
     var ctx = document.getElementById("myChart<?php echo $alleVotings->votingid?>");
     var myChart<?php echo $alleVotings->votingid?> = new Chart(ctx, {
-        type: 'bar',
+        type: 'doughnut',
         data: {
             labels: [
 
                 // hier    müssen die Antwortmöglichkeiten rein
 
-                "<?php echo $antworten[0]->text  ?>",
-                "<?php echo $antworten[1]->text   ?>",
-                "<?php echo $antworten[2]->text   ?>",
-                "<?php echo $antworten[3]->text   ?>"
+                <?php
+                foreach($antworten as $antwort){
+                    if(!empty($antwort["text"])){
+                        echo "'".$antwort["text"]."',";
+                    }
+
+                }
+                ?>
 
             ],
             datasets: [{
                 label: '% der Stimmen',
                 // hier kommen die Anzahl der Abstimmungen pro Antwort rein
                 data: [
-                    <?php echo $resultsinpercent[0]  ?>,
-                    <?php echo $resultsinpercent[1]  ?>,
-                    <?php echo $resultsinpercent[2]   ?>,
-                    <?php echo $resultsinpercent[3]   ?>
+                    <?php
+                    for($i=0; $i<sizeof($resultsinpercent); $i++){
+                        echo $resultsinpercent[$i].",";
+                    }
+                    ?>
 
                 ],
                 backgroundColor: [
@@ -184,22 +198,15 @@ echo
                 display:true,
 
             },
-            labels:{
-                display: true,
-                fontSize: 20,
-                fontColor:"#ccc"
-            },
             scales: {
 
                 yAxes: [{
                     ticks: {
+                        display:false,
                         beginAtZero:true,
-                        max:100
+                        max:100,
+                        stepSize:10
                     }
-                }],
-                xAxes:[{
-                    display:true,
-                    position:'bottom'
                 }]
             },
 

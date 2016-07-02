@@ -21,7 +21,7 @@ if($_GET["error"]=="1"){
 
 <h1>
     <?php
-  echo  $votings ["text"]."</br>";
+    echo  $votings ["text"]."</br>";
     ?>
 </h1>
 
@@ -41,98 +41,111 @@ $Antwortanzahl = array();
 
 
 
-    // --------------- Für Anzahl Teilnehmer ---------------------------------
-    // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
-        $auswertungsmanager =new auswertung_manager();
-    // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
-        $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
+// --------------- Für Anzahl Teilnehmer ---------------------------------
+// Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
+$auswertungsmanager =new auswertung_manager();
+// lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
+$gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
 
 
-            foreach ($gesamtanzahlTeilnehmer as $eintrag) {
-                $zahlDerTeilnehmer = $eintrag->Anzahl;
-            }
+foreach ($gesamtanzahlTeilnehmer as $eintrag) {
+    $zahlDerTeilnehmer = $eintrag->Anzahl;
+}
 
-        echo "Anzahl Teilnehmer: ";
-        echo $zahlDerTeilnehmer;
-
-
-    echo '<div id="ergebnis" style="width: 500px;">';
+echo "Anzahl Teilnehmer: ";
+echo $zahlDerTeilnehmer;
 
 
-    // --------------- Für Anzahl pro Antwort ---------------------------------
+echo '<div id="ergebnis" style="width: 500px;">';
 
-    // einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
 
-        $countAntwortInstanz = new auswertung_manager();
+// --------------- Für Anzahl pro Antwort ---------------------------------
 
-    echo "<br/>";
-    $resultsinpercent = array();
-    foreach ($antworten as $eintraege) {
+// einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
 
-        if (!empty ($eintraege["text"])) {
+$countAntwortInstanz = new auswertung_manager();
 
-            $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
+echo "<br/>";
+$resultsinpercent = array();
+foreach ($antworten as $eintraege) {
 
-            echo "Anzahl Votes: ";
-            echo $auswertung->Anzahl;
-            array_push($Antwortanzahl, $auswertung->Anzahl);
-            echo "<br/>";
-            echo "Antwort: ";
-            echo $eintraege["text"];
-            array_push($Antwortarray, $eintraege["text"]);
-            echo "<br/>";
+    if (!empty ($eintraege["text"])) {
 
+        $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
+
+
+        echo "Antwort: ";
+        echo $eintraege["text"];
+        array_push($Antwortarray, $eintraege["text"]);
+
+        echo " (";
+        echo $auswertung->Anzahl;
+        echo " Stimmen)";
+        array_push($Antwortanzahl, $auswertung->Anzahl);
+        echo "<br/>";
+
+        if ($zahlDerTeilnehmer!=0){
             $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
-            echo $resultinpercent . " %";
-            array_push ($resultsinpercent, $resultinpercent);
-
         }
-    }
+        else{
+            $resultinpercent = 0;
+        }
 
 
-   /*     echo '
-            <div class="progress">
-                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
-                    aria-valuenow="' . $resultinpercent . '" aria-valuemin="0" aria-valuemax="100" style="width:' . $resultinpercent . '%">
-                    <span class="sr-only">' . $resultinpercent . '</span>
-                    </div>
-            </div>';
+        array_push ($resultsinpercent, $resultinpercent);
 
     }
-    }
-    echo "</div>"; */
+}
 
 
-    // ---------------  Details --------------------
+/*     echo '
+         <div class="progress">
+             <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
+                 aria-valuenow="' . $resultinpercent . '" aria-valuemin="0" aria-valuemax="100" style="width:' . $resultinpercent . '%">
+                 <span class="sr-only">' . $resultinpercent . '</span>
+                 </div>
+         </div>';
+
+ }
+ }
+ echo "</div>"; */
+
+
+// ---------------  Details --------------------
 
 
 
 ?>
 
-<canvas id="myChart" width="400" height="400"></canvas>
+<canvas id="myChart" width="600" height="400"></canvas>
 <script>
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'doughnut',
         data: {
             labels: [
 
-             // hier    müssen die Antwortmöglichkeiten rein
+                // hier    müssen die Antwortmöglichkeiten rein
 
-                "<?php echo $antworten[0]->text  ?>",
-                "<?php echo $antworten[1]->text   ?>",
-                "<?php echo $antworten[2]->text   ?>",
-                "<?php echo $antworten[3]->text   ?>"
+                <?php
+                foreach($antworten as $antwort){
+                    if(!empty($antwort["text"])){
+                        echo "'".$antwort["text"]."',";
+                    }
+
+                }
+                ?>
 
             ],
             datasets: [{
                 label: '# of Votes',
                 // hier kommen die Anzahl der Abstimmungen pro Antwort rein
                 data: [
-                    <?php echo $resultsinpercent[0]  ?>,
-                    <?php echo $resultsinpercent[1]  ?>,
-                    <?php echo $resultsinpercent[2]   ?>,
-                    <?php echo $resultsinpercent[3]   ?>
+                    <?php
+                    for($i=0; $i<sizeof($resultsinpercent); $i++){
+                        echo $resultsinpercent[$i].",";
+                    }
+                    ?>
 
                 ],
                 backgroundColor: [
@@ -152,28 +165,19 @@ $Antwortanzahl = array();
             ]
         },
         options: {
-            title: {
-                display: true,
-                text: 'Custom Chart Title'
-            },
             legend:{
-                display:false,
+                display:true,
 
-            },
-            labels:{
-            fontSize: 20,
-                fontColor:"#ccc"
             },
             scales: {
 
                 yAxes: [{
                     ticks: {
-                        beginAtZero:true
+                        display:false,
+                        beginAtZero:true,
+                        max:100,
+                        stepSize:10
                     }
-                }],
-                xAxes:[{
-                    display:true,
-                    position:'bottom'
                 }]
             },
 
