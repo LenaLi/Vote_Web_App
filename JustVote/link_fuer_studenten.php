@@ -1,5 +1,6 @@
 <?php
 include("inc/session_check.php");
+include("phpqrcode/qrlib.php");
 require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
 ?>
@@ -59,6 +60,9 @@ require_once("Mapper/voting.php");
 
 //So muss der Link Aussehen
 http://chart.apis.google.com/chart?chs=500x500&cht=qr&chld=L&chl=https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/$aktuellesvoing>
+
+
+
 
 </body>
 </html>
