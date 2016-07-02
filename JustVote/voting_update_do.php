@@ -55,7 +55,8 @@ if (!empty($votingId) && !empty($votingName)&& !empty($frageText)&& !empty($antw
     // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
     header('Location: uebersicht.php');
 } else {
-    header('Location: voting_update_form.php?error=1');
+    echo $votingId;
+    //header('Location: voting_update_form.php?id='.$votingId.'&error=1');
 }
 ?>
 

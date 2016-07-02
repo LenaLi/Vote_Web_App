@@ -64,19 +64,19 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <form action='voting_update_do.php' method='post'>
 
                         <div class="form-group">
-                            <div class="col-sm-6"
-                                <input type='hidden' name='votingid' value='<?php echo $voting->votingid ?>' /
+                            <div class="col-sm-6">
+                                <input type='hidden' name='votingid' value='<?php echo $voting->votingid ?>' />
                             </div>
                         </div>
 
                     <div class="form-group">
-                        <div class="col-sm-6"
-                            <input type='hidden' name='vorlesungsid' value='<?php echo $voting->vorlesungsid ?>' /
+                        <div class="col-sm-6">
+                            <input type='hidden' name='vorlesungsid' value='<?php echo $voting->vorlesungsid ?>' />
                         </div>
                     </div>
 
             <div class="form-group">
-                <div class="col-sm-6"
+                <div class="col-sm-6">
                      Votingname:
                 <input type='text' name='votingname' value='<?php echo $voting->votingname ?>' required="required"/><br>            </div>
         </div>

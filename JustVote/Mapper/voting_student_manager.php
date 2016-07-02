@@ -88,6 +88,23 @@ class voting_student_manager extends manager
     }
 
 
+    public function delete($votingid)
+    {
+        // Löschen eines zu einer bestimmten VotingId gehörenden Votings
+        try {
+            $stmt = $this->pdo->prepare('
+              DELETE FROM voting_student WHERE votingid= :votingid
+            ');
+            $stmt->bindParam(':votingid', $votingid);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+            return null;
+        }
+        return null;
+    }
+
+
 
 }
 ?>
