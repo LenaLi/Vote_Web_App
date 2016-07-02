@@ -13,6 +13,7 @@
         // Benutzer ist noch nicht eingeloggt
         $_SESSION = array();
         session_destroy();
+
 ?>
 
  <div class="mitte">

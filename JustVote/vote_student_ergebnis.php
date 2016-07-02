@@ -21,7 +21,7 @@ if($_GET["error"]=="1"){
 
 <h1>
     <?php
-  echo  $votings ["text"]."</br>";
+    echo  $votings ["text"]."</br>";
     ?>
 </h1>
 
@@ -41,77 +41,77 @@ $Antwortanzahl = array();
 
 
 
-    // --------------- Für Anzahl Teilnehmer ---------------------------------
-    // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
-        $auswertungsmanager =new auswertung_manager();
-    // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
-        $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
+// --------------- Für Anzahl Teilnehmer ---------------------------------
+// Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
+$auswertungsmanager =new auswertung_manager();
+// lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
+$gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
 
 
-            foreach ($gesamtanzahlTeilnehmer as $eintrag) {
-                $zahlDerTeilnehmer = $eintrag->Anzahl;
-            }
+foreach ($gesamtanzahlTeilnehmer as $eintrag) {
+    $zahlDerTeilnehmer = $eintrag->Anzahl;
+}
 
-        echo "Anzahl Teilnehmer: ";
-        echo $zahlDerTeilnehmer;
-
-
-    echo '<div id="ergebnis" style="width: 500px;">';
+echo "Anzahl Teilnehmer: ";
+echo $zahlDerTeilnehmer;
 
 
-    // --------------- Für Anzahl pro Antwort ---------------------------------
-
-    // einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
-
-        $countAntwortInstanz = new auswertung_manager();
-
-    echo "<br/>";
-    $resultsinpercent = array();
-    foreach ($antworten as $eintraege) {
-
-        if (!empty ($eintraege["text"])) {
-
-            $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
-            
-
-            echo "Antwort: ";
-            echo $eintraege["text"];
-            array_push($Antwortarray, $eintraege["text"]);
-
-            echo " (";
-            echo $auswertung->Anzahl;
-            echo " Stimmen)";
-            array_push($Antwortanzahl, $auswertung->Anzahl);
-            echo "<br/>";
-
-            if ($zahlDerTeilnehmer!=0){
-                $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
-            }
-            else{
-                $resultinpercent = 0;
-            }
+echo '<div id="ergebnis" style="width: 500px;">';
 
 
-            array_push ($resultsinpercent, $resultinpercent);
+// --------------- Für Anzahl pro Antwort ---------------------------------
 
+// einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
+
+$countAntwortInstanz = new auswertung_manager();
+
+echo "<br/>";
+$resultsinpercent = array();
+foreach ($antworten as $eintraege) {
+
+    if (!empty ($eintraege["text"])) {
+
+        $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
+
+
+        echo "Antwort: ";
+        echo $eintraege["text"];
+        array_push($Antwortarray, $eintraege["text"]);
+
+        echo " (";
+        echo $auswertung->Anzahl;
+        echo " Stimmen)";
+        array_push($Antwortanzahl, $auswertung->Anzahl);
+        echo "<br/>";
+
+        if ($zahlDerTeilnehmer!=0){
+            $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
         }
-    }
+        else{
+            $resultinpercent = 0;
+        }
 
 
-   /*     echo '
-            <div class="progress">
-                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
-                    aria-valuenow="' . $resultinpercent . '" aria-valuemin="0" aria-valuemax="100" style="width:' . $resultinpercent . '%">
-                    <span class="sr-only">' . $resultinpercent . '</span>
-                    </div>
-            </div>';
+        array_push ($resultsinpercent, $resultinpercent);
 
     }
-    }
-    echo "</div>"; */
+}
 
 
-    // ---------------  Details --------------------
+/*     echo '
+         <div class="progress">
+             <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
+                 aria-valuenow="' . $resultinpercent . '" aria-valuemin="0" aria-valuemax="100" style="width:' . $resultinpercent . '%">
+                 <span class="sr-only">' . $resultinpercent . '</span>
+                 </div>
+         </div>';
+
+ }
+ }
+ echo "</div>"; */
+
+
+// ---------------  Details --------------------
 
 
 
