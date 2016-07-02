@@ -5,17 +5,28 @@ include("inc/header.php");
 require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort_manager.php");
 require_once("Mapper/auswertung_manager.php");
+require_once("Mapper/voting.php");
+require_once("Mapper/voting_manager.php");
 include("inc/navigation_mitte.php");
+
+$fragemanager =new frage_manager();
+
+$votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+
+$votings = $fragemanager->getFragebyVotingid ($votingid);
+
+$voting=$voting_manager->findByVotingId($votingid);
+
+//Verhindert Manupulation nachdem Voting beendet ist
+if (date()>=strtotime($voting->enddatum)) {
+
+    header('Location: .php');
+    die();
+}
 ?>
 
 <!DOCTYPE html>
 <html>
-
-<?php
-$fragemanager =new frage_manager();
-$votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
-$votings = $fragemanager->getFragebyVotingid ($votingid);
-?>
 
 <h1>
 <?php
@@ -25,15 +36,21 @@ echo  $votings ["text"]."</br>";
 
 <?php
 
+$votingmanager =new frage_manager();
+
+
+
+//verwirrrend geschrieben!!!!
+$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
+
 $antwortmanager =new antwort_manager();
+
+//verwirrrend geschrieben!!!!
 $frageid = $votings ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
 
-$VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
-$votingmanager =new frage_manager();
 
-$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 
 // Prüfung ob Student schon für Votings abgestimmt hat --> ÜBER DATENBANK!!!!!!!!!!
