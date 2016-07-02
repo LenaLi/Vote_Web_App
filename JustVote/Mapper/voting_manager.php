@@ -135,7 +135,7 @@ class voting_manager extends manager
         }
         return null;
     }
-    public function countvorlesungid($vorlesungsid) //benutzer sind über vorlesungen mit votings verknüpft
+    public function countvorlesungsid($vorlesungsid) //benutzer sind über vorlesungen mit votings verknüpft
     {
         try {
             $stmt = $this->pdo->prepare('SELECT COUNT(vorlesungsid) as Anzahl FROM voting WHERE vorlesungsid = :vorlesungsid');

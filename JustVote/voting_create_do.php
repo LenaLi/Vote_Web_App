@@ -25,8 +25,8 @@ if (!empty($votingName)&& !empty($frage)&& !empty($antwort_1) && !empty($antwort
     $manager=new voting_manager();
 
     // neues Voting erzeugen mit den POST Parametern
-    $voting_id = $manager->create($vorlesungsId, $votingName, $startDatum,$endDatum,$_SESSION ['benutzerid']);
-    
+    $voting_id = $manager->create($vorlesungsId, $votingName, $startDatum,$endDatum);
+
     // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new frage_manager();
 
@@ -44,7 +44,7 @@ if (!empty($votingName)&& !empty($frage)&& !empty($antwort_1) && !empty($antwort
 
 
     // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
-   header('Location: uebersicht.php');
+    header('Location: uebersicht.php');
 }
 else {
     header('Location: voting_create_form.php?error=1');

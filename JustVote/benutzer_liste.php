@@ -55,7 +55,7 @@ require_once("Mapper/voting_manager.php");
                         echo "<td>" . $benutzer->nachname . "</td>";
 
                         $manager=new voting_manager();
-                        $AnzahlVotings = $manager->countbenutzer_id($benutzer->id);
+                        $AnzahlVotings = $manager->countvorlesungsid($benutzer->id);
 
                         foreach ($AnzahlVotings as $AnzahlVotingBenutzer)
                         {
