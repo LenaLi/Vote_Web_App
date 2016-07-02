@@ -146,7 +146,7 @@ foreach ($antworten as $eintraege) {
 
 
 ?>
-<canvas id="myChart<?php echo $alleVotings->votingid?>" width="600" height="400" ></canvas>
+<canvas id="myChart<?php echo $alleVotings->votingid?>" width="100%" height="100%" ></canvas>
 <script>
     var ctx = document.getElementById("myChart<?php echo $alleVotings->votingid?>");
     var myChart<?php echo $alleVotings->votingid?> = new Chart(ctx, {
