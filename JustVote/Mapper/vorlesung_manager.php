@@ -73,7 +73,7 @@ class vorlesung_manager extends manager
     {
         // Zähle eine zu einer bestimmten BenutzerId gehörigen Anzahl an Vorlesungen aus
         try {
-            $stmt = $this->pdo->prepare('SELECT COUNT (benutzerid) as Anzahl FROM vorlesung WHERE benutzerid = :benutzerid');
+            $stmt = $this->pdo->prepare('SELECT COUNT(benutzerid) as Anzahl FROM vorlesung WHERE benutzerid = :benutzerid');
             $stmt->bindParam(':benutzerid', $benutzerid);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'vorlesung');

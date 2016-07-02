@@ -42,7 +42,7 @@ require_once("Mapper/vorlesung_manager.php");
                     <thead>
                     <th>Vorname</th>
                     <th>Nachname</th>
-                    <th>Anzahl Votings</th>
+                    <th>Anzahl Vorlesungen</th>
                     <th></th>
                     </thead>
                     <tbody>
@@ -59,7 +59,7 @@ require_once("Mapper/vorlesung_manager.php");
 
                         foreach ($AnzahlVorlesungen as $AnzahlVorlesungenBenutzer)
                         {
-                            $ZahlDerVorlesungen = $AnzahlVorlesungenBenutzer[Anzahl];
+                            $ZahlDerVorlesungen = $AnzahlVorlesungenBenutzer->Anzahl;
                             echo "<td>" . $ZahlDerVorlesungen . "</td>";
                         }
 
