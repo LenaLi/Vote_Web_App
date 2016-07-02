@@ -36,7 +36,7 @@ require_once("Mapper/vorlesung_manager.php");
                     echo "<div class='alert alert-success'> <strong> Erfolgreich: </strong>Benutzer wurde angelegt und E-Mail mit den Zugangsdaten wurde versendet! </div>";
                 }
                 ?>
-                <h1>Benutzerübersicht</h1>
+                <h1>Benutzer&uumlbersicht</h1>
 
                 <table  class="table table-hover">
                     <thead>
@@ -57,9 +57,11 @@ require_once("Mapper/vorlesung_manager.php");
                         $manager=new vorlesung_manager();
                         $AnzahlVorlesungen = $manager->countByBenutzerID($benutzer->benutzerid); //$benutzer->id
 
+
                         foreach ($AnzahlVorlesungen as $AnzahlVorlesungenBenutzer)
                         {
                             $ZahlDerVorlesungen = $AnzahlVorlesungenBenutzer->Anzahl;
+                            print_r($AnzahlVorlesungenBenutzer);
                             echo "<td>" . $ZahlDerVorlesungen . "</td>";
                         }
 
