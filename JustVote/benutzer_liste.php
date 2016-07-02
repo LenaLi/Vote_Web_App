@@ -3,7 +3,7 @@ include("inc/session_check.php");
 include("inc/session_check_admin.php");
 require_once("Mapper/benutzer.php");
 require_once("Mapper/benutzer_manager.php");
-require_once("Mapper/voting_manager.php");
+require_once("Mapper/vorlesung_manager.php");
 ?>
 
 
@@ -54,8 +54,8 @@ require_once("Mapper/voting_manager.php");
                         echo "<td>" . $benutzer->vorname . "</td>";
                         echo "<td>" . $benutzer->nachname . "</td>";
 
-                        $manager=new voting_manager();
-                        $AnzahlVotings = $manager->countvorlesungsid($benutzer->id);
+                        $manager=new vorlesung_manager();
+                        $AnzahlVotings = $manager->countByBenutzerID($benutzer->id);
 
                         foreach ($AnzahlVotings as $AnzahlVotingBenutzer)
                         {
