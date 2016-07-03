@@ -80,6 +80,7 @@ body {
 
 .top-nav {
     padding: 0 15px;
+    background-color: #222;
 }
 
 .top-nav>li {
@@ -146,10 +147,10 @@ ul.alert-dropdown {
 
 /* Side Navigation */
 
-@media(min-width:768px) {
+@media (min-width:768px) {
     .side-nav {
         position: fixed;
-        top: 120px;
+        top: 114px;
         left: 225px;
         width: 225px;
         margin-left: -225px;
@@ -161,6 +162,7 @@ ul.alert-dropdown {
         overflow-x: hidden;
         padding-bottom: 40px;
     }
+
 
     .side-nav>li>a {
         width: 225px;

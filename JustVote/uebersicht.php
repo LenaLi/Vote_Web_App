@@ -37,7 +37,8 @@ require_once("Mapper/voting_manager.php");
                                 "<div class='panel panel-default'>
                                     <div class='panel-heading' role='tab' id='heading.$vorlesung->vorlesungsid'>
                                         <h4 class='panel-title'>
-                                  <a class='fa-caret-square-o-down' href ='vorlesung_update_form.php?id=".$vorlesung->vorlesungsid."'></a>
+                                            <a class='fa fa-caret-square-o-down'role='button' data-toggle='collapse' data-parent='#accordion'
+                                             href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'></a>
                                              <a  role='button' data-toggle='collapse' data-parent='#accordion'
                                              href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'>
                                               $vorlesung->vorlesungsname  "," ($vorlesung->vorlesungsnummer)
