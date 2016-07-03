@@ -24,6 +24,7 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerId($_SESSION['benutzerid']);
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
 $votingmanager =new voting_manager();
 
+/* TODO: Votings den Vorlesungen zu ordnen
 if($vorlesungen!=null)
     foreach($vorlesungen as $vorlesung){
         echo
@@ -36,21 +37,8 @@ if($vorlesungen!=null)
         </h4>
         <div id='$vorlesung->vorlesungsid' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='heading.$vorlesung->vorlesungsid'>
             <div class='panel-body'>";
+*/
 
-        // Lese Votings mit Vorlesungs-ID aus Datenbank aus
-        $votings=$votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
-
-        foreach($votings as $voting){
-
-
-        }
-
-        echo "</br>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-        echo "</div>";
-    }
 ?>
 
 
@@ -75,7 +63,9 @@ $votings = $fragemanager->getFragebyVotingid ($votingid);
 
 <h1>
     <?php
+    echo "<h1>";
     echo  $votings ["text"]."</br>";
+    echo "</h1>";
     ?>
 </h1>
 
@@ -102,8 +92,10 @@ foreach ($gesamtanzahlTeilnehmer as $eintrag) {
     $zahlDerTeilnehmer = $eintrag->Anzahl;
 }
 
-echo "Anzahl Teilnehmer: ";
+echo "<h5>";
+echo "Anzahl Teilnehmer:";
 echo $zahlDerTeilnehmer;
+echo "</h5>";
 
 echo "<br/>";
 
@@ -146,7 +138,7 @@ foreach ($antworten as $eintraege) {
 
 
 ?>
-<canvas id="myChart<?php echo $alleVotings->votingid?>" width="100%" height="100%" ></canvas>
+<canvas id="myChart<?php echo $alleVotings->votingid?>" width="auto" height="auto" ></canvas>
 <script>
     var ctx = document.getElementById("myChart<?php echo $alleVotings->votingid?>");
     var myChart<?php echo $alleVotings->votingid?> = new Chart(ctx, {

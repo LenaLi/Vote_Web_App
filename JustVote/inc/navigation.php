@@ -18,7 +18,7 @@
             </button>
 
                 <img class="navbar-logo" href="uebersicht.php" title="JustVote"
-                     src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg">  </img>
+                     src="css/Logo_JustVote.svg">  </img>
 
         </div>
 
@@ -92,21 +92,11 @@
                     </li>
 
 
-<!--
-                    <li>
-                        <a href="benutzer_create_form.php"><span class="fa fa-plus"></span> Benutzer</a>
-                    </li>
-
-                     Benutzer Übersicht
-                    <li>
-                        <a href="benutzer_read.php"><span class="glyphicon glyphicon-user"></span> Benutzer verwalten</a>
-                    </li>
-
                     <?php
 
                 }
                 ?>
--->
+
 
                 <hr class="line">  </hr>
 
