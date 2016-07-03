@@ -18,26 +18,24 @@ class voting_student_manager extends manager
 
     public function findByVotingName ($votingname)
     {
-        // Lese Votingname aus
+        // Lese Votingname eines Votings aus
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM voting WHERE  votingname= :votingname');
             $stmt->bindParam(':votingname', $votingname);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting');
             $name = $stmt->fetchAll();
-
             return $name;
 
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             die();
         }
-
     }
-
 
     public function create ($voting_id, $student_id)
     {
+        // Füge ein Voting der Datenbank hinzu (Attribute siehe unten)
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO voting_student
@@ -47,9 +45,6 @@ class voting_student_manager extends manager
             ');
             $stmt->bindParam(':voting_id', $voting_id);
             $stmt->bindParam(':student_id', $student_id);
-
-
-
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
@@ -60,17 +55,15 @@ class voting_student_manager extends manager
 
     public function findVotingsByStudent($student_id)
     {
+        // Lese zur StudentId zu ein zugehöriges Voting des Studenten aus
         try {
             $stmt = $this->pdo->prepare('
               SELECT *
               FROM voting_student 
               WHERE student_id= :student_id
             ');
-
             $stmt->bindParam(':student_id', $student_id);
-
             $stmt->execute();
-
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting_student');
             return $stmt->fetchAll();
 
@@ -97,8 +90,6 @@ class voting_student_manager extends manager
         }
         return null;
     }
-
-
 
 }
 ?>

@@ -24,7 +24,6 @@ class vorlesung_manager extends manager
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'vorlesung');
             return $stmt->fetchAll();
 
-
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             die();
@@ -41,16 +40,13 @@ class vorlesung_manager extends manager
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'vorlesung');
             $vorlesung = $stmt->fetch();
-
             return $vorlesung;
 
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             die();
         }
-
     }
-    
     
     public function findByBenutzerID($benutzerid)
     {
@@ -66,7 +62,6 @@ class vorlesung_manager extends manager
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             die();
         }
-
     }
 
 
@@ -83,7 +78,6 @@ class vorlesung_manager extends manager
             $stmt->bindParam(':benutzerid', $benutzerid);
             $stmt->bindParam(':vorlesungsname', $vorlesungsname);
             $stmt->bindParam(':vorlesungsnummer', $vorlesungsnummer);
-
             $stmt->execute();
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");

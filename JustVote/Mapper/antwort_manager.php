@@ -78,7 +78,7 @@ class antwort_manager extends manager
     }
     public function deleteByFrageId($frageID)
     {
-        // Löschen eines zu einer bestimmten VotingId gehörenden Votings
+        // Löschen eines zu einer bestimmten FrageId gehörenden Votings
         try {
             $stmt = $this->pdo->prepare('
               DELETE FROM antwort WHERE frageID= :frageID
