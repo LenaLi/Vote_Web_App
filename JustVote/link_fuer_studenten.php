@@ -5,6 +5,20 @@ require_once("Mapper/voting.php");
 include("inc/header.php"); ?>
 
 
+<!-- ID auslesen -->
+<?php
+// ID wird ausgelesen und an URL drangehängt
+$aktuellesvoting=$_GET['id'];
+
+// Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
+$voting_manager = new voting_manager();
+
+// lese Voting aus Datenbank mit der Funktion findByVotingID
+$voting=$voting_manager->findByVotingId($aktuellesvoting);
+?>
+
+
+
 <body class="mitte">
 <!-- LOGO -->
 <div class="mitte">
@@ -12,30 +26,20 @@ include("inc/header.php"); ?>
 </div>
 
 
+
 <div>
-                    <?php
-                    // ID wird ausgelesen und an URL drangehängt
-                    $aktuellesvoting=$_GET['id'];
 
-                    // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
-                    $voting_manager = new voting_manager();
+    <?php
+    //Ausgeben des Votingnamen zur zugehörigen ID
+    echo "Umfrage:". "<h1>".$voting->votingname."</h1>";
+    ?>
 
-                    // lese Voting aus Datenbank mit der Funktion findByVotingID
-                    $voting=$voting_manager->findByVotingId($aktuellesvoting);
-                    ?>
-
-            <h5> Name der Umfrage:  </h5>
-
-                    <?php
-                    //Ausgeben des Votingnamen zur zugehörigen ID
-                    echo "<h1>".$voting->votingname."</h1>";
-                    ?>
 
                     <br>
 
                         <?php
                         // Ausgeben des Links mit der jeweiligen ID
-                        echo ' <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting.">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
+                        echo 'Link: <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting.">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
                         ?>
 
                     <br>
@@ -45,7 +49,16 @@ include("inc/header.php"); ?>
                         echo '<img src="link_fuer_studenten_qrcode.php?id='.$aktuellesvoting.'" />';
                         ?>
 
-                     <h5>Klicke auf den Link oder scanne den QR-Code ein, um am Voting teilzunehmen</h5>
+
+                    <br>
+
+
+  <!--  <a href="<?php
+    echo "https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting.";
+    ?>" class="btn btn-primary" role="button">zur Umfrage</a> -->
+
+
+
 
 </div>
 </body>
