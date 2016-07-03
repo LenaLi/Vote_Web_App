@@ -45,7 +45,7 @@
 <a href="student_register_form.php">Registrieren</a>
 
 
-// Prüfung ob Benutzername oder Passwort falsch eingegeben wurden
+<!-- // Prüfung ob Benutzername oder Passwort falsch eingegeben wurden-->
 <?php
 if($_GET["error"]=="1"){
     ?>
