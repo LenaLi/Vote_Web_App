@@ -14,7 +14,9 @@ $votings = $fragemanager->getFragebyVotingid ($votingid);
 
 //FEHLERMELDUNG
 if($_GET["error"]=="1"){
+    echo "<div class='alert alert-danger' role='alert'>";
     echo "Du hast bereits abgestimmt!";
+    echo "</div";
 }
 
 ?>
@@ -56,7 +58,7 @@ echo "Anzahl Teilnehmer: ";
 echo $zahlDerTeilnehmer;
 
 
-echo '<div id="ergebnis" style="width: 500px;">';
+echo '<div id="ergebnis">';
 
 
 // --------------- Für Anzahl pro Antwort ---------------------------------
@@ -98,26 +100,13 @@ foreach ($antworten as $eintraege) {
 }
 
 
-/*     echo '
-         <div class="progress">
-             <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
-                 aria-valuenow="' . $resultinpercent . '" aria-valuemin="0" aria-valuemax="100" style="width:' . $resultinpercent . '%">
-                 <span class="sr-only">' . $resultinpercent . '</span>
-                 </div>
-         </div>';
-
- }
- }
- echo "</div>"; */
-
-
 // ---------------  Details --------------------
 
 
 
 ?>
 
-<canvas id="myChart" width="600" height="400"></canvas>
+<canvas id="myChart" width="50%" height="50%"></canvas>
 <script>
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {

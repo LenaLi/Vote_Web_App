@@ -2,7 +2,11 @@
 include("inc/session_check.php");
 require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
-include("inc/header.php"); ?>
+include("inc/header.php");
+include("inc/social_plugin/social_plugin.php");
+require_once("Mapper/vorlesung.php");
+require_once("Mapper/vorlesung_manager.php");
+?>
 
 
 <!-- ID auslesen -->
@@ -15,6 +19,7 @@ $voting_manager = new voting_manager();
 
 // lese Voting aus Datenbank mit der Funktion findByVotingID
 $voting=$voting_manager->findByVotingId($aktuellesvoting);
+
 ?>
 
 
@@ -57,6 +62,37 @@ $voting=$voting_manager->findByVotingId($aktuellesvoting);
     echo "https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting.";
     ?>" class="btn btn-primary" role="button">zur Umfrage</a> -->
 
+
+    <br>
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <!-- Facebook Share Button -->
+    <div class="fb-share-button"
+         data-href="<?php
+         echo "https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting.";
+         ?>"
+         data-layout="button_count">
+    </div>
+
+
+    <!-- Mail Share Button -->
+    <a class="fa fa-envelope-o" href="mailto:?subject=Teilnahme an der Umfrage
+    <?php echo $voting->votingname;?>&amp;body=<?php
+    echo "Hallo Studenten,";
+    echo "Unter diesem Link könne Sie an der Umfrage '$voting->votingname' teilnehmen: https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting";
+    ?>"
+       title="Link per Mail verschicken">
+    </a>
 
 
 
