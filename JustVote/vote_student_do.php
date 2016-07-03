@@ -45,6 +45,4 @@ foreach ($votings as $voting){
 
 //header redirect
 header('Location: vote_student_ergebnis.php?id=' . $postvoting);
-//header('Location: vote_student_form.php?id=' . $postvoting);
-
 ?>
