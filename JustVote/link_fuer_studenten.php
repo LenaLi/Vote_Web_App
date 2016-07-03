@@ -85,7 +85,6 @@ $voting=$voting_manager->findByVotingId($aktuellesvoting);
     </div>
 
 
-
     <!-- Mail Share Button -->
     <a class="fa fa-envelope-o" href="mailto:?subject=Teilnahme an der Umfrage
     <?php echo $voting->votingname;?>&amp;body=<?php
