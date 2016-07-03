@@ -41,12 +41,11 @@ echo  $fragen ["text"]."</br>";
 
 
 
-//verwirrrend geschrieben!!!!
 //$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 $antwortmanager =new antwort_manager();
 
-//verwirrrend geschrieben!!!!
+
 $frageid = $fragen ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
@@ -80,8 +79,6 @@ foreach ($antworten as $eintrag) {
         echo "</div>";
         echo "</br>";
     }
-
-  //echo "<input type='checkbox' name='rb_antworten' value='" . $eintrag ["ID"] . "'/>" . $eintrag ["text"] . "</br>";
 }
 //hiddenfields um die felder zu übertragen
 echo '<input type="hidden" value="' . $votingid . '" name="votingid">';
