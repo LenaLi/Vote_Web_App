@@ -51,18 +51,17 @@ require_once("Mapper/voting_manager.php");
 
                             // Überschriften der Tabellen
                                 echo "<thead><tr>";
+
                                 echo "<th colspan='7'> Voting Name </th>";
                                 echo "<th colspan='3'> Zeitraum </th>";
                                 echo "<th colspan='3'> Status </th>";
 
-
-                            echo " </tr></thead>";
+                                echo " </tr></thead>";
 
                             // Lese Votings mit Vorlesungs-ID aus Datenbank aus
                             $votings=$votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
 
                             foreach($votings as $voting){
-
 
 
                                 // Farbe der Zeile (Status des Votings)
@@ -80,9 +79,6 @@ require_once("Mapper/voting_manager.php");
                                     echo "<th colspan='7'>" . $voting->votingname . " </th>";
                                 }
 
-
-
-
                                 //Zeitraum des Votings
                                     $startdatum = $voting->startdatum;
                                     $startdatum = date("d.m.y, H:i",strtotime($startdatum))." Uhr";
@@ -90,10 +86,7 @@ require_once("Mapper/voting_manager.php");
                                     $enddatum = date("d.m.y, H:i",strtotime($enddatum))." Uhr";
                                     echo "<td colspan='3'>Start: " . $startdatum ." Ende: ".$enddatum .
 
-
                                         "</td>";
-
-
 
                                 // Status des Votings
                                 if (strtotime($voting->startdatum)<=time()){
@@ -106,7 +99,6 @@ require_once("Mapper/voting_manager.php");
                                 else {
                                     echo "<td colspan='3'> ausstehend</td>";
                                 }
-
 
                                 //Start + Stoppbutton
                                     echo "<td>";
@@ -122,8 +114,6 @@ require_once("Mapper/voting_manager.php");
                                     }
                                     echo "</td>";
 
-
-                                // Link des Votings // TODO: Link für das Voting (QR usw.) eingeben
 
                                 if (strtotime($voting->startdatum)<=time()){
                                     if (strtotime($voting->enddatum)<=time()){
@@ -152,7 +142,7 @@ require_once("Mapper/voting_manager.php");
 
                             echo "</table>";
                             echo "
-                            <a href='voting_create_form.php'><i class='fa fa-plus'></i> Voting</a>";
+                                <a href='voting_create_form.php'><i class='fa fa-plus'></i> Voting</a>";
                             echo "</br>";
                             echo "</div>";
                             echo "</div>";
@@ -160,13 +150,10 @@ require_once("Mapper/voting_manager.php");
                             echo "</div>";
                             }
                         ?>
-
                     </div>
                 </div>
             </div>
         </div>
-
-
 </body>
 </html>
 

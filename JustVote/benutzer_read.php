@@ -60,11 +60,11 @@ require_once("Mapper/benutzer_manager.php");
                                 
                                 </td>";
                             echo "<td>
-
-                                <!-- Fenster: Benutzer wirklich löschen?-->
+                                
+                                <!-- Fenster: Benutzer wirklich löschen??????????????????????????-->
                                 <a class='fa fa-trash' href ='benutzer_delete_do.php?id=".$benutzer->id."' ></a>
-
-                            </td>";
+                                
+                                </td>";
                             echo "</tr>";
                         }
                         ?>

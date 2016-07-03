@@ -67,12 +67,6 @@ class voting_student_manager extends manager
               WHERE student_id= :student_id
             ');
 
-            //$stmt = $this->pdo->prepare('
-              //SELECT voting.votingid, voting.vorlesungsid, voting.startdatum, voting.enddatum, voting.votingname
-              //FROM voting, voting_student
-              //WHERE voting.votingid = :voting_id and (voting_student.student_id = :student_id and voting_student.votingid=:voting_id)
-            //');
-
             $stmt->bindParam(':student_id', $student_id);
 
             $stmt->execute();

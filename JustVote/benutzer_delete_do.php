@@ -22,8 +22,7 @@ $vorlesung_manager = new vorlesung_manager();
 $vorlesungen=$vorlesung_manager->findByBenutzerID($id);
 
 foreach ($vorlesungen as $vorlesung){
-
-
+    
     $votings=$voting_manager->findByVorlesungsId($vorlesung->vorlesungsid);
 
     // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
