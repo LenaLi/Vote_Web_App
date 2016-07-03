@@ -43,12 +43,8 @@ if($vorlesungen!=null)
 
 ?>
 
-
-
-
-
-
 <?php
+// Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
 $fragemanager =new frage_manager();
 foreach ($vorlesungen as $vorlesung){
     $votingsByVorlesungsId = $votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
@@ -135,10 +131,7 @@ foreach ($vorlesungen as $vorlesung){
 
         }
     }
-
-
-
-
+    
     ?>
     <canvas id="myChart<?php echo $voting->votingid?>" width="auto" height="auto" ></canvas>
     <script>
