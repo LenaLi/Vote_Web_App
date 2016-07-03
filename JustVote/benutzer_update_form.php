@@ -9,7 +9,6 @@ require_once("Mapper/benutzer.php");
 <html>
 
 <?php
-
 // Benutzer-ID aus GET Parameter auslesen
 $id = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 

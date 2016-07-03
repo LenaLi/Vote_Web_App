@@ -99,13 +99,13 @@ class student_manager extends manager
                 $to = $email;
                 $subject = "Neues Konto bei Just Vote";
                 $message = "Hallo ".$vorname." ".$nachname.",\n\n Es wurde ein Konto für Sie bei JustVote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: ".$email."\n Das Passwort haben Sie selbst eingegeben.\n\n MFG\n Ihr Just Vote Team";
-                //mail($to,$subject,$message);
+                mail($to,$subject,$message);
             }
 
 
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            return false;
+            //return false;
         }
         return true;
     }

@@ -10,7 +10,7 @@ $postvoting=htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
 $postfrage=htmlspecialchars($_POST["frageid"], ENT_QUOTES, "UTF-8");
 $email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
 
-
+//????????????
 $student_manager = new student_manager();
 $email .= "@hdm-stuttgart.de";
 $student = $student_manager->findByEmail($email);

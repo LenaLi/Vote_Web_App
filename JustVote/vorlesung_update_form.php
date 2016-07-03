@@ -21,7 +21,6 @@ $vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsId);
 
 ?>
 
-
 <body>
 
 <?php include("inc/navigation.php"); ?>
@@ -43,8 +42,7 @@ $vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsId);
                         echo "<div class='alert alert-danger'> <strong> Fehler: </strong>Bitte alle Felder ausfüllen </div>";
                     }
                     ?>
-
-
+                    
                     <!-- Beginn Formular "Vorlesung aktualisieren" -->
                     <form class="form-horizontal" role="form" action="vorlesung_update_do.php" method="post">
 
@@ -68,8 +66,7 @@ $vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsId);
                                 <input type="text" class="form-control" name="vorlesungsname" value='<?php echo $vorlesung->vorlesungsname ?>'/>
                             </div>
                         </div>
-
-
+                        
                         <!-- Button "Erstellen"-->
                         <div class="form-group">
                             <div class=" col-sm-6">
@@ -77,15 +74,10 @@ $vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsId);
                             </div>
                         </div>
                         <!-- Ende Formular "Vorlesung aktualisieren" -->
-
-
-
-
                 </div>
             </div>
         </div>
 </div>
-
 </div>
 </body>
 </html>

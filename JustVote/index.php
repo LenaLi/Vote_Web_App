@@ -1,26 +1,22 @@
-<!DOCTYPE html>
-<html>
-
-<?php include("inc/header.php"); ?>
-<!-- LOGO + mittige Ausrichtung -->
-<?php include("inc/navigation_mitte.php"); ?>
-
-
 <?php
+include("inc/header.php");
+include("inc/navigation_mitte.php");
+
     session_start();
     if ($_SESSION ["login"]<>"1") {
 
         // Benutzer ist noch nicht eingeloggt
         $_SESSION = array();
         session_destroy();
-
 ?>
+
+<!DOCTYPE html>
+<html>
 
  <div class="mitte">
      <h1>Dozentenlogin </h1>
      <h4>für Dozenten der HdM Stuttgart</h4>
 </div>
-
         <div class="login">
        <form class="form-horizontal" role="form" action="login_do.php" method="post">
 
@@ -44,11 +40,11 @@
                         </div>
                 </div>
        </form>
-                    <a href="student_login_form.php">Student? Hier gehts zum Studentenlogin</a>
+                <a href="student_login_form.php">Student? Hier gehts zum Studentenlogin</a>
 </div>
 
 <?php
-        // Prüfung ob Benutzername und Passwort schon einmal falsch eingegeben wurden
+        // Prüfung ob Benutzername oder Passwort falsch eingegeben wurden
         if($_GET["error"]==1){
             ?>
             <div class=h5 style="color: #F07F31; font-weight: bold">E-Mail oder Passwort falsch!</div>

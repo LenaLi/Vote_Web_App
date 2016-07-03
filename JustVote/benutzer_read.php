@@ -2,8 +2,8 @@
 include("inc/session_check.php");
 include("inc/session_check_admin.php");
 require_once("Mapper/benutzer.php");
-require_once("Mapper/benutzer_manager.php"); ?>
-
+require_once("Mapper/benutzer_manager.php");
+?>
 
 <!DOCTYPE html>
 <html>
@@ -60,24 +60,19 @@ require_once("Mapper/benutzer_manager.php"); ?>
                                 
                                 </td>";
                             echo "<td>
-
-                                <!-- Fenster: Benutzer wirklich löschen?-->
+                                
+                                <!-- Fenster: Benutzer wirklich löschen??????????????????????????-->
                                 <a class='fa fa-trash' href ='benutzer_delete_do.php?id=".$benutzer->id."' ></a>
-
-                            </td>";
+                                
+                                </td>";
                             echo "</tr>";
-
-                            
                         }
                         ?>
-
                         </tbody>
                     </table>
-                    
                 </div>
             </div>
         </div>
-
 </div>
 
 </body>
