@@ -12,6 +12,7 @@ require_once("Mapper/voting_manager.php");
 <!DOCTYPE html>
 <html>
 <body>
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -37,14 +38,16 @@ require_once("Mapper/voting_manager.php");
                                 "<div class='panel panel-default'>
                                     <div class='panel-heading' role='tab' id='heading.$vorlesung->vorlesungsid'>
                                         <h4 class='panel-title'>
-                                            <a class='fa fa-caret-square-o-down'role='button' data-toggle='collapse' data-parent='#accordion'
+                                            <a class='fa fa-angle-right 'role='button' data-toggle='collapse' data-parent='#accordion'
                                              href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'></a>
                                              <a  role='button' data-toggle='collapse' data-parent='#accordion'
                                              href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'>
                                               $vorlesung->vorlesungsname  "," ($vorlesung->vorlesungsnummer)
+                                              </a>
+                                              <div class=button-right>
                                               <a class='fa fa-edit' href ='vorlesung_update_form.php?id=".$vorlesung->vorlesungsid."'></a>
                                               <a class='fa fa-trash'href ='vorlesung_delete_do.php?id=".$vorlesung->vorlesungsid."'></a>
-                                              </a>
+                                              </div>
                                               </h4>
                                         <div id='$vorlesung->vorlesungsid' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='heading.$vorlesung->vorlesungsid'>
                                         <div class='panel-body'>
@@ -53,9 +56,10 @@ require_once("Mapper/voting_manager.php");
                             // Überschriften der Tabellen
                                 echo "<thead><tr>";
 
-                                echo "<th colspan='7'> Voting Name </th>";
-                                echo "<th colspan='3'> Zeitraum </th>";
+                                echo "<th colspan='6'> Name </th>";
+                                echo "<th colspan='1'> Zeitraum </th>";
                                 echo "<th colspan='3'> Status </th>";
+                                echo "<th colspan='3'>  </th>";
 
                                 echo " </tr></thead>";
 
@@ -69,15 +73,15 @@ require_once("Mapper/voting_manager.php");
                                 if (strtotime($voting->startdatum)<=time()){
                                     if (strtotime($voting->enddatum)<=time()){
                                         echo "<tr class='danger'>";
-                                        echo "<th colspan='7'>" . $voting->votingname .  " </th>";
+                                        echo "<th colspan='6'>" . $voting->votingname .  " </th>";
                                     } else {
                                         echo "<tr class='success'>";
-                                        echo "<th colspan='7'>" . $voting->votingname . " </th>";
+                                        echo "<th colspan='6'>" . $voting->votingname . " </th>";
                                     }
                                 }
                                 else {
                                     echo "<tr class='warning'>";
-                                    echo "<th colspan='7'>" . $voting->votingname . " </th>";
+                                    echo "<th colspan='6'>" . $voting->votingname . " </th>";
                                 }
 
                                 //Zeitraum des Votings
@@ -85,7 +89,7 @@ require_once("Mapper/voting_manager.php");
                                     $startdatum = date("d.m.y, H:i",strtotime($startdatum))." Uhr";
                                     $enddatum = $voting->enddatum;
                                     $enddatum = date("d.m.y, H:i",strtotime($enddatum))." Uhr";
-                                    echo "<td colspan='3'>Start: " . $startdatum ." Ende: ".$enddatum .
+                                    echo "<td colspan='1'>Start: " . $startdatum ." Ende: ".$enddatum .
 
                                         "</td>";
 
@@ -98,14 +102,14 @@ require_once("Mapper/voting_manager.php");
                                     }
                                 }
                                 else {
-                                    echo "<td colspan='3'> ausstehend</td>";
+                                    echo "<td colspan='3'> offen</td>";
                                 }
 
                                 //Start + Stoppbutton
                                     echo "<td>";
                                     if (strtotime($voting->startdatum)<=time()){
                                         if (strtotime($voting->enddatum)<=time()){
-                                            echo "<i class='fa fa-times'></i>";
+                                            echo "<a class='fa fa-times'></a>";
                                         } else {
                                             echo "<a class='fa fa-pause' href='voting_stop.php?id=".$voting->votingid."'></a>";
                                         }
@@ -147,6 +151,7 @@ require_once("Mapper/voting_manager.php");
                             echo "</div>";
                             echo "</div>";
                             echo "</div>";
+                            echo "<br>";
                             }
                         ?>
                     </div>

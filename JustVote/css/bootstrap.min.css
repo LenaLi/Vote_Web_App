@@ -4271,7 +4271,8 @@ tbody.collapse.in {
 .input-group {
     position: relative;
     display: table;
-    border-collapse: separate
+    border-collapse: separate;
+    width: 100%;
 }
 
 .input-group[class * =col-] {
@@ -4784,8 +4785,8 @@ textarea.input-group-sm > .input-group-addon, textarea.input-group-sm > .input-g
 .navbar-logo {
     float: left;
     height: 115px;
+    padding-left: 30px;
 }
-
 
 .navbar-brand:focus, .navbar-brand:hover {
     text-decoration: none
@@ -6080,11 +6081,10 @@ button.list-group-item-danger.active:focus, button.list-group-item-danger.active
 }
 
 .panel-body {
-    padding: 15px
 }
 
 .panel-heading {
-    padding: 10px 15px;
+    padding: 10px /*15px; */
     border-bottom: 1px solid transparent;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px
@@ -6095,9 +6095,13 @@ button.list-group-item-danger.active:focus, button.list-group-item-danger.active
 }
 
 .panel-title {
+    background-color: #f5f5f5;
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    font-size: 20px;
     color: inherit
 }
 
@@ -6319,9 +6323,9 @@ button.list-group-item-danger.active:focus, button.list-group-item-danger.active
 }
 
 .panel-default > .panel-heading {
-    color: #333;
+    /*color: #333;
     background-color: #f5f5f5;
-    border-color: #ddd
+    border-color: #ddd */
 }
 
 .panel-default > .panel-heading + .panel-collapse > .panel-body {

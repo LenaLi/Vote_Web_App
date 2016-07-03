@@ -98,8 +98,6 @@
                 ?>
 
 
-                <hr class="line">  </hr>
-
                 <li >
                     <a align="bo" href="impressum.php"><i class="fa fa-info "></i> Impressum </a>
                 </li>

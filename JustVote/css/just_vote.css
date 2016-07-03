@@ -7,6 +7,18 @@
 /* Global Styles */
 
 
+.sidebar .arrow {
+    float: right;
+}
+
+.sidebar .fa.arrow:before {
+    content: "\f104";
+}
+
+.sidebar .active > a > .fa.arrow:before {
+    content: "\f107";
+}
+
 .line {
     border :none;
     border-top: 0.5px solid #000;
@@ -22,9 +34,16 @@
     margin: auto;
     padding-top: 5%;
     color: #FFF;
-
-
 }
+
+
+.button-right {
+    float: right;
+    font-size: 15px;
+    padding-right: 10px;
+    padding-top: 3px;
+}
+
 
 body {
     margin-top: 100px;
@@ -52,7 +71,7 @@ body {
 
 #wrapper {
     padding-left: 0;
-    margin-top: 111px;
+    margin-top: 122px;
 }
 
 #page-wrapper {
@@ -68,7 +87,7 @@ body {
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 225px;
+        padding-left: 200px;
     }
 
     #page-wrapper {
@@ -152,7 +171,7 @@ ul.alert-dropdown {
         position: fixed;
         top: 114px;
         left: 225px;
-        width: 225px;
+        width: 200px;
         margin-left: -225px;
         border: none;
         border-radius: 0;
@@ -183,7 +202,7 @@ ul.alert-dropdown {
     display: block;
     padding: 10px 15px 10px 38px;
     text-decoration: none;
-    color: #b77523;
+    color: #000;
 }
 
 .side-nav>li>ul>li>a:hover {
