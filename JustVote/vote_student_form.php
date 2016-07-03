@@ -8,6 +8,9 @@ require_once("Mapper/voting.php");
 require_once("Mapper/voting_manager.php");
 include("inc/navigation_mitte.php");
 
+if($_GET["error"]=="1"){
+    echo "Alle Felder ausfüllen";
+}
 // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
 $fragemanager =new frage_manager();
 
