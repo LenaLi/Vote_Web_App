@@ -1,5 +1,5 @@
 <!-- Custom CSS -->
-<link href="css/sb-admin.css" rel="stylesheet">
+<link href="css/just_vote.css" rel="stylesheet">
 
 
 
@@ -78,11 +78,26 @@
                     ?>
 
                     <!-- Benutzer erstellen -->
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-cog"></i> Benutzer <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a  href="benutzer_create_form.php"> Benutzer anlegen</a>
+                            </li>
+                            <li>
+                                <a  href="benutzer_read.php">Benutzer Übersicht</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+<!--
                     <li>
                         <a href="benutzer_create_form.php"><span class="fa fa-plus"></span> Benutzer</a>
                     </li>
 
-                    <!-- Benutzer Übersicht -->
+                     Benutzer Übersicht
                     <li>
                         <a href="benutzer_read.php"><span class="glyphicon glyphicon-user"></span> Benutzer verwalten</a>
                     </li>
@@ -91,7 +106,7 @@
 
                 }
                 ?>
-
+-->
 
                 <hr class="line">  </hr>
 
@@ -99,23 +114,7 @@
                     <a align="bo" href="impressum.php"><i class="fa fa-info "></i> Impressum </a>
                 </li>
 
-               <!-- <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="demo" class="collapse">
-                        <li>
-                            <a href="#">Dropdown Item</a>
-                        </li>
-                        <li>
-                            <a href="#">Dropdown Item</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                </li>
-                <li>
-                    <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                </li>
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->

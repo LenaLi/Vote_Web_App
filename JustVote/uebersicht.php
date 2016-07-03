@@ -151,8 +151,6 @@ require_once("Mapper/voting_manager.php");
                             }
 
                             echo "</table>";
-                            echo "
-                            <a href='voting_create_form.php'><i class='fa fa-plus'></i> Voting</a>";
                             echo "</br>";
                             echo "</div>";
                             echo "</div>";

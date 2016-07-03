@@ -29,9 +29,6 @@ if (time()>=strtotime($voting->enddatum)) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-
 <h1>
 <?php
 echo  $fragen ["text"]."</br>";
@@ -90,10 +87,15 @@ foreach ($antworten as $eintrag) {
 echo '<input type="hidden" value="' . $votingid . '" name="votingid">';
 echo '<input type="hidden" value="' . $frageid . '" name="frageid">';
 
+echo "<div class='input-group'>";
 echo $_SESSION["kuerzel"];
-echo 'Kürzel:';
-echo '<input type="text" name ="email" value="'.$_SESSION["kuerzel"].'"required="required"/>';
-echo '@hdm-stuttgart.de';
+echo '<input type="text" class="form-control"  placeholder="Kürzel" aria-describedby="basic-addon2" name ="email" value="'.$_SESSION["kuerzel"].'"required="required"/>';
+echo '<span class="input-group-addon" id="basic-addon2">@hdm-stuttgart.de</span>';
+ echo "</div>";
+echo "</br>";
+
+
+
 
 //abschicken-button - ende des forms
 echo '<input type="submit" class="btn btn-warning" name="Abschicken" value="Abschicken">';
@@ -101,4 +103,4 @@ echo '<input type="submit" class="btn btn-warning" name="Abschicken" value="Absc
 echo '</form>';
 //}
 ?>
-<a href="vote_student_ergebnis.php?id=<?php echo $votingid?>">Ergebnisse ansehen</a>
+<!-- <a href="vote_student_ergebnis.php?id=<?php echo $votingid?>">Ergebnisse ansehen</a>
