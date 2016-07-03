@@ -6,6 +6,8 @@ require_once("Mapper/voting_student.php");
 require_once("Mapper/voting_student_manager.php");
 require_once("Mapper/voting.php");
 require_once("Mapper/voting_manager.php");
+require_once("Mapper/vorlesung.php");
+require_once("Mapper/vorlesung_manager.php");
 
 
 // Vorlesung-ID aus GET Parameter auslesen
@@ -16,6 +18,17 @@ $voting_manager =new voting_manager();
 
 //Lese Votings mit der Vorlesungsid aus voting_manager aus
 $votings=$voting_manager->findByVorlesungsId($vorlesungsId);
+
+// Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
+$vorlesung_manager =new vorlesung_manager();
+
+//Lese Vorlesung mit der Vorlesungsid aus vorlesung_manager aus
+$vorlesung=$vorlesung_manager->findByVorlesungsId($vorlesungsId);
+
+// Wenn Vorlesung nicht zu Benutzer gehört, dann wird der Zugriff verweigert
+if ($vorlesung->benutzerid != $_SESSION["benutzerid"]){
+    die();
+}
 
 // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
 $voting_student_manager= new voting_student_manager();

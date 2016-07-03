@@ -8,15 +8,22 @@ require_once("Mapper/student_manager.php");
 $postantwort=htmlspecialchars($_POST["rb_antworten"], ENT_QUOTES, "UTF-8");
 $postvoting=htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
 $postfrage=htmlspecialchars($_POST["frageid"], ENT_QUOTES, "UTF-8");
-$email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
+$kuerzel = htmlspecialchars($_POST["kuerzel"], ENT_QUOTES, "UTF-8");
 
+// Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
 $student_manager = new student_manager();
-$email .= "@hdm-stuttgart.de";
+
+// Mit Kürzel und @hdm-stuttgart.de wird E-Mail Adresse erstellt
+$email =$kuerzel. "@hdm-stuttgart.de";
+
+//Student mit E-Mail Adresse aus Datenbank auslesen
 $student = $student_manager->findByEmail($email);
 
+// Prüfen, ob der Student nicht existiert
 if($student == null){
+    //Student mit E-Mail Adresse in Datenbank anlegen
     $student_manager->create(null,null,$email,null);
-    // TODO warum nochmalig die zuweisung an die variable Student?
+    // eben erstellen Student mit Email-Adresse auslesen
     $student = $student_manager->findByEmail($email);
 }
 

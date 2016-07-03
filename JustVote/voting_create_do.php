@@ -26,8 +26,6 @@ if (!empty($votingName)&& !empty($frage)&& !empty($antwort_1) && !empty($antwort
     // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new voting_manager();
 
-
-
     // neues Voting erzeugen mit den POST Parametern
     $voting_id = $manager->create($vorlesungsId, $votingName, $startDatum,$endDatum);
     
