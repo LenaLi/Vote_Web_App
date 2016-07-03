@@ -10,14 +10,12 @@
 <?php include("inc/navigation.php");?>
 
 <div id="page-wrapper">
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
 
                     <h2>Vorlesung hinzufügen</h2>
 
-                 
                     <?php
                     // Fehlermeldung, da Problem bei serverseitiger Überprüfung
                     // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
@@ -30,6 +28,7 @@
 
                     <!-- Beginn Formular "Vorlesung hinzufügen" -->
                     <form class="form-horizontal" role="form" action="vorlesung_create_do.php" method="post">
+
                         <!-- Texteingabefeld für Nummer der Vorlesung-->
                         <div class="form-group">
                             <div class="col-sm-6">

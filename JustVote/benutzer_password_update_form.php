@@ -17,7 +17,6 @@ $benutzer_manager = new benutzer_manager();
 
 // lese Benutzer mit Benutzer-ID aus Datenbank aus
 $benutzer = $benutzer_manager->findById($id);
-
 ?>
 
 <?php include("inc/header.php"); ?>
@@ -25,13 +24,10 @@ $benutzer = $benutzer_manager->findById($id);
 <body>
 
 <?php include("inc/navigation.php");?>
-
-
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-
 
                     <!-- Beginn Formular "Passwort aktualisieren" -->
                     <h2>Passwort aktualisieren</h2>
@@ -79,17 +75,12 @@ $benutzer = $benutzer_manager->findById($id);
                             </div>
                         </div>
                         <!-- Ende Formular "Passwort aktualisieren" -->
-
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
-
-
 </div>
-
 </div>
 </body>
 </html>
