@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap Core CSS-->
-    <link href="css/bootstrap.css" rel="stylesheet">
+   <!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/just_vote.css" rel="stylesheet">

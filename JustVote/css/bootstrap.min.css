@@ -83,7 +83,8 @@ sub {
 }
 
 img {
-    border: 0
+    border:
+    height: 119px;
 }
 
 svg:not(:root) {
@@ -1387,7 +1388,8 @@ figure {
 }
 
 img {
-    vertical-align: middle
+    vertical-align: middle;
+    height: 119px;
 }
 
 .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive,
@@ -4666,7 +4668,8 @@ textarea.input-group-sm > .input-group-addon, textarea.input-group-sm > .input-g
 
 @media (min-width:768px) {
     .navbar-header {
-        float: left
+        float: left;
+        min-height: 119px;
     }
 }
 
@@ -4771,12 +4774,18 @@ textarea.input-group-sm > .input-group-addon, textarea.input-group-sm > .input-g
 
 .navbar-brand {
     float: left;
-    height: 50px;
+    height: 119px;
     padding: 15px 15px;
     font-size: 18px;
     line-height: 20px;
 
 }
+
+.navbar-logo {
+    float: left;
+    height: 119px;
+}
+
 
 .navbar-brand:focus, .navbar-brand:hover {
     text-decoration: none
@@ -5135,7 +5144,7 @@ fieldset[disabled] .navbar-default .btn-link:focus, fieldset[disabled] .navbar-d
 .navbar-inverse {
     background-color: #222;
     border-color: #080808;
-    height: auto;
+    height: 119px;
 }
 
 .navbar-inverse .navbar-brand {
