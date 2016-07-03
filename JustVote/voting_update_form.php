@@ -6,6 +6,8 @@ require_once("Mapper/frage.php");
 require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort.php");
 require_once("Mapper/antwort_manager.php");
+require_once("Mapper/vorlesung.php");
+require_once("Mapper/vorlesung_manager.php");
 
 ?>
 
@@ -22,6 +24,16 @@ $voting_manager = new voting_manager();
 
 // lese Voting mit Voting-ID aus Datenbank aus
 $voting = $voting_manager->findByVotingId($votingId);
+
+// Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
+$vorlesung_manager = new vorlesung_manager();
+
+$vorlesung=$vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
+
+// Wenn Voting nicht zu Benutzer gehört, dann wird der Zugriff verweigert
+if ($vorlesung->benutzerid != $_SESSION["benutzerid"]){
+    die();
+}
 
 // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
 $frage_manager = new frage_manager();

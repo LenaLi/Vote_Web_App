@@ -18,10 +18,11 @@ if (!empty($vorname)&& !empty($nachname)&&!empty($kuerzel)&& !empty($password1)&
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new student_manager();
 
-    //???????
-    if(sizeof(explode("@",$kuerzel))>1){
+    //Überprüfung ob Kürzel kein @ Zeichen enthält (da bereits vorgegeben)
+    if(strstr($kuerzel,"@")!=false){
         header('Location: student_register_form.php?error=3');
         die();
+
     }
 
     // Zusammenfügen von Kürzel des Studenten und @hdm-stuttgart.de

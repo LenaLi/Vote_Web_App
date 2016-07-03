@@ -19,6 +19,10 @@ $vorlesung_manager = new vorlesung_manager();
 // Lese Vorlesung mit Vorlesungs-ID aus Datenbank aus
 $vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsId);
 
+// Wenn Vorlesung nicht zu Benutzer gehört, dann wird der Zugriff verweigert
+if ($vorlesung->benutzerid != $_SESSION["benutzerid"]){
+    die();
+}
 ?>
 
 <body>

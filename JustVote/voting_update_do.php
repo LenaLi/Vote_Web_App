@@ -5,6 +5,8 @@ require_once("Mapper/frage.php");
 require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort.php");
 require_once("Mapper/antwort_manager.php");
+require_once("Mapper/vorlesung.php");
+require_once("Mapper/vorlesung_manager.php");
 
 
 // POST Parameter auslesen
@@ -29,6 +31,18 @@ if (!empty($votingId) && !empty($votingName)&& !empty($frageText)&& !empty($antw
 
     $endDatum.=' '.$endZeit;
     $startDatum.=' '.$startZeit;
+
+    $voting=$voting_manager->findByVotingId($votingId);
+
+    // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
+    $vorlesung_manager = new vorlesung_manager();
+
+    $vorlesung=$vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
+
+    // Wenn Voting nicht zu Benutzer gehört, dann wird der Zugriff verweigert
+    if ($vorlesung->benutzerid != $_SESSION["benutzerid"]){
+        die();
+    }
 
     // Änderungen in Datenbank aktualisieren
     $voting_manager->update($votingId, $vorlesungsId, $votingName, $startDatum, $endDatum);

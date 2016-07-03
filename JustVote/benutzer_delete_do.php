@@ -1,5 +1,6 @@
 <?php
 include("inc/session_check.php");
+include("inc/session_check_admin.php");
 require_once("Mapper/benutzer.php");
 require_once("Mapper/benutzer_manager.php");
 require_once("Mapper/voting.php");

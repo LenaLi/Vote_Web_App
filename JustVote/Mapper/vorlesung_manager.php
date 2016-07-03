@@ -47,6 +47,7 @@ class vorlesung_manager extends manager
             die();
         }
     }
+
     
     public function findByBenutzerID($benutzerid)
     {
