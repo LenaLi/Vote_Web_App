@@ -18,6 +18,7 @@ if (!empty($vorname)&& !empty($nachname)&&!empty($kuerzel)&& !empty($password1)&
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new student_manager();
 
+    //???????
     if(sizeof(explode("@",$kuerzel))>1){
         header('Location: student_register_form.php?error=3');
         die();

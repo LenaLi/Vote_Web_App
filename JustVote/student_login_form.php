@@ -10,8 +10,6 @@
     <h4>für Studenten der HdM Stuttgart</h4>
 </div>
 
-
-
 <div class="login">
     <form class="form-horizontal" role="form" action="student_login_do.php" method="post">
 
@@ -26,13 +24,13 @@
                 <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" required="required">
             </div>
         </div>
+
         <!-- Eingabefeld für Nachname-->
         <div class="form-group">
             <div class="col-sm-12">
                 <input type="password" class="form-control" name="password" id="password" placeholder="Passwort" required="required">
             </div>
         </div>
-
 
         <!-- Login Button-->
         <div class="form-group">
@@ -47,6 +45,7 @@
 <a href="student_register_form.php">Registrieren</a>
 
 
+// Prüfung ob Benutzername oder Passwort falsch eingegeben wurden
 <?php
 if($_GET["error"]=="1"){
     ?>
@@ -55,10 +54,6 @@ if($_GET["error"]=="1"){
     <?php
 }
 ?>
-
-
-
-
 
 </html>
 

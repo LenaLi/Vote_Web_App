@@ -44,7 +44,7 @@ include("inc/navigation_mitte.php");
 </div>
 
 <?php
-        // Prüfung ob Benutzername und Passwort schon einmal falsch eingegeben wurden
+        // Prüfung ob Benutzername oder Passwort falsch eingegeben wurden
         if($_GET["error"]==1){
             ?>
             <div class=h5 style="color: #F07F31; font-weight: bold">E-Mail oder Passwort falsch!</div>

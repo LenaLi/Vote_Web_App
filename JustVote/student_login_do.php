@@ -17,14 +17,12 @@ if (!empty($email)&& !empty($password)) {
 
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager=new student_manager();
-    
 
 // Lese Benutzer mit email aus Datenbank und speichere Informationen in einem Benutzer-Objekt
     $student=$manager->findByEmail($email);
 
 // Überprüfen, ob das vom Benutzer eingegebene Passwort mit dem aus der Datenbank übereinstimmt
     $password_correct=password_verify($password,$student->password);
-
 
     // überprüfen ob Passwort und E-Mail(Benutzername) korrekt sind
     if ($password_correct && $student->email==$email ) {
@@ -40,16 +38,13 @@ if (!empty($email)&& !empty($password)) {
 
         $votings = $votingStudentManager->findVotingsByStudent($student->student_id);
 
-
         // Weiterleitung auf die Übersichtsseite der Studenten
         header('Location: student_uebersicht.php');
-
 
     } else {
     header('Location: student_login_form.php?error=1');
     }
-}
-else {
+} else {
     header('Location: student_login_form.php?error=1');
 }
 ?>
