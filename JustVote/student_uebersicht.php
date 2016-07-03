@@ -16,7 +16,6 @@ if($_SESSION["studentlogin"]!="1"){
     header('Location: student_login_form.php');
     die();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -25,11 +24,9 @@ if($_SESSION["studentlogin"]!="1"){
     <div id="page-wrapper">
         <div class="container-fluid">
 
-
                     <h1>Votings, an denen du teilgenommen hast</h1>
 
                         <?php
-
                         // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
                         $voting_manager =new voting_manager();
 
@@ -60,7 +57,8 @@ if($_SESSION["studentlogin"]!="1"){
                                         <div class='panel-body'>
                                         <table class='table table-hover'>";
 
-                            echo "Vorlesung:".$vorlesung->vorlesungsname."<br>";
+                            //Vorlesungsname
+                            echo "Vorlesung: ".$vorlesung->vorlesungsname."<br>";
 
                             //Zeitraum des Votings
                             $startdatum = $voting->startdatum;

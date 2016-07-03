@@ -17,7 +17,6 @@ include("inc/navigation_student.php");
             <div class="col-lg-8">
                 <h1>Über Just Vote</h1>
                 <h4>JustVote ist ein Tool, um an Umfragen deiner Dozenten teilzunehmen</h4>
-                <h4>Ziele von Just-Vote</h4>
                 <br>- Du kannst ganz einfach an Umfragen deiner Dozenten teilnehmen</br>
                 <br>- Ergebnisse des Votings werden dir sofort angezeigt </br>
                 <br>- Ergebnisse von abgeschlossenen Votings kannst du dir jederzeit über den seperaten Studentenlogin anschauen</br>
