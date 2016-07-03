@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html>
-
 <?php include("inc/header.php"); ?>
 <?php include("inc/navigation_mitte.php"); ?>
 
-
 <body>
 
-<div class="mitte">
-    <h1>Registrierung</h1>
-    <h4>für Studenten der HdM Stuttgart</h4>
-</div>
-
-
+    <div class="mitte">
+        <h1>Registrierung</h1>
+        <h4>für Studenten der HdM Stuttgart</h4>
+    </div>
 
                 <div class="login">
                     <form class="form-horizontal" role="form" action="student_register_do.php" method="post">
@@ -30,21 +26,12 @@
                             </div>
                         </div>
 
-                        <!--Eingabefeld für E-Mail
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" required="required">
-                            </div>
-                        </div> -->
-
+                        <!-- Eingabefeld für Kürzel/E-Mail-->
                          <div class="input-group">
                             <input type="text" name="kuerzel" id="kuerzel" class="form-control" placeholder="Kürzel" required="required" aria-describedby="basic-addon2">
                             <span class="input-group-addon" id="basic-addon2">@hdm-stuttgart.de</span>
                         </div>
                         </br>
-
-
-
 
 
                         <!-- Eingabefeld für Passwort-->
@@ -59,8 +46,6 @@
                                 <input type="password" class="form-control" name="password2" id="password2" placeholder="Passwort wiederholen" required="required">
                             </div>
                         </div>
-
-
 
                         <!-- Login Button-->
                         <div class="form-group">
@@ -93,7 +78,13 @@
                     <?php
                 }
                 ?>
-
+                <?php
+                if($_GET["error"]=="4"){
+                    ?>
+                    <div class="btn btn-danger">Benutzer wurde bereits angelegt!</div>
+                    <?php
+                }
+                ?>
 
 </body>
 </html>
