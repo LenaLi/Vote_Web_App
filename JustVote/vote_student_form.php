@@ -17,7 +17,7 @@ $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 //Funktion von Objekt Fragemanager wird aufgerufen
 $fragen = $fragemanager->getFragebyVotingid ($votingid);
 
-
+// Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
 $voting_manager=new voting_manager();
 
 $voting=$voting_manager->findByVotingId($votingid);
@@ -28,8 +28,6 @@ if (time()>=strtotime($voting->enddatum)) {
     header('Location: student_login_form.php');
     die();
 }
-
-
 ?>
 
 <h1>
