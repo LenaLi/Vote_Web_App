@@ -92,8 +92,6 @@ foreach ($antworten as $eintraege) {
         else{
             $resultinpercent = 0;
         }
-
-
         array_push ($resultsinpercent, $resultinpercent);
 
     }
@@ -121,7 +119,6 @@ foreach ($antworten as $eintraege) {
                     if(!empty($antwort["text"])){
                         echo "'".$antwort["text"]."',";
                     }
-
                 }
                 ?>
 

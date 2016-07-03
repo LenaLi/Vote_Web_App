@@ -29,12 +29,11 @@ $frage_manager = new frage_manager();
 // lese Frage mit Voting-ID aus Datenbank aus
 $frage = $frage_manager->getFragebyVotingid($votingId);
 
+// Objekt von antwort_manager erzeugen, welcher Datenbankverbindung besitzt
 $antwort_manager = new antwort_manager();
 
-// lese Frage mit Voting-ID aus Datenbank aus
+// lese Antwort mit Frage-ID aus Datenbank aus
 $antworten = $antwort_manager->getAllByFrageID($frage->ID);
-
-
 ?>
 
 <body>
@@ -60,7 +59,6 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     
                     <!-- Beginn Formular "Voting aktualisieren" -->
 
-
                     <form action='voting_update_do.php' method='post'>
 
                         <div class="form-group">
@@ -75,16 +73,19 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                         </div>
                     </div>
 
-            <div class="form-group">
-                <div class="col-sm-6">
-                     Votingname:
-                <input type='text' name='votingname' value='<?php echo $voting->votingname ?>' required="required"/><br>            </div>
-        </div>
-
-
-
+                        <!-- Updatefeld für Votingname -->
+                    <div class="form-group">
+                            <div class="col-sm-6">
+                                Votingname:
+                                <input type='text' name='votingname' value='<?php echo $voting->votingname ?>' required="required"/><br>
+                            </div>
+                    </div>
+                        <!-- Updatefeld für die Frage -->
                         Frage:<br>
                         <input type='text' name='frage' value='<?php echo $frage->text ?>' required="required"/><br>
+
+
+                        <!-- Updatefelder für die Antworten -->
                         Antwortmöglichkeit 1:<br>
                         <input type='text' name='antwort_1' value='<?php echo $antworten[0]->text ?>' required="required"/><br>
                         Antwortmöglichkeit 2:<br>
@@ -106,7 +107,6 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                             <input class="form-control" type="date" name="startdatum" placeholder="Startdatum"required="required" value='<?php echo $startDatum ?>'/>
                             <input class="form-control" type="time" name="startzeit" placeholder="Startzeit"required="required"value='<?php echo $startZeit ?>'/>
                         </div>
-
 
                         <!-- Updatefeld für die Enddatum, Endzeit -->
                         <div class="form-group">
