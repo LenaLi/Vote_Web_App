@@ -32,6 +32,7 @@ $vorlesung=$vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
 
 // Wenn Voting nicht zu Benutzer gehört, dann wird der Zugriff verweigert
 if ($vorlesung->benutzerid != $_SESSION["benutzerid"]){
+    header('Location: uebersicht.php');
     die();
 }
 

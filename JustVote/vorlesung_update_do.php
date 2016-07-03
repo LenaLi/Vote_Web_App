@@ -18,6 +18,7 @@ if (!empty($vorlesungsId) &&!empty($vorlesungsNummer) && !empty($vorlesungsName)
 
 // Wenn Vorlesung nicht zu Benutzer gehört, dann wird der Zugriff verweigert
     if ($vorlesung->benutzerid != $_SESSION["benutzerid"]){
+        header('Location: uebersicht.php');
         die();
     }
     // Änderungen in Datenbank aktualisieren
