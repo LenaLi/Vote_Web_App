@@ -14,6 +14,7 @@ $vorlesungsId = (int)htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
 $voting_manager =new voting_manager();
 
+//Lese Votings mit der Vorlesungsid aus voting_manager aus
 $votings=$voting_manager->findByVorlesungsId($vorlesungsId);
 
 // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt

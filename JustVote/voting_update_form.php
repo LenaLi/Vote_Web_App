@@ -85,6 +85,9 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                         <input type='text' name='frage' value='<?php echo $frage->text ?>' required="required"/><br>
 
 
+                        <!-- Updatefeld für die Frage -->
+                        Frage:<br>
+                        <input type='text' name='frage' value='<?php echo $frage->text ?>' required="required"/><br>
                         <!-- Updatefelder für die Antworten -->
                         Antwortmöglichkeit 1:<br>
                         <input type='text' name='antwort_1' value='<?php echo $antworten[0]->text ?>' required="required"/><br>
