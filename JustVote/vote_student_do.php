@@ -10,13 +10,13 @@ $postvoting=htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
 $postfrage=htmlspecialchars($_POST["frageid"], ENT_QUOTES, "UTF-8");
 $email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
 
-//????????????
 $student_manager = new student_manager();
 $email .= "@hdm-stuttgart.de";
 $student = $student_manager->findByEmail($email);
 
 if($student == null){
     $student_manager->create(null,null,$email,null);
+    // TODO warum nochmalig die zuweisung an die variable Student?
     $student = $student_manager->findByEmail($email);
 }
 
@@ -28,12 +28,13 @@ if($status == null){
     header('Location: vote_student_ergebnis.php?id=' . $postvoting.'&error=1');
     die();
 }
+
 //Objekt von Auswertung wird erzeugt
 $auswertungsmanager =new auswertung_manager();
 $auswertungsmanager ->create($postfrage, $postantwort, $postvoting);
 
 echo "voting ".$postvoting;
-echo "\n student ".$student->student_id;
+echo "<br /> student ".$student->student_id;
 
 $votings = $voting_student_manager->findVotingsByStudent($student->student_id);
 
@@ -44,6 +45,4 @@ foreach ($votings as $voting){
 
 //header redirect
 header('Location: vote_student_ergebnis.php?id=' . $postvoting);
-//header('Location: vote_student_form.php?id=' . $postvoting);
-
 ?>

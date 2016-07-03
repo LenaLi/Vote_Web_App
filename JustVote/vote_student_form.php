@@ -64,12 +64,11 @@ echo '<form action="vote_student_do.php" method="post">';
                     //hiddenfields um die felder zu übertragen
                     echo '<input type="hidden" value="' . $votingid . '" name="votingid">';
                     echo '<input type="hidden" value="' . $frageid . '" name="frageid">';
-
                     echo "<div class='input-group'>";
                     echo $_SESSION["kuerzel"];
                     echo '<input type="text" class="form-control"  placeholder="Kürzel" aria-describedby="basic-addon2" name ="email" value="'.$_SESSION["kuerzel"].'"required="required"/>';
                     echo '<span class="input-group-addon" id="basic-addon2">@hdm-stuttgart.de</span>';
-                     echo "</div>";
+                    echo "</div>";
                     echo "</br>";
 
 
