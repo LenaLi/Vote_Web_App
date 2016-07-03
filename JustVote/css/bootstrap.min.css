@@ -5111,6 +5111,7 @@ textarea.input-group-sm > .input-group-addon, textarea.input-group-sm > .input-g
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover {
         color: #555;
         background-color: #e7e7e7
+
     }
 
     .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus,
@@ -5144,7 +5145,8 @@ fieldset[disabled] .navbar-default .btn-link:focus, fieldset[disabled] .navbar-d
 .navbar-inverse {
     background-color: #222;
     border-color: #080808;
-    height: 119px;
+    height: 115px;
+
 }
 
 .navbar-inverse .navbar-brand {
