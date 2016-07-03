@@ -7,7 +7,7 @@
 <!-- LOGO -->
 <div class="mitte">
         <a href="https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/index.php">
-            <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" alt="Just Vote Logo" /></a
+            <img src="css/Logo_JustVote.svg" alt="Just Vote Logo" /></a
 </div>
 
 </html>
