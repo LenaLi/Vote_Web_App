@@ -38,7 +38,7 @@
                         </div> -->
 
                          <div class="input-group">
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Kürzel" required="required" aria-describedby="basic-addon2">
+                            <input type="text" name="kuerzel" id="kuerzel" class="form-control" placeholder="Kürzel" required="required" aria-describedby="basic-addon2">
                             <span class="input-group-addon" id="basic-addon2">@hdm-stuttgart.de</span>
                         </div>
                         </br>
