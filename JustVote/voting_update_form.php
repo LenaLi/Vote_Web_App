@@ -89,19 +89,19 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <!-- Updatefeld für Votingname -->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            Votingname:
-                            <input type='text' name='votingname' value='<?php echo $voting->votingname ?>'
-                                   required="required"/><br>
+                            <label for="votingname">Votingname</label>
+                            <input type="text" class="form-control" name='votingname' id='votingname' value='<?php echo $voting->votingname ?>' required="required">
                         </div>
                     </div>
-                    <!-- Updatefeld für die Frage -->
-                    Frage:<br>
-                    <input type='text' name='frage' value='<?php echo $frage->text ?>' required="required"/><br>
-
 
                     <!-- Updatefeld für die Frage -->
-                    Frage:<br>
-                    <input type='text' name='frage' value='<?php echo $frage->text ?>' required="required"/><br>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="frage">Frage</label>
+                            <input type="text" class="form-control" name='frage' id='frage' value='<?php echo $frage->text ?>' required="required">
+                        </div>
+                    </div>
+
                     <!-- Updatefelder für die Antworten -->
                     Antwortmöglichkeit 1:<br>
                     <input type='text' name='antwort_1' value='<?php echo $antworten[0]->text ?>'

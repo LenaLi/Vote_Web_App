@@ -64,7 +64,7 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                         </div>
                         <!-- Auswahlfeld der Vorlesung-->
                         <div class="col-sm-3">
-                            <select class="selectpicker" name="vorlesungsid">
+                            <select class="form-control" name="vorlesungsid">
                                 <?php
                                 // erzeugt die Auswahlmöglichkeiten der zum Benutzer gehörenden Vorlesungen
                                 foreach ($vorlesungen as $vorlesung) {
