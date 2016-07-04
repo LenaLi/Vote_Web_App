@@ -35,11 +35,17 @@ require_once("Mapper/benutzer_manager.php");
                 ?>
                 <h1>Benutzerübersicht</h1>
 
-                        // HTML Code für Successmeldung erzeugen
-                        echo "<div class='alert alert-success'> <strong> Erfolgreich: </strong>Benutzer wurde angelegt und E-Mail mit den Zugangsdaten wurde versendet! </div>";
-                    }
-                    ?>
-                    <h1>Benutzerübersicht</h1>
+                <table  class="table table-hover">
+                    <thead>
+                    <th>Vorname</th>
+                    <th>Nachname</th>
+                    <th>E-Mail</th>
+                    <th>Rolle</th>
+                    <th> </th>
+                    <th> </th>
+                    </thead>
+                    <tbody>
+
 
                     <?php
                     // Zeilen der HTML-Tabelle werden erzeugt mit Hilfe der foreach-Schleife

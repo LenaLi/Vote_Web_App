@@ -60,7 +60,7 @@ require_once("Mapper/voting_manager.php");
                             echo "<th colspan='3'> Status </th>";
                             echo "<th colspan='3'>  </th>";
                             echo " </tr></thead>";
-                            
+
                         // Lese Votings mit Vorlesungs-ID aus Datenbank aus
                         $votings = $votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
 
