@@ -20,7 +20,7 @@ if (!empty($vorname) && !empty($nachname) && !empty($email)) {
     // aktualisiere Attribute des Benutzer-Objektes
     $benutzer->vorname = $vorname;
     $benutzer->nachname = $nachname;
-    $benutzer->email =$email;
+    $benutzer->email = $email;
 
     // Änderungen in Datenbank aktualisieren
     $benutzer_manager->update($benutzer);

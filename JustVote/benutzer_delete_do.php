@@ -14,22 +14,22 @@ require_once("Mapper/voting_student_manager.php");
 $id = (int)htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
-$voting_manager =new voting_manager();
+$voting_manager = new voting_manager();
 
 // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
 $vorlesung_manager = new vorlesung_manager();
 
 // lese Vorlesungen mit Benutzer-ID aus Datenbank aus
-$vorlesungen=$vorlesung_manager->findByBenutzerID($id);
+$vorlesungen = $vorlesung_manager->findByBenutzerID($id);
 
-foreach ($vorlesungen as $vorlesung){
-    
-    $votings=$voting_manager->findByVorlesungsId($vorlesung->vorlesungsid);
+foreach ($vorlesungen as $vorlesung) {
+
+    $votings = $voting_manager->findByVorlesungsId($vorlesung->vorlesungsid);
 
     // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
-    $voting_student_manager= new voting_student_manager();
+    $voting_student_manager = new voting_student_manager();
 
-    foreach($votings as $voting){
+    foreach ($votings as $voting) {
         // Voting löschen in der Datenbank
         $voting_student_manager->delete($voting->votingid);
         $voting_manager->delete($voting->votingid);

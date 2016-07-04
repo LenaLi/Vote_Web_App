@@ -18,15 +18,14 @@ if (!empty($password1) && !empty($password2)) {
         $benutzer = $benutzer_manager->findById($id);
 
         // aktualisiere Attribute das Passwort des Benutzer-Objektes
-        $benutzer->password =$password1;
+        $benutzer->password = $password1;
 
         // Änderungen des Passwortes in Datenbank aktualisieren
         $benutzer_manager->updatePassword($benutzer);
 
         // Weiterleitung auf die Übersichtsseite der Benutzer
         header('Location: benutzer_read.php');
-    }
-    else {
+    } else {
         echo "Passwörter stimmen nicht überein!";
     }
 
