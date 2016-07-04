@@ -19,6 +19,8 @@ require_once("Mapper/voting_manager.php");
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
                 <h1>Ihre Vorlesungen und Votings </h1>
+                <h4>Hier sehen Sie alle Ihre Vorlesungen mit den jeweiligen Umfragen aufgelistet.</h4>
+
                 </br>
 
                 <?php

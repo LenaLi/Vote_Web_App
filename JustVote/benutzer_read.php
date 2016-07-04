@@ -33,7 +33,9 @@ require_once("Mapper/benutzer_manager.php");
                     echo "<div class='alert alert-success'> <strong> Erfolgreich: </strong>Benutzer wurde angelegt und E-Mail mit den Zugangsdaten wurde versendet! </div>";
                 }
                 ?>
-                <h1>Benutzerübersicht</h1>
+                <h2>Benutzerübersicht</h2>
+
+                <br>
 
                 <table  class="table table-hover">
                     <thead>

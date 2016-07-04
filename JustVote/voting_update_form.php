@@ -120,7 +120,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                             <input type="text" class="form-control" name='antwort_4' id='antwort_4' value='<?php echo $antworten[3]->text ?>'>
                         </div>
                     </div>
-                    
+
                     <!--Abfrage Votingzeitraum -->
                     <?php
                     $startDatum = date("Y-m-d", strtotime($voting->startdatum));
