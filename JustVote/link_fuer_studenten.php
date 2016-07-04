@@ -77,15 +77,14 @@ $voting = $voting_manager->findByVotingId($aktuellesvoting);
          data-href="<?php
          echo "https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting.";
          ?>"
-         data-layout="button_count">
+         data-layout="button">
     </div>
 
 
     <!-- Mail Share Button -->
-    <a class="fa fa-envelope-o" href="mailto:?subject=Teilnahme an der Umfrage
-    <?php echo $voting->votingname; ?>&amp;body=<?php
-    echo "Hallo Studenten,";
-    echo "Unter diesem Link könne Sie an der Umfrage '$voting->votingname' teilnehmen: https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting";
+    <a class="fa fa-envelope-o" href="mailto:?subject=Einladung zur Teilnahme an der Umfrage <?php echo $voting->votingname; ?>&amp;body=<?php
+    echo 'Hallo liebe Studenten, <br />\n';
+    echo "unter diesem Link können Sie an der Umfrage '$voting->votingname' teilnehmen: https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting";
     ?>"
        title="Link per Mail verschicken">
     </a>

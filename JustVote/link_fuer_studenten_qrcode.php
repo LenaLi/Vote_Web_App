@@ -1,4 +1,4 @@
-<!-- Hier wird der QR Code generiert der dann unter link_fuer_studenten.php mit der jeweilgien ID eingebunden wird -->
+<!-- Hier wird der QR Code generiert der dann unter Link_fuer_studenten.php mit der jeweilgien ID eingebunden wird -->
 
 <?php
 include("inc/phpqrcode/qrlib.php");
