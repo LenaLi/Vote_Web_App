@@ -62,9 +62,9 @@ include("inc/session_check_admin.php"); ?>
                     <!-- Auswahlfeld der Rolle (Benutzer oder Admin)-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <select name="role">
+                            <select class="form-control" name="role">
                                 <option value="Benutzer" selected>Benutzer</option>
-                                <option value="Admin">Admin</option>
+                                <option value="admin">Admin</option>
                             </select>
                         </div>
                     </div>
