@@ -1,4 +1,5 @@
 <?php
+
 class student
 {
     public $student_id;
@@ -8,7 +9,8 @@ class student
     public $password;
 
 
-    function __construct($data=null) {
+    function __construct($data = null)
+    {
         if (is_array($data)) {
             $this->student_id = $data['id'];
             $this->vorname = $data['vorname'];

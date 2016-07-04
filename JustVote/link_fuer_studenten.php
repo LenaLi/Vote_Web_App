@@ -12,53 +12,47 @@ require_once("Mapper/vorlesung_manager.php");
 <!-- ID auslesen -->
 <?php
 // ID wird ausgelesen und an URL drangehängt
-$aktuellesvoting=$_GET['id'];
+$aktuellesvoting = $_GET['id'];
 
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
 $voting_manager = new voting_manager();
 
 // lese Voting aus Datenbank mit der Funktion findByVotingID
-$voting=$voting_manager->findByVotingId($aktuellesvoting);
+$voting = $voting_manager->findByVotingId($aktuellesvoting);
 
 ?>
-
-
 
 <body class="mitte">
 <!-- LOGO -->
 <div class="mitte">
-    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg" />
+    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg"/>
 </div>
-
-
 
 <div>
 
     <?php
     //Ausgeben des Votingnamen zur zugehörigen ID
-    echo "Umfrage:". "<h1>".$voting->votingname."</h1>";
+    echo "Umfrage:" . "<h1>" . $voting->votingname . "</h1>";
     ?>
 
 
-                    <br>
+    <br>
+    <?php
+    // Ausgeben des Links mit der jeweiligen ID
+    echo 'Link: <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=' . $aktuellesvoting . ">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
+    ?>
 
-                        <?php
-                        // Ausgeben des Links mit der jeweiligen ID
-                        echo 'Link: <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting.">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
-                        ?>
+    <br>
 
-                    <br>
+    <?php
+    // generierter QR Code wird mit entspechender ID eingefügt
+    echo '<img src="link_fuer_studenten_qrcode.php?id=' . $aktuellesvoting . '" />';
+    ?>
 
-                        <?php
-                        // generierter QR Code wird mit entspechender ID eingefügt
-                        echo '<img src="link_fuer_studenten_qrcode.php?id='.$aktuellesvoting.'" />';
-                        ?>
-
-
-                    <br>
+    <br>
 
 
-  <!--  <a href="<?php
+    <!--  <a href="<?php
     echo "https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting.";
     ?>" class="btn btn-primary" role="button">zur Umfrage</a> -->
 
@@ -67,10 +61,11 @@ $voting=$voting_manager->findByVotingId($aktuellesvoting);
 
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
+    <script>(function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
+            js = d.createElement(s);
+            js.id = id;
             js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
@@ -87,14 +82,12 @@ $voting=$voting_manager->findByVotingId($aktuellesvoting);
 
     <!-- Mail Share Button -->
     <a class="fa fa-envelope-o" href="mailto:?subject=Teilnahme an der Umfrage
-    <?php echo $voting->votingname;?>&amp;body=<?php
+    <?php echo $voting->votingname; ?>&amp;body=<?php
     echo "Hallo Studenten,";
     echo "Unter diesem Link könne Sie an der Umfrage '$voting->votingname' teilnehmen: https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting";
     ?>"
        title="Link per Mail verschicken">
     </a>
-
-
 
 </div>
 </body>

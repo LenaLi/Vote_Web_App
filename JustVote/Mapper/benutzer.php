@@ -1,16 +1,18 @@
 <?php
 
-class benutzer {
+class benutzer
+{
 
-    public $id; 
+    public $id;
     public $vorname;
     public $nachname;
     public $email;
     public $role;
     public $password;
     public $salt;
-    
-    function __construct($data=null) {
+
+    function __construct($data = null)
+    {
         if (is_array($data)) {
             $this->id = $data['id'];
             $this->vorname = $data['vorname'];
@@ -18,8 +20,9 @@ class benutzer {
             $this->email = $data['email'];
             $this->role = $data['role'];
             $this->password = $data['password'];
-            $this->salt = $data['salt']; 
+            $this->salt = $data['salt'];
         }
     }
 }
+
 ?>

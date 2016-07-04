@@ -16,7 +16,7 @@ class result_manager extends manager
         parent::__destruct();
     }
 
-    public function inputresult ($voting_id, $ergebnis)
+    public function inputresult($voting_id, $ergebnis)
     {
 
         try {
@@ -37,7 +37,6 @@ class result_manager extends manager
         }
         return true;
     }
-
 
 
     public function findByErgebnis($votingid, $antwort)
@@ -76,4 +75,4 @@ class result_manager extends manager
         }
     }
 }
-    ?>
+?>

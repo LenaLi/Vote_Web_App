@@ -16,7 +16,7 @@ class voting_student_manager extends manager
         parent::__destruct();
     }
 
-    public function findByVotingName ($votingname)
+    public function findByVotingName($votingname)
     {
         // Lese Votingname eines Votings aus
         try {
@@ -33,7 +33,7 @@ class voting_student_manager extends manager
         }
     }
 
-    public function create ($voting_id, $student_id)
+    public function create($voting_id, $student_id)
     {
         // Füge ein Voting der Datenbank hinzu (Attribute siehe unten)
         try {
@@ -92,4 +92,5 @@ class voting_student_manager extends manager
     }
 
 }
+
 ?>

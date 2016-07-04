@@ -1,4 +1,3 @@
-
 <?php
 require_once("manager.php");
 
@@ -17,8 +16,8 @@ class antwort_manager extends manager
         parent::__destruct();
     }
 
-
-    public function getAllByFrageID ($frageID)
+    // Lese alle Antworten mit der FrageID aus der Datenbank aus
+    public function getAllByFrageID($frageID)
     {
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM antwort WHERE frageID = :frageID');
@@ -36,7 +35,7 @@ class antwort_manager extends manager
 
     }
 
-    public function create ($frageID, $text)
+    public function create($frageID, $text)
     {
         // Füge neue Antwort in Tabelle Antwort der Datenbank hinzu (Attribute siehe unten)
         try {
@@ -76,6 +75,7 @@ class antwort_manager extends manager
             die();
         }
     }
+
     public function deleteByFrageId($frageID)
     {
         // Löschen eines zu einer bestimmten FrageId gehörenden Votings
@@ -92,9 +92,6 @@ class antwort_manager extends manager
         return null;
     }
 
-
-
-
-
 }
+
 ?>

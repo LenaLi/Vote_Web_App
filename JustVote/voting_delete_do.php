@@ -21,12 +21,12 @@ $vorlesung_manager = new vorlesung_manager();
 $votingId = (int)htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 
 
-$voting=$voting_manager->findByVotingId($votingId);
+$voting = $voting_manager->findByVotingId($votingId);
 
-$vorlesung=$vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
+$vorlesung = $vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
 
 // Wenn Voting nicht zu Benutzer gehört, dann wird der Zugriff verweigert
-if ($vorlesung->benutzerid != $_SESSION["benutzerid"]){
+if ($vorlesung->benutzerid != $_SESSION["benutzerid"]) {
     die();
 }
 
@@ -41,17 +41,16 @@ $voting_student_manager->delete($votingId);
 $voting_manager->delete($votingId);
 
 // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
-$manager=new frage_manager();
+$manager = new frage_manager();
 
-$frage=$manager->getFragebyVotingid($votingId);
+$frage = $manager->getFragebyVotingid($votingId);
 
 $manager->deleteByVotingId($votingId);
 
 // Objekt von antwort_manager erzeugen, welcher Datenbankverbindung besitzt
-$manager=new antwort_manager();
+$manager = new antwort_manager();
 
 $manager->deleteByFrageId($frage->ID);
-
 
 
 // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings

@@ -1,7 +1,8 @@
-<?php require_once("manager.php");?>
-<?php require_once("vorlesung.php");?>
+<?php require_once("manager.php"); ?>
+<?php require_once("vorlesung.php"); ?>
 
 <?php
+
 class vorlesung_manager extends manager
 {
     protected $pdo;
@@ -16,9 +17,10 @@ class vorlesung_manager extends manager
         parent::__destruct();
     }
 
-    public function findAll(){
+    public function findAll()
+    {
+        // Lese alle Vorlesungen aus der Datenbank aus
         try {
-            // Lese alle Vorlesungen aus der Datenbank aus
             $stmt = $this->pdo->prepare('SELECT * FROM vorlesung');
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'vorlesung');
@@ -48,7 +50,7 @@ class vorlesung_manager extends manager
         }
     }
 
-    
+
     public function findByBenutzerID($benutzerid)
     {
         // Lese einen zu einer bestimmten BenutzerId gehörigen Vorlesungen aus
@@ -66,7 +68,7 @@ class vorlesung_manager extends manager
     }
 
 
-    public function create($benutzerid,$vorlesungsname,$vorlesungsnummer)
+    public function create($benutzerid, $vorlesungsname, $vorlesungsnummer)
     {
         // Füge eine Vorlesung der Datenbank hinzu (Attribute siehe unten)
         try {
@@ -123,4 +125,5 @@ class vorlesung_manager extends manager
         return null;
     }
 }
+
 ?>

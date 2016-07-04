@@ -10,7 +10,8 @@ class voting
     public $startzeit;
     public $endzeit;
 
-    function __construct($data=null) {
+    function __construct($data = null)
+    {
         if (is_array($data)) {
             $this->votingid = $data['votingid'];
             $this->vorlesungsid = $data['vorlesungsid'];

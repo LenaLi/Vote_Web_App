@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once("manager.php");
 require_once("benutzer.php");
 
@@ -16,7 +16,8 @@ class benutzer_manager extends manager
         parent::__destruct();
     }
 
-    public function findAll(){
+    public function findAll()
+    {
         try {
             // Lese alle Benutzer aus der Datenbank aus
             $stmt = $this->pdo->prepare('SELECT * FROM benutzer');
@@ -34,8 +35,8 @@ class benutzer_manager extends manager
 
     public function findByEmail($email)
     {
+        // Lese einer zur Email zugehörigen Benutzer aus
         try {
-            // Lese einer zur Email zugehörigen Benutzer aus
             $stmt = $this->pdo->prepare('SELECT * FROM benutzer WHERE  email= :email');
             $stmt->bindParam(':email', $email);
             $stmt->execute();
@@ -50,10 +51,11 @@ class benutzer_manager extends manager
         }
 
     }
+
     public function findById($id)
     {
+        // Lese einen zu einer bestimmten ID gehörigen Benutzer aus
         try {
-            // Lese einen zu einer bestimmten ID gehörigen Benutzer aus
             $stmt = $this->pdo->prepare('SELECT * FROM benutzer WHERE id = :id');
             $stmt->bindParam(':id', $id);
             $stmt->execute();
@@ -67,19 +69,19 @@ class benutzer_manager extends manager
 
     }
 
-    public function create($vorname,$nachname,$email,$role)
+    public function create($vorname, $nachname, $email, $role)
     {
-        $success=true;
+        $success = true;
 
         // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
-        $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+        $salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
         $options = [
             'salt' => $salt
         ];
         // Funktion, die zufällige Passwörter erzeugt
-        $password=$vorname;
+        $password = $vorname;
         // Password wird mit salt gehasht
-        $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
+        $password_hashed = password_hash($password, PASSWORD_BCRYPT, $options);
 
         // Füge einen Benutzer der Datenbank hinzu (Attribute siehe unten)
         try {
@@ -100,22 +102,21 @@ class benutzer_manager extends manager
             // Anmeldedaten  mit email versenden
 
             // check if hdm email adress
-            $suffix = explode("@",$email)[1]; //zerlegt string $e-mail in einen string vor dem @ und nach dem @
-            if($suffix === "hdm-stuttgart.de"){
-                echo "email ist hdm mail ".$suffix;
+            $suffix = explode("@", $email)[1]; //zerlegt string $e-mail in einen string vor dem @ und nach dem @
+            if ($suffix === "hdm-stuttgart.de") {
+                echo "email ist hdm mail " . $suffix;
                 $to = $email;
                 $subject = "Neues Benutzerkonto bei Just Vote";
-                $message = "Hallo ".$vorname." ".$nachname.",\n\n Es wurde ein Benutzerkonto für Sie bei JustVote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: ".$email."\n Passwort: ".$vorname."\n\n MFG\n Ihr Just Vote Team";
-                mail($to,$subject,$message);
+                $message = "Hallo " . $vorname . " " . $nachname . ",\n\n Es wurde ein Benutzerkonto für Sie bei JustVote angelegt.\n Ihre Anmeldedaten lauten:\n Benutzername: " . $email . "\n Passwort: " . $vorname . "\n\n MFG\n Ihr Just Vote Team";
+                mail($to, $subject, $message);
             }
-
 
 
         } catch (PDOException $e) {
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            $success=false;
+            $success = false;
         }
-       return $success;
+        return $success;
     }
 
     public function update(benutzer $benutzer)
@@ -146,14 +147,14 @@ class benutzer_manager extends manager
     public function updatePassword(benutzer $benutzer)
     {
         // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
-        $salt=mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+        $salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
         $options = [
             'salt' => $salt
         ];
         // Funktion, die zufällige Passwörter erzeugt
-        $password=$benutzer->password;
+        $password = $benutzer->password;
         // Password wird mit salt gehasht
-        $password_hashed=password_hash($password, PASSWORD_BCRYPT, $options);
+        $password_hashed = password_hash($password, PASSWORD_BCRYPT, $options);
 
 
         try {
@@ -189,4 +190,5 @@ class benutzer_manager extends manager
         return null;
     }
 }
+
 ?>

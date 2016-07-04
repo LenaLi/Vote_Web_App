@@ -2,8 +2,6 @@
 <link href="css/sb-admin.css" rel="stylesheet">
 
 
-
-
 <div id="wrapper">
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -28,7 +26,8 @@
 
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION["name"]; ?> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                        class="fa fa-user"></i> <?php echo $_SESSION["name"]; ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
 
 
@@ -45,23 +44,22 @@
         </ul>
 
 
-
         <!-- Sidebar Links-->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
 
 
                 <!-- Übersicht -->
-                <li >
+                <li>
                     <a href="student_uebersicht.php"><i class="fa fa-fw fa-dashboard"></i> Übersicht</a>
                 </li>
 
-                <li >
-                    <a  href="ueber_just_vote.php"><i class="fa fa-info "></i> Über Just Vote </a>
+                <li>
+                    <a href="ueber_just_vote.php"><i class="fa fa-info "></i> Über Just Vote </a>
                 </li>
 
-                <li >
-                    <a  href="student_impressum.php"><i class="fa fa-info "></i> Impressum </a>
+                <li>
+                    <a href="student_impressum.php"><i class="fa fa-info "></i> Impressum </a>
                 </li>
 
 

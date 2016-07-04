@@ -1,4 +1,3 @@
-
 <?php
 require_once("manager.php");
 require_once("voting.php");
@@ -73,7 +72,7 @@ class voting_manager extends manager
 
     }
 
-    public function create ($vorlesungsid, $votingname, $startdatum, $enddatum)
+    public function create($vorlesungsid, $votingname, $startdatum, $enddatum)
     {
         // Füge ein Voting der Datenbank hinzu (Attribute siehe unten)
         try {
@@ -134,8 +133,6 @@ class voting_manager extends manager
         }
         return null;
     }
-
-
-
 }
+
 ?>

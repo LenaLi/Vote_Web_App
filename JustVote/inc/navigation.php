@@ -2,8 +2,6 @@
 <link href="css/just_vote.css" rel="stylesheet">
 
 
-
-
 <div id="wrapper">
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -17,8 +15,8 @@
                 <span class="icon-bar"></span>
             </button>
 
-                <img class="navbar-logo" href="uebersicht.php" title="JustVote"
-                     src="css/Logo_JustVote.svg">  </img>
+            <img class="navbar-logo" href="uebersicht.php" title="JustVote"
+                 src="css/Logo_JustVote.svg">  </img>
 
         </div>
 
@@ -28,12 +26,14 @@
 
 
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Herzlich Willkommen, <?php echo $_SESSION["name"]; ?> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Herzlich
+                    Willkommen, <?php echo $_SESSION["name"]; ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
 
 
                     <li>
-                        <a href="benutzer_password_update_form.php"><i class="fa fa-fw fa-gear"></i> Passwort ändern </a>
+                        <a href="benutzer_password_update_form.php"><i class="fa fa-fw fa-gear"></i> Passwort ändern
+                        </a>
                     </li>
 
                     <li class="divider"></li>
@@ -45,13 +45,12 @@
         </ul>
 
 
-
         <!-- Sidebar Links-->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
 
                 <!-- Übersicht -->
-                <li >
+                <li>
                     <a href="uebersicht.php"><i class="fa fa-fw fa-dashboard"></i> Übersicht</a>
                 </li>
 
@@ -66,27 +65,29 @@
                 </li>
 
                 <li>
-                    <a href="charts.php"><i class="fa fa-fw fa-bar-chart-o"></i>  Übersicht Ergebnisse</a>
+                    <a href="charts.php"><i class="fa fa-fw fa-bar-chart-o"></i> Übersicht Ergebnisse</a>
                 </li>
 
-                <hr class="line">  </hr>
+                <hr class="line">
+                </hr>
 
                 <?php
                 // Überprüfung ob Eingeloggter Admin ist oder normaler Benutzer --> Nur dann Zugriff auf Verwaltung der Benutzer
-                if ($_SESSION["role"]=="admin") {
+                if ($_SESSION["role"] == "admin") {
 
                     ?>
 
                     <!-- Benutzer erstellen -->
 
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-cog"></i> Benutzer <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-cog"></i>
+                            Benutzer <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a  href="benutzer_create_form.php"> Benutzer anlegen</a>
+                                <a href="benutzer_create_form.php"> Benutzer anlegen</a>
                             </li>
                             <li>
-                                <a  href="benutzer_read.php">Benutzer Übersicht</a>
+                                <a href="benutzer_read.php">Benutzer Übersicht</a>
                             </li>
                         </ul>
                     </li>
@@ -98,7 +99,7 @@
                 ?>
 
 
-                <li >
+                <li>
                     <a align="bo" href="impressum.php"><i class="fa fa-info "></i> Impressum </a>
                 </li>
 

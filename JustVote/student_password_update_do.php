@@ -18,7 +18,7 @@ if (!empty($password1) && !empty($password2)) {
         $student = $student_manager->findById($id);
 
         // aktualisiere Attribute das Passwort des Student-Objektes
-        $student->password =$password1;
+        $student->password = $password1;
 
 
         // Änderungen des Passwortes in Datenbank aktualisieren
@@ -27,8 +27,7 @@ if (!empty($password1) && !empty($password2)) {
         // Weiterleitung auf die Übersichtsseite des Studenten
         header('Location: student_uebersicht.php');
 
-    }
-    else {
+    } else {
         echo "Passwörter stimmen nicht überein!";
     }
 

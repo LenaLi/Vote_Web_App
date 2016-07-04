@@ -8,12 +8,12 @@ require_once("Mapper/auswertung_manager.php");
 include("inc/navigation_mitte.php");
 
 //holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
-$fragemanager =new frage_manager();
+$fragemanager = new frage_manager();
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
-$votings = $fragemanager->getFragebyVotingid ($votingid);
+$votings = $fragemanager->getFragebyVotingid($votingid);
 
 //FEHLERMELDUNG
-if($_GET["error"]=="1"){
+if ($_GET["error"] == "1") {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Du hast bereits abgestimmt!";
     echo "</div";
@@ -23,18 +23,18 @@ if($_GET["error"]=="1"){
 
 <h1>
     <?php
-    echo  $votings ["text"]."</br>";
+    echo $votings ["text"] . "</br>";
     ?>
 </h1>
 
 <?php
 //holt die zur frageID dazugehoerigen antworten aus der DB-Abfrage
-$antwortmanager =new antwort_manager();
+$antwortmanager = new antwort_manager();
 $frageid = $votings ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
 $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
-$votingmanager =new frage_manager();
+$votingmanager = new frage_manager();
 //$_SESSION["votingid"] = $VOTINGID;*/
 $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
@@ -42,10 +42,9 @@ $Antwortarray = array();
 $Antwortanzahl = array();
 
 
-
 // --------------- Für Anzahl Teilnehmer ---------------------------------
 // Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
-$auswertungsmanager =new auswertung_manager();
+$auswertungsmanager = new auswertung_manager();
 // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
 $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
 
@@ -86,20 +85,18 @@ foreach ($antworten as $eintraege) {
         array_push($Antwortanzahl, $auswertung->Anzahl);
         echo "<br/>";
 
-        if ($zahlDerTeilnehmer!=0){
+        if ($zahlDerTeilnehmer != 0) {
             $resultinpercent = round(($auswertung->Anzahl) / $zahlDerTeilnehmer * 100, 2);
-        }
-        else{
+        } else {
             $resultinpercent = 0;
         }
-        array_push ($resultsinpercent, $resultinpercent);
+        array_push($resultsinpercent, $resultinpercent);
 
     }
 }
 
 
 // ---------------  Details --------------------
-
 
 
 ?>
@@ -115,9 +112,9 @@ foreach ($antworten as $eintraege) {
                 // hier    müssen die Antwortmöglichkeiten rein
 
                 <?php
-                foreach($antworten as $antwort){
-                    if(!empty($antwort["text"])){
-                        echo "'".$antwort["text"]."',";
+                foreach ($antworten as $antwort) {
+                    if (!empty($antwort["text"])) {
+                        echo "'" . $antwort["text"] . "',";
                     }
                 }
                 ?>
@@ -128,8 +125,8 @@ foreach ($antworten as $eintraege) {
                 // hier kommen die Anzahl der Abstimmungen pro Antwort rein
                 data: [
                     <?php
-                    for($i=0; $i<sizeof($resultsinpercent); $i++){
-                        echo $resultsinpercent[$i].",";
+                    for ($i = 0; $i < sizeof($resultsinpercent); $i++) {
+                        echo $resultsinpercent[$i] . ",";
                     }
                     ?>
 
@@ -151,18 +148,18 @@ foreach ($antworten as $eintraege) {
             ]
         },
         options: {
-            legend:{
-                display:true,
+            legend: {
+                display: true,
 
             },
             scales: {
 
                 yAxes: [{
                     ticks: {
-                        display:false,
-                        beginAtZero:true,
-                        max:100,
-                        stepSize:10
+                        display: false,
+                        beginAtZero: true,
+                        max: 100,
+                        stepSize: 10
                     }
                 }]
             },
