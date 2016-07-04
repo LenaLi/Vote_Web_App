@@ -46,30 +46,33 @@ if($vorlesungen!=null)
 <?php
 // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
 $fragemanager = new frage_manager();
+
 foreach ($vorlesungen as $vorlesung){
+
 $votingsByVorlesungsId = $votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
 
 
 foreach ($votingsByVorlesungsId as $voting) {
 
 
-//holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
-
 $votingid = $voting->votingid;
 $frage = $fragemanager->getFragebyVotingid($votingid);
 
-//Votingname
-echo "<h5>";
-echo $voting->votingname;
-echo "</h5>";
-
 ?>
-
+<!-- Ausgabe der Frage des Votings-->
 <h1>
     <?php
     echo $frage ["text"] . "</br>";
     ?>
 </h1>
+
+<!-- Ausgabe des Votingnamens des Votings-->
+<h5>
+    <?php
+    echo "Votingname: ".$voting->votingname;
+    ?>
+</h5>
+
 
 <?php
 //holt die zur frageID dazugehoerigen antworten aus der DB-Abfrage
@@ -94,6 +97,7 @@ foreach ($gesamtanzahlTeilnehmer as $eintrag) {
     $zahlDerTeilnehmer = $eintrag->Anzahl;
 }
 
+//Ausgabe der Anzahl der Teilnehmer
 echo "<h5>";
 echo "Anzahl Teilnehmer: ";
 echo $zahlDerTeilnehmer;
@@ -113,10 +117,13 @@ foreach ($antworten as $eintraege) {
     if (!empty ($eintraege["text"])) {
 
         $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
+
+        //Ausgabe der Antowrten
         echo "Antwort: ";
         echo $eintraege["text"];
         array_push($Antwortarray, $eintraege["text"]);
 
+        //Ausgabe der Stimmen pro Antwort
         echo " (";
         echo $auswertung->Anzahl;
         echo " Stimmen)";
@@ -144,8 +151,7 @@ foreach ($antworten as $eintraege) {
         data: {
             labels: [
 
-                // hier    müssen die Antwortmöglichkeiten rein
-
+                // Antwortmöglichkeiten
                 <?php
                 foreach ($antworten as $antwort) {
                     if (!empty($antwort["text"])) {
@@ -158,7 +164,7 @@ foreach ($antworten as $eintraege) {
             ],
             datasets: [{
                 label: '% der Stimmen',
-                // hier kommen die Anzahl der Abstimmungen pro Antwort rein
+                // Anzahl der Abstimmungen pro Antwort
                 data: [
                     <?php
                     for ($i = 0; $i < sizeof($resultsinpercent); $i++) {
