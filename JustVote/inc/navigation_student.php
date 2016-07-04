@@ -1,3 +1,7 @@
+<!-- Standard Navigation für Studenten, die sich ein Konto angelegt haben -->
+
+
+
 <!-- Custom CSS -->
 <link href="css/sb-admin.css" rel="stylesheet">
 
