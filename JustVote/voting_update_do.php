@@ -69,7 +69,7 @@ if (!empty($votingId) && !empty($votingName) && !empty($frageText) && !empty($an
     $manager->update($antworten[3]->ID, $frage->ID, $antwort_4);
 
     // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
-    header('Location: uebersicht.php');
+    header('Location: uebersicht.php?vorlesungsid='.$vorlesung->vorlesungsid);
 } else {
     echo $votingId;
     //header('Location: voting_update_form.php?id='.$votingId.'&error=1');

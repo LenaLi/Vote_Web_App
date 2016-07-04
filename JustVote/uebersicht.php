@@ -35,6 +35,7 @@ require_once("Mapper/voting_manager.php");
                 if($vorlesungen!=null)
                         foreach($vorlesungen as $vorlesung){
                             $cssCollapse = "";
+
                             if($vorlesung->vorlesungsid==$_GET["vorlesungsid"]){
                                 $cssCollapse = " in";
                             }
