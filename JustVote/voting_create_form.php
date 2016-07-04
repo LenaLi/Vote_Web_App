@@ -106,7 +106,7 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="antwort_3">Antwortmöglichkeit 3:</label>
-                            <textarea type="text" class="form-control" name='antwort_3' id='antwort_3' rows="2"  placeholder="Antwortmöglichkeit 3" required="required"></textarea><br>
+                            <textarea type="text" class="form-control" name='antwort_3' id='antwort_3' rows="2"  placeholder="Antwortmöglichkeit 3" ></textarea><br>
                         </div>
                     </div>
 
@@ -114,7 +114,7 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="antwort_4">Antwortmöglichkeit 4:</label>
-                            <textarea type="text" class="form-control" name='antwort_4' id='antwort_4' rows="2"  placeholder="Antwortmöglichkeit 4" required="required"></textarea><br>
+                            <textarea type="text" class="form-control" name='antwort_4' id='antwort_4' rows="2"  placeholder="Antwortmöglichkeit 4" ></textarea><br>
                         </div>
                     </div>
 
@@ -148,7 +148,7 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                     </div>
 
                     <br>
-                    
+
                     <!-- Button "Erstellen"-->
                     <div class="form-group">
                         <div class="col-sm-6">

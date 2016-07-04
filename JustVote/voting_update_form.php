@@ -109,7 +109,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="antwort_3">Antwortmöglichkeit 3 (optional)</label>
-                            <input type="text" class="form-control" name='antwort_3' id='antwort_3' value='<?php echo $antworten[2]->text ?>' required="required"/><br>
+                            <input type="text" class="form-control" name='antwort_3' id='antwort_3' value='<?php echo $antworten[2]->text ?>'>
                         </div>
                     </div>
 
@@ -117,7 +117,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="antwort_4">Antwortmöglichkeit 4 (optional)</label>
-                            <input type="text" class="form-control" name='antwort_4' id='antwort_4' value='<?php echo $antworten[3]->text ?>' required="required">
+                            <input type="text" class="form-control" name='antwort_4' id='antwort_4' value='<?php echo $antworten[3]->text ?>'>
                         </div>
                     </div>
 
