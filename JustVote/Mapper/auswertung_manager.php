@@ -18,7 +18,8 @@ class auswertung_manager extends manager
 
 
     //einen neuen Eintrag in die Tabelle auswertung schreiben
-    public function create ($frageID, $antwortID, $voting_id){
+    public function create($frageID, $antwortID, $voting_id)
+    {
         try {
             $stmt = $this->pdo->prepare('
               INSERT INTO auswertung
@@ -57,7 +58,7 @@ class auswertung_manager extends manager
         }
     }
 
-    //in voiting id die antworten zur frageid rausholen weil nich überall die gleichen antworten gegeben wurden
+    //in voiting id die antworten zur frageid rausholen weil nich ï¿½berall die gleichen antworten gegeben wurden
     public function countAntwort($antwortid)
     {
         try {

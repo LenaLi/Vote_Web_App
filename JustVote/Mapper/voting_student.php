@@ -7,7 +7,8 @@ class voting_student
     public $ergebnis_id;
     public $student_id;
 
-    function __construct($data=null) {
+    function __construct($data = null)
+    {
         if (is_array($data)) {
             $this->votingstudent_id = $data['votingstudent_id'];
             $this->votingid = $data['votingid'];

@@ -1,12 +1,14 @@
 <?php
 
-class antwort {
+class antwort
+{
 
     public $ID;
     public $frageID;
     public $text;
 
-    function __construct($data=null) {
+    function __construct($data = null)
+    {
         if (is_array($data)) {
             $this->ID = $data['ID'];
             $this->frageID = $data['frageID'];
@@ -15,4 +17,5 @@ class antwort {
         }
     }
 }
+
 ?>

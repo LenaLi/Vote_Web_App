@@ -53,25 +53,26 @@ class frage_manager extends manager
             die();
         }
 
-      /*  public function getFragefromFrageTabelle($text)
-        {
-            try {
-                $stmt = $this->pdo->prepare('SELECT * FROM frage WHERE text = :text');
-                $stmt->bindParam(':text', $text);
-                $stmt->execute();
-                $stmt->setFetchMode(PDO::FETCH_ASSOC); //alles in array, kommt in arry zur�ck nicht in objektform
-                $result = $stmt->fetch();
-
-                return $result;
-
-            } catch (PDOException $e) {
-                echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-                die();
-            }
-
-        }*/
+        /*  public function getFragefromFrageTabelle($text)
+          {
+              try {
+                  $stmt = $this->pdo->prepare('SELECT * FROM frage WHERE text = :text');
+                  $stmt->bindParam(':text', $text);
+                  $stmt->execute();
+                  $stmt->setFetchMode(PDO::FETCH_ASSOC); //alles in array, kommt in arry zur�ck nicht in objektform
+                  $result = $stmt->fetch();
+  
+                  return $result;
+  
+              } catch (PDOException $e) {
+                  echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
+                  die();
+              }
+  
+          }*/
     }
-    public function create ($voting_id, $text)
+
+    public function create($voting_id, $text)
     {
         // Füge neue Antwort in Tabelle Antwort der Datenbank hinzu (Attribute siehe unten)
         try {
@@ -112,6 +113,7 @@ class frage_manager extends manager
             die();
         }
     }
+
     public function deleteByVotingId($votingid)
     {
         // Löschen eines zu einer bestimmten VotingId gehörenden Votings
@@ -129,4 +131,5 @@ class frage_manager extends manager
     }
 
 }
+
 ?>
