@@ -60,7 +60,7 @@ $student = $student_manager->findById($id);
                     <!-- Eingabe neues Passwort-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            Neues Passwort eingeben:
+                            <label for="password1">Neues Passwort eingeben:</label>
                             <input class=form-control type='password' name='password1'>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ $student = $student_manager->findById($id);
                     <!-- Neues Passwort wiederholen-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            Neues Passwort wiederholen:
+                            <label for="password2">Passwort wiederholen:</label>
                             <input class=form-control type='password' name='password2'>
                         </div>
                     </div>
