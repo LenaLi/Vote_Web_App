@@ -1,4 +1,3 @@
-
 <!-- Navigation für die Link Bereitstellung für die Studenten (QR Code etc.) dass nicht alles sichtbar ist -->
 
 
@@ -23,20 +22,17 @@
 
         <!-- Header Top Menü (oben rechts) -->
         <ul class="nav navbar-right top-nav">
-
-
+            
         </ul>
-
 
 
         <!-- Sidebar Links-->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
-                <li >
+                <li>
                     <a href="uebersicht.php"><i class="fa fa-fw fa-dashboard"></i> Zurück zur Übersicht</a>
                 </li>
-
-
+                
     </nav>
 
 
