@@ -32,6 +32,8 @@ include("inc/session_check_admin.php");?>
 
                     <h2>Benutzer hinzufügen</h2>
 
+                    <br>
+
 
                     <!-- Beginn Formular "Benutzer hinzufügen" -->
                     <form class="form-horizontal" role="form" action="benutzer_create_do.php" method="post">

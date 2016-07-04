@@ -24,7 +24,9 @@ if($_SESSION["studentlogin"]!="1"){
     <div id="page-wrapper">
         <div class="container-fluid">
 
-                    <h1>Votings, an denen du teilgenommen hast</h1>
+                    <h1> Deine Votings </h1>
+                    <h4>Hier siehst du alle Votings, an denen du teilgenommen hast.</h4>
+                    <br>
 
                         <?php
                         // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
@@ -50,7 +52,7 @@ if($_SESSION["studentlogin"]!="1"){
                             "<div class='panel panel-default'>
                                     <div class='panel-heading' role='tab' id='heading.$voting->votingid'>
                                         <h4 class='panel-title'>
-                                             <a class= 'fa-plus-square-o' role='button' data-toggle='collapse' data-parent='#accordion' href='#$voting->votingid' aria-expanded='true' aria-controls='$voting->votingid'>
+                                             <a class= 'fa fa-angle-right' role='button' data-toggle='collapse' data-parent='#accordion' href='#$voting->votingid' aria-expanded='true' aria-controls='$voting->votingid'>
                                              $voting->votingname  ","  </a>
                                         </h4>
                                         <div id='$voting->votingid' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='heading.$voting->votingid'>

@@ -36,6 +36,8 @@ require_once("Mapper/benutzer_manager.php");
                     ?>
                     <h1>Benutzerübersicht</h1>
 
+                    <br>
+
                     <table  class="table table-hover">
                         <thead>
                         <th>Vorname</th>

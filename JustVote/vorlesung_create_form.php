@@ -16,6 +16,8 @@
 
                     <h2>Vorlesung hinzufügen</h2>
 
+                    <br>
+
                     <?php
                     // Fehlermeldung, da Problem bei serverseitiger Überprüfung
                     // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird

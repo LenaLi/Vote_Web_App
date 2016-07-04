@@ -11,6 +11,7 @@
 
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css"  type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
     <!-- js -->
     <script src="js/jquery-1.11.3.min.js"></script>

@@ -35,33 +35,34 @@ require_once("Mapper/voting_manager.php");
                     if($vorlesungen!=null)
                         foreach($vorlesungen as $vorlesung){
                             echo
-                                "<div class='panel panel-default'>
+                                // Panel mit der jeweiligen Vorlesung (Vorlesungsname + Nummer)
+                                "<div id='test' class='panel panel-default'>
                                     <div class='panel-heading' role='tab' id='heading.$vorlesung->vorlesungsid'>
                                         <h4 class='panel-title'>
                                             <a class='fa fa-angle-right 'role='button' data-toggle='collapse' data-parent='#accordion'
-                                             href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'></a>
-                                             <a  role='button' data-toggle='collapse' data-parent='#accordion'
-                                             href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'>
-                                              $vorlesung->vorlesungsname  "," ($vorlesung->vorlesungsnummer)
-                                              </a>
-                                              <div class=button-right>
+                                                href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'></a>
+                                            <a  role='button' data-toggle='collapse' data-parent='#accordion'
+                                                href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'> $vorlesung->vorlesungsname  "," ($vorlesung->vorlesungsnummer)</a>
+
+                                            <!-- Funktion Vorlesung bearbeiten und löschen  -->
+                                            <div class=button-right>
                                               <a class='fa fa-edit' href ='vorlesung_update_form.php?id=".$vorlesung->vorlesungsid."'></a>
                                               <a class='fa fa-trash'href ='vorlesung_delete_do.php?id=".$vorlesung->vorlesungsid."'></a>
-                                              </div>
-                                              </h4>
-                                        <div id='$vorlesung->vorlesungsid' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='heading.$vorlesung->vorlesungsid'>
+                                            </div>
+                                        </h4>
+
+                                        <!-- Beginn Panel Body  -->
+                                        <div id='$vorlesung->vorlesungsid' class='collapse' role='tabpanel' aria-labelledby='heading.$vorlesung->vorlesungsid'>
                                         <div class='panel-body'>
                                         <table class='table table-hover'>";
 
                             // Überschriften der Tabellen
-                                echo "<thead><tr>";
-
-                                echo "<th colspan='6'> Name </th>";
-                                echo "<th colspan='1'> Zeitraum </th>";
-                                echo "<th colspan='3'> Status </th>";
-                                echo "<th colspan='3'>  </th>";
-
-                                echo " </tr></thead>";
+                            echo "<thead><tr>";
+                            echo "<th colspan='6'> Name </th>";
+                            echo "<th colspan='1'> Zeitraum </th>";
+                            echo "<th colspan='3'> Status </th>";
+                            echo "<th colspan='3'>  </th>";
+                            echo " </tr></thead>";
 
                             // Lese Votings mit Vorlesungs-ID aus Datenbank aus
                             $votings=$votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
@@ -144,7 +145,6 @@ require_once("Mapper/voting_manager.php");
                                     echo "</tr>";
 
                             }
-
                             echo "</table>";
                             echo "</br>";
                             echo "</div>";
@@ -160,9 +160,3 @@ require_once("Mapper/voting_manager.php");
         </div>
 </body>
 </html>
-
-
-
-
-
-

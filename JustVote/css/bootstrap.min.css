@@ -1389,7 +1389,7 @@ figure {
 
 img {
     vertical-align: middle;
-    height: 119px;
+    /* height: 119px; */
 }
 
 .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive,
@@ -1452,8 +1452,11 @@ hr {
     cursor: pointer
 }
 
+
+
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    font-family: inherit;
+    /*font-family: inherit; */
+    font-family: 'Oswald', sans-serif;
     font-weight: 500;
     line-height: 1.1;
     color: inherit
