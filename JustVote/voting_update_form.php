@@ -121,6 +121,8 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                         </div>
                     </div>
 
+                    <br>
+
                     <!--Abfrage Votingzeitraum -->
                     <?php
                     $startDatum = date("Y-m-d", strtotime($voting->startdatum));
@@ -132,7 +134,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <!-- Updatefeld Startdatum und Startzeit-->
                     <div class="form-group">
                         <div class="col-sm-3">
-                            <label for="startzeit">Startdatum</label>
+                            <label for="startdatum">Startdatum</label>
                             <input type="date" class="form-control" name='startdatum' id='startdatum' value='<?php echo $startDatum ?>' required="required">
                         </div>
 
@@ -142,20 +144,21 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                           </div>
                     </div>
 
-
+                    <br>
                     <!-- Updatefeld Enddatum und Endzeit-->
                     <div class="form-group">
                         <div class="col-sm-3">
-                            <label for="startzeit">Enddatum</label>
+                            <label for="enddatum">Enddatum</label>
                             <input type="date" class="form-control" name='enddatum' id='enddatum' value='<?php echo $endDatum ?>' required="required">
                         </div>
 
                         <div class="col-sm-3">
-                            <label for="startzeit">Endzeit</label>
+                            <label for="endzeit">Endzeit</label>
                             <input type="time" class="form-control" name='endzeit' id='endzeit' value='<?php echo $endZeit ?>' required="required">
                         </div>
                     </div>
 
+                    <br>
 
                     <!-- Button "Update"-->
                     <div class="form-group">

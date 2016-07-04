@@ -50,21 +50,20 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                 <!-- Beginn Formular "Voting hinzufügen" -->
                 <form class="form-horizontal" role="form" action="voting_create_do.php" method="post">
 
+
                     <!-- Texteingabefeld für Name des Votings-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="votingname" id="votingname"
-                                   placeholder="Name des Votings" required="required">
+                            <label for="votingname">Votingname:</label>
+                            <input type="text" class="form-control" name='votingname' id='votingname'  placeholder="Votingname" required="required"/><br>
                         </div>
                     </div>
+
                     <!-- Vorlesung auswählen: -->
                     <div class="form-group">
-                        <div class="col-sm-3">
-                            <label>Vorlesung auswählen: </label>
-                        </div>
-                        <!-- Auswahlfeld der Vorlesung-->
-                        <div class="col-sm-3">
-                            <select class="form-control" name="vorlesungsid">
+                        <div class="col-sm-6">
+                            <label for="auswählen">Vorlesung auswählen:</label>
+                            <select  class="form-control" name='vorlesungsid' id='vorlesungsid'/><br>
                                 <?php
                                 // erzeugt die Auswahlmöglichkeiten der zum Benutzer gehörenden Vorlesungen
                                 foreach ($vorlesungen as $vorlesung) {
@@ -75,84 +74,91 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                                 ?>
                             </select>
                         </div>
-
                     </div>
-                    <!-- Texteingabefeld für die Frage des Votings -->
+                    <br>
+
+                    <!-- Texteingabefeld für Frage des Votings-->
                     <div class="form-group">
-                        <div class="col-sm-6"
-                        <label for="frage"></label>
-                        <textarea class="form-control" name="frage" rows="3" placeholder="Frage"
-                                  required="required"></textarea>
+                        <div class="col-sm-6">
+                            <label for="frage">Frage:</label>
+                            <textarea type="text" class="form-control" name='frage' id='frage' rows="3" placeholder='frage' required="required"> </textarea><br>
+                        </div>
                     </div>
-            </div>
-
-            <!-- Texteingabefeld für die Antwortmöglichkeit 1 -->
-            <div class="form-group">
-                <div class="col-sm-6"
-                <label for="antwort_1"></label>
-                <textarea class="form-control" name="antwort_1" rows="2" placeholder="Antwortmöglichkeit 1"
-                          required="required"></textarea>
-            </div>
-        </div>
-
-        <!-- Texteingabefeld für die Antwortmöglichkeit 2 -->
-        <div class="form-group">
-            <div class="col-sm-6"
-            <label for="antwort_2"</label>
-            <textarea class="form-control" name="antwort_2" rows="2" placeholder="Antwortmöglichkeit 2"
-                      required="required"></textarea>
-        </div>
-    </div>
-
-    <!-- Texteingabefeld für die Antwortmöglichkeit 3 -->
-    <div class="form-group">
-        <div class="col-sm-6"
-        <label for="antwort_3"</label>
-        <textarea class="form-control" name="antwort_3" rows="2"
-                  placeholder="Antwortmöglichkeit 3 (optional)"></textarea>
-    </div>
-</div>
-
-<!-- Texteingabefeld für die Antwortmöglichkeit 4 -->
-<div class="form-group">
-    <div class="col-sm-6"
-    <label for="antwort_4"</label>
-    <textarea class="form-control" name="antwort_4" rows="2" placeholder="Antwortmöglichkeit 4 (optional)"></textarea>
-</div>
-</div>
-
-<!-- Eingabefeld für die Startdatum, Startzeit -->
-<div class="form-group">
-    <div class="col-sm-6"
-    <label>Startzeitpunkt: </label>
-    <label for="startdatum"></label>
-    <input class="form-control" type="date" name="startdatum" placeholder="Startdatum"
-           value="<?php echo date("d.m.Y", time()) ?>" required="required">
-    <br>
-    <input class="form-control" type="time" name="startzeit" placeholder="Startzeit"
-           value="<?php echo date("H:i", time()) ?>" required="required">
-</div>
-</div>
-
-<!-- Eingabefeld für die Enddatum, Endzeit -->
-<div class="form-group">
-    <div class="col-sm-6"
-    <label>Endzeitpunkt: </label>
-    <label for="enddatum"></label>
-    <input class="form-control" type="date" name="enddatum" placeholder="Enddatum" required="required">
-    <br>
-    <input class="form-control" type="time" name="endzeit" placeholder="Endzeit" required="required">
-</div>
-</div>
 
 
-<!-- Button "Erstellen"-->
-<div class="form-group">
-    <div class="col-sm-6">
-        <button type="submit" class="btn btn-warning"> Erstellen</button>
-    </div>
-</div>
-</form>
+                    <!-- Texteingabefeld für die Antwortmöglichkeit 1 -->
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="antwort_1">Antwortmöglichkeit 1:</label>
+                            <textarea type="text" class="form-control" name='antwort_1' id='antwort_1' rows="2"  placeholder="Antwortmöglichkeit 1" required="required"></textarea><br>
+                        </div>
+                    </div>
+
+                    <!-- Texteingabefeld für die Antwortmöglichkeit 2 -->
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="antwort_2">Antwortmöglichkeit 2:</label>
+                            <textarea type="text" class="form-control" name='antwort_2' id='antwort_2' rows="2"  placeholder="Antwortmöglichkeit 2" required="required"></textarea><br>
+                        </div>
+                    </div>
+
+                    <!-- Texteingabefeld für die Antwortmöglichkeit 3 -->
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="antwort_3">Antwortmöglichkeit 3:</label>
+                            <textarea type="text" class="form-control" name='antwort_3' id='antwort_3' rows="2"  placeholder="Antwortmöglichkeit 3" required="required"></textarea><br>
+                        </div>
+                    </div>
+
+                    <!-- Texteingabefeld für die Antwortmöglichkeit 4 -->
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label for="antwort_4">Antwortmöglichkeit 4:</label>
+                            <textarea type="text" class="form-control" name='antwort_4' id='antwort_4' rows="2"  placeholder="Antwortmöglichkeit 4" required="required"></textarea><br>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Updatefeld Startdatum und Startzeit-->
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label for="startzeit">Startdatum</label>
+                            <input type="date" class="form-control" name='startdatum' id='startdatum' value='<?php echo date("d.m.Y", time()) ?>' placeholder="Startdatum" required="required">
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="startzeit">Startzeit</label>
+                            <input type="time" class="form-control" name='startzeit' id='startzeit' value='<?php echo date("H:i", time()) ?>' placeholder="Startzeit" required="required">
+                        </div>
+                    </div>
+
+                    <br>
+                    <!-- Updatefeld Enddatum und Endzeit-->
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label for="enddatum">Enddatum</label>
+                            <input type="date" class="form-control" name='enddatum' id='enddatum' placeholder="Enddatum" required="required">
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="endzeit">Endzeit</label>
+                            <input type="time" class="form-control" name='endzeit' id='endzeit' placeholder="Endzeit" required="required">
+                        </div>
+                    </div>
+
+                    <br>
+                    
+                    <!-- Button "Erstellen"-->
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <button type="submit" class="btn btn-warning"> Erstellen</button>
+                        </div>
+                    </div>
+
+                </form>
+
+
 <!-- Ende Formular "Voting hinzufügen" -->
 
 
