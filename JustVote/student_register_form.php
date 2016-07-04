@@ -9,7 +9,7 @@
     <h1>Registrierung</h1>
     <h4>für Studenten der HdM Stuttgart</h4>
 </div>
-
+<br>
 <div class="login">
     <form class="form-horizontal" role="form" action="student_register_do.php" method="post">
 
