@@ -10,7 +10,7 @@
     <link href="css/just_vote.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.css"  type="text/css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.css"  type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
     <!-- js -->
