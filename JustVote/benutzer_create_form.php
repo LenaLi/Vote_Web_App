@@ -64,7 +64,7 @@ include("inc/session_check_admin.php"); ?>
                         <div class="col-sm-6">
                             <select class="form-control" name="role">
                                 <option value="Benutzer" selected>Benutzer</option>
-                                <option value="Admin">Admin</option>
+                                <option value="admin">Admin</option>
                             </select>
                         </div>
                     </div>
