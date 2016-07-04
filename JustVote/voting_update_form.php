@@ -120,9 +120,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                             <input type="text" class="form-control" name='antwort_4' id='antwort_4' value='<?php echo $antworten[3]->text ?>'>
                         </div>
                     </div>
-
-                    <br>
-
+                    
                     <!--Abfrage Votingzeitraum -->
                     <?php
                     $startDatum = date("Y-m-d", strtotime($voting->startdatum));
@@ -144,7 +142,6 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                           </div>
                     </div>
 
-                    <br>
                     <!-- Updatefeld Enddatum und Endzeit-->
                     <div class="form-group">
                         <div class="col-sm-3">
@@ -157,8 +154,6 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                             <input type="time" class="form-control" name='endzeit' id='endzeit' value='<?php echo $endZeit ?>' required="required">
                         </div>
                     </div>
-
-                    <br>
 
                     <!-- Button "Update"-->
                     <div class="form-group">

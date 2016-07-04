@@ -46,7 +46,6 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                 }
                 ?>
 
-
                 <!-- Beginn Formular "Voting hinzufügen" -->
                 <form class="form-horizontal" role="form" action="voting_create_do.php" method="post">
 
@@ -64,14 +63,14 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                         <div class="col-sm-6">
                             <label for="auswählen">Vorlesung auswählen:</label>
                             <select  class="form-control" name='vorlesungsid' id='vorlesungsid'/>
-                                <?php
-                                // erzeugt die Auswahlmöglichkeiten der zum Benutzer gehörenden Vorlesungen
-                                foreach ($vorlesungen as $vorlesung) {
-                                    echo "<option value='" . $vorlesung->vorlesungsid . "''>";
-                                    echo $vorlesung->vorlesungsname;
-                                    echo "</option>";
-                                }
-                                ?>
+                            <?php
+                            // erzeugt die Auswahlmöglichkeiten der zum Benutzer gehörenden Vorlesungen
+                            foreach ($vorlesungen as $vorlesung) {
+                                echo "<option value='" . $vorlesung->vorlesungsid . "''>";
+                                echo $vorlesung->vorlesungsname;
+                                echo "</option>";
+                            }
+                            ?>
                             </select>
                         </div>
                     </div>
@@ -156,12 +155,12 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                 </form>
 
 
-<!-- Ende Formular "Voting hinzufügen" -->
+                <!-- Ende Formular "Voting hinzufügen" -->
 
 
-</div>
-</div>
-</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
