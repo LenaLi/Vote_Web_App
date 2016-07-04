@@ -38,6 +38,7 @@
                                    placeholder="Nummer der Vorlesung" required="required">
                         </div>
                     </div>
+
                     <!-- Texteingabefeld für Vorlesungsname-->
                     <div class="form-group">
                         <div class="col-sm-6">
@@ -45,6 +46,7 @@
                                    placeholder="Vorlesungsname" required="required">
                         </div>
                     </div>
+
                     <!-- Button "Erstellen"-->
                     <div class="form-group">
                         <div class=" col-sm-6">
