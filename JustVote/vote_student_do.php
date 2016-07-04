@@ -32,7 +32,7 @@ if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !emp
 
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $voting_student_manager = new voting_student_manager();
-    
+
     $status = $voting_student_manager->create($postvoting, $student->student_id);
 
     if ($status == null) {
@@ -57,7 +57,7 @@ if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !emp
 
     //header redirect
     header('Location: vote_student_ergebnis.php?id=' . $postvoting);
-} else{
-    header('Location: vote_student_form.php?id=' . $postvoting."&error=1");
+} else {
+    header('Location: vote_student_form.php?id=' . $postvoting . "&error=1");
 }
 ?>

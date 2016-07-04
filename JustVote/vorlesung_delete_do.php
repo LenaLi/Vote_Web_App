@@ -14,26 +14,26 @@ require_once("Mapper/vorlesung_manager.php");
 $vorlesungsId = (int)htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
-$voting_manager =new voting_manager();
+$voting_manager = new voting_manager();
 
 //Lese Votings mit der Vorlesungsid aus voting_manager aus
-$votings=$voting_manager->findByVorlesungsId($vorlesungsId);
+$votings = $voting_manager->findByVorlesungsId($vorlesungsId);
 
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
-$vorlesung_manager =new vorlesung_manager();
+$vorlesung_manager = new vorlesung_manager();
 
 //Lese Vorlesung mit der Vorlesungsid aus vorlesung_manager aus
-$vorlesung=$vorlesung_manager->findByVorlesungsId($vorlesungsId);
+$vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsId);
 
 // Wenn Vorlesung nicht zu Benutzer gehört, dann wird der Zugriff verweigert
-if ($vorlesung->benutzerid != $_SESSION["benutzerid"]){
+if ($vorlesung->benutzerid != $_SESSION["benutzerid"]) {
     die();
 }
 
 // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
-$voting_student_manager= new voting_student_manager();
+$voting_student_manager = new voting_student_manager();
 
-foreach($votings as $voting){
+foreach ($votings as $voting) {
     // Voting löschen in der Datenbank
     $voting_student_manager->delete($voting->votingid);
     $voting_manager->delete($voting->votingid);

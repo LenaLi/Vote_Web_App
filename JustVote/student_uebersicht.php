@@ -12,7 +12,7 @@ include("inc/header.php");
 
 
 // session check
-if($_SESSION["studentlogin"]!="1"){
+if ($_SESSION["studentlogin"] != "1") {
     header('Location: student_login_form.php');
     die();
 }
@@ -21,60 +21,60 @@ if($_SESSION["studentlogin"]!="1"){
 <!DOCTYPE html>
 <html>
 <body>
-    <div id="page-wrapper">
-        <div class="container-fluid">
+<div id="page-wrapper">
+    <div class="container-fluid">
 
-                    <h1>Votings, an denen du teilgenommen hast</h1>
+        <h1>Votings, an denen du teilgenommen hast</h1>
 
-                        <?php
-                        // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
-                        $voting_manager =new voting_manager();
+        <?php
+        // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
+        $voting_manager = new voting_manager();
 
-                        // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
-                        $voting_student_manager =new voting_student_manager();
+        // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
+        $voting_student_manager = new voting_student_manager();
 
-                        // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
-                        $vorlesung_manager =new vorlesung_manager();
+        // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
+        $vorlesung_manager = new vorlesung_manager();
 
-                        // Lese voting mit Voting-ID aus Datenbank aus
-                        $voting_students = $voting_student_manager->findVotingsByStudent($_SESSION["studentid"]);
+        // Lese voting mit Voting-ID aus Datenbank aus
+        $voting_students = $voting_student_manager->findVotingsByStudent($_SESSION["studentid"]);
 
 
-                        foreach ($voting_students as $voting_student){
+        foreach ($voting_students as $voting_student) {
 
-                            $votingid=$voting_student->votingid;
-                            $voting=$voting_manager->findByVotingId($votingid);
-                            $vorlesung=$vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
+            $votingid = $voting_student->votingid;
+            $voting = $voting_manager->findByVotingId($votingid);
+            $vorlesung = $vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
 
-                            echo
-                            "<div class='panel panel-default'>
+            echo
+            "<div class='panel panel-default'>
                                     <div class='panel-heading' role='tab' id='heading.$voting->votingid'>
                                         <h4 class='panel-title'>
                                              <a class= 'fa-plus-square-o' role='button' data-toggle='collapse' data-parent='#accordion' href='#$voting->votingid' aria-expanded='true' aria-controls='$voting->votingid'>
-                                             $voting->votingname  ","  </a>
+                                             $voting->votingname  ", "  </a>
                                         </h4>
                                         <div id='$voting->votingid' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='heading.$voting->votingid'>
                                         <div class='panel-body'>
                                         <table class='table table-hover'>";
 
-                            //Vorlesungsname
-                            echo "Vorlesung: ".$vorlesung->vorlesungsname."<br>";
+            //Vorlesungsname
+            echo "Vorlesung: " . $vorlesung->vorlesungsname . "<br>";
 
-                            //Zeitraum des Votings
-                            $startdatum = $voting->startdatum;
-                            $startdatum = date("d.m.y H:i",strtotime($startdatum))." Uhr";
-                            echo "Startdatum: ".$startdatum."<br>";
+            //Zeitraum des Votings
+            $startdatum = $voting->startdatum;
+            $startdatum = date("d.m.y H:i", strtotime($startdatum)) . " Uhr";
+            echo "Startdatum: " . $startdatum . "<br>";
 
-                            $enddatum = $voting->enddatum;
-                            $enddatum = date("d.m.y H:i",strtotime($enddatum))." Uhr";
-                            echo "Enddatum: ".$enddatum."<br>";
+            $enddatum = $voting->enddatum;
+            $enddatum = date("d.m.y H:i", strtotime($enddatum)) . " Uhr";
+            echo "Enddatum: " . $enddatum . "<br>";
 
 
-                            //Button "Ergebnis einsehen"
-                            echo "<a href='vote_student_ergebnis.php?id=".$voting->votingid."'> Ergebnis einsehen </a>";
+            //Button "Ergebnis einsehen"
+            echo "<a href='vote_student_ergebnis.php?id=" . $voting->votingid . "'> Ergebnis einsehen </a>";
 
-                            echo "</div>";
+            echo "</div>";
 
-                             }
-                        ?>
+        } 
+        ?>
 

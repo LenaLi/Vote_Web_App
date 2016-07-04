@@ -19,11 +19,12 @@ include("inc/navigation_student.php");
                 <h4>JustVote ist ein Tool, um an Umfragen deiner Dozenten teilzunehmen</h4>
                 <br>- Du kannst ganz einfach an Umfragen deiner Dozenten teilnehmen</br>
                 <br>- Ergebnisse des Votings werden dir sofort angezeigt </br>
-                <br>- Ergebnisse von abgeschlossenen Votings kannst du dir jederzeit über den seperaten Studentenlogin anschauen</br>
+                <br>- Ergebnisse von abgeschlossenen Votings kannst du dir jederzeit über den seperaten Studentenlogin
+                anschauen</br>
                 <br>- Dein Passwort kannst du ändern, wenn du willst </br>
             </div>
-        </br>
+            </br>
+        </div>
     </div>
-</div>
 </body>
 </html>
