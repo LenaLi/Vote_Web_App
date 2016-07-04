@@ -39,9 +39,10 @@ $voting = $voting_manager->findByVotingId($aktuellesvoting);
     <br>
     <?php
     // Ausgeben des Links mit der jeweiligen ID
-    echo 'Link: <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=' . $aktuellesvoting . ">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
+    echo '<a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=' . $aktuellesvoting . ">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
     ?>
 
+    <br>
     <br>
 
     <?php

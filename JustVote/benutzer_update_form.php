@@ -81,7 +81,7 @@ echo $id;
             <!-- Button "Bearbeiten"-->
             <div class="form-group">
                 <div class=" col-sm-6">
-                    <button type="submit" class="btn btn-warning"> Bearbeiten</button>
+                    <button type="submit" class="btn btn-warning"> Aktualisieren</button>
                 </div>
             </div>
         </form>

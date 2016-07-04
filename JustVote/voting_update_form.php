@@ -58,7 +58,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
         <div class="row">
             <div class="col-lg-12">
 
-                <h1>Voting bearbeiten</h1>
+                <h1>Voting aktualisieren</h1>
 
                 <?php
                 // Fehlermeldung, da Problem bei serverseitiger Überprüfung
@@ -147,7 +147,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <!-- Button "Update"-->
                     <div class="form-group">
                         <div class=" col-sm-6">
-                            <button type="submit" class="btn btn-warning">Update</button>
+                            <button type="submit" class="btn btn-warning">Aktualisieren</button>
                         </div>
                     </div>
 
