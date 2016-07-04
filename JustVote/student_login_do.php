@@ -8,33 +8,33 @@ require_once("Mapper/voting_student_manager.php");
 <?php
 
 // POST Parameter auslesen
-$email=htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
-$password=htmlspecialchars($_POST["password"], ENT_QUOTES, "UTF-8");
-$votingid=htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
+$email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
+$password = htmlspecialchars($_POST["password"], ENT_QUOTES, "UTF-8");
+$votingid = htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
 
 // Prüfen ob alle Formularfelder ausgefüllt wurden
-if (!empty($email)&& !empty($password)) {
+if (!empty($email) && !empty($password)) {
 
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
-    $manager=new student_manager();
+    $manager = new student_manager();
 
 // Lese Benutzer mit email aus Datenbank und speichere Informationen in einem Benutzer-Objekt
-    $student=$manager->findByEmail($email);
+    $student = $manager->findByEmail($email);
 
 // Überprüfen, ob das vom Benutzer eingegebene Passwort mit dem aus der Datenbank übereinstimmt
-    $password_correct=password_verify($password,$student->password);
+    $password_correct = password_verify($password, $student->password);
 
     // überprüfen ob Passwort und E-Mail(Benutzername) korrekt sind
-    if ($password_correct && $student->email==$email ) {
+    if ($password_correct && $student->email == $email) {
 
         //Passwort und Email korrekt
         session_start();
         // Speichere Logged in Information in Session
         $_SESSION['studentlogin'] = "1";
-        $_SESSION ['name'] = $student->vorname." ".$student->nachname; //damit bei Herzlich Willkommen - Max Müller steht!
-        $_SESSION ['studentid'] =$student->student_id;
-        $_SESSION['kuerzel'] = explode("@",$student->email)[0];
-        $votingStudentManager=new voting_student_manager();
+        $_SESSION ['name'] = $student->vorname . " " . $student->nachname; //damit bei Herzlich Willkommen - Max Müller steht!
+        $_SESSION ['studentid'] = $student->student_id;
+        $_SESSION['kuerzel'] = explode("@", $student->email)[0];
+        $votingStudentManager = new voting_student_manager();
 
         $votings = $votingStudentManager->findVotingsByStudent($student->student_id);
 
@@ -42,7 +42,7 @@ if (!empty($email)&& !empty($password)) {
         header('Location: student_uebersicht.php');
 
     } else {
-    header('Location: student_login_form.php?error=1');
+        header('Location: student_login_form.php?error=1');
     }
 } else {
     header('Location: student_login_form.php?error=1');

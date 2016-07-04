@@ -13,22 +13,24 @@
 <div class="login">
     <form class="form-horizontal" role="form" action="student_login_do.php" method="post">
 
-        <input type="hidden" name="votingid" value ="
+        <input type="hidden" name="votingid" value="
 
                     <?php echo $_GET["votingid"] ?>"
-            />
+        />
 
         <!-- Texteingabefeld für Vorname-->
         <div class="form-group">
             <div class="col-sm-12">
-                <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" required="required">
+                <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail"
+                       required="required">
             </div>
         </div>
 
         <!-- Eingabefeld für Nachname-->
         <div class="form-group">
             <div class="col-sm-12">
-                <input type="password" class="form-control" name="password" id="password" placeholder="Passwort" required="required">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Passwort"
+                       required="required">
             </div>
         </div>
 
@@ -47,7 +49,7 @@
 
 <!-- // Prüfung ob Benutzername oder Passwort falsch eingegeben wurden-->
 <?php
-if($_GET["error"]=="1"){
+if ($_GET["error"] == "1") {
     ?>
     <div class="btn btn-danger">E-Mail oder Passwort falsch!</div>
 

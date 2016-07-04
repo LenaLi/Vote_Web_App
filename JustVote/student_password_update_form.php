@@ -25,7 +25,7 @@ $student = $student_manager->findById($id);
 
 <body>
 
-<?php include("inc/navigation_student.php");?>
+<?php include("inc/navigation_student.php"); ?>
 
 
 <div id="page-wrapper">
@@ -40,7 +40,7 @@ $student = $student_manager->findById($id);
                 <?php
                 // Fehlermeldung, da Problem bei serverseitiger Überprüfung
                 // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
-                if ($_GET["error"]=="1"){
+                if ($_GET["error"] == "1") {
 
                     // HTML Code für Fehlermeldung erzeugen
                     echo "<div class='alert alert-danger'> <strong> Fehler: </strong>Bitte alle Felder ausfüllen </div>";
@@ -53,14 +53,14 @@ $student = $student_manager->findById($id);
                     <!-- Übergabe der Benutzer ID-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <input type='hidden' name='id' value='<?php echo $student->student_id ?>' />
+                            <input type='hidden' name='id' value='<?php echo $student->student_id ?>'/>
                         </div>
                     </div>
 
                     <!-- Eingabe neues Passwort-->
                     <div class="form-group">
                         <div class="col-sm-6">
-                            Neues  Passwort eingeben:
+                            Neues Passwort eingeben:
                             <input class=form-control type='password' name='password1'>
                         </div>
                     </div>
