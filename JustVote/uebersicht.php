@@ -34,6 +34,10 @@ require_once("Mapper/voting_manager.php");
 
                 if($vorlesungen!=null)
                         foreach($vorlesungen as $vorlesung){
+                            $cssCollapse = "";
+                            if($vorlesung->vorlesungsid==$_GET["vorlesungsid"]){
+                                $cssCollapse = " in";
+                            }
                             echo
                             "<div class='panel panel-default'>
                                     <div class='panel-heading' role='tab' id='heading.$vorlesung->vorlesungsid'>
@@ -49,7 +53,7 @@ require_once("Mapper/voting_manager.php");
                                               <a class='fa fa-trash'href ='vorlesung_delete_do.php?id=".$vorlesung->vorlesungsid."'></a>
                                               </div>
                                               </h4>
-                                        <div id='$vorlesung->vorlesungsid' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='heading.$vorlesung->vorlesungsid'>
+                                        <div id='$vorlesung->vorlesungsid' class='panel-collapse collapse ".$cssCollapse."' role='tabpanel' aria-labelledby='heading.$vorlesung->vorlesungsid'>
                                         <div class='panel-body'>
                                         <table class='table table-hover'>";
 

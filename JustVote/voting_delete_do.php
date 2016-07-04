@@ -54,6 +54,6 @@ $manager->deleteByFrageId($frage->ID);
 
 
 // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
-header('Location: uebersicht.php');
+header('Location: uebersicht.php?vorlesungsid='.$vorlesung->vorlesungsid);
 ?>
 
