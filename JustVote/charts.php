@@ -57,13 +57,17 @@ foreach ($votingsByVorlesungsId as $voting) {
 
 $votingid = $voting->votingid;
 $frage = $fragemanager->getFragebyVotingid($votingid);
+
+//Votingname
+echo "<h5>";
+echo $voting->votingname;
+echo "</h5>";
+
 ?>
 
 <h1>
     <?php
-    echo "<h1>";
     echo $frage ["text"] . "</br>";
-    echo "</h1>";
     ?>
 </h1>
 
@@ -91,7 +95,7 @@ foreach ($gesamtanzahlTeilnehmer as $eintrag) {
 }
 
 echo "<h5>";
-echo "Anzahl Teilnehmer:";
+echo "Anzahl Teilnehmer: ";
 echo $zahlDerTeilnehmer;
 echo "</h5>";
 

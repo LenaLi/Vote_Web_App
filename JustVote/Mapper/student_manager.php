@@ -99,7 +99,7 @@ class student_manager extends manager
 
             // check if hdm email adress
             $suffix = explode("@", $email)[1]; //zerlegt string $e-mail in einen string vor dem @ und nach dem @
-            if ($suffix === "hdm-stuttgart.de") {
+            if ($suffix === "hdm-stuttgart.de" && $password_hashed != null ) {
                 echo "email ist hdm mail " . $suffix;
                 $to = $email;
                 $subject = "Neues Konto bei Just Vote";
