@@ -20,7 +20,7 @@ $vorlesung_manager = new vorlesung_manager();
 $vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsId);
 
 // Wenn Vorlesung nicht zu Benutzer gehört, dann wird der Zugriff verweigert
-if ($vorlesung->benutzerid != $_SESSION["benutzerid"]){
+if ($vorlesung->benutzerid != $_SESSION["benutzerid"]) {
     die();
 }
 ?>
@@ -31,56 +31,59 @@ if ($vorlesung->benutzerid != $_SESSION["benutzerid"]){
 
 <div id="page-wrapper">
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
 
-                    <h1>Vorlesung aktualisieren</h1>
+                <h1>Vorlesung aktualisieren</h1>
 
-                    <?php
-                    // Fehlermeldung, da Problem bei serverseitiger Überprüfung
-                    // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
-                    if ($_GET["error"]=="1"){
+                <?php
+                // Fehlermeldung, da Problem bei serverseitiger Überprüfung
+                // Fehlermeldung anzeigen, wenn Error Parameter mitgeliefert wird
+                if ($_GET["error"] == "1") {
 
-                        // HTML Code für Fehlermeldung erzeugen
-                        echo "<div class='alert alert-danger'> <strong> Fehler: </strong>Bitte alle Felder ausfüllen </div>";
-                    }
-                    ?>
-                    
-                    <!-- Beginn Formular "Vorlesung aktualisieren" -->
-                    <form class="form-horizontal" role="form" action="vorlesung_update_do.php" method="post">
+                    // HTML Code für Fehlermeldung erzeugen
+                    echo "<div class='alert alert-danger'> <strong> Fehler: </strong>Bitte alle Felder ausfüllen </div>";
+                }
+                ?>
 
-                        <!-- Feld für ID der Vorlesung-->
-                        <div class="form-group">
-                            <div class="col-sm-6">
-                                <input type="hidden" class="form-control" name="vorlesungsid" value='<?php echo $vorlesung->vorlesungsid ?>'/>
-                            </div>
+                <!-- Beginn Formular "Vorlesung aktualisieren" -->
+                <form class="form-horizontal" role="form" action="vorlesung_update_do.php" method="post">
+
+                    <!-- Feld für ID der Vorlesung-->
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input type="hidden" class="form-control" name="vorlesungsid"
+                                   value='<?php echo $vorlesung->vorlesungsid ?>'/>
                         </div>
+                    </div>
 
-                        <!-- Texteingabefeld für Vorlesungsnummer-->
-                        <div class="form-group">
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" name="vorlesungsnummer" value='<?php echo $vorlesung->vorlesungsnummer ?>'/>
-                            </div>
+                    <!-- Texteingabefeld für Vorlesungsnummer-->
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="vorlesungsnummer"
+                                   value='<?php echo $vorlesung->vorlesungsnummer ?>'/>
                         </div>
+                    </div>
 
-                        <!-- Texteingabefeld für Vorlesungsname-->
-                        <div class="form-group">
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" name="vorlesungsname" value='<?php echo $vorlesung->vorlesungsname ?>'/>
-                            </div>
+                    <!-- Texteingabefeld für Vorlesungsname-->
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="vorlesungsname"
+                                   value='<?php echo $vorlesung->vorlesungsname ?>'/>
                         </div>
-                        
-                        <!-- Button "Erstellen"-->
-                        <div class="form-group">
-                            <div class=" col-sm-6">
-                                <button type="submit" class="btn btn-warning"> Aktualisieren</button>
-                            </div>
+                    </div>
+
+                    <!-- Button "Erstellen"-->
+                    <div class="form-group">
+                        <div class=" col-sm-6">
+                            <button type="submit" class="btn btn-warning"> Aktualisieren</button>
                         </div>
-                        <!-- Ende Formular "Vorlesung aktualisieren" -->
-                </div>
+                    </div>
+                    <!-- Ende Formular "Vorlesung aktualisieren" -->
             </div>
         </div>
+    </div>
 </div>
 </div>
 </body>

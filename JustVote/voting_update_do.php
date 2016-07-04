@@ -1,4 +1,5 @@
 <?php
+include("inc/session_check.php");
 require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
 require_once("Mapper/frage.php");
@@ -41,6 +42,7 @@ if (!empty($votingId) && !empty($votingName)&& !empty($frageText)&& !empty($antw
 
     // Wenn Voting nicht zu Benutzer gehört, dann wird der Zugriff verweigert
     if ($vorlesung->benutzerid != $_SESSION["benutzerid"]){
+        header('Location: uebersicht.php');
         die();
     }
 
