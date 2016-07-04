@@ -35,7 +35,7 @@ if ($vorlesung->benutzerid != $_SESSION["benutzerid"]) {
         <div class="row">
             <div class="col-lg-12">
 
-                <h1>Vorlesung aktualisieren</h1>
+                <h2>Vorlesung aktualisieren</h2>
 
                 <?php
                 // Fehlermeldung, da Problem bei serverseitiger Überprüfung

@@ -75,7 +75,6 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                             </select>
                         </div>
                     </div>
-                    <br>
 
                     <!-- Texteingabefeld für Frage des Votings-->
                     <div class="form-group">
