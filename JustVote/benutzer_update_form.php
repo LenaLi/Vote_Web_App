@@ -3,29 +3,28 @@ include("inc/session_check.php");
 include("inc/session_check_admin.php");
 require_once("Mapper/benutzer_manager.php");
 require_once("Mapper/benutzer.php");
+include("inc/header.php");
+include("inc/navigation.php");
 ?>
 
 <!DOCTYPE html>
 <html>
 
+
+
 <?php
-// Benutzer-ID aus GET Parameter auslesen
-$id = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
-
-// Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
-$benutzer_manager = new benutzer_manager();
-
-// lese Benutzer mit Benutzer-ID aus Datenbank aus
-$benutzer = $benutzer_manager->findById($id);
-
-echo $id;
+    // Benutzer-ID aus GET Parameter auslesen
+    $id = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+    // Objekt von benutzer_manager erzeugen, welcher Datenbankverbindung besitzt
+    $benutzer_manager = new benutzer_manager();
+    // lese Benutzer mit Benutzer-ID aus Datenbank aus
+    $benutzer = $benutzer_manager->findById($id);
 ?>
-
-<?php include("inc/header.php"); ?>
 
 <body>
 
-<?php include("inc/navigation.php"); ?>
+
+
 
 
 

@@ -47,7 +47,7 @@ session_destroy();
 // Prüfung ob Benutzername oder Passwort falsch eingegeben wurden
 if ($_GET["error"] == 1) {
     ?>
-    <div class=h5 style="color: #F07F31; font-weight: bold">E-Mail oder Passwort falsch!</div>
+    <div class="btn btn-danger">E-Mail oder Passwort falsch!</div>
     <?php
 }
 } else {

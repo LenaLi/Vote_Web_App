@@ -72,7 +72,7 @@ if ($_GET["error"] == "1") {
 <?php
 if ($_GET["error"] == "2") {
     ?>
-    <div class="btn btn-danger">Bitte Felder ausfüllen!</div>
+    <div class="btn btn-danger">Bitte alle Felder ausfüllen!</div>
     <?php
 }
 ?>

@@ -44,7 +44,7 @@
 </div>
 
 <!-- Link Registrieren-->
-<a href="student_register_form.php">Registrieren</a>
+<a href="student_register_form.php">Registrieren</a> <br>
 
 
 <!-- // Prüfung ob Benutzername oder Passwort falsch eingegeben wurden-->
@@ -56,6 +56,7 @@ if ($_GET["error"] == "1") {
     <?php
 }
 ?>
+
 
 </html>
 
