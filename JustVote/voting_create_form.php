@@ -27,10 +27,8 @@ $benutzerId = $_SESSION["benutzerid"];
 // lese Vorlesungen mit Benutzer-ID aus Datenbank und speichere Informationen in einem Vorlesungen-Array
 $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
 ?>
-<div id="page-wrapper">
 
     <div class="container-fluid">
-        <div class="row">
             <div class="col-lg-12">
 
                 <h2>Voting hinzufügen</h2>
@@ -47,7 +45,7 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                 ?>
 
                 <!-- Beginn Formular "Voting hinzufügen" -->
-                <form class="form-horizontal" role="form" action="voting_create_do.php" method="post">
+                <form class="form" role="form" action="voting_create_do.php" method="post">
 
 
                     <!-- Texteingabefeld für Name des Votings-->
@@ -75,13 +73,15 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                         </div>
                     </div>
 
+
                     <!-- Texteingabefeld für Frage des Votings-->
                     <div class="form-group">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <label for="frage">Frage:</label>
                             <textarea type="text" class="form-control" name='frage' id='frage' rows="3" placeholder='frage' required="required"> </textarea>
                         </div>
                     </div>
+
 
 
                     <!-- Texteingabefeld für die Antwortmöglichkeit 1 -->
@@ -154,14 +154,12 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
 
                 </form>
 
-
+            </div>
                 <!-- Ende Formular "Voting hinzufügen" -->
 
 
-            </div>
-        </div>
+
     </div>
-</div>
 
 </body>
 </html>

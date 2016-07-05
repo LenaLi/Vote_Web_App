@@ -29,9 +29,7 @@ if ($vorlesung->benutzerid != $_SESSION["benutzerid"]) {
 
 <?php include("inc/navigation.php"); ?>
 
-<div id="page-wrapper">
     <div class="container-fluid">
-        <div class="row">
             <div class="col-lg-12">
 
                 <h2>Vorlesung aktualisieren</h2>
@@ -81,9 +79,7 @@ if ($vorlesung->benutzerid != $_SESSION["benutzerid"]) {
                     </div>
                     <!-- Ende Formular "Vorlesung aktualisieren" -->
             </div>
-        </div>
     </div>
-</div>
-</div>
+
 </body>
 </html>

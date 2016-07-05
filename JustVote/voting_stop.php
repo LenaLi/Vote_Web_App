@@ -31,5 +31,5 @@ $endDatum = date("y-m-d H:i:s", time());
 $voting_manager->update($voting->votingid, $voting->vorlesungsid, $voting->votingname, $voting->startdatum, $endDatum);
 
 // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
-header('Location: uebersicht.php');
+header('Location: uebersicht.php?vorlesungsid='.$vorlesung->vorlesungsid);
 ?>

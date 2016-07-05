@@ -49,12 +49,17 @@ $auswertungsmanager = new auswertung_manager();
 // Lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
 $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
 //
+
 foreach ($gesamtanzahlTeilnehmer as $eintrag) {
     $zahlDerTeilnehmer = $eintrag->Anzahl;
 }
 
-echo "Anzahl Teilnehmer: ";
-echo $zahlDerTeilnehmer;
+echo "<h5>";
+echo "( Anzahl Teilnehmer: ";
+echo $zahlDerTeilnehmer ;
+echo " )";
+echo "</h5>";
+
 
 
 echo '<div id="ergebnis">';
@@ -91,6 +96,7 @@ foreach ($antworten as $eintraege) {
     }
 }
 ?>
+<br>
 
 <canvas id="myChart" width="50%" height="50%"></canvas>
 <script>
@@ -110,7 +116,7 @@ foreach ($antworten as $eintraege) {
 
             ],
             datasets: [{
-                label: '# of Votes',
+                label: '% of Votes',
                 // Abstimmungsergebnis pro Antwort in Prozent
                 data: [
                     <?php

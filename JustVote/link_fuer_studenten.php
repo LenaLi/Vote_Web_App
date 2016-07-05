@@ -51,16 +51,12 @@ $voting = $voting_manager->findByVotingId($aktuellesvoting);
     ?>
 
     <br>
-
-
-    <!--  <a href="<?php
-    echo "https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting.";
-    ?>" class="btn btn-primary" role="button">zur Umfrage</a> -->
-
-
     <br>
 
-    <!-- Load Facebook SDK for JavaScript -->
+
+
+
+    <!-- Facebook Share Button JavaScript -->
     <div id="fb-root"></div>
     <script>(function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -73,21 +69,26 @@ $voting = $voting_manager->findByVotingId($aktuellesvoting);
 
 
     <!-- Facebook Share Button -->
+<div class="mitte">
     <div class="fb-share-button"
          data-href="<?php
          echo "https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting.";
          ?>"
          data-layout="button">
     </div>
+</div>
 
 
     <!-- Mail Share Button -->
-    <a class="fa fa-envelope-o" href="mailto:?subject=Einladung zur Teilnahme an der Umfrage <?php echo $voting->votingname; ?>&amp;body=<?php
-    echo 'Hallo liebe Studenten, <br />\n';
-    echo "unter diesem Link können Sie an der Umfrage '$voting->votingname' teilnehmen: https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting";
-    ?>"
+<div class="mitte">
+    <a class="fa fa-envelope"
+       href="mailto:?subject=Einladung zur Teilnahme an der Umfrage <?php echo $voting->votingname; ?>&amp;body=<?php
+       echo 'Hallo liebe Studenten, <br />\n';
+       echo "unter diesem Link können Sie an der Umfrage '$voting->votingname' teilnehmen: https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting";
+       ?>"
        title="Link per Mail verschicken">
     </a>
+</div>
 
 </div>
 </body>

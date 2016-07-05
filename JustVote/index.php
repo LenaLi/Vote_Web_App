@@ -18,6 +18,8 @@ session_destroy();
     <h4>für Dozenten der HdM Stuttgart</h4>
 </div>
 <br>
+
+<!-- Beginn Login-Form-->
 <div class="login">
     <form class="form-horizontal" role="form" action="login_do.php" method="post">
 
@@ -41,15 +43,20 @@ session_destroy();
             </div>
         </div>
     </form>
+    <!-- Ende Login-Form-->
+
     <a href="student_login_form.php">Student? Hier gehts zum Studentenlogin</a>
 </div>
+
+<!-- Fehlermeldungen-->
 
 <?php
 // Prüfung ob Benutzername oder Passwort falsch eingegeben wurden
 if ($_GET["error"] == 1) {
     ?>
     <div class="btn btn-danger">E-Mail oder Passwort falsch!</div>
-    <?php
+
+<?php
 }
 } else {
     // Benutzer ist eingeloggt

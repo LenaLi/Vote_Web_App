@@ -52,10 +52,8 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
 <body>
 <?php include("inc/navigation.php"); ?>
 
-<div id="page-wrapper">
 
     <div class="container-fluid">
-        <div class="row">
             <div class="col-lg-12">
 
                 <h2>Voting aktualisieren</h2>
@@ -170,10 +168,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
             </div>
         </div>
     </div>
-</div>
 
-</div>
 
-</div>
 </body>
 </html>

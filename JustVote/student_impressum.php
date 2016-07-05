@@ -11,10 +11,8 @@ include("inc/navigation_student.php");
 
 <body>
 
-<div id="page-wrapper">
 
     <div class="container-fluid">
-
         <div class="row">
             <div class="col-lg-8">
                 <h1>Impressum</h1>
@@ -109,6 +107,5 @@ include("inc/navigation_student.php");
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>

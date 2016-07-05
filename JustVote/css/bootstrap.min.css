@@ -1492,7 +1492,7 @@ h4 small, h5 .small, h5 small, h6 .small, h6 small {
 }
 
 .h1, h1 {
-    font-size: 36px
+    font-size: 30px
 }
 
 .h2, h2 {
@@ -2750,7 +2750,7 @@ th {
 .table {
     width: 100%;
     max-width: 100%;
-    margin-bottom: 20px
+    /*margin-bottom: 20px*/
 }
 
 .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th,
