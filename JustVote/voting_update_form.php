@@ -72,7 +72,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
 
                 <!-- Beginn Formular "Voting aktualisieren" -->
 
-                <form class="form-horizontal" action='voting_update_do.php' method='post'>
+                <form class="form-group" action='voting_update_do.php' method='post'>
 
                     <!-- Updatefeld für Votingname -->
                     <div class="form-group">
@@ -82,13 +82,15 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                         </div>
                     </div>
 
-                    <!-- Updatefeld für die Frage -->
+
+                    <!-- Updatefeld für Frage des Votings-->
                     <div class="form-group">
-                        <div class="col-sm-6">
-                            <label for="frage">Frage</label>
-                            <input type="text" class="form-control" name='frage' id='frage' value='<?php echo $frage->text ?>' required="required"/><br>
+                        <div class="col-sm-12">
+                            <label for="frage">Frage:</label>
+                            <textarea type="text" class="form-control" name='frage' id='frage' rows="3" placeholder='frage' required="required"> <?php echo $frage->text ?> </textarea> <br>
                         </div>
                     </div>
+
 
                     <!-- Updatefeld für die Antworten -->
                     <div class="form-group">
@@ -116,7 +118,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="antwort_4">Antwortmöglichkeit 4 (optional)</label>
-                            <input type="text" class="form-control" name='antwort_4' id='antwort_4' value='<?php echo $antworten[3]->text ?>'>
+                            <input type="text" class="form-control" name='antwort_4' id='antwort_4' value='<?php echo $antworten[3]->text ?>'><br>
                         </div>
                     </div>
 
@@ -150,7 +152,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
 
                         <div class="col-sm-3">
                             <label for="endzeit">Endzeit</label>
-                            <input type="time" class="form-control" name='endzeit' id='endzeit' value='<?php echo $endZeit ?>' required="required">
+                            <input type="time" class="form-control" name='endzeit' id='endzeit' value='<?php echo $endZeit ?>' required="required"><br>
                         </div>
                     </div>
 
