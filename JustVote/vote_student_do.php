@@ -1,3 +1,5 @@
+<!-- Ausf�hrung der Abstimmung -->
+
 <?php
 require_once("inc/session_student.php");
 require_once("Mapper/auswertung_manager.php");
@@ -16,13 +18,13 @@ if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !emp
 // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $student_manager = new student_manager();
 
-// Mit Kürzel und @hdm-stuttgart.de wird E-Mail Adresse erstellt
+// Mit Kuerzel und @hdm-stuttgart.de wird E-Mail Adresse erstellt
     $email = $kuerzel . "@hdm-stuttgart.de";
 
 //Student mit E-Mail Adresse aus Datenbank auslesen
     $student = $student_manager->findByEmail($email);
 
-// Prüfen, ob der Student nicht existiert
+// Pruefen, ob der Student nicht existiert
     if ($student == null) {
         //Student mit E-Mail Adresse in Datenbank anlegen
         $student_manager->create(null, null, $email, null);

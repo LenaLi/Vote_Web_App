@@ -1,24 +1,24 @@
+<!-- Ergebnisseite -->
+
 <!DOCTYPE html>
 <?php
-//include("inc/session_check.php");
 include("inc/header.php");
 require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort_manager.php");
 require_once("Mapper/auswertung_manager.php");
 include("inc/navigation_mitte.php");
 
-//holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
+// zur Votingid dazugehörige Frage wird aus Datenbank ausgelesen
 $fragemanager = new frage_manager();
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votings = $fragemanager->getFragebyVotingid($votingid);
 
-//FEHLERMELDUNG
+// Fehlermeldung, wenn der Student bereits abgestimmt hat
 if ($_GET["error"] == "1") {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Du hast bereits abgestimmt!";
     echo "</div";
 }
-
 ?>
 
 <h1>
@@ -28,27 +28,27 @@ if ($_GET["error"] == "1") {
 </h1>
 
 <?php
-//holt die zur frageID dazugehoerigen antworten aus der DB-Abfrage
+// zur Frageid dazugehörige Antworten wird aus Datenbank ausgelesen
 $antwortmanager = new antwort_manager();
 $frageid = $votings ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
+/*
 $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votingmanager = new frage_manager();
-//$_SESSION["votingid"] = $VOTINGID;*/
-$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
+$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]); */
 
+//
 $Antwortarray = array();
 $Antwortanzahl = array();
 
 
-// --------------- Für Anzahl Teilnehmer ---------------------------------
-// Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
+// ---------------  Anzahl Teilnehmer ---------------------------------
+// Objekt von auswertung_manager erzeugen, welcher Datenbankverbindung besitzt
 $auswertungsmanager = new auswertung_manager();
-// lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
+// Lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
 $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
-
-
+//
 foreach ($gesamtanzahlTeilnehmer as $eintrag) {
     $zahlDerTeilnehmer = $eintrag->Anzahl;
 }
@@ -61,19 +61,15 @@ echo '<div id="ergebnis">';
 
 
 // --------------- Für Anzahl pro Antwort ---------------------------------
-
-// einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
-
 $countAntwortInstanz = new auswertung_manager();
-
 echo "<br/>";
+//
 $resultsinpercent = array();
 foreach ($antworten as $eintraege) {
 
     if (!empty ($eintraege["text"])) {
-
+        //
         $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
-
 
         echo "Antwort: ";
         echo $eintraege["text"];
@@ -94,11 +90,6 @@ foreach ($antworten as $eintraege) {
 
     }
 }
-
-
-// ---------------  Details --------------------
-
-
 ?>
 
 <canvas id="myChart" width="50%" height="50%"></canvas>
@@ -108,9 +99,7 @@ foreach ($antworten as $eintraege) {
         type: 'doughnut',
         data: {
             labels: [
-
-                // hier    müssen die Antwortmöglichkeiten rein
-
+                // Antwortmöglichkeiten einfügen
                 <?php
                 foreach ($antworten as $antwort) {
                     if (!empty($antwort["text"])) {
@@ -122,7 +111,7 @@ foreach ($antworten as $eintraege) {
             ],
             datasets: [{
                 label: '# of Votes',
-                // hier kommen die Anzahl der Abstimmungen pro Antwort rein
+                // Abstimmungsergebnis pro Antwort in Prozent
                 data: [
                     <?php
                     for ($i = 0; $i < sizeof($resultsinpercent); $i++) {
