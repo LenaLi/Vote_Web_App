@@ -52,8 +52,7 @@ if (!empty($votingId) && !empty($votingName) && !empty($frageText) && !empty($an
 
     // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager = new frage_manager();
-
-    //
+    
     $frage = $manager->getFragebyVotingid($votingId);
 
     // neue Frage in Datenbank updaten mit den POST Parametern
