@@ -22,18 +22,19 @@ if (!empty($vorname) && !empty($nachname) && !empty($kuerzel) && !empty($passwor
     if (strstr($kuerzel, "@") != false) {
         header('Location: student_register_form.php?error=3');
         die();
-
     }
 
     // Zusammenfügen von Kürzel des Studenten und @hdm-stuttgart.de
     $email = $kuerzel . "@hdm-stuttgart.de";
 
-    //Überprüfung die beiden Passwörter übereinstimmen
+    //Überprüfung ob die beiden Passwörter übereinstimmen
     if ($password1 == $password2) {
+        // Student mit der E-Mail aus Datenbank auslesen
         $student = $manager->findByEmail($email);
+        // Wenn der Student noch nicht registriert ist
         if ($student != null) {
+            //Wenn Student schon registriert ist, kann er sich kein zweites mal registrieren
             if ($student->password != null) {
-                // student is already registered
                 header('Location: student_register_form.php?error=4');
                 die();
             }
@@ -46,13 +47,14 @@ if (!empty($vorname) && !empty($nachname) && !empty($kuerzel) && !empty($passwor
                 'salt' => $salt
             ];
             // Passwort wird mit salt gehasht
-            $student->password = $password_hashed = password_hash($password1, PASSWORD_BCRYPT, $options);
+            $student->password = password_hash($password1, PASSWORD_BCRYPT, $options);
+
+            //Update des Studenten
             $manager->update($student);
         } else {
             // neuen Student erzeugen mit den POST Parametern
             $manager->create($vorname, $nachname, $email, $password1);
         }
-
         // Weiterleitung zum Login der Studenten
         header('Location: student_login_form.php');
 
