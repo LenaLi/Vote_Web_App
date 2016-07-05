@@ -48,14 +48,14 @@ if($vorlesungen!=null)
 $fragemanager = new frage_manager();
 
 foreach ($vorlesungen as $vorlesung){
-
 $votingsByVorlesungsId = $votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
-
 
 foreach ($votingsByVorlesungsId as $voting) {
 
 
 $votingid = $voting->votingid;
+
+//les Frage mit Hilfe der Votingid aus dem frage_manager aus
 $frage = $fragemanager->getFragebyVotingid($votingid);
 
 ?>
