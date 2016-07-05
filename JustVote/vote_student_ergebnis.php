@@ -33,11 +33,6 @@ $antwortmanager = new antwort_manager();
 $frageid = $votings ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
-/*
-$VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
-$votingmanager = new frage_manager();
-$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]); */
-
 //
 $Antwortarray = array();
 $Antwortanzahl = array();
