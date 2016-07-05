@@ -1,14 +1,16 @@
-<?php
-include("inc/session_check.php");
-require_once("Mapper/benutzer_manager.php");
-require_once("Mapper/benutzer.php");
-?>
-
 <!DOCTYPE html>
 <html>
 
 <?php
+include("inc/session_check.php");
+require_once("Mapper/benutzer_manager.php");
+require_once("Mapper/benutzer.php");
+include("inc/header.php");
+include("inc/navigation.php");
+?>
 
+
+<?php
 // Benutzer-ID aus SESSION auslesen
 $id = htmlspecialchars($_SESSION["benutzerid"], ENT_QUOTES, "UTF-8");
 
@@ -19,11 +21,8 @@ $benutzer_manager = new benutzer_manager();
 $benutzer = $benutzer_manager->findById($id);
 ?>
 
-<?php include("inc/header.php"); ?>
 
 <body>
-
-<?php include("inc/navigation.php"); ?>
 
 <div class="container-fluid">
     <div class="col-lg-12">
@@ -73,9 +72,10 @@ $benutzer = $benutzer_manager->findById($id);
                     <button type="submit" class="btn btn-warning"> Passwort ändern</button>
                 </div>
             </div>
-            <!-- Ende Formular "Passwort aktualisieren" -->
         </form>
-    </div>  <!--"container-fluid" -->
-</div> <!--"col-lg-12" -->
+        <!-- Ende Formular "Passwort aktualisieren" -->
+
+    </div> <!--"container-fluid" -->
+</div><!--"col-lg-12" -->
 </body>
 </html>

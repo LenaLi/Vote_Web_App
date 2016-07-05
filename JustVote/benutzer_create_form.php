@@ -47,16 +47,14 @@ include("inc/navigation.php");
             <!-- Texteingabefeld für Nachname-->
             <div class="form-group">
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="nachname" id="nachname" placeholder="Nachname"
-                           required="required">
+                    <input type="text" class="form-control" name="nachname" id="nachname" placeholder="Nachname" required="required">
                 </div>
             </div>
 
             <!-- Texteingabefeld für E-Mail-->
             <div class="form-group">
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail"
-                           required="required">
+                    <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail"required="required">
                 </div>
             </div>
 
