@@ -7,11 +7,7 @@ require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort_manager.php");
 require_once("Mapper/auswertung_manager.php");
 include("inc/navigation_mitte.php");
-require_once("Mapper/voting_manager.php");
-require_once("Mapper/voting.php");
-?>
-    
-<?php
+
 // zur Votingid dazugehörige Frage wird aus Datenbank ausgelesen
 $fragemanager = new frage_manager();
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
@@ -30,12 +26,6 @@ if ($_GET["error"] == "1") {
     echo $votings ["text"] . "</br>";
     ?>
 </h1>
-
-<h5>
-    <?php
-    echo "Votingname: ".$voting->votingname;
-    ?>
-</h5>
 
 <?php
 // zur Frageid dazugehörige Antworten wird aus Datenbank ausgelesen
@@ -60,14 +50,15 @@ $auswertungsmanager = new auswertung_manager();
 $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
 //
 
-
 foreach ($gesamtanzahlTeilnehmer as $eintrag) {
     $zahlDerTeilnehmer = $eintrag->Anzahl;
 }
 
+echo "<h5>";
 echo "( Anzahl Teilnehmer: ";
 echo $zahlDerTeilnehmer ;
 echo " )";
+echo "</h5>";
 
 
 
@@ -125,7 +116,7 @@ foreach ($antworten as $eintraege) {
 
             ],
             datasets: [{
-                label: '# of Votes',
+                label: '% of Votes',
                 // Abstimmungsergebnis pro Antwort in Prozent
                 data: [
                     <?php
