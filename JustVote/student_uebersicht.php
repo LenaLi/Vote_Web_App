@@ -59,7 +59,8 @@ if ($_SESSION["studentlogin"] != "1") {
                                              <a  role='button' data-toggle='collapse' data-parent='#accordion' href='#$voting->votingid' aria-expanded='true' aria-controls='$voting->votingid'>
                                              $voting->votingname  ", "  </a>
                                                    <div class=button-right>
-                                                  <a class= 'fa fa-bar-chart' href='vote_student_ergebnis.php?id=" . $voting->votingid . "'> Ergebnis </a>
+                                                  <a class= 'fa fa-bar-chart' href='vote_student_ergebnis.php?id=" . $voting->votingid . "'>  </a>
+                                                  <a> Ergebnis  </a>
                                                   </div>
                                         </h4>
                                         <div id='$voting->votingid' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='heading.$voting->votingid'>
@@ -77,13 +78,13 @@ if ($_SESSION["studentlogin"] != "1") {
             echo "<td>";
             //Zeitraum des Votings
             $startdatum = $voting->startdatum;
-            $startdatum = date("d.m.y H:i", strtotime($startdatum)) . " Uhr";
-            echo "Startdatum: " . $startdatum . "<br>";
+            $startdatum = date("d.m.y, H:i", strtotime($startdatum)) . " Uhr";
+            echo "Startdatum: " . $startdatum . " <br>";
             echo "</td>";
 
             echo "<td>";
             $enddatum = $voting->enddatum;
-            $enddatum = date("d.m.y H:i", strtotime($enddatum)) . " Uhr";
+            $enddatum = date("d.m.y, H:i", strtotime($enddatum)) . " Uhr";
             echo "Enddatum: " . $enddatum . "<br>";
             echo "</td>";
 
