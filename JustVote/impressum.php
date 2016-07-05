@@ -13,38 +13,28 @@ include("inc/navigation.php");
 <div class="container-fluid">
     <div class="col-lg-8">
         <h2>Impressum</h2>
+        <br>
 
-        <h2>Angaben gemäß § 5 TMG:</h2>
+        <h4>Angaben gemäß § 5 TMG:</h4>
 
         <p>Hochschule der Medien<br/>
             Nobelstraße 10<br/>
             70569 Stuttgart
         </p>
 
-        <h2>Vertreten durch:</h2>
-
+        <h4>Vertreten durch:</h4>
         <p>Carina Meier<br/>
             Renate Schwaighofer<br/>
             Lena Lidl</p>
+        <h4>Kontakt:</h4>
+        <p> ll033@hdm-stuttgart.de</p>
 
-        <h2>Kontakt:</h2>
-        <table>
-            <tr>
-                <td>Telefon:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>E-Mail:</td>
-                <td>ll033@hdm-stuttgart.de</td>
-            </tr>
-        </table>
-        <p> </p>
-
-        <p>Quelle: <em><a href="https://www.e-recht24.de/impressum-generator.html">https://www.e-recht24.de</a></em>
+        <h4>Quelle:</h4>
+        <p>  <em><a href="https://www.e-recht24.de/impressum-generator.html">https://www.e-recht24.de</a></em>
         </p>
 
 
-        <h3> Datenschutz </h3>
+        <h4> Datenschutz </h4>
         Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre
         personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie
         dieser Datenschutzerklärung.
@@ -67,7 +57,7 @@ include("inc/navigation.php");
         wenden.
 
 
-        <h3> Cookies </h3>
+        <h4> Cookies </h4>
 
         Die Internetseiten verwenden teilweise so genannte Cookies. Cookies richten auf Ihrem Rechner keinen
         Schaden an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver
@@ -84,28 +74,6 @@ include("inc/navigation.php");
         Deaktivierung von Cookies kann die Funktionalität dieser Website eingeschränkt sein.
 
 
-        <h3> Server-Log-Files </h3>
-
-
-        Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log Files,
-        die Ihr Browser automatisch an uns übermittelt. Dies sind:
-
-        Browsertyp/ Browserversion
-        verwendetes Betriebssystem
-        Referrer URL
-        Hostname des zugreifenden Rechners
-        Uhrzeit der Serveranfrage
-
-        Diese Daten sind nicht bestimmten Personen zuordenbar. Eine Zusammenführung dieser Daten mit anderen
-        Datenquellen wird nicht vorgenommen. Wir behalten uns vor, diese Daten nachträglich zu prüfen, wenn uns
-        konkrete Anhaltspunkte für eine rechtswidrige Nutzung bekannt werden.
-
-
-        Kontaktformular
-
-        Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular
-        inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall
-        von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter
 
     </div>
 </div>
