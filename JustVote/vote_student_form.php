@@ -11,7 +11,7 @@ require_once("Mapper/voting_manager.php");
 include("inc/navigation_mitte.php");
 
 if ($_GET["error"] == "1") {
-    echo "Alle Felder ausfüllen";
+    echo "Bitte wähle eine Antwort aus";
 }
 // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
 $fragemanager = new frage_manager();
@@ -49,6 +49,7 @@ $antworten = $antwortmanager->getAllbyFrageID($frageid);
 echo '<form action="vote_student_do.php" method="post">';
 
 //alle antworten ausgeben
+//
 foreach ($antworten as $eintrag) {
 
     if (!empty ($eintrag["text"])) {
@@ -71,8 +72,7 @@ echo '<input type="text" class="form-control"  placeholder="Kürzel" aria-descri
 echo '<span class="input-group-addon" id="basic-addon2">@hdm-stuttgart.de</span>';
 echo "</div>";
 echo "</br>";
-
-//abschicken-button - ende des forms
+// Abschicken des Formulars
 echo '<input type="submit" class="btn btn-warning" name="Abschicken" value="Abschicken">';
 echo '</form>';
 ?>
