@@ -40,7 +40,7 @@ $Antwortanzahl = array();
 
 
 // --------------- Für Anzahl Teilnehmer ---------------------------------
-// Objekt von result_manager erzeugen, welcher Datenbankverbindung besitzt
+// Objekt von auswertung_manager erzeugen, welcher Datenbankverbindung besitzt
 $auswertungsmanager = new auswertung_manager();
 // lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
 $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
