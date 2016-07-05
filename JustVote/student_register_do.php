@@ -39,10 +39,13 @@ if (!empty($vorname) && !empty($nachname) && !empty($kuerzel) && !empty($passwor
             }
             $student->vorname = $vorname;
             $student->nachname = $nachname;
+
+            // zufälligen Salt generieren (Salt= Zufallswert der das erraten des Passwort-Hashes erschweren soll)
             $salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
             $options = [
                 'salt' => $salt
             ];
+            // Passwort wird mit salt gehasht
             $student->password = $password_hashed = password_hash($password1, PASSWORD_BCRYPT, $options);
             $manager->update($student);
         } else {

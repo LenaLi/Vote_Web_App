@@ -38,6 +38,7 @@ if (!empty($votingId) && !empty($votingName) && !empty($frageText) && !empty($an
     // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
     $vorlesung_manager = new vorlesung_manager();
 
+    //Lese Vorlesung mit der Vorlesungsid aus vorlesung_manager aus
     $vorlesung = $vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
 
     // Wenn Voting nicht zu Benutzer gehört, dann wird der Zugriff verweigert
@@ -48,7 +49,6 @@ if (!empty($votingId) && !empty($votingName) && !empty($frageText) && !empty($an
 
     // Änderungen in Datenbank aktualisieren
     $voting_manager->update($votingId, $vorlesungsId, $votingName, $startDatum, $endDatum);
-
 
     // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager = new frage_manager();
@@ -62,6 +62,8 @@ if (!empty($votingId) && !empty($votingName) && !empty($frageText) && !empty($an
     $manager = new antwort_manager();
 
     $antworten = $manager->getAllByFrageID($frage->ID);
+
+    // Antwort in Datenbank updaten mit den POST Parametern
     $manager->update($antworten[0]->ID, $frage->ID, $antwort_1);
     $manager->update($antworten[1]->ID, $frage->ID, $antwort_2);
     $manager->update($antworten[2]->ID, $frage->ID, $antwort_3);
@@ -71,7 +73,6 @@ if (!empty($votingId) && !empty($votingName) && !empty($frageText) && !empty($an
     header('Location: uebersicht.php?vorlesungsid='.$vorlesung->vorlesungsid);
 } else {
     echo $votingId;
-    //header('Location: voting_update_form.php?id='.$votingId.'&error=1');
 }
 ?>
 
