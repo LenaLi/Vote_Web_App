@@ -23,9 +23,7 @@ if ($_SESSION["studentlogin"] != "1") {
 <body>
 <div id="page-wrapper">
     <div class="container-fluid">
-        <div class="page-header">
-            <h1>Deine Votings </h1>
-        </div>
+        <h1>Deine Votings </h1>
         <?php
 
         // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
@@ -48,7 +46,7 @@ if ($_SESSION["studentlogin"] != "1") {
 
             // lese Voting mit Voting-ID aus Datenbank und speichere Informationen in einem Voting-Objekt
             $voting = $voting_manager->findByVotingId($votingid);
-            
+
             // lese Vorlesung mit Vorlesungs-ID aus Datenbank und speichere Informationen in einem Vorlesung-Objekt
             $vorlesung = $vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
 
@@ -87,13 +85,10 @@ if ($_SESSION["studentlogin"] != "1") {
             $enddatum = date("d.m.y, H:i", strtotime($enddatum)) . " Uhr";
             echo "Enddatum: " . $enddatum . "<br>";
             echo "</td>";
-
             echo "</div>";
-
             echo " </tr></thead>";
-
             echo "</table>";
 
-        } 
+        }
         ?>
 
