@@ -1,3 +1,5 @@
+<!-- Ergebnisseite -->
+
 <!DOCTYPE html>
 <?php
 include("inc/header.php");
@@ -31,15 +33,17 @@ $antwortmanager = new antwort_manager();
 $frageid = $votings ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
+/*
 $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votingmanager = new frage_manager();
-$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
+$votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]); */
 
+//
 $Antwortarray = array();
 $Antwortanzahl = array();
 
 
-// --------------- Für Anzahl Teilnehmer ---------------------------------
+// ---------------  Anzahl Teilnehmer ---------------------------------
 // Objekt von auswertung_manager erzeugen, welcher Datenbankverbindung besitzt
 $auswertungsmanager = new auswertung_manager();
 // Lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
@@ -59,14 +63,13 @@ echo '<div id="ergebnis">';
 // --------------- Für Anzahl pro Antwort ---------------------------------
 $countAntwortInstanz = new auswertung_manager();
 echo "<br/>";
-
+//
 $resultsinpercent = array();
 foreach ($antworten as $eintraege) {
 
     if (!empty ($eintraege["text"])) {
-
+        //
         $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
-
 
         echo "Antwort: ";
         echo $eintraege["text"];
@@ -87,7 +90,6 @@ foreach ($antworten as $eintraege) {
 
     }
 }
-// ---------------  Details --------------------
 ?>
 
 <canvas id="myChart" width="50%" height="50%"></canvas>
