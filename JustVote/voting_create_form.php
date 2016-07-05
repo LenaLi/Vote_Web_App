@@ -27,7 +27,6 @@ $benutzerId = $_SESSION["benutzerid"];
 // lese Vorlesungen mit Benutzer-ID aus Datenbank und speichere Informationen in einem Vorlesungen-Array
 $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
 ?>
-<div id="page-wrapper">
 
     <div class="container-fluid">
         <div class="row">
@@ -163,7 +162,6 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
             </div>
         </div>
     </div>
-</div>
 
 </body>
 </html>

@@ -9,7 +9,6 @@
 
 <?php include("inc/navigation.php"); ?>
 
-<div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -57,7 +56,6 @@
             </div>
         </div>
     </div>
-</div>
 
 </div>
 

@@ -146,7 +146,6 @@ require_once("Mapper/voting_manager.php");
                         }
 
                         echo "</table>";
-                        echo "</br>";
                         echo "</div>";
                         echo "</div>";
                         echo "</div>";
