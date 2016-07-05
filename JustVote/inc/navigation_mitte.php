@@ -8,8 +8,8 @@
 <body class="mitte">
 <!-- LOGO -->
 <div class="mitte">
-    <a href="https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/uebersicht.php">
-        <img src="css/Logo_JustVote.svg" alt="Just Vote Logo"/></a
-</div>
+    <!--  <a href="https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/uebersicht.php"> -->
+          <img src="css/Logo_JustVote.svg" alt="Just Vote Logo"/></a
+  </div>
 
-</html>
+  </html>
