@@ -47,7 +47,6 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                 <!-- Beginn Formular "Voting hinzufügen" -->
                 <form class="form" role="form" action="voting_create_do.php" method="post">
 
-
                     <!-- Texteingabefeld für Name des Votings-->
                     <div class="form-group">
                         <div class="col-sm-6">
@@ -55,7 +54,6 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                             <input type="text" class="form-control" name='votingname' id='votingname'  placeholder="Votingname" required="required"/><br>
                         </div>
                     </div>
-
 
                     <!-- Vorlesung auswählen: -->
                     <div class="form-group">
@@ -75,7 +73,6 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                         </div>
                     </div>
 
-
                     <!-- Texteingabefeld für Frage des Votings-->
                     <div class="form-group">
                         <div class="col-sm-12">
@@ -83,9 +80,6 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                             <textarea type="text" class="form-control" name='frage' id='frage' rows="3" placeholder='frage' required="required"> </textarea> <br>
                         </div>
                     </div>
-
-
-                    <br>
 
                     <!-- Texteingabefeld für die Antwortmöglichkeit 1 -->
                     <div class="form-group">
@@ -119,8 +113,6 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                         </div>
                     </div>
 
-
-
                     <!-- Updatefeld Startdatum und Startzeit-->
                     <div class="form-group">
                         <div class="col-sm-3">
@@ -146,7 +138,6 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                             <input type="time" class="form-control" name='endzeit' id='endzeit' placeholder="Endzeit" required="required"> <br>
                         </div>
                     </div>
-
 
                     <!-- Button "Erstellen"-->
                     <div class="form-group">
