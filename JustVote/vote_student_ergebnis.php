@@ -33,11 +33,6 @@ $antwortmanager = new antwort_manager();
 $frageid = $votings ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
-//
-$Antwortarray = array();
-$Antwortanzahl = array();
-
-
 // ---------------  Anzahl Teilnehmer ---------------------------------
 // Objekt von auswertung_manager erzeugen, welcher Datenbankverbindung besitzt
 $auswertungsmanager = new auswertung_manager();
@@ -59,6 +54,8 @@ echo '<div id="ergebnis">';
 $countAntwortInstanz = new auswertung_manager();
 echo "<br/>";
 //
+$Antwortarray = array();
+$Antwortanzahl = array();
 $resultsinpercent = array();
 foreach ($antworten as $eintraege) {
 
@@ -152,6 +149,5 @@ foreach ($antworten as $eintraege) {
         }
     });
 </script>
-
 
 </body>
