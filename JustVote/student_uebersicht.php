@@ -24,6 +24,7 @@ if ($_SESSION["studentlogin"] != "1") {
 <div id="page-wrapper">
     <div class="container-fluid">
         <h1>Deine Votings </h1>
+        <br>
         <?php
 
         // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
