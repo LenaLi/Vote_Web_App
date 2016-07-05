@@ -19,8 +19,7 @@ if (!empty($password1) && !empty($password2)) {
 
         // aktualisiere Attribute das Passwort des Student-Objektes
         $student->password = $password1;
-
-
+        
         // Änderungen des Passwortes in Datenbank aktualisieren
         $student_manager->updatePassword($student);
 
