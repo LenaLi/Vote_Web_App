@@ -33,6 +33,7 @@ if ($vorlesung->benutzerid != $_SESSION["benutzerid"]) {
 // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
 $voting_student_manager = new voting_student_manager();
 
+//Bevor die Vorlesung gelöscht werden kann, muss das Voting gelöscht werden
 foreach ($votings as $voting) {
     // Voting löschen in der Datenbank
     $voting_student_manager->delete($voting->votingid);

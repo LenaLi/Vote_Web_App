@@ -43,13 +43,16 @@ $voting_manager->delete($votingId);
 // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
 $manager = new frage_manager();
 
+// Lese die Frage mit der votingid aus frage_manager
 $frage = $manager->getFragebyVotingid($votingId);
 
+//  löschen der Frage anhand der votingId im frage_manager (damit Daten der Frage zum Voting aus der Datenbank entfernt werden)
 $manager->deleteByVotingId($votingId);
 
 // Objekt von antwort_manager erzeugen, welcher Datenbankverbindung besitzt
 $manager = new antwort_manager();
 
+//  löschen der Antworten anhand der Id im frage_manager (damit Daten der Antworten zum Voting aus der Datenbank entfernt werden)
 $manager->deleteByFrageId($frage->ID);
 
 
