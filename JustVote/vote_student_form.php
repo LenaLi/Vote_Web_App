@@ -31,7 +31,6 @@ $fragen = $fragemanager->getFragebyVotingid($votingid);
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
 $voting_manager = new voting_manager();
 $voting = $voting_manager->findByVotingId($votingid);
-
 //Verhindert Manupulation nachdem Voting beendet ist
 if (time() >= strtotime($voting->enddatum)) {
     header('Location: student_login_form.php');

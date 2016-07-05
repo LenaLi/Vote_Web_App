@@ -17,25 +17,6 @@ class frage_manager extends manager
     }
 
 
-    /*public function getbyFrageID($frageID)
-    {
-        try {
-            $stmt = $this->pdo->prepare('SELECT * FROM frage WHERE frageID = :frageID');
-            $stmt->bindParam(':frageID', $frageID);
-            $stmt->execute();
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'voting');
-            $frage = $stmt->fetch();
-
-            return $frage;
-
-        } catch (PDOException $e) {
-            echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-            die();
-        }
-
-    }*/
-
-
     //DB-Abfrage: holt die zur votingid dazugehoerige Frage aus der DB
     public function getFragebyVotingid($voting_id)
     {
@@ -52,24 +33,6 @@ class frage_manager extends manager
             echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
             die();
         }
-
-        /*  public function getFragefromFrageTabelle($text)
-          {
-              try {
-                  $stmt = $this->pdo->prepare('SELECT * FROM frage WHERE text = :text');
-                  $stmt->bindParam(':text', $text);
-                  $stmt->execute();
-                  $stmt->setFetchMode(PDO::FETCH_ASSOC); //alles in array, kommt in arry zur�ck nicht in objektform
-                  $result = $stmt->fetch();
-  
-                  return $result;
-  
-              } catch (PDOException $e) {
-                  echo("Fehler! Bitten wenden Sie sich an den Administrator...<br>" . $e->getMessage() . "<br>");
-                  die();
-              }
-  
-          }*/
     }
 
     public function create($voting_id, $text)

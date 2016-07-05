@@ -49,27 +49,22 @@ echo $zahlDerTeilnehmer ;
 echo " )";
 echo "</h5>";
 echo '<div id="ergebnis">';
-
-$countAntwortInstanz = new auswertung_manager();
 echo "<br/>";
-//
-$Antwortarray = array();
-$Antwortanzahl = array();
+
 $resultsinpercent = array();
 foreach ($antworten as $eintraege) {
 
-    if (!empty ($eintraege["text"])) {
+    if (!empty($eintraege["text"])) {
         //
+        $countAntwortInstanz = new auswertung_manager();
         $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
 
         echo "Antwort: ";
         echo $eintraege["text"];
-        array_push($Antwortarray, $eintraege["text"]);
 
         echo " (";
         echo $auswertung->Anzahl;
         echo " Stimmen)";
-        array_push($Antwortanzahl, $auswertung->Anzahl);
         echo "<br/>";
 
         if ($zahlDerTeilnehmer != 0) {
@@ -78,7 +73,6 @@ foreach ($antworten as $eintraege) {
             $resultinpercent = 0;
         }
         array_push($resultsinpercent , $resultinpercent);
-
     }
 }
 ?>
