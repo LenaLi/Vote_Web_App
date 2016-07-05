@@ -58,9 +58,6 @@ echo '<div id="ergebnis">';
 
 
 // --------------- Für Anzahl pro Antwort ---------------------------------
-
-// einmal jede antwort durchlaufen damit ein balken generiert wird, zu jewelige antwort die zahl reinschreiben
-
 $countAntwortInstanz = new auswertung_manager();
 
 echo "<br/>";
@@ -91,11 +88,7 @@ foreach ($antworten as $eintraege) {
 
     }
 }
-
-
 // ---------------  Details --------------------
-
-
 ?>
 
 <canvas id="myChart" width="50%" height="50%"></canvas>
@@ -105,9 +98,7 @@ foreach ($antworten as $eintraege) {
         type: 'doughnut',
         data: {
             labels: [
-
-                // hier    müssen die Antwortmöglichkeiten rein
-
+                // Antwortmöglichkeiten einfügen
                 <?php
                 foreach ($antworten as $antwort) {
                     if (!empty($antwort["text"])) {
@@ -119,7 +110,7 @@ foreach ($antworten as $eintraege) {
             ],
             datasets: [{
                 label: '# of Votes',
-                // hier kommen die Anzahl der Abstimmungen pro Antwort rein
+                // Abstimmungsergebnis pro Antwort in Prozent
                 data: [
                     <?php
                     for ($i = 0; $i < sizeof($resultsinpercent); $i++) {
