@@ -6,12 +6,12 @@ require_once("Mapper/antwort_manager.php");
 require_once("Mapper/auswertung_manager.php");
 include("inc/navigation_mitte.php");
 
-//holt die zur votingid dazugehoerige Frage aus der DB-Abfrage
+// zur Votingid dazugehörige Frage wird aus Datenbank ausgelesen
 $fragemanager = new frage_manager();
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votings = $fragemanager->getFragebyVotingid($votingid);
 
-//Fehlermeldung, wenn der Student bereits abgestimmt hat
+// Fehlermeldung, wenn der Student bereits abgestimmt hat
 if ($_GET["error"] == "1") {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Du hast bereits abgestimmt!";
@@ -26,7 +26,7 @@ if ($_GET["error"] == "1") {
 </h1>
 
 <?php
-//holt die zur frageID dazugehoerigen Antworten aus der DB-Abfrage
+// zur Frageid dazugehörige Antworten wird aus Datenbank ausgelesen
 $antwortmanager = new antwort_manager();
 $frageid = $votings ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
@@ -42,10 +42,9 @@ $Antwortanzahl = array();
 // --------------- Für Anzahl Teilnehmer ---------------------------------
 // Objekt von auswertung_manager erzeugen, welcher Datenbankverbindung besitzt
 $auswertungsmanager = new auswertung_manager();
-// lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
+// Lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
 $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
-
-
+//
 foreach ($gesamtanzahlTeilnehmer as $eintrag) {
     $zahlDerTeilnehmer = $eintrag->Anzahl;
 }
@@ -59,8 +58,8 @@ echo '<div id="ergebnis">';
 
 // --------------- Für Anzahl pro Antwort ---------------------------------
 $countAntwortInstanz = new auswertung_manager();
-
 echo "<br/>";
+
 $resultsinpercent = array();
 foreach ($antworten as $eintraege) {
 
