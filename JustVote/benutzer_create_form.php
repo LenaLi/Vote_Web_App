@@ -28,7 +28,9 @@ include("inc/navigation.php");
         }
         ?>
 
-        <h2>Dozent hinzufügen</h2>
+        <div class="page-header">
+            <h1>Dozent hinzufügen </h1>
+        </div>
 
         <br>
 
