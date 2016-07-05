@@ -40,7 +40,7 @@ if (time() >= strtotime($voting->enddatum)) {
     echo $fragen ["text"] . "</br>";
     ?>
 </h1>
-
+<br>
 <?php
 $antwortmanager = new antwort_manager();
 $frageid = $fragen ["ID"];
