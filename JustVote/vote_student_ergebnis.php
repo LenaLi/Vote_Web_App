@@ -10,7 +10,11 @@ include("inc/navigation_mitte.php");
 
 // zur Votingid dazugehörige Frage wird aus Datenbank ausgelesen
 $fragemanager = new frage_manager();
+
+// Voting-ID aus GET Parameter auslesen
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
+
+// Lese Votings mit der Votingid aus der Datenbank aus
 $votings = $fragemanager->getFragebyVotingid($votingid);
 
 // Fehlermeldung, wenn der Student bereits abgestimmt hat

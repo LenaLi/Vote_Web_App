@@ -48,6 +48,7 @@ if($vorlesungen!=null)
 $fragemanager = new frage_manager();
 
 foreach ($vorlesungen as $vorlesung){
+
 $votingsByVorlesungsId = $votingmanager->findByVorlesungsId($vorlesung->vorlesungsid);
 
 foreach ($votingsByVorlesungsId as $voting) {
@@ -55,7 +56,7 @@ foreach ($votingsByVorlesungsId as $voting) {
 
 $votingid = $voting->votingid;
 
-//les Frage mit Hilfe der Votingid aus dem frage_manager aus
+//lese Frage mit Hilfe der Votingid aus dem frage_manager aus
 $frage = $fragemanager->getFragebyVotingid($votingid);
 
 ?>
@@ -81,8 +82,7 @@ $frageid = $frage ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
 $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
-//$votingmanager =new frage_manager();
-//$_SESSION["votingid"] = $VOTINGID;*/
+
 $frage = $fragemanager->getFragebyVotingid($_SESSION["votingid"]);
 
 

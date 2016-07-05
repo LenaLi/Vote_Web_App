@@ -23,14 +23,20 @@ if ($_GET["error"] == "1") {
 
 // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
 $fragemanager = new frage_manager();
+
 // Voting-ID aus GET Parameter auslesen
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
-//Funktion von Objekt Fragemanager wird aufgerufen
+
+// Lese Fragen mit Votingid aus der Datenbank aus
 $fragen = $fragemanager->getFragebyVotingid($votingid);
 
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
 $voting_manager = new voting_manager();
+
+// Lese Voting mit der Votingid aus der Datenbank aus
 $voting = $voting_manager->findByVotingId($votingid);
+
+
 //Verhindert Manupulation nachdem Voting beendet ist
 if (time() >= strtotime($voting->enddatum)) {
     header('Location: student_login_form.php');

@@ -4,10 +4,6 @@
 include("inc/phpqrcode/qrlib.php");
 require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
-?>
-
-
-<?php
 
 // ID wird ausgelesen und an URL drangehängt
 $aktuellesvoting = $_GET['id'];
@@ -35,6 +31,4 @@ ob_end_clean();
 QRcode::png($codeText);
 
 echo ' <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=' . $aktuellesvoting . ">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";
-
-
 ?>

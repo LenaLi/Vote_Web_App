@@ -150,11 +150,7 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
 
             </div>
                 <!-- Ende Formular "Voting hinzufügen" -->
-
-
-
     </div>
-
 </body>
 </html>
 

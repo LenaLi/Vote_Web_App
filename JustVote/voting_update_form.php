@@ -78,7 +78,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="votingname">Votingname</label>
-                            <input type="text" class="form-control" name='votingname' id='votingname' value='<?php echo $voting->votingname ?>' required="required"/><br>
+                            <input type="text" class="form-control" name='votingname' id='votingname' placeholder='Votingname'value='<?php echo $voting->votingname ?>' required="required"/><br>
                         </div>
                     </div>
 
@@ -87,7 +87,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label for="frage">Frage:</label>
-                            <textarea type="text" class="form-control" name='frage' id='frage' rows="3" placeholder='frage' required="required"> <?php echo $frage->text ?> </textarea> <br>
+                            <textarea type="text" class="form-control" name='frage' id='frage' rows="3" placeholder='Frage' required="required"> <?php echo $frage->text ?> </textarea> <br>
                         </div>
                     </div>
 
@@ -96,21 +96,21 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="antwort_1">Antwortmöglichkeit 1</label>
-                            <input type="text" class="form-control" name='antwort_1' id='antwort_1' value='<?php echo $antworten[0]->text ?>' required="required"/><br>
+                            <input type="text" class="form-control" name='antwort_1' id='antwort_1' placeholder='Antwortmöglichkeit 1'value='<?php echo $antworten[0]->text ?>' required="required"/><br>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="antwort_2">Antwortmöglichkeit 2</label>
-                            <input type="text" class="form-control" name='antwort_2' id='antwort_2' value='<?php echo $antworten[1]->text ?>' required="required"/><br>
+                            <input type="text" class="form-control" name='antwort_2' id='antwort_2' placeholder='Antwortmöglichkeit 2' value='<?php echo $antworten[1]->text ?>' required="required"/><br>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="antwort_3">Antwortmöglichkeit 3 (optional)</label>
-                            <input type="text" class="form-control" name='antwort_3' id='antwort_3' value='<?php echo $antworten[2]->text ?>'>
+                            <input type="text" class="form-control" name='antwort_3' id='antwort_3' placeholder='Antwortmöglichkeit 3' value='<?php echo $antworten[2]->text ?>'>
                         </div>
                     </div>
 
@@ -118,7 +118,7 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="antwort_4">Antwortmöglichkeit 4 (optional)</label>
-                            <input type="text" class="form-control" name='antwort_4' id='antwort_4' value='<?php echo $antworten[3]->text ?>'><br>
+                            <input type="text" class="form-control" name='antwort_4' id='antwort_4' placeholder='Antwortmöglichkeit 4'value='<?php echo $antworten[3]->text ?>'><br>
                         </div>
                     </div>
 
@@ -134,12 +134,12 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <div class="form-group">
                         <div class="col-sm-3">
                             <label for="startdatum">Startdatum</label>
-                            <input type="date" class="form-control" name='startdatum' id='startdatum' value='<?php echo $startDatum ?>' required="required">
+                            <input type="date" class="form-control" name='startdatum' id='startdatum' placeholder='Startdatum' value='<?php echo $startDatum ?>' required="required">
                         </div>
 
                          <div class="col-sm-3">
                              <label for="startzeit">Startzeit</label>
-                             <input type="time" class="form-control" name='startzeit' id='startzeit' value='<?php echo $startZeit ?>' required="required">
+                             <input type="time" class="form-control" name='startzeit' id='startzeit' placeholder='Startzeit'value='<?php echo $startZeit ?>' required="required">
                           </div>
                     </div>
 
@@ -147,12 +147,12 @@ $antworten = $antwort_manager->getAllByFrageID($frage->ID);
                     <div class="form-group">
                         <div class="col-sm-3">
                             <label for="enddatum">Enddatum</label>
-                            <input type="date" class="form-control" name='enddatum' id='enddatum' value='<?php echo $endDatum ?>' required="required">
+                            <input type="date" class="form-control" name='enddatum' id='enddatum' placeholder='Enddatum'value='<?php echo $endDatum ?>' required="required">
                         </div>
 
                         <div class="col-sm-3">
                             <label for="endzeit">Endzeit</label>
-                            <input type="time" class="form-control" name='endzeit' id='endzeit' value='<?php echo $endZeit ?>' required="required"><br>
+                            <input type="time" class="form-control" name='endzeit' id='endzeit' placeholder='Endzeit'value='<?php echo $endZeit ?>' required="required"><br>
                         </div>
                     </div>
 

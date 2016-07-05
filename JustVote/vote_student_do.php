@@ -1,4 +1,4 @@
-<!-- Ausführung der Abstimmung -->
+<!-- AusfÃ¼hrung der Abstimmung -->
 
 <?php
 require_once("inc/session_student.php");
@@ -12,25 +12,31 @@ $postvoting = htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
 $postfrage = htmlspecialchars($_POST["frageid"], ENT_QUOTES, "UTF-8");
 $kuerzel = htmlspecialchars($_POST["kuerzel"], ENT_QUOTES, "UTF-8");
 
-// Prüfen ob alle Formularfelder ausgefüllt wurden
+// PrÃ¼fen ob alle Formularfelder ausgefÃ¼llt wurden
 if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !empty ($kuerzel)) {
+
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $student_manager = new student_manager();
+
     // Mit Kuerzel und @hdm-stuttgart.de wird E-Mail Adresse erstellt
     $email = $kuerzel . "@hdm-stuttgart.de";
+
     //Student mit E-Mail Adresse aus Datenbank auslesen
     $student = $student_manager->findByEmail($email);
 
     // Pruefen, ob der Student nicht existiert
     if ($student == null) {
+
         //Student mit E-Mail Adresse in Datenbank anlegen
         $student_manager->create(null, null, $email, null);
+
         // eben erstellen Student mit Email-Adresse auslesen
         $student = $student_manager->findByEmail($email);
     }
 
     // Objekt von voting_student_manager erzeugen, welches Datenbankverbindung besitzt
     $voting_student_manager = new voting_student_manager();
+
     $status = $voting_student_manager->create($postvoting, $student->student_id);
 
     if ($status == null) {
@@ -39,7 +45,7 @@ if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !emp
         die();
     }
 
-    //Objekt von Auswertung wird erzeugt
+    //Objekt von auswertung_manager erzeugen, welches Datenbankverbindung besitzt
     $auswertungsmanager = new auswertung_manager();
     $auswertungsmanager->create($postfrage, $postantwort, $postvoting);
 

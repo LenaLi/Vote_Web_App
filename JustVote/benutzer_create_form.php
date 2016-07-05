@@ -32,7 +32,6 @@ include("inc/navigation.php");
 
         <br>
 
-
         <!-- Beginn Formular "Benutzer hinzufügen" -->
         <form class="form-horizontal" role="form" action="benutzer_create_do.php" method="post">
 
