@@ -33,6 +33,7 @@ if (!empty($votingId) && !empty($votingName) && !empty($frageText) && !empty($an
     $endDatum .= ' ' . $endZeit;
     $startDatum .= ' ' . $startZeit;
 
+    //Lese Voting mit der Votingid aus voting_manager aus
     $voting = $voting_manager->findByVotingId($votingId);
 
     // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
@@ -52,7 +53,8 @@ if (!empty($votingId) && !empty($votingName) && !empty($frageText) && !empty($an
 
     // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager = new frage_manager();
-    
+
+    //Lese Frage mit Votingid aus dem frage_manager aus
     $frage = $manager->getFragebyVotingid($votingId);
 
     // neue Frage in Datenbank updaten mit den POST Parametern
@@ -61,6 +63,7 @@ if (!empty($votingId) && !empty($votingName) && !empty($frageText) && !empty($an
     // Objekt von antwort_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager = new antwort_manager();
 
+    // Lese Antworten mit der Id aus antwort_manager aus
     $antworten = $manager->getAllByFrageID($frage->ID);
 
     // Antwort in Datenbank updaten mit den POST Parametern
@@ -72,7 +75,7 @@ if (!empty($votingId) && !empty($votingName) && !empty($frageText) && !empty($an
     // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
     header('Location: uebersicht.php?vorlesungsid='.$vorlesung->vorlesungsid);
 } else {
-    echo $votingId;
+    header('Location: voting_update_form.php?error=1');
 }
 ?>
 

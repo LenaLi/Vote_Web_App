@@ -32,10 +32,10 @@ $vorlesung_manager = new vorlesung_manager();
 $vorlesung = $vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
 
 // Wenn Voting nicht zu Benutzer gehört, dann wird der Zugriff verweigert
-if ($vorlesung->benutzerid != $_SESSION["benutzerid"]) {
-    header('Location: uebersicht.php');
-    die();
-}
+//if ($vorlesung->benutzerid != $_SESSION["benutzerid"]) {
+    //header('Location: uebersicht.php');
+    //die();
+//}
 
 // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
 $frage_manager = new frage_manager();

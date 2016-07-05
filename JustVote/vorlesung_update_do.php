@@ -17,7 +17,7 @@ if (!empty($vorlesungsId) && !empty($vorlesungsNummer) && !empty($vorlesungsName
     //Lese Vorlesung mit der Vorlesungsid aus vorlesung_manager aus
     $vorlesung = $vorlesung_manager->findByVorlesungsId($vorlesungsId);
 
-// Wenn Vorlesung nicht zu Benutzer gehört, dann wird der Zugriff verweigert
+    // Wenn Vorlesung nicht zu Benutzer gehört, dann wird der Zugriff verweigert
     if ($vorlesung->benutzerid != $_SESSION["benutzerid"]) {
         //header('Location: uebersicht.php');
         die();
