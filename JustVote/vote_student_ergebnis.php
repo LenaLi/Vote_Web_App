@@ -48,7 +48,6 @@ $Antwortanzahl = array();
 $auswertungsmanager = new auswertung_manager();
 // Lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
 $gesamtanzahlTeilnehmer = $auswertungsmanager->countTeilnehmer($votingid);
-//
 
 foreach ($gesamtanzahlTeilnehmer as $eintrag) {
     $zahlDerTeilnehmer = $eintrag->Anzahl;
@@ -59,11 +58,7 @@ echo "( Anzahl Teilnehmer: ";
 echo $zahlDerTeilnehmer ;
 echo " )";
 echo "</h5>";
-
-
-
 echo '<div id="ergebnis">';
-
 
 // --------------- Für Anzahl pro Antwort ---------------------------------
 $countAntwortInstanz = new auswertung_manager();
