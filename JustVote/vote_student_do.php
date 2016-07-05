@@ -6,19 +6,16 @@ require_once("Mapper/auswertung_manager.php");
 require_once("Mapper/voting_student_manager.php");
 require_once("Mapper/student_manager.php");
 
-
 $postantwort = htmlspecialchars($_POST["rb_antworten"], ENT_QUOTES, "UTF-8");
 $postvoting = htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
 $postfrage = htmlspecialchars($_POST["frageid"], ENT_QUOTES, "UTF-8");
 $kuerzel = htmlspecialchars($_POST["kuerzel"], ENT_QUOTES, "UTF-8");
 
 if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !empty ($kuerzel)) {
-    // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
+    // Objekt von student_manager erzeugen, welches Datenbankverbindung besitzt
     $student_manager = new student_manager();
-
     // Mit Kuerzel und @hdm-stuttgart.de wird E-Mail Adresse erstellt
     $email = $kuerzel . "@hdm-stuttgart.de";
-
     //Student mit E-Mail Adresse aus Datenbank auslesen
     $student = $student_manager->findByEmail($email);
 
@@ -30,7 +27,7 @@ if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !emp
         $student = $student_manager->findByEmail($email);
     }
 
-    // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
+    // Objekt von voting_student_manager erzeugen, welches Datenbankverbindung besitzt
     $voting_student_manager = new voting_student_manager();
     $status = $voting_student_manager->create($postvoting, $student->student_id);
 
@@ -48,7 +45,6 @@ if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !emp
     echo "<br /> student " . $student->student_id;
 
     $votings = $voting_student_manager->findVotingsByStudent($student->student_id);
-
     $votingIds = array();
     foreach ($votings as $voting) {
         array_push($votingIds, $voting->votingid);
