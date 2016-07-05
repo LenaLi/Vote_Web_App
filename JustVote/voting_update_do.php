@@ -75,7 +75,7 @@ if (!empty($votingId) && !empty($votingName) && !empty($frageText) && !empty($an
     // Weiterleitung auf die Übersichtsseite der Vorlesungen und Votings
     header('Location: uebersicht.php?vorlesungsid='.$vorlesung->vorlesungsid);
 } else {
-    header('Location: voting_update_form.php?error=1');
+    header('Location: voting_update_form.php?error=1&id='.$votingId);
 }
 ?>
 
