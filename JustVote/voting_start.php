@@ -17,6 +17,7 @@ $voting = $voting_manager->findByVotingId($votingId);
 // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
 $vorlesung_manager = new vorlesung_manager();
 
+// lese Vorlesung mit Vorlesungsid aus Datenbank aus
 $vorlesung = $vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
 
 // Wenn Voting nicht zu Benutzer gehört, dann wird der Zugriff verweigert

@@ -28,12 +28,12 @@ if ($_GET["error"] == "1") {
 </h1>
 
 <?php
+
 // zur Frageid dazugehörige Antworten wird aus Datenbank ausgelesen
 $antwortmanager = new antwort_manager();
 $frageid = $votings ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
-// ---------------  Anzahl Teilnehmer ---------------------------------
 // Objekt von auswertung_manager erzeugen, welcher Datenbankverbindung besitzt
 $auswertungsmanager = new auswertung_manager();
 // Lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
@@ -49,28 +49,22 @@ echo $zahlDerTeilnehmer ;
 echo " )";
 echo "</h5>";
 echo '<div id="ergebnis">';
-
-// --------------- Für Anzahl pro Antwort ---------------------------------
-$countAntwortInstanz = new auswertung_manager();
 echo "<br/>";
-//
-$Antwortarray = array();
-$Antwortanzahl = array();
+
 $resultsinpercent = array();
 foreach ($antworten as $eintraege) {
 
-    if (!empty ($eintraege["text"])) {
+    if (!empty($eintraege["text"])) {
         //
+        $countAntwortInstanz = new auswertung_manager();
         $auswertung = $countAntwortInstanz->countAntwort($eintraege["ID"]);
 
         echo "Antwort: ";
         echo $eintraege["text"];
-        array_push($Antwortarray, $eintraege["text"]);
 
         echo " (";
         echo $auswertung->Anzahl;
         echo " Stimmen)";
-        array_push($Antwortanzahl, $auswertung->Anzahl);
         echo "<br/>";
 
         if ($zahlDerTeilnehmer != 0) {
@@ -79,7 +73,6 @@ foreach ($antworten as $eintraege) {
             $resultinpercent = 0;
         }
         array_push($resultsinpercent , $resultinpercent);
-
     }
 }
 ?>

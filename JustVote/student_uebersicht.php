@@ -44,8 +44,13 @@ if ($_SESSION["studentlogin"] != "1") {
 
         foreach ($voting_students as $voting_student) {
 
+            //lese Votingid aus voting_student aus
             $votingid = $voting_student->votingid;
+
+            // lese Voting mit Voting-ID aus Datenbank und speichere Informationen in einem Voting-Objekt
             $voting = $voting_manager->findByVotingId($votingid);
+            
+            // lese Vorlesung mit Vorlesungs-ID aus Datenbank und speichere Informationen in einem Vorlesung-Objekt
             $vorlesung = $vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
 
             echo
