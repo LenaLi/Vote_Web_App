@@ -28,12 +28,12 @@ if ($_GET["error"] == "1") {
 </h1>
 
 <?php
+
 // zur Frageid dazugehörige Antworten wird aus Datenbank ausgelesen
 $antwortmanager = new antwort_manager();
 $frageid = $votings ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
-// ---------------  Anzahl Teilnehmer ---------------------------------
 // Objekt von auswertung_manager erzeugen, welcher Datenbankverbindung besitzt
 $auswertungsmanager = new auswertung_manager();
 // Lese Teilnehmeranzahl mit voting-ID aus Datenbank aus
@@ -50,7 +50,6 @@ echo " )";
 echo "</h5>";
 echo '<div id="ergebnis">';
 
-// --------------- Für Anzahl pro Antwort ---------------------------------
 $countAntwortInstanz = new auswertung_manager();
 echo "<br/>";
 //
