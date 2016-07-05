@@ -38,6 +38,7 @@ if (!empty($votingId) && !empty($votingName) && !empty($frageText) && !empty($an
     // Objekt von vorlesung_manager erzeugen, welcher Datenbankverbindung besitzt
     $vorlesung_manager = new vorlesung_manager();
 
+    //Lese Vorlesung mit der Vorlesungsid aus vorlesung_manager aus
     $vorlesung = $vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
 
     // Wenn Voting nicht zu Benutzer gehört, dann wird der Zugriff verweigert

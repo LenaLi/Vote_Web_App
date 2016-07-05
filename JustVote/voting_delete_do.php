@@ -20,9 +20,10 @@ $vorlesung_manager = new vorlesung_manager();
 // Vorting-ID aus GET Parameter auslesen
 $votingId = (int)htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 
-
+//Lese Votings mit der Votingid aus voting_manager aus
 $voting = $voting_manager->findByVotingId($votingId);
 
+//Lese Vorlesungen mit der Vorlesungsid aus vorlesung_manager aus
 $vorlesung = $vorlesung_manager->findByVorlesungsId($voting->vorlesungsid);
 
 // Wenn Voting nicht zu Benutzer gehört, dann wird der Zugriff verweigert
@@ -32,7 +33,6 @@ if ($vorlesung->benutzerid != $_SESSION["benutzerid"]) {
 
 // Objekt von voting_student_manager erzeugen, welcher Datenbankverbindung besitzt
 $voting_student_manager = new voting_student_manager();
-
 
 // Voting löschen in der Datenbank
 $voting_student_manager->delete($votingId);
