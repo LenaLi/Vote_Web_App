@@ -8,11 +8,19 @@ require_once("Mapper/antwort_manager.php");
 require_once("Mapper/auswertung_manager.php");
 require_once("Mapper/voting.php");
 require_once("Mapper/voting_manager.php");
-include("inc/navigation_mitte.php");
 
+echo '<body class="mitte">
+<div class="mitte">
+   <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg"/>
+</div>';
+
+// Fehlermeldung, wenn keine Antwortmöglichkeit ausgewählt wurde
 if ($_GET["error"] == "1") {
+    echo "<div class='alert alert-danger' role='alert'>";
     echo "Bitte wähle eine Antwort aus";
+    echo "</div";
 }
+
 // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
 $fragemanager = new frage_manager();
 

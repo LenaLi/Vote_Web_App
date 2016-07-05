@@ -78,7 +78,7 @@ foreach ($antworten as $eintraege) {
         } else {
             $resultinpercent = 0;
         }
-        array_push($resultsinpercent, $resultinpercent);
+        array_push($resultsinpercent , $resultinpercent);
 
     }
 }
