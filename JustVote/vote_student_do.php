@@ -1,4 +1,4 @@
-<!-- Ausf�hrung der Abstimmung -->
+<!-- Ausf�hrung der Abstimmung -->
 
 <?php
 require_once("inc/session_student.php");
@@ -6,13 +6,15 @@ require_once("Mapper/auswertung_manager.php");
 require_once("Mapper/voting_student_manager.php");
 require_once("Mapper/student_manager.php");
 
-
+// POST Parameter auslesen
 $postantwort = htmlspecialchars($_POST["rb_antworten"], ENT_QUOTES, "UTF-8");
 $postvoting = htmlspecialchars($_POST["votingid"], ENT_QUOTES, "UTF-8");
 $postfrage = htmlspecialchars($_POST["frageid"], ENT_QUOTES, "UTF-8");
 $kuerzel = htmlspecialchars($_POST["kuerzel"], ENT_QUOTES, "UTF-8");
 
+// Prüfen ob alle Formularfelder ausgefüllt wurden
 if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !empty ($kuerzel)) {
+
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $student_manager = new student_manager();
 
@@ -32,6 +34,8 @@ if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !emp
 
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $voting_student_manager = new voting_student_manager();
+
+
     $status = $voting_student_manager->create($postvoting, $student->student_id);
 
     if ($status == null) {
