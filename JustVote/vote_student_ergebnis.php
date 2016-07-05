@@ -17,7 +17,6 @@ if ($_GET["error"] == "1") {
     echo "Du hast bereits abgestimmt!";
     echo "</div";
 }
-
 ?>
 
 <h1>
@@ -27,14 +26,13 @@ if ($_GET["error"] == "1") {
 </h1>
 
 <?php
-//holt die zur frageID dazugehoerigen antworten aus der DB-Abfrage
+//holt die zur frageID dazugehoerigen Antworten aus der DB-Abfrage
 $antwortmanager = new antwort_manager();
 $frageid = $votings ["ID"];
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
 $VOTINGID = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votingmanager = new frage_manager();
-//$_SESSION["votingid"] = $VOTINGID;*/
 $votings = $votingmanager->getFragebyVotingid($_SESSION["votingid"]);
 
 $Antwortarray = array();
