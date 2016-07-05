@@ -28,7 +28,7 @@ $benutzer = $benutzer_manager->findById($id);
     <div class="col-lg-12">
         <!-- Beginn Formular "Benutzer updaten" -->
 
-        <h2>Benutzer aktualisieren </h2>
+        <h2>Dozent aktualisieren </h2>
 
         <?php
         // Fehlermeldung, da Problem bei serverseitiger Überprüfung
