@@ -1,11 +1,5 @@
 <!-- Standard Navigation für Studenten, die sich ein Konto angelegt haben -->
 
-
-
-<!-- Custom CSS -->
-<link href="css/sb-admin.css" rel="stylesheet">
-
-
 <div id="wrapper">
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -19,9 +13,10 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <img class="navbar-logo" href="uebersicht.php" title="JustVote"
-                 src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg">  </img>
+            <a href="https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/student_uebersicht.php">
 
+            <img class="navbar-logo" title="JustVote"
+                 src="css/Logo_JustVote.svg">  </img> </a>
         </div>
 
 
@@ -31,7 +26,8 @@
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                        class="fa fa-user"></i> <?php echo $_SESSION["name"]; ?> <b class="caret"></b></a>
+                        class="fa fa-user"></i> Herzlich
+                    Willkommen, <?php echo $_SESSION["name"]; ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
 
 
@@ -59,11 +55,11 @@
                 </li>
 
                 <li>
-                    <a href="ueber_just_vote.php"><i class="fa fa-info "></i> Über Just Vote </a>
+                    <a href="ueber_just_vote.php"><i class="fa fa-fw fa-university"></i> Über Just Vote </a>
                 </li>
 
                 <li>
-                    <a href="student_impressum.php"><i class="fa fa-info "></i> Impressum </a>
+                    <a href="student_impressum.php"><i class="fa fa-fw fa-info "></i> Impressum </a>
                 </li>
 
 

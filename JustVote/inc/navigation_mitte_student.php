@@ -1,6 +1,5 @@
 <!-- Navigation für die Login und Abstimm und Ergebnis Seiten -->
 
-
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +7,7 @@
 <body class="mitte">
 <!-- LOGO -->
 <div class="mitte">
-    <a href="https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/uebersicht.php">
+    <a href="https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/student_uebersicht.php">
         <img src="css/Logo_JustVote.svg" alt="Just Vote Logo"/></a
 </div>
 
