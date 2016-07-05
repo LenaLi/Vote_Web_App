@@ -1,4 +1,7 @@
-<!-- Zur Erstellung von Facebook Share Button -->
+<!-- Zur Erstellung von Facebook Share Button
+Quelle Facebook for Developers, Facebook-SDK für JavaScript
+https://developers.facebook.com/docs/javascript-->
+
 
 <script>
 window.fbAsyncInit = function() {
@@ -17,3 +20,4 @@ window.fbAsyncInit = function() {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+
