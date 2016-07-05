@@ -1,6 +1,5 @@
 <?php
 include("inc/session_check.php");
-//include("inc/session_check_admin.php");
 include("inc/header.php");
 include("inc/navigation.php");
 require_once("Mapper/vorlesung.php");
