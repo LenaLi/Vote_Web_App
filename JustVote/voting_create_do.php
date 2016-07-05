@@ -15,13 +15,17 @@ $antwort_1 = htmlspecialchars($_POST["antwort_1"], ENT_QUOTES, "UTF-8");;
 $antwort_2 = htmlspecialchars($_POST["antwort_2"], ENT_QUOTES, "UTF-8");;
 $antwort_3 = htmlspecialchars($_POST["antwort_3"], ENT_QUOTES, "UTF-8");;
 $antwort_4 = htmlspecialchars($_POST["antwort_4"], ENT_QUOTES, "UTF-8");;
-$startDatum = htmlspecialchars($_POST["startdatum"] . " " . $_POST["startzeit"], ENT_QUOTES, "UTF-8");;
-$endDatum = htmlspecialchars($_POST["enddatum"] . " " . $_POST["endzeit"], ENT_QUOTES, "UTF-8");;
-$startDatum = date("Y-m-d H:i:s", strtotime($startDatum));
-$endDatum = date("Y-m-d H:i:s", strtotime($endDatum));
+$startDatum = htmlspecialchars($_POST["startdatum"], ENT_QUOTES, "UTF-8");
+$endDatum = htmlspecialchars($_POST["enddatum"], ENT_QUOTES, "UTF-8");
+
 
 // Prüfen ob alle Formularfelder ausgefüllt wurden
 if (!empty($votingName) && !empty($frage) && !empty($antwort_1) && !empty($antwort_2) && !empty($startDatum) && !empty($endDatum)) {
+
+    $startDatum = htmlspecialchars($_POST["startdatum"] . " " . $_POST["startzeit"], ENT_QUOTES, "UTF-8");
+    $endDatum = htmlspecialchars($_POST["enddatum"] . " " . $_POST["endzeit"], ENT_QUOTES, "UTF-8");
+    $startDatum = date("Y-m-d H:i:s", strtotime($startDatum));
+    $endDatum = date("Y-m-d H:i:s", strtotime($endDatum));
 
     // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
     $manager = new voting_manager();
