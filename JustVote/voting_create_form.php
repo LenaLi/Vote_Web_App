@@ -47,12 +47,11 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                 <!-- Beginn Formular "Voting hinzufügen" -->
                 <form class="form" role="form" action="voting_create_do.php" method="post">
 
-
                     <!-- Texteingabefeld für Name des Votings-->
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="votingname">Votingname:</label>
-                            <input type="text" class="form-control" name='votingname' id='votingname'  placeholder="Votingname" required="required"/>
+                            <input type="text" class="form-control" name='votingname' id='votingname'  placeholder="Votingname" required="required"/><br>
                         </div>
                     </div>
 
@@ -60,7 +59,8 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="auswählen">Vorlesung auswählen:</label>
-                            <select  class="form-control" name='vorlesungsid' id='vorlesungsid'/>
+                            <select  class="form-control" name='vorlesungsid' id='vorlesungsid'/> <br>
+
                             <?php
                             // erzeugt die Auswahlmöglichkeiten der zum Benutzer gehörenden Vorlesungen
                             foreach ($vorlesungen as $vorlesung) {
@@ -73,16 +73,13 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                         </div>
                     </div>
 
-
                     <!-- Texteingabefeld für Frage des Votings-->
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label for="frage">Frage:</label>
-                            <textarea type="text" class="form-control" name='frage' id='frage' rows="3" placeholder='frage' required="required"> </textarea>
+                            <textarea type="text" class="form-control" name='frage' id='frage' rows="3" placeholder='frage' required="required"> </textarea> <br>
                         </div>
                     </div>
-
-
 
                     <!-- Texteingabefeld für die Antwortmöglichkeit 1 -->
                     <div class="form-group">
@@ -96,7 +93,7 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="antwort_2">Antwortmöglichkeit 2:</label>
-                            <textarea type="text" class="form-control" name='antwort_2' id='antwort_2' rows="2"  placeholder="Antwortmöglichkeit 2" required="required"></textarea>
+                            <textarea type="text" class="form-control" name='antwort_2' id='antwort_2' rows="2"  placeholder="Antwortmöglichkeit 2" required="required"></textarea> <br>
                         </div>
                     </div>
 
@@ -104,7 +101,7 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="antwort_3">Antwortmöglichkeit 3:</label>
-                            <textarea type="text" class="form-control" name='antwort_3' id='antwort_3' rows="2"  placeholder="Antwortmöglichkeit 3" ></textarea>
+                            <textarea type="text" class="form-control" name='antwort_3' id='antwort_3' rows="2"  placeholder="Antwortmöglichkeit 3 (optional)" ></textarea>
                         </div>
                     </div>
 
@@ -112,11 +109,9 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
                     <div class="form-group">
                         <div class="col-sm-6">
                             <label for="antwort_4">Antwortmöglichkeit 4:</label>
-                            <textarea type="text" class="form-control" name='antwort_4' id='antwort_4' rows="2"  placeholder="Antwortmöglichkeit 4" ></textarea>
+                            <textarea type="text" class="form-control" name='antwort_4' id='antwort_4' rows="2"  placeholder="Antwortmöglichkeit 4 (optional)" ></textarea> <br>
                         </div>
                     </div>
-
-
 
                     <!-- Updatefeld Startdatum und Startzeit-->
                     <div class="form-group">
@@ -140,10 +135,9 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
 
                         <div class="col-sm-3">
                             <label for="endzeit">Endzeit</label>
-                            <input type="time" class="form-control" name='endzeit' id='endzeit' placeholder="Endzeit" required="required">
+                            <input type="time" class="form-control" name='endzeit' id='endzeit' placeholder="Endzeit" required="required"> <br>
                         </div>
                     </div>
-
 
                     <!-- Button "Erstellen"-->
                     <div class="form-group">
