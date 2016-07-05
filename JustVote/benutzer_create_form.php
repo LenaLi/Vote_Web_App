@@ -1,18 +1,16 @@
-<?php include("inc/session_check.php");
-include("inc/session_check_admin.php"); ?>
-
 <!DOCTYPE html>
 <html>
 
-<?php include("inc/header.php"); ?>
+<?php
+include("inc/session_check.php");
+include("inc/session_check_admin.php");
+include("inc/header.php");
+include("inc/navigation.php");
+?>
 
 <body>
 
-<?php include("inc/navigation.php"); ?>
-
-<div id="page-wrapper">
     <div class="container-fluid">
-        <div class="row">
             <div class="col-lg-12">
 
                 <?php
@@ -77,9 +75,7 @@ include("inc/session_check_admin.php"); ?>
                     </div>
                     <!-- Ende Formular "Benutzer hinzufügen" -->
             </div>
-        </div>
     </div>
-</div>
 </body>
 </html>
 

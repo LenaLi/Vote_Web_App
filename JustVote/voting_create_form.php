@@ -29,7 +29,6 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
 ?>
 
     <div class="container-fluid">
-        <div class="row">
             <div class="col-lg-12">
 
                 <h2>Voting hinzufügen</h2>
@@ -155,12 +154,11 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerID($benutzerId);
 
                 </form>
 
-
+            </div>
                 <!-- Ende Formular "Voting hinzufügen" -->
 
 
-            </div>
-        </div>
+
     </div>
 
 </body>

@@ -11,9 +11,7 @@ include("inc/navigation_student.php");
 
 <body>
 
-<div id="page-wrapper">
     <div class="container-fluid">
-        <div class="row">
             <div class="col-lg-8">
                 <h1>Über Just Vote</h1>
                 <h4>JustVote ist ein Tool, um an Umfragen deiner Dozenten teilzunehmen</h4>
@@ -24,7 +22,6 @@ include("inc/navigation_student.php");
                 <br>- Dein Passwort kannst du ändern, wenn du willst </br>
             </div>
             </br>
-        </div>
     </div>
 </body>
 </html>

@@ -14,9 +14,7 @@ require_once("Mapper/benutzer_manager.php");
 
 <?php include("inc/navigation.php"); ?>
 
-<div id="page-wrapper">
     <div class="container-fluid">
-        <div class="row">
             <div class="col-lg-12">
 
                 <?php
@@ -72,9 +70,7 @@ require_once("Mapper/benutzer_manager.php");
                     </tbody>
                 </table>
             </div>
-        </div>
     </div>
-</div>
 
 </body>
 </html>

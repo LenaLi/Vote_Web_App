@@ -28,9 +28,7 @@ include("inc/navigation.php");
 
 
 
-<div id="page-wrapper">
     <div class="container-fluid">
-        <div class="row">
             <div class="col-lg-12">
                 <!-- Beginn Formular "Benutzer updaten" -->
 
@@ -90,9 +88,7 @@ include("inc/navigation.php");
                 </form>
         <!-- Ende Formular "Benutzer aktualisieren" -->
             </div>
-        </div>
     </div>
-</div>
 
 </body>
 </html>

@@ -24,9 +24,8 @@ $benutzer = $benutzer_manager->findById($id);
 <body>
 
 <?php include("inc/navigation.php"); ?>
-<div id="page-wrapper">
+
     <div class="container-fluid">
-        <div class="row">
             <div class="col-lg-12">
 
                 <!-- Beginn Formular "Passwort aktualisieren" -->
@@ -77,10 +76,7 @@ $benutzer = $benutzer_manager->findById($id);
                     <!-- Ende Formular "Passwort aktualisieren" -->
                 </form>
             </div>
-        </div>
     </div>
-</div>
-</div>
-</div>
+
 </body>
 </html>

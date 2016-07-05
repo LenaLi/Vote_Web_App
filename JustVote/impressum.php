@@ -10,9 +10,7 @@ include("inc/navigation.php");
 
 <body>
 
-<div id="page-wrapper">
     <div class="container-fluid">
-        <div class="row">
             <div class="col-lg-8">
                 <h1>Impressum</h1>
                 <h2>Angaben gemäß § 5 TMG:</h2>
@@ -104,8 +102,6 @@ include("inc/navigation.php");
                 von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter
 
             </div>
-        </div>
     </div>
-</div>
 </body>
 </html>
