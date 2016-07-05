@@ -24,7 +24,6 @@ $fragen = $fragemanager->getFragebyVotingid($votingid);
 
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
 $voting_manager = new voting_manager();
-
 $voting = $voting_manager->findByVotingId($votingid);
 
 //Verhindert Manupulation nachdem Voting beendet ist
@@ -44,7 +43,7 @@ if (time() >= strtotime($voting->enddatum)) {
 <?php
 $antwortmanager = new antwort_manager();
 $frageid = $fragen ["ID"];
-//Antoworten zur werden anhand ihrer ID zur entsprechenden Frage ausgegeben
+//Antworten zur werden anhand ihrer ID zur entsprechenden Frage ausgegeben
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
 echo '<form action="vote_student_do.php" method="post">';
@@ -63,7 +62,7 @@ foreach ($antworten as $eintrag) {
         echo "</br>";
     }
 }
-//hiddenfields um die felder zu übertragen
+//Versteckte Felder zur Übertragung der Daten
 echo '<input type="hidden" value="' . $votingid . '" name="votingid">';
 echo '<input type="hidden" value="' . $frageid . '" name="frageid">';
 echo "<div class='input-group'>";

@@ -13,8 +13,6 @@ $postfrage = htmlspecialchars($_POST["frageid"], ENT_QUOTES, "UTF-8");
 $kuerzel = htmlspecialchars($_POST["kuerzel"], ENT_QUOTES, "UTF-8");
 
 if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !empty ($kuerzel)) {
-
-
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $student_manager = new student_manager();
 
@@ -34,7 +32,6 @@ if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !emp
 
     // Objekt von student_manager erzeugen, welcher Datenbankverbindung besitzt
     $voting_student_manager = new voting_student_manager();
-
     $status = $voting_student_manager->create($postvoting, $student->student_id);
 
     if ($status == null) {
