@@ -2,12 +2,15 @@
 include("inc/header.php");
 include("inc/navigation_mitte.php");
 
+//Session wird gestartet, Prüfung ob Benutzer bereits angemeldet
 session_start();
 if ($_SESSION ["login"] <> "1") {
 
-// Benutzer ist noch nicht eingeloggt
+// Wenn Benutzer noch nicht eingeloggt ist,
 $_SESSION = array();
+//Session wird zurückgesetzt und beendet
 session_destroy();
+// Login-Formular anzeigen!!
 ?>
 
 <!DOCTYPE html>

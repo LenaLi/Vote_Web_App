@@ -26,21 +26,6 @@ $vorlesungen = $vorlesungsmanager->findByBenutzerId($_SESSION['benutzerid']);
 // Objekt von voting_manager erzeugen, welcher Datenbankverbindung besitzt
 $votingmanager = new voting_manager();
 
-/* TODO: Votings den Vorlesungen zu ordnen
-if($vorlesungen!=null)
-    foreach($vorlesungen as $vorlesung){
-        echo
-        "<div class='panel panel-default'>
-    <div class='panel-heading' role='tab' id='heading.$vorlesung->vorlesungsid'>
-        <h4 class='panel-title'>
-            <a class= 'fa-plus-square-o' role='button' data-toggle='collapse' data-parent='#accordion' href='#$vorlesung->vorlesungsid' aria-expanded='true' aria-controls='$vorlesung->vorlesungsid'>
-                $vorlesung->vorlesungsname  "," ($vorlesung->vorlesungsnummer)
-            </a>
-        </h4>
-        <div id='$vorlesung->vorlesungsid' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='heading.$vorlesung->vorlesungsid'>
-            <div class='panel-body'>";
-*/
-
 ?>
 
 <?php
