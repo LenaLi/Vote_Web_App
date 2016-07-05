@@ -50,8 +50,8 @@ if (!empty ($postantwort) && !empty ($postvoting) && !empty ($postfrage) && !emp
         array_push($votingIds, $voting->votingid);
     }
 
-    //header redirect
     header('Location: vote_student_ergebnis.php?id=' . $postvoting);
+
 } else {
     header('Location: vote_student_form.php?id=' . $postvoting . "&error=1");
 }
