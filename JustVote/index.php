@@ -17,6 +17,7 @@ session_destroy();
     <h1>Dozentenlogin </h1>
     <h4>für Dozenten der HdM Stuttgart</h4>
 </div>
+<br>
 <div class="login">
     <form class="form-horizontal" role="form" action="login_do.php" method="post">
 

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-//include("inc/session_check.php");
 include("inc/header.php");
 require_once("Mapper/frage_manager.php");
 require_once("Mapper/antwort_manager.php");
@@ -12,7 +11,7 @@ $fragemanager = new frage_manager();
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
 $votings = $fragemanager->getFragebyVotingid($votingid);
 
-//FEHLERMELDUNG
+//Fehlermeldung, wenn der Student bereits abgestimmt hat
 if ($_GET["error"] == "1") {
     echo "<div class='alert alert-danger' role='alert'>";
     echo "Du hast bereits abgestimmt!";

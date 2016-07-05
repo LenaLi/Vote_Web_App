@@ -1,4 +1,8 @@
-<!-- Custom CSS -->
+<!-- Standard Navigation für die Dashboard Ansicht der Applikation-->
+
+
+
+<!-- Just Vote CSS -->
 <link href="css/just_vote.css" rel="stylesheet">
 
 
@@ -80,14 +84,14 @@
                     <!-- Benutzer erstellen -->
 
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-cog"></i>
-                            Benutzer <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-users"></i>
+                            Dozenten <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="benutzer_create_form.php"> Benutzer anlegen</a>
+                                <a href="benutzer_create_form.php"> <i class="fa fa-fw fa-plus"></i> Dozent hinzufügen</a>
                             </li>
                             <li>
-                                <a href="benutzer_read.php">Benutzer Übersicht</a>
+                                <a href="benutzer_read.php"> <i class="fa fa-fw fa-dashboard"></i> Übersicht Dozenten</a>
                             </li>
                         </ul>
                     </li>
