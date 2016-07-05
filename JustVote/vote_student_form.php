@@ -23,10 +23,8 @@ if ($_GET["error"] == "1") {
 
 // Objekt von frage_manager erzeugen, welcher Datenbankverbindung besitzt
 $fragemanager = new frage_manager();
-
 // Voting-ID aus GET Parameter auslesen
 $votingid = htmlspecialchars($_GET["id"], ENT_QUOTES, "UTF-8");
-
 //Funktion von Objekt Fragemanager wird aufgerufen
 $fragen = $fragemanager->getFragebyVotingid($votingid);
 
@@ -36,7 +34,6 @@ $voting = $voting_manager->findByVotingId($votingid);
 
 //Verhindert Manupulation nachdem Voting beendet ist
 if (time() >= strtotime($voting->enddatum)) {
-
     header('Location: student_login_form.php');
     die();
 }
@@ -51,15 +48,13 @@ if (time() >= strtotime($voting->enddatum)) {
 <?php
 $antwortmanager = new antwort_manager();
 $frageid = $fragen ["ID"];
-//Antworten zur werden anhand ihrer ID zur entsprechenden Frage ausgegeben
 $antworten = $antwortmanager->getAllbyFrageID($frageid);
 
+// Abstimmungsformular wird erzeugt
 echo '<form action="vote_student_do.php" method="post">';
-
-//alle antworten ausgeben
-//
+// Antworten zur werden anhand ihrer ID zur entsprechenden Frage ausgelesen
 foreach ($antworten as $eintrag) {
-
+    //
     if (!empty ($eintrag["text"])) {
         echo "<div class='input-group'>";
         echo "<span class='input-group-addon'>";
