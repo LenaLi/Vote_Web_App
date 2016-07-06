@@ -24,11 +24,6 @@ $voting = $voting_manager->findByVotingId($aktuellesvoting);
 ?>
 
 <body class="mitte">
-<!-- LOGO
-<div class="mitte">
-    <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg"/>
-</div>
--->
 
 <div>
 

@@ -72,7 +72,6 @@
                     <a href="charts.php"><i class="fa fa-fw fa-bar-chart-o"></i> Übersicht Ergebnisse</a>
                 </li>
 
-                <hr class="line">
                 </hr>
 
                 <?php
