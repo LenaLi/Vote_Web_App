@@ -1,4 +1,4 @@
-<!-- Hier wird der QR Code generiert der dann unter Link_fuer_studenten.php mit der jeweilgien ID eingebunden wird -->
+<!-- Hier wird der QR Code generiert der dann unter Link_fuer_studenten.php mit der jeweiligen ID eingebunden wird -->
 
 <?php
 include("inc/phpqrcode/qrlib.php");
@@ -15,19 +15,18 @@ $voting_manager = new voting_manager();
 $voting = $voting_manager->findByVotingId($aktuellesvoting);
 
 
-// we need to be sure ours script does not output anything!!!
-// otherwise it will break up PNG binary!
+// QR CODE Generierung --> siehe inc/phpqecode
 
 ob_start("callback");
 
-// here DB request or some processing
+// Hier wird der Inhalt des QR codes definiert --> Link mit der aktuellen Voting ID
 $codeText = 'https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=' . $aktuellesvoting;
 
 // end of processing here
 $debugLog = ob_get_contents();
 ob_end_clean();
 
-// outputs image directly into browser, as PNG stream
+// gibt Bild im Browser als PNG Stream aus --> wird auf Seite mit dem Link für Studenten eingebunden
 QRcode::png($codeText);
 
 echo ' <a href= https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=' . $aktuellesvoting . ">https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id='.$aktuellesvoting</a>";

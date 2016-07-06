@@ -80,7 +80,7 @@ $voting = $voting_manager->findByVotingId($aktuellesvoting);
 <div class="mitte">
     <a class="fa fa-envelope"
        href="mailto:?subject=Einladung zur Teilnahme an der Umfrage <?php echo $voting->votingname; ?>&amp;body=<?php
-       echo 'Hallo liebe Studenten, <br />\n';
+       echo 'Hallo liebe Studenten';
        echo "unter diesem Link können Sie an der Umfrage '$voting->votingname' teilnehmen: https://mars.iuk.hdm-stuttgart.de/~cm102/JustVote/vote_student_form.php?id=.$aktuellesvoting";
        ?>"
        title="Link per Mail verschicken">
