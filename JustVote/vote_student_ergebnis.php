@@ -24,12 +24,13 @@ if ($_GET["error"] == "1") {
     echo "</div";
 }
 ?>
-
+<!-- Ausgabe der Frage des Votings-->
 <h1>
     <?php
     echo $votings ["text"] . "</br>";
     ?>
 </h1>
+
 
 <?php
 
