@@ -120,7 +120,7 @@ body {
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
     color: #F07F31;
-    background-color: #000;
+    background-color: #222;
 }
 
 .top-nav>.open>.dropdown-menu {
