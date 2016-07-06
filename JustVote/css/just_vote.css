@@ -2,7 +2,7 @@
 /* JUST VOTE */
 /* Beinhaltet die SideBar- und Top-Navigation und außerdem noch spezielle Styles für Just Vote */
 
-/*! Manche Teile stammen aus:
+/*! Manche Teile stammen aus Bootstrap Theme:
  * Start Bootstrap - SB Admin Bootstrap Admin Template (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
@@ -99,7 +99,7 @@ body {
 
 .top-nav {
     padding: 0 15px;
-    background-color: #000;
+    background-color: #222;
 }
 
 .top-nav>li {
@@ -120,7 +120,7 @@ body {
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
     color: #F07F31;
-    background-color: #000;
+    background-color: #222;
 }
 
 .top-nav>.open>.dropdown-menu {
