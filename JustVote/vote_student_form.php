@@ -11,7 +11,7 @@ require_once("Mapper/voting_manager.php");
 
 echo '<body class="mitte">
 <div class="mitte">
-   <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg"/>
+          <img src="css/Logo_JustVote.svg" alt="Just Vote Logo"/></a
 </div>';
 
 // Fehlermeldung, wenn keine Antwortmöglichkeit ausgewählt wurde

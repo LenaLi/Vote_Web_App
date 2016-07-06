@@ -3,6 +3,7 @@ include("inc/session_check.php");
 require_once("Mapper/voting_manager.php");
 require_once("Mapper/voting.php");
 include("inc/header.php");
+include("inc/navigation_mitte.php");
 include("inc/social_plugin/social_plugin.php");
 require_once("Mapper/vorlesung.php");
 require_once("Mapper/vorlesung_manager.php");
@@ -23,10 +24,11 @@ $voting = $voting_manager->findByVotingId($aktuellesvoting);
 ?>
 
 <body class="mitte">
-<!-- LOGO -->
+<!-- LOGO
 <div class="mitte">
     <img src="http://mars.iuk.hdm-stuttgart.de/~ll033/pics/Logo_JustVote.svg"/>
 </div>
+-->
 
 <div>
 
