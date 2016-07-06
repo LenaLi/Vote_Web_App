@@ -58,7 +58,7 @@ if ($_SESSION["studentlogin"] != "1") {
                                              <a  role='button' data-toggle='collapse' data-parent='#accordion' href='#$voting->votingid' aria-expanded='true' aria-controls='$voting->votingid'>
                                              $voting->votingname  ", "  </a>
                                                    <div class=button-right>
-                                                  <a class= 'fa fa-bar-chart' href='vote_student_ergebnis.php?id=" . $voting->votingid . "'>  </a>
+                                                  <a class= 'fa fa-bar-chart' href='vote_student_ergebnis.php?id=" . $voting->votingid . "' target='_blank'>  </a>
                                                   <a> Ergebnis  </a>
                                                   </div>
                                         </h4>

@@ -2,8 +2,9 @@
 include("inc/header.php");
 include("inc/navigation_mitte.php");
 
-//Session wird gestartet, Prüfung ob Benutzer bereits angemeldet
 session_start();
+
+//Session wird gestartet, Prüfung ob Benutzer bereits angemeldet
 if ($_SESSION ["login"] <> "1") {
 
 // Wenn Benutzer noch nicht eingeloggt ist,
