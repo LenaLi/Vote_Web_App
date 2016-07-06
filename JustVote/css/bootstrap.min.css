@@ -5148,7 +5148,7 @@ fieldset[disabled] .navbar-default .btn-link:focus, fieldset[disabled] .navbar-d
 }
 
 .navbar-inverse {
-    background-color: #222;
+    background-color: #000;
     border-color: #080808;
     height: 114px;
 
